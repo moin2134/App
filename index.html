@@ -93,7 +93,10 @@ main{padding:16px 16px 170px;overflow-x:hidden;overflow-x:clip}
 .hello .m{width:78px;flex:none}
 .say{position:relative;flex:1;background:var(--surface);border:2px solid var(--line);border-radius:16px;padding:10px 14px;font-weight:700}
 .say::before{content:"";position:absolute;left:-9px;top:24px;width:14px;height:14px;background:var(--surface);border-left:2px solid var(--line);border-bottom:2px solid var(--line);transform:rotate(45deg)}
-.say small{display:block;color:var(--ink2);font-weight:700;margin-top:2px}
+.say small{display:block;color:var(--ink2);font-weight:700;margin-top:4px}
+.gbar{height:10px;border-radius:6px;background:var(--line);overflow:hidden;margin-top:8px}
+.gbar i{display:block;height:100%;border-radius:6px;background:var(--leaf);transition:width .4s}
+@media (max-width:400px){.hello .m{width:60px}.say{padding:10px 12px;font-size:15px}.logo{font-size:17px}.logo svg.m{width:24px;height:24px}.stats{gap:0}.stat{padding:6px 4px;font-size:14px}.stat .ic{width:19px;height:19px}.topbar{padding:10px 12px}}
 .goalring{flex:none;width:58px;height:58px;position:relative;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:12px;color:var(--ink2)}
 .goalring svg{position:absolute;top:0;right:0;bottom:0;left:0;transform:rotate(-90deg)}
 
@@ -1384,7 +1387,7 @@ function renderLearn(){
              v>0 ? `Weiter so${nm}! Noch ${S.goal-v} XP bis zu deinem Tagesziel.` :
              S.lessons ? `Schön, dass du da bist${nm}! Bereit für die nächste Runde?` :
              `Hallo${nm}! Ich bin Sprossi. Lass uns lernen, wie Leben grün und fair geht.`;
-  let h = `<div class="hello">${mascot(v>=S.goal?'cheer':'happy')}<div class="say">${hi}<small>${v} / ${S.goal} XP heute</small></div>${goalRing()}</div>`;
+  let h = `<div class="hello">${mascot(v>=S.goal?'cheer':'happy')}<div class="say">${hi}<div class="gbar" aria-hidden="true"><i style="width:${Math.min(100,v/S.goal*100)}%"></i></div><small>${v} / ${S.goal} XP heute · ${Math.min(100,Math.round(v/S.goal*100))} %${v>=S.goal?" – Ziel erreicht!":""}</small></div></div>`;
   h += unitPath(-1);
   UNITS.forEach((_,ui)=>{ h += unitPath(ui); });
   h += `<div class="card" style="text-align:center;margin-top:10px">${mascot(currentG()>=flat().length?'cheer':'wow').replace('class="m"','class="m" style="width:90px"')}<h3 style="font-size:22px">${currentG()>=flat().length?'Alles geschafft – du bist Going green and Fair!':'Weitere Einheiten wachsen noch …'}</h3></div>`;
