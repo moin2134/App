@@ -1,3 +1,5 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#2E6417"><link rel="manifest" href="manifest.json"><link rel="apple-touch-icon" href="apple-touch-icon.png"><link rel="icon" type="image/png" href="icon-192.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="GGAF Quizzes!"><meta name="apple-mobile-web-app-status-bar-style" content="default"></head><body>
 <title>GGAF Quizzes!</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1481,7 +1483,7 @@ function renderProfile(){
     <p class="cardtxt">Schick die App direkt an Freund*innen – mit einer kurzen Anleitung zum Installieren. Funktioniert nur für Android-Handys.</p>
     <button class="btn block" data-act="shareApk">${icon('chat')}App teilen</button>
     <button class="btn ghost block" data-act="qrShare">${icon('target')}QR-Code im selben WLAN</button>` : `
-    <p class="cardtxt">In der Android-App kannst du GGAF Quizzes! hier direkt als Datei oder per QR-Code im WLAN an Freund*innen weitergeben.</p>`}
+    <p class="cardtxt"><b>Als App installieren:</b> iPhone: in Safari unten auf <b>Teilen</b> tippen, dann <b>
   </div>
   <h2 class="sec">Fortschritt sichern</h2>
   <div class="card stack">
@@ -1896,6 +1898,10 @@ applyFreeze();
 $('#logoMark').innerHTML = mascot('happy',undefined,true);
 render(true);
 applyBg();
+/* Web-App (GitHub Pages): Offline-Speicher anmelden – nicht in der Android-App und nicht auf file:// */
+if('serviceWorker' in navigator && location.protocol==='https:' && !window.GGAFApp){ try{ navigator.serviceWorker.register('sw.js').catch(()=>{}); }catch(e){} }
 if(!S.introDone) showIntro(0);   /* Einführung beim ersten Start */
 else weeklyRecap();              /* sonst ggf. Rückblick auf die Vorwoche */
 </script>
+
+</body></html>
