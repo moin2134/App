@@ -1,0 +1,1861 @@
+<title>GGAF Quizzes!</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@600;700;800;900&display=swap">
+<style>
+:root{
+  --forest:#2E6417; --forestShade:#1E440E;
+  --leaf:#00BF63;   --leafShade:#00934C;
+  --sprout:#7ED957; --sproutShade:#5DB23A;
+  --lime:#C1FF72;   --limeShade:#9BD64A;
+  --mist:#D9F2CA;
+  --orange:#FF9600; --red:#EE4B4F; --redShade:#B8343A;
+
+  --bg:#F5FBF0; --surface:#FFFFFF; --surface2:#E9F7DF;
+  --ink:#1B3A0D; --ink2:#557248; --line:#D3E7C5;
+  --lock:#E2EDDA; --lockShade:#C6D7BA; --lockInk:#9AB18C;
+  --selBg:#EAFBDF; --selInk:#1E6B2E; --leafText:#00934C;
+  --okBg:#DDFBC4; --okInk:#1E5A0B; --badBg:#FFE3E3; --badInk:#B42328;
+  --rAccent:#F2542D; --rShade:#C23A17; --rSel:#FFE7DB; --rInk:#C2410C; --rBg:#FFF6F0;
+  --display:"Baloo 2","Arial Rounded MT Bold","Trebuchet MS",system-ui,sans-serif;
+  --body:"Nunito","Segoe UI",system-ui,-apple-system,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#0D1808; --surface:#15250E; --surface2:#1C3113;
+    --ink:#E6F6DA; --ink2:#A2C191; --line:#2A4420;
+    --lock:#223619; --lockShade:#162710; --lockInk:#5E7C4E;
+    --selBg:#1C3A12; --selInk:#C1FF72; --leafText:#7ED957;
+    --okBg:#1D3A10; --okInk:#C1FF72; --badBg:#3A1516; --badInk:#FF9A9C;
+    --rAccent:#F2542D; --rShade:#A8330F; --rSel:#3A1D10; --rInk:#FFA46B; --rBg:#1C120B;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#0D1808; --surface:#15250E; --surface2:#1C3113;
+  --ink:#E6F6DA; --ink2:#A2C191; --line:#2A4420;
+  --lock:#223619; --lockShade:#162710; --lockInk:#5E7C4E;
+  --selBg:#1C3A12; --selInk:#C1FF72; --leafText:#7ED957;
+  --okBg:#1D3A10; --okInk:#C1FF72; --badBg:#3A1516; --badInk:#FF9A9C;
+    --rAccent:#F2542D; --rShade:#A8330F; --rSel:#3A1D10; --rInk:#FFA46B; --rBg:#1C120B;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{height:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.45;-webkit-tap-highlight-color:transparent}
+button{font:inherit;color:inherit;cursor:pointer;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+button,input{outline:none}
+button:focus-visible,input:focus-visible{outline:3px solid var(--leaf);outline-offset:3px}
+input:focus{border-color:var(--leaf)}
+h1,h2,h3{font-family:var(--display);line-height:1.1;margin:0;text-wrap:balance}
+.ic{width:1em;height:1em;display:inline-block;vertical-align:middle;flex:none}
+
+/* ---------- Shell ---------- */
+#app{max-width:600px;margin:0 auto;min-height:100%}
+.topbar{position:-webkit-sticky;position:sticky;top:0;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 16px;border-bottom:2px solid var(--line)}
+.logo{display:flex;align-items:center;gap:8px;font-family:var(--display);font-weight:800;font-size:22px;letter-spacing:-.01em;white-space:nowrap}
+.logo .g{color:var(--leafText)}
+.logo svg.m{width:34px;height:34px}
+.stats{display:flex;gap:4px}
+.stat{display:flex;align-items:center;gap:5px;font-weight:900;font-size:16px;background:none;border:0;padding:6px 8px;border-radius:12px;font-variant-numeric:tabular-nums}
+.stat:hover{background:var(--surface2)}
+.stat .ic{width:24px;height:24px}
+.stat.streak{color:var(--orange)} .stat.streak.off{color:var(--lockInk)}
+.stat.xp{color:var(--leafText)} .stat.hearts{color:var(--red)}
+main{padding:16px 16px 170px;overflow-x:hidden;overflow-x:clip}
+.tabbar{position:fixed;left:0;right:0;bottom:0;z-index:20;background:var(--surface);border-top:2px solid var(--line);padding:6px 8px;padding-bottom:calc(6px + env(safe-area-inset-bottom,0px))}
+.tabbar .in{max-width:600px;margin:0 auto;display:flex;gap:4px}
+.tabbar .tab{flex:1 1 0}
+.tab{display:flex;flex-direction:column;align-items:center;gap:2px;padding:6px 2px;border:2px solid transparent;border-radius:14px;background:none;font-weight:800;font-size:11px;color:var(--ink2);text-transform:uppercase;letter-spacing:.04em;min-width:0}
+.tab .ic{width:26px;height:26px}
+.tab[aria-current="page"]{border-color:var(--leaf);background:var(--selBg);color:var(--leafText)}
+.corner{max-width:600px;margin:0 auto 2px;padding:0 6px;text-align:right;font-size:11px;line-height:1.3;color:var(--ink2);font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.corner b{font-family:var(--display);font-size:13px;color:var(--leafText);letter-spacing:.02em}
+.corner .mmg{display:inline-block;padding:0 6px;margin-right:4px;border-radius:6px;background:var(--forest);color:var(--lime)}
+
+/* ---------- Buttons ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:16px;padding:14px 22px;font-weight:900;font-size:16px;letter-spacing:.06em;text-transform:uppercase;background:var(--leaf);color:#fff;box-shadow:0 4px 0 var(--leafShade);transition:transform .06s,box-shadow .06s,filter .15s}
+.btn:hover{filter:brightness(1.05)}
+.btn:active{transform:translateY(4px);box-shadow:0 0 0 var(--leafShade)}
+.btn:disabled{background:var(--lock);color:var(--lockInk);box-shadow:0 4px 0 var(--lockShade);cursor:default;filter:none;transform:none}
+.btn.block{width:100%}
+.btn.ghost{background:var(--surface);color:var(--leafText);box-shadow:0 4px 0 var(--line);border:2px solid var(--line)}
+.btn.dark{background:var(--forest);color:var(--lime);box-shadow:0 4px 0 var(--forestShade)}
+.btn.red{background:var(--red);box-shadow:0 4px 0 var(--redShade)}
+.btn.plain{background:none;box-shadow:none;color:var(--ink2)}
+
+/* ---------- Learn / path ---------- */
+.hello{display:flex;align-items:center;gap:12px;margin-bottom:8px}
+.hello .m{width:78px;flex:none}
+.say{position:relative;flex:1;background:var(--surface);border:2px solid var(--line);border-radius:16px;padding:10px 14px;font-weight:700}
+.say::before{content:"";position:absolute;left:-9px;top:24px;width:14px;height:14px;background:var(--surface);border-left:2px solid var(--line);border-bottom:2px solid var(--line);transform:rotate(45deg)}
+.say small{display:block;color:var(--ink2);font-weight:700;margin-top:2px}
+.goalring{flex:none;width:58px;height:58px;position:relative;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:12px;color:var(--ink2)}
+.goalring svg{position:absolute;top:0;right:0;bottom:0;left:0;transform:rotate(-90deg)}
+
+.unit{margin-top:22px;border-radius:18px;padding:16px 18px;background:var(--c);color:var(--i);box-shadow:0 5px 0 var(--s)}
+.unit .eb{font-weight:900;font-size:12px;letter-spacing:.1em;text-transform:uppercase;opacity:.85}
+.unit h2{font-size:25px;margin-top:2px}
+.unit p{margin:4px 0 0;font-weight:700;opacity:.92;max-width:44ch}
+.path{display:flex;flex-direction:column;align-items:center;gap:22px;padding:30px 0 16px}
+.nwrap{position:relative}
+.node{position:relative;width:78px;height:72px;border-radius:50%;border:0;background:var(--c);color:var(--i);box-shadow:0 7px 0 var(--s);display:flex;align-items:center;justify-content:center;transition:transform .08s,box-shadow .08s}
+.node .ic{width:36px;height:36px}
+.node:active{transform:translateY(6px);box-shadow:0 1px 0 var(--s)}
+.nwrap.locked .node{background:var(--lock);color:var(--lockInk);box-shadow:0 7px 0 var(--lockShade)}
+.nwrap.current::before{content:"";position:absolute;top:-10px;right:-10px;bottom:-16px;left:-10px;border-radius:50%;border:6px solid var(--line)}
+.nwrap.current .node{animation:pulse 2.4s ease-in-out infinite}
+.bubble{position:absolute;left:50%;bottom:calc(100% + 18px);transform:translateX(-50%);background:var(--surface);border:2px solid var(--line);color:var(--leafText);font-weight:900;letter-spacing:.08em;padding:6px 12px;border-radius:12px;white-space:nowrap;animation:bob 1.6s ease-in-out infinite}
+.bubble::after{content:"";position:absolute;left:50%;top:100%;width:12px;height:12px;background:var(--surface);border-right:2px solid var(--line);border-bottom:2px solid var(--line);transform:translate(-50%,-6px) rotate(45deg)}
+.pmascot{position:absolute;top:50%;width:92px;transform:translateY(-50%);pointer-events:none}
+svg.m{display:block;width:100%;height:auto}
+.info{display:flex;align-items:center;gap:12px;width:100%;max-width:340px;text-align:left;padding:10px 14px;border:2px solid var(--line);border-bottom-width:5px;border-radius:18px;background:var(--surface);transition:transform .06s}
+.info:active{transform:translateY(3px)}
+.info + .nwrap.current{margin-top:40px}
+.info .bk{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex:none;background:var(--c);color:var(--i)}
+.info .bk .ic{width:26px;height:26px}
+.info b{display:block;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--leafText)}
+.info span{font-weight:800;line-height:1.25}
+.info .rd{margin-left:auto;color:var(--leafText);flex:none}
+.info .rd .ic{width:22px;height:22px}
+.info.locked{opacity:.55}
+.mbox.infobox{text-align:left;max-height:86vh;overflow:auto}
+.infobox .top{display:flex;gap:12px;align-items:center}
+.infobox .top .m{width:70px;flex:none}
+.infobox ul{margin:0;padding:0;list-style:none;display:grid;grid-gap:10px;gap:10px}
+.infobox li{display:flex;gap:10px;font-weight:600;line-height:1.45}
+.infobox li::before{content:"";flex:none;width:10px;height:10px;margin-top:7px;border-radius:3px;background:var(--leaf);transform:rotate(45deg)}
+@keyframes bob{50%{transform:translate(-50%,-5px)}}
+@keyframes pulse{50%{filter:brightness(1.08)}}
+
+/* ---------- Cards (practice / badges / profile) ---------- */
+.h1{font-size:30px;margin:6px 0 4px}
+.lead{color:var(--ink2);font-weight:700;margin:0 0 18px}
+.stack{display:grid;grid-gap:14px;gap:14px}
+.card{background:var(--surface);border:2px solid var(--line);border-radius:18px;padding:16px}
+.pcard{display:flex;gap:14px;align-items:center}
+.pcard .badge{width:60px;height:60px;border-radius:16px;display:flex;align-items:center;justify-content:center;flex:none}
+.pcard .badge .ic{width:34px;height:34px}
+.pcard h3{font-size:20px}
+.pcard p{margin:2px 0 0;color:var(--ink2);font-weight:700;font-size:14px}
+.pcard .go{margin-left:auto;flex:none}
+.tip{background:var(--forest);color:var(--mist);border:0}
+.tip .eb{font-weight:900;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--lime)}
+.tip h3{font-size:21px;color:#fff;margin:4px 0}
+.tip p{margin:0;font-weight:600}
+.bgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));grid-gap:12px;gap:12px}
+.bdg{background:var(--surface);border:2px solid var(--line);border-radius:18px;padding:14px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:6px}
+.bdg .medal{width:64px;height:64px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--lime);color:var(--forest);box-shadow:inset 0 -5px 0 var(--limeShade)}
+.bdg .medal .ic{width:32px;height:32px}
+.bdg.off .medal{background:var(--lock);color:var(--lockInk);box-shadow:inset 0 -5px 0 var(--lockShade)}
+.bdg h3{font-size:17px}
+.bdg p{margin:0;color:var(--ink2);font-size:13px;font-weight:700}
+.bar{height:10px;width:100%;border-radius:6px;background:var(--line);overflow:hidden}
+.bar i{display:block;height:100%;background:var(--sprout);border-radius:6px}
+.tiles{display:grid;grid-template-columns:repeat(2,1fr);grid-gap:12px;gap:12px}
+.tile{background:var(--surface);border:2px solid var(--line);border-radius:16px;padding:12px 14px;display:flex;gap:10px;align-items:center}
+.tile .ic{width:28px;height:28px}
+.tile b{display:block;font-family:var(--display);font-size:22px;line-height:1;font-variant-numeric:tabular-nums}
+.tile span{font-size:13px;color:var(--ink2);font-weight:700}
+.sec{font-size:20px;margin:26px 0 10px}
+.field{display:flex;flex-direction:column;gap:6px;font-weight:800}
+.field input{font:inherit;font-weight:700;padding:12px 14px;border:2px solid var(--line);border-radius:14px;background:var(--surface2);color:var(--ink)}
+.seg{display:flex;gap:8px}
+.seg button{flex:1 1 0;min-width:0}
+.seg button{border:2px solid var(--line);border-bottom-width:4px;border-radius:14px;background:var(--surface);padding:10px 4px;font-weight:800}
+.seg button small{display:block;font-size:11px;color:var(--ink2);font-weight:700}
+.seg button[aria-pressed="true"]{border-color:var(--leaf);background:var(--selBg);color:var(--selInk)}
+.row{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.switch{width:54px;height:32px;border-radius:20px;border:0;background:var(--lock);position:relative;flex:none}
+.switch::after{content:"";position:absolute;top:4px;left:4px;width:24px;height:24px;border-radius:50%;background:#fff;box-shadow:0 2px 0 rgba(0,0,0,.15);transition:left .15s}
+.switch[aria-checked="true"]{background:var(--leaf)}
+.switch[aria-checked="true"]::after{left:26px}
+.chart{display:flex;gap:8px;align-items:end;height:150px;position:relative;padding-top:18px}
+.chart .col{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;gap:4px}
+.chart .b{width:100%;max-width:34px;border-radius:8px 8px 4px 4px;background:var(--sprout);min-height:4px}
+.chart .col.today .b{background:var(--leaf)}
+.chart .v{font-size:12px;font-weight:800;color:var(--ink2);font-variant-numeric:tabular-nums}
+.chart .d{font-size:12px;font-weight:800;color:var(--ink2)}
+.chart .goal{position:absolute;left:0;right:0;border-top:2px dashed var(--orange)}
+.chart .goal span{position:absolute;right:0;top:-18px;font-size:11px;font-weight:900;color:var(--orange)}
+.about{color:var(--ink2);font-weight:700;font-size:14px;margin-top:22px}
+
+/* ---------- Lesson ---------- */
+.lesson{position:fixed;top:0;right:0;bottom:0;left:0;z-index:40;background:var(--bg);display:flex;flex-direction:column;padding-top:0;padding-top:env(safe-area-inset-top,0px)}
+.lhead{max-width:680px;width:100%;margin:0 auto;display:flex;align-items:center;gap:14px;padding:16px}
+.x{border:0;background:none;color:var(--lockInk);padding:4px;border-radius:10px;display:flex}
+.x .ic{width:26px;height:26px}
+.prog{flex:1;height:16px;border-radius:10px;background:var(--line);overflow:hidden}
+.prog i{display:block;height:100%;width:0;border-radius:10px;background:var(--leaf);position:relative;transition:width .35s ease}
+.prog i::after{content:"";position:absolute;left:10px;right:10px;top:4px;height:4px;border-radius:3px;background:rgba(255,255,255,.35)}
+.prog.timer i{background:var(--orange);transition:width .1s linear}
+.lstat{display:flex;align-items:center;gap:4px;font-weight:900;color:var(--red);font-variant-numeric:tabular-nums;min-width:44px;justify-content:flex-end}
+.lesson.beamer .lstat{color:var(--ink2);white-space:nowrap;font-size:15px}
+.lstat .ic{width:26px;height:26px}
+.lstat.score{color:var(--orange)}
+.qwrap{flex:1;overflow:auto}
+.qarea{max-width:640px;margin:0 auto;padding:12px 16px 40px}
+.combo{height:22px;font-weight:900;color:var(--orange);font-size:14px;letter-spacing:.06em;text-transform:uppercase}
+.qtype{display:flex;align-items:center;gap:6px;font-weight:900;color:var(--leafText);font-size:13px;letter-spacing:.08em;text-transform:uppercase}
+.qtype .ic{width:18px;height:18px}
+.qtext{font-size:25px;margin:8px 0 22px;font-weight:700}
+.qhead{display:flex;gap:12px;align-items:flex-end;margin:8px 0 22px}
+.qhead .m{width:70px;flex:none}
+.qhead .say{font-family:var(--display);font-size:20px;font-weight:700;line-height:1.2}
+.qhead .say::before{top:auto;bottom:18px}
+.opts{display:grid;grid-gap:10px;gap:10px}
+.opts.tf{grid-template-columns:1fr 1fr}
+.opt{display:flex;align-items:center;gap:12px;width:100%;text-align:left;padding:14px 16px;border:2px solid var(--line);border-bottom-width:4px;border-radius:16px;background:var(--surface);font-weight:700;font-size:17px;line-height:1.3;transition:transform .06s}
+.opt:hover{background:var(--surface2)}
+.opt:active{transform:translateY(2px)}
+.opt .k{width:28px;height:28px;flex:none;border:2px solid var(--line);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;color:var(--ink2)}
+.opts.tf .opt{flex-direction:column;justify-content:center;text-align:center;padding:22px 12px;font-family:var(--display);font-size:22px}
+.opts.tf .opt .big{width:44px;height:44px}
+.opt.sel{border-color:var(--leaf);background:var(--selBg);color:var(--selInk)}
+.opt.sel .k{border-color:var(--leaf);color:var(--selInk)}
+.opt.right{border-color:var(--leaf);background:var(--okBg);color:var(--okInk)}
+.opt.wrong{border-color:var(--red);background:var(--badBg);color:var(--badInk)}
+.opt:disabled{cursor:default}
+.sentence{font-size:21px;font-weight:700;line-height:2.1;margin:0 0 26px}
+.blank{display:inline-block;min-width:120px;padding:0 10px;border-bottom:3px solid var(--ink2);text-align:center;color:var(--ink2);line-height:1.5}
+.blank.filled{color:var(--leafText);border-color:var(--leaf)}
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip{padding:10px 16px;border:2px solid var(--line);border-bottom-width:4px;border-radius:14px;background:var(--surface);font-weight:800;font-size:16px;text-align:left}
+.chip:hover{background:var(--surface2)}
+.chip.used{background:var(--line);color:transparent;border-color:var(--line);pointer-events:none}
+.chip.sel{border-color:var(--leaf);background:var(--selBg);color:var(--selInk)}
+.slots{display:grid;grid-gap:8px;gap:8px;margin-bottom:22px}
+.slot{display:flex;align-items:center;gap:10px;min-height:54px;border:2px dashed var(--line);border-radius:14px;padding:4px 6px 4px 12px}
+.slot .n{font-family:var(--display);font-weight:800;color:var(--ink2);width:18px;flex:none}
+.slot .chip{flex:1}
+.orderpool{display:grid;grid-gap:8px;gap:8px}
+.orderpool .chip{width:100%}
+.mgrid{display:grid;grid-template-columns:1fr 1fr;grid-gap:10px;gap:10px}
+.mcol{display:grid;grid-gap:10px;gap:10px;align-content:start}
+.mgrid .chip{width:100%;min-height:62px;text-align:center;font-size:15px}
+.chip.done{opacity:.35;pointer-events:none;border-color:var(--line)}
+.chip.shake,.opt.shake{animation:shake .35s;border-color:var(--red);background:var(--badBg);color:var(--badInk)}
+@keyframes shake{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+.lfoot{border-top:2px solid var(--line);padding:16px;padding-bottom:calc(16px + env(safe-area-inset-bottom,0px))}
+.lfoot .in{max-width:640px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.lfoot .hint{color:var(--ink2);font-weight:800}
+.sheet{position:fixed;left:0;right:0;bottom:0;z-index:45;transform:translateY(105%);transition:transform .22s ease;padding:18px 16px;padding-bottom:calc(18px + env(safe-area-inset-bottom,0px));background:var(--okBg);color:var(--okInk)}
+.sheet.show{transform:none}
+.sheet.bad{background:var(--badBg);color:var(--badInk)}
+.sheet .in{max-width:640px;margin:0 auto;display:grid;grid-gap:12px;gap:12px}
+.sheet .t{display:flex;align-items:center;gap:10px;font-family:var(--display);font-size:25px;font-weight:800}
+.sheet .t .dot{width:40px;height:40px;border-radius:50%;background:var(--surface);display:flex;align-items:center;justify-content:center}
+.sheet .t .dot .ic{width:24px;height:24px}
+.sheet .sol{font-weight:800}
+.sheet .fact{font-weight:600;color:var(--ink);background:var(--surface);border-radius:12px;padding:10px 12px;font-size:15px}
+.sheet .fact b{color:var(--leafText)}
+.sheet.bad .btn{background:var(--red);box-shadow:0 4px 0 var(--redShade)}
+
+/* ---------- Result / modal ---------- */
+.result{position:fixed;top:0;right:0;bottom:0;left:0;z-index:50;background:var(--bg);overflow:auto;padding:24px 16px;padding:max(24px,env(safe-area-inset-top,0px)) 16px calc(24px + env(safe-area-inset-bottom,0px))}
+.result .in{max-width:520px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px;min-height:100%;justify-content:center}
+.result .m{width:150px}
+.result h1{font-size:36px;color:var(--leafText)}
+.result .sub{margin:0;font-weight:700;color:var(--ink2)}
+.rt{display:flex;gap:10px;width:100%;margin-top:6px}
+.rt div{border:2px solid var(--k);border-radius:16px;overflow:hidden;background:var(--k)}
+.rt span{display:block;color:var(--forest);font-weight:900;font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding:5px 2px}
+.rt b{display:flex;align-items:center;justify-content:center;gap:6px;background:var(--surface);border-radius:13px;padding:12px 4px;font-family:var(--display);font-size:24px;font-variant-numeric:tabular-nums}
+.rt b .ic{width:22px;height:22px}
+.newb{display:flex;align-items:center;gap:12px;width:100%;text-align:left;background:var(--surface);border:2px solid var(--line);border-radius:16px;padding:10px 14px;font-weight:800}
+.newb .medal{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--lime);color:var(--forest);flex:none}
+.newb small{display:block;color:var(--ink2);font-weight:700}
+.streakline{display:flex;align-items:center;gap:6px;font-weight:900;color:var(--orange)}
+.streakline .ic{width:24px;height:24px}
+.result .btn{width:100%;margin-top:6px}
+.modal{position:fixed;top:0;right:0;bottom:0;left:0;z-index:60;background:rgba(10,25,5,.55);display:flex;align-items:flex-end;justify-content:center;padding:16px}
+@media (min-width:640px){.modal{align-items:center}}
+.mbox{width:100%;max-width:440px;max-height:calc(100vh - 32px);overflow-y:auto;-webkit-overflow-scrolling:touch;background:var(--surface);border-radius:22px;padding:22px;display:grid;grid-gap:12px;gap:12px;text-align:center;animation:rise .2s ease}
+.mbox .m{width:96px;margin:0 auto}
+.mbox h2{font-size:26px}
+.mbox p{margin:0;color:var(--ink2);font-weight:700}
+.mbox .eb{font-weight:900;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--leafText)}
+.mbox .hrow{display:flex;justify-content:center;gap:4px;color:var(--red)}
+.mbox .hrow .ic{width:30px;height:30px}
+.mbox .hrow .ic.empty{color:var(--lock)}
+@keyframes rise{from{transform:translateY(20px);opacity:.4}}
+#confetti{position:fixed;top:0;left:0;z-index:70;pointer-events:none;width:100%;height:100%}
+@media (max-width:420px){
+  .logo{font-size:19px} .logo svg.m{width:28px;height:28px}
+  .stat{padding:6px 5px;font-size:15px} .stat .ic{width:21px;height:21px}
+  .qtext{font-size:22px}
+  .opts.tf{grid-template-columns:1fr 1fr}
+}
+/* Einführung */
+.intro{position:fixed;top:0;right:0;bottom:0;left:0;z-index:55;background:var(--bg);overflow:auto;padding:24px 16px;padding:max(24px,env(safe-area-inset-top,0px)) 16px calc(24px + env(safe-area-inset-bottom,0px))}
+.intro .in{max-width:480px;min-height:100%;margin:0 auto;display:flex;flex-direction:column;gap:18px}
+.intro .skip{align-self:flex-end;border:0;background:none;color:var(--ink2);font-weight:800;font-size:14px;letter-spacing:.06em;text-transform:uppercase;padding:6px 4px}
+.intro .stage{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:16px}
+.intro .stage > .m{width:130px}
+.intro .eb{font-weight:900;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--leafText)}
+.intro h1{font-size:30px}
+.intro p{margin:0;font-weight:700;color:var(--ink2);max-width:38ch;font-size:17px}
+.intro .demo{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:12px;padding:16px;border-radius:18px;background:var(--surface);border:2px solid var(--line);width:100%}
+.demo .mini{width:48px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;background:var(--leaf);box-shadow:0 4px 0 var(--leafShade)}
+.demo .mini .ic{width:24px;height:24px}
+.demo .mini.lock{background:var(--lock);color:var(--lockInk);box-shadow:0 4px 0 var(--lockShade)}
+.demo .chipx{display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border-radius:12px;border:2px solid var(--line);background:var(--surface2);font-weight:800;font-size:14px}
+.demo .chipx .ic{width:20px;height:20px}
+.demo .big{display:flex;align-items:center;gap:4px;font-weight:900;font-size:20px}
+.demo .big .ic{width:28px;height:28px}
+.intro .dots{display:flex;justify-content:center;gap:8px}
+.intro .dots i{width:10px;height:10px;border-radius:5px;background:var(--line);transition:width .2s}
+.intro .dots i.on{width:26px;background:var(--leaf)}
+.intro .nav{display:flex;gap:12px}
+.intro .nav .btn{flex:1}
+.intro .form{width:100%;display:flex;flex-direction:column;gap:14px;text-align:left}
+.nogap .intro .in > * + *,.nogap .intro .stage > * + *,.nogap .intro .form > * + *{margin-top:16px}
+.nogap .intro .nav > * + *,.nogap .intro .dots > * + *{margin-left:10px}
+.nogap .demo > *{margin:6px}
+/* Hintergründe (Shop) – auf dem Lernpfad und als Vorschau */
+.bg-dots main,.swatch.bg-dots{background-image:radial-gradient(var(--line) 1.6px,transparent 1.8px);background-size:22px 22px}
+.bg-stripes main,.swatch.bg-stripes{background-image:repeating-linear-gradient(135deg,transparent 0 14px,var(--surface2) 14px 28px)}
+.bg-leaves main,.swatch.bg-leaves{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64'%3E%3Cpath d='M10 30C10 18 18 10 30 10c0 12-8 20-20 20z' fill='%2300BF63' fill-opacity='.13'/%3E%3Cpath d='M40 58c0-10 7-17 17-17 0 10-7 17-17 17z' fill='%237ED957' fill-opacity='.16'/%3E%3C/svg%3E");background-size:64px 64px}
+.swatch{width:100%;height:78px;border-radius:14px;border:2px solid var(--line);background-color:var(--bg)}
+/* Klassen-Modus (Beamer): große Schrift auf großen Bildschirmen */
+@media (min-width:900px){
+  .lesson.beamer .qarea,.lesson.beamer .lfoot .in,.lesson.beamer .sheet .in{max-width:1100px}
+  .lesson.beamer .qtext,.lesson.beamer .qhead .say{font-size:42px}
+  .lesson.beamer .sentence{font-size:38px}
+  .lesson.beamer .opt{font-size:28px;padding:20px 24px}
+  .lesson.beamer .opts.tf .opt{font-size:34px}
+  .lesson.beamer .chip{font-size:24px;padding:14px 20px}
+  .lesson.beamer .qtype{font-size:18px}
+  .lesson.beamer .sheet .t{font-size:36px}
+  .lesson.beamer .sheet .sol,.lesson.beamer .sheet .fact{font-size:24px}
+}
+/* Profil: Rückblick, Teilen, Sicherung */
+.recapline{margin:10px 0 0;font-weight:700}
+.recapnote{margin:10px 0 0;color:var(--ink2);font-size:13px;font-weight:700}
+.cardtxt{margin:0;color:var(--ink2);font-weight:700}
+.codebox{width:100%;min-height:110px;font:600 13px/1.4 ui-monospace,Consolas,monospace;padding:10px;border:2px solid var(--line);border-radius:12px;background:var(--surface2);color:var(--ink);word-break:break-all;resize:vertical}
+.qrbox{background:#fff;border-radius:16px;padding:12px;display:flex;justify-content:center;margin:0 auto;max-width:280px}
+.qrbox svg,.qrbox img{width:100%;height:auto;display:block}
+.qrurl{font:700 15px ui-monospace,Consolas,monospace;color:var(--ink);word-break:break-all}
+.mbox ol{text-align:left;margin:0;padding-left:22px;color:var(--ink2);font-weight:700;display:grid;grid-gap:6px;gap:6px}
+/* Shop */
+.wallet{display:flex;align-items:center;gap:14px;padding:16px 18px;border-radius:18px;background:var(--forest);color:var(--lime);box-shadow:0 5px 0 var(--forestShade)}
+.wallet .ic{width:42px;height:42px;flex:none}
+.wallet b{display:block;font-family:var(--display);font-size:32px;line-height:1;color:#fff;font-variant-numeric:tabular-nums}
+.wallet span{font-weight:700;font-size:13px;color:var(--mist)}
+.pcard .why{color:var(--orange);font-weight:800}
+.btn.price{padding:10px 14px;gap:4px;font-size:15px;letter-spacing:0}
+.btn.price .ic{width:18px;height:18px}
+.ogrid{grid-template-columns:repeat(2,1fr)}
+@media (min-width:560px){.ogrid{grid-template-columns:repeat(4,1fr)}}
+.bgs{grid-template-columns:repeat(3,1fr)}
+.bgs .btn{font-size:12px;padding:10px 4px;letter-spacing:.03em}
+.bdg.outfit .m{width:86px}
+.bdg.outfit.on{border-color:var(--leaf);background:var(--selBg)}
+.bdg.outfit .btn{padding:10px;font-size:14px}
+/* MMG-Special */
+.agunit{background:linear-gradient(120deg,var(--forest) 0%,#1E440E 100%)}
+.mmgtag{display:inline-block;padding:1px 7px;margin-right:6px;border-radius:6px;background:var(--lime);color:var(--forest);letter-spacing:.06em}
+/* Wiederholung: falsch beantwortete Aufgaben kommen im Rot-Orange-Schema zurück */
+.lesson.retry{--leaf:var(--rAccent);--leafShade:var(--rShade);--selBg:var(--rSel);--selInk:var(--rInk);--leafText:var(--rInk);background:var(--rBg)}
+.retrytag{display:inline-flex;align-items:center;gap:6px;margin-bottom:6px;padding:4px 12px;border-radius:20px;background:linear-gradient(90deg,#E5383B,#FF8A00);color:#fff;font-weight:900;font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.retrytag .ic{width:16px;height:16px}
+/* Fallback für ältere Android-WebViews ohne Flexbox-gap (Klasse wird per JS gesetzt) */
+.nogap .path > * + *{margin-top:22px}
+.nogap .info .bk,.nogap .hello > *:not(:last-child),.nogap .pcard > *:not(:last-child),.nogap .tile > *:not(:last-child),.nogap .lhead > *:not(:last-child),.nogap .qhead > *:not(:last-child),.nogap .opt > *:not(:last-child),.nogap .slot > *:not(:last-child),.nogap .newb > *:not(:last-child),.nogap .infobox .top > *:not(:last-child),.nogap .sheet .t > *:not(:last-child),.nogap .row > *:not(:last-child),.nogap .lfoot .in > *:not(:last-child),.nogap .infobox li::before,.nogap .topbar > *:not(:last-child),.nogap .wallet > *:not(:last-child){margin-right:12px}
+.nogap .logo > *:not(:last-child),.nogap .stat > .ic,.nogap .qtype .ic,.nogap .btn > .ic,.nogap .lstat .ic,.nogap .rt b .ic,.nogap .streakline .ic,.nogap .retrytag .ic,.nogap .corner .mmg{margin-right:6px}
+.nogap .stats > * + *{margin-left:2px}
+.nogap .chips > *{margin:0 10px 10px 0}
+.nogap .result .in > * + *{margin-top:14px}
+.nogap .bdg > * + *,.nogap .field > * + *{margin-top:6px}
+.nogap .chart .col > * + *{margin-top:4px}
+.nogap .tab .ic{margin-bottom:2px}
+.nogap .hrow .ic + .ic{margin-left:4px}
+.nogap .opts.tf .opt > *:not(:last-child){margin-right:0;margin-bottom:6px}
+.nogap .tabbar .in > * + *{margin-left:4px}
+.nogap .seg > * + *,.nogap .chart > .col + .col{margin-left:8px}
+.nogap .rt > * + *{margin-left:10px}
+.rt > div{flex:1 1 0;min-width:0}
+.chart .col{flex:1 1 0;min-width:0}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+}
+</style>
+
+<div id="app">
+  <header class="topbar">
+    <div class="logo" aria-label="GGAF Quizzes!"><span id="logoMark"></span><span><span class="g">GGAF</span> Quizzes!</span></div>
+    <div class="stats">
+      <button class="stat streak" id="stStreak" aria-label="Serie"></button>
+      <button class="stat xp" id="stXp" aria-label="XP"></button>
+      <button class="stat hearts" id="stHearts" aria-label="Herzen"></button>
+    </div>
+  </header>
+  <main id="view"></main>
+</div>
+<nav class="tabbar" aria-label="Hauptnavigation"><div class="corner"><b class="mmg">MMG</b><b>GGAF Quizzes! App</b> · Going green and Fair</div><div class="in" id="tabs"></div></nav>
+
+<section class="lesson" id="lesson" hidden>
+  <div class="lhead">
+    <button class="x" id="quit" aria-label="Lektion beenden"></button>
+    <div class="prog" id="prog"><i></i></div>
+    <div class="lstat" id="lstat"></div>
+  </div>
+  <div class="qwrap"><div class="qarea" id="qarea"></div></div>
+  <div class="lfoot"><div class="in"><span class="hint" id="hint"></span><button class="btn" id="check" disabled>Überprüfen</button></div></div>
+  <div class="sheet" id="sheet" role="status" aria-live="polite"><div class="in" id="sheetIn"></div></div>
+</section>
+<section class="result" id="result" hidden><div class="in" id="resultIn"></div></section>
+<section class="intro" id="intro" hidden aria-label="Einführung"><div class="in" id="introIn"></div></section>
+<div class="modal" id="modal" hidden><div class="mbox" id="mbox" role="dialog" aria-modal="true"></div></div>
+<canvas id="confetti"></canvas>
+
+<script>
+/* Polyfills für ältere Android-WebViews (Android 7) */
+if(!Array.prototype.flatMap) Array.prototype.flatMap = function(f){ return [].concat.apply([], this.map(f)); };
+(function(){ /* Kann der Browser Flexbox-gap? Sonst Abstands-Fallback aktivieren */
+  const d = document.createElement('div'); d.style.cssText = 'display:flex;flex-direction:column;row-gap:1px;position:absolute';
+  d.appendChild(document.createElement('div')); d.appendChild(document.createElement('div'));
+  document.body.appendChild(d); const ok = d.scrollHeight===1; document.body.removeChild(d);
+  if(!ok) document.documentElement.className += ' nogap';
+})();
+if(window.NodeList && !NodeList.prototype.forEach) NodeList.prototype.forEach = Array.prototype.forEach;
+if(!String.prototype.padStart) String.prototype.padStart = function(n,c){ let s = String(this); while(s.length<n) s = c+s; return s; };
+/* ================= Icons & Maskottchen ================= */
+const ICONS = {
+  flame:{f:'M12 2c1.2 4.2 5.5 6.3 5.5 11.3A5.5 5.5 0 0 1 6.5 13.8c0-2.4 1.1-4 2.3-5 .1 2.2 1 3.3 2.2 3.5C10.7 8.6 10 5.4 12 2z'},
+  heart:{f:'M12 21s-7.6-4.6-9.4-9.3C1.2 8.1 3.5 4.4 7.2 4.4c2 0 3.6 1.1 4.8 2.8 1.2-1.7 2.8-2.8 4.8-2.8 3.7 0 6 3.7 4.6 7.3C19.6 16.4 12 21 12 21z'},
+  leaf:{f:'M4.5 19.5C4.5 10.3 10.5 3.8 20.5 3.5c.3 10.2-6.3 16-16 16z',s:'M4.5 19.5 14 10',sc:'rgba(255,255,255,.55)'},
+  star:{f:'M12 2.6l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.4l-5.8 3.1 1.1-6.5-4.7-4.6 6.5-.9z'},
+  check:{s:'M4.5 12.8l4.8 4.7L19.5 7'},
+  lock:{s:'M7 11V8a5 5 0 0 1 10 0v3',f:'M5 10.5h14a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-8.5a1 1 0 0 1 1-1z'},
+  trophy:{f:'M7 3.5h10v4.8a5 5 0 0 1-10 0zM10.5 14.5h3v3.5h-3zM7.5 19h9v2.5h-9z',s:'M7 5.5H3.8v1.2A3.6 3.6 0 0 0 7.4 10.3M17 5.5h3.2v1.2a3.6 3.6 0 0 1-3.6 3.6'},
+  bolt:{f:'M13.5 2 4.5 13.5h6.5l-1 8.5 9.5-12h-6.8z'},
+  globe:{s:'M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zM3.5 9h17M3.5 15h17M12 3c-2.8 2.6-4 5.6-4 9s1.2 6.4 4 9c2.8-2.6 4-5.6 4-9s-1.2-6.4-4-9z'},
+  target:{s:'M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zM12 7.5a4.5 4.5 0 1 0 0 9 4.5 4.5 0 0 0 0-9z',f:'M12 10.5a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3z'},
+  home:{f:'M3.5 11 12 3.5l8.5 7.5V20a1 1 0 0 1-1 1H15v-6H9v6H4.5a1 1 0 0 1-1-1z'},
+  dumbbell:{s:'M6.5 7v10M17.5 7v10M3.5 9.5v5M20.5 9.5v5M6.5 12h11'},
+  medal:{s:'M8 2.5l2.5 6M16 2.5l-2.5 6',f:'M12 8.5a6.5 6.5 0 1 1 0 13 6.5 6.5 0 0 1 0-13z'},
+  user:{f:'M12 3a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9zM3.5 21c.6-4.5 4.1-7 8.5-7s7.9 2.5 8.5 7z'},
+  close:{s:'M6 6l12 12M18 6 6 18'},
+  redo:{s:'M4 12a8 8 0 1 0 2.3-5.7M4 4v4.5h4.5'},
+  shuffle:{s:'M3.5 7h3.8c4.7 0 5.7 10 10.4 10H21M3.5 17h3.8c1.8 0 3-.9 4-2.4M13 9.4c1-1.5 2.2-2.4 4-2.4H21M18.5 4.5 21 7l-2.5 2.5M18.5 14.5 21 17l-2.5 2.5'},
+  x:{s:'M7 7l10 10M17 7 7 17'},
+  bulb:{s:'M9 18h6M10 21h4',f:'M12 2.5a6.5 6.5 0 0 1 3.8 11.8c-.5.4-.8 1-.8 1.7v.5H9V16c0-.7-.3-1.3-.8-1.7A6.5 6.5 0 0 1 12 2.5z'},
+  clock:{s:'M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zM12 7v5l3.5 2'},
+  bag:{f:'M4.5 8.5h15l-1.2 12a1 1 0 0 1-1 .9H6.7a1 1 0 0 1-1-.9z',s:'M9 11V7a3 3 0 0 1 6 0v4'},
+  shield:{f:'M12 2.5 20 5.6v6.1c0 4.9-3.4 8.6-8 9.8-4.6-1.2-8-4.9-8-9.8V5.6z'},
+  book:{f:'M3 5.2c3-.9 6-.6 8.2.9V20c-2.2-1.3-5.2-1.5-8.2-.7zM21 5.2c-3-.9-6-.6-8.2.9V20c2.2-1.3 5.2-1.5 8.2-.7z'},
+  chat:{f:'M4 4.5h16a1 1 0 0 1 1 1V16a1 1 0 0 1-1 1h-9l-5 4v-4H4a1 1 0 0 1-1-1V5.5a1 1 0 0 1 1-1z'}
+};
+function icon(n, cls=''){
+  const d = ICONS[n]; if(!d) return '';
+  let s = `<svg class="ic ${cls}" viewBox="0 0 24 24" aria-hidden="true">`;
+  if(d.f) s += `<path d="${d.f}" fill="currentColor"/>`;
+  if(d.s) s += `<path d="${d.s}" fill="none" stroke="${d.sc||'currentColor'}" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>`;
+  return s + '</svg>';
+}
+/* Sprossi – das Maskottchen */
+const WEAR = {
+  brille:'<rect x="28" y="46" width="21" height="15" rx="6" fill="#1E440E"/><rect x="51" y="46" width="21" height="15" rx="6" fill="#1E440E"/><path d="M48 51h4" stroke="#1E440E" stroke-width="3"/><path d="M32 50h6M55 50h6" stroke="#C1FF72" stroke-width="2.2" stroke-linecap="round"/>',
+  muetze:'<path d="M25 44 C25 22 75 22 75 44 Z" fill="#EE4B4F"/><path d="M35 30 C38 26 44 24 48 24" stroke="#fff" stroke-width="2.4" fill="none" opacity=".45" stroke-linecap="round"/><rect x="23" y="39" width="54" height="9" rx="4.5" fill="#fff"/><circle cx="50" cy="20" r="6" fill="#fff"/>',
+  kranz:[[31,38,'#FF9600'],[40,32.5,'#EE4B4F'],[50,30.5,'#fff'],[60,32.5,'#FF9600'],[69,38,'#EE4B4F']].map(([x,y,c])=>`<circle cx="${x}" cy="${y}" r="5" fill="${c}"/><circle cx="${x}" cy="${y}" r="2" fill="#FFD43B"/>`).join(''),
+  fliege:'<path d="M50 84 L38 77 L38 91 Z M50 84 L62 77 L62 91 Z" fill="#EE4B4F"/><circle cx="50" cy="84" r="3.4" fill="#B8343A"/>',
+  kopfhoerer:'<path d="M23 60 C23 24 77 24 77 60" stroke="#1E440E" stroke-width="4.5" fill="none" stroke-linecap="round"/><rect x="15" y="52" width="12" height="19" rx="6" fill="#2E6417"/><rect x="73" y="52" width="12" height="19" rx="6" fill="#2E6417"/><rect x="17" y="55" width="4" height="13" rx="2" fill="#C1FF72"/><rect x="79" y="55" width="4" height="13" rx="2" fill="#C1FF72"/>',
+  sonnenhut:'<path d="M34 39 C34 21 66 21 66 39 Z" fill="#F2C94C"/><ellipse cx="50" cy="39" rx="35" ry="7" fill="#F2C94C"/><path d="M34 33 H66 V38 H34 Z" fill="#EE4B4F"/><ellipse cx="50" cy="39" rx="35" ry="7" fill="none" stroke="#C9A227" stroke-width="1.4"/>',
+  mmgcap:'<path d="M27 43 C27 22 73 22 73 43 Z" fill="#2E6417"/><path d="M62 41 C74 39 86 40 91 44 C82 47 70 46 60 45 Z" fill="#1E440E"/><circle cx="50" cy="24" r="2.5" fill="#1E440E"/><text x="48" y="38" font-family="Arial,Helvetica,sans-serif" font-weight="900" font-size="9.5" text-anchor="middle" fill="#C1FF72">MMG</text>',
+  krone:'<path d="M35 36 L35 19 L42.5 27 L50 15 L57.5 27 L65 19 L65 36 Z" fill="#FFC21A" stroke="#C78A00" stroke-width="1.6" stroke-linejoin="round"/><circle cx="50" cy="29" r="3" fill="#EE4B4F"/><circle cx="41" cy="31" r="2" fill="#00BF63"/><circle cx="59" cy="31" r="2" fill="#00BF63"/>'
+};
+function mascot(mood='happy', outfit){
+  const wear = WEAR[outfit===undefined ? S.outfit : outfit] || '';
+  const mouth = {
+    happy:'<path d="M41 67 Q50 76 59 67" fill="none" stroke="#1E440E" stroke-width="3.4" stroke-linecap="round"/>',
+    wow:'<ellipse cx="50" cy="70" rx="5" ry="6" fill="#1E440E"/>',
+    sad:'<path d="M42 72 Q50 65 58 72" fill="none" stroke="#1E440E" stroke-width="3.4" stroke-linecap="round"/>',
+    cheer:'<path d="M39 65 Q50 80 61 65 Z" fill="#1E440E"/><path d="M44 71 Q50 75 56 71" fill="#EE4B4F"/>'
+  }[mood];
+  const brow = mood==='sad' ? '<path d="M33 45 L42 48M67 45 L58 48" stroke="#1E440E" stroke-width="2.6" stroke-linecap="round"/>' : '';
+  return `<svg viewBox="0 0 100 100" class="m" aria-hidden="true">
+    <ellipse cx="50" cy="94" rx="26" ry="4" fill="#000" opacity=".12"/>
+    <path d="M50 34 C49 24 50 18 52 12" stroke="#2E6417" stroke-width="4" fill="none" stroke-linecap="round"/>
+    <path d="M51 20 C43 6 26 5 18 10 C24 24 40 27 51 20Z" fill="#7ED957"/>
+    <path d="M51 20 C58 7 74 4 83 8 C78 22 62 27 51 20Z" fill="#C1FF72"/>
+    <path d="M31 18 C38 18 44 19 50 20M71 16 C64 17 58 18 52 20" stroke="#2E6417" stroke-width="1.6" fill="none" opacity=".5"/>
+    <path d="M50 30 C24 30 16 54 20 72 C24 90 76 90 80 72 C84 54 76 30 50 30Z" fill="#00BF63"/>
+    <path d="M26 58 C27 44 34 36 44 34" stroke="#fff" stroke-width="3" fill="none" opacity=".35" stroke-linecap="round"/>
+    <ellipse cx="39" cy="54" rx="7.5" ry="8.5" fill="#fff"/><ellipse cx="61" cy="54" rx="7.5" ry="8.5" fill="#fff"/>
+    <circle cx="${mood==='sad'?39:40.5}" cy="${mood==='sad'?57:55}" r="4" fill="#1E440E"/><circle cx="${mood==='sad'?61:62.5}" cy="${mood==='sad'?57:55}" r="4" fill="#1E440E"/>
+    <circle cx="41.8" cy="53.4" r="1.3" fill="#fff"/><circle cx="63.8" cy="53.4" r="1.3" fill="#fff"/>
+    <ellipse cx="30" cy="66" rx="5" ry="3" fill="#C1FF72" opacity=".8"/><ellipse cx="70" cy="66" rx="5" ry="3" fill="#C1FF72" opacity=".8"/>
+    ${brow}${mouth}${wear}
+  </svg>`;
+}
+
+/* ================= Inhalte ================= */
+const mc   = (q,o,x)=>({t:'mc',q,o,x});
+const tf   = (q,a,x)=>({t:'tf',q,a,x});
+const fill = (q,o,x)=>({t:'fill',q,o,x});
+const ord  = (q,o,x)=>({t:'order',q,o,x});
+const pair = (q,p,x)=>({t:'match',q,p,x});
+
+const UNITS = [
+ {t:'Klima & Energie', d:'Treibhausgase, Strom und warum jedes Grad zählt.', c:'#00BF63', s:'#00934C', i:'#fff', qs:[
+  mc('Welches Gas trägt durch menschliche Aktivitäten am stärksten zur Erderwärmung bei?',['Kohlendioxid (CO₂)','Sauerstoff','Stickstoff','Helium'],'CO₂ entsteht vor allem beim Verbrennen von Kohle, Öl und Gas. Es macht rund drei Viertel der weltweiten Treibhausgas-Emissionen aus.'),
+  fill('Im ___ Klimaabkommen von 2015 haben sich fast alle Staaten verpflichtet, die Erwärmung auf deutlich unter 2 °C zu begrenzen.',['Pariser','Wiener','Berliner','Genfer'],'Ziel ist sogar, die Erwärmung möglichst auf 1,5 °C zu begrenzen.'),
+  tf('Geräte im Standby-Modus verbrauchen keinen Strom.',false,'Auch im Standby fließt Strom – übers Jahr kommen schnell einige Dutzend Euro zusammen. Eine abschaltbare Steckdosenleiste hilft.'),
+  ord('Sortiere nach CO₂-Ausstoß pro Person und Kilometer – vom geringsten zum höchsten.',['Fahrrad','Fernzug','Auto (Benziner)','Inlandsflug'],'Das Fahrrad fährt praktisch emissionsfrei, der Zug ist deutlich klimafreundlicher als Auto und Flugzeug.'),
+  pair('Welche Energiequelle gehört zu welcher Technik?',[['Sonne','Photovoltaik'],['Wind','Windrad'],['Fließendes Wasser','Wasserkraftwerk'],['Erdwärme','Geothermie']],'Alle vier sind erneuerbare Energien – sie gehen nicht aus.'),
+  mc('Wie viel Heizenergie spart man ungefähr, wenn man die Raumtemperatur um 1 °C senkt?',['rund 6 %','rund 0,5 %','rund 25 %','rund 50 %'],'Schon ein Grad weniger spart etwa 6 % Heizenergie – ohne dass man es groß merkt.'),
+  tf('Stoßlüften (Fenster kurz weit öffnen) spart mehr Energie als ein dauerhaft gekipptes Fenster.',true,'Beim Dauerkippen kühlen Wände aus. Besser: mehrmals täglich 5–10 Minuten weit öffnen.'),
+  mc('Wie viel Treibhausgas verursacht eine Person in Deutschland durchschnittlich pro Jahr?',['rund 10 Tonnen','rund 1 Tonne','rund 50 Tonnen','rund 100 Kilogramm'],'Klimaverträglich wären langfristig weniger als 1 Tonne pro Person und Jahr.'),
+  mc('Welches Treibhausgas entsteht unter anderem im Magen von Rindern?',['Methan','Ozon','Wasserstoff','Argon'],'Methan wirkt über 20 Jahre betrachtet rund 80-mal stärker als CO₂.'),
+  tf('2024 stammte mehr als die Hälfte des Stroms in Deutschland aus erneuerbaren Energien.',true,'Je nach Berechnung lag der Anteil bei rund 54 bis 60 % – Wind ist dabei die wichtigste Quelle.'),
+  fill('Eine ___ nutzt Wärme aus Luft, Erdreich oder Grundwasser zum Heizen.',['Wärmepumpe','Ölheizung','Klimaanlage','Kerze'],'Mit Ökostrom betrieben heizt eine Wärmepumpe nahezu klimaneutral.'),
+  mc('Was bedeutet „klimaneutral“?',['Unterm Strich werden keine zusätzlichen Treibhausgase ausgestoßen','Das Wort Klima kommt nicht vor','Es wird überhaupt keine Energie verbraucht','Es wird nur Strom gespart'],'Emissionen werden so weit wie möglich vermieden, der Rest wird ausgeglichen.')
+ ]},
+ {t:'Fairer Handel', d:'Wer verdient an deiner Schokolade – und was Siegel bedeuten.', c:'#2E6417', s:'#1E440E', i:'#C1FF72', qs:[
+  mc('Was garantiert das Fairtrade-Siegel den Produzent*innen unter anderem?',['Einen Mindestpreis und eine Prämie für Gemeinschaftsprojekte','Kostenlose Maschinen','Einen Job in Europa','Dass nur Bio-Dünger verwendet wird'],'Der Mindestpreis schützt vor Preisstürzen am Weltmarkt, die Prämie fließt in Gemeinschaftsprojekte.'),
+  mc('Welches Land ist der größte Kakaoproduzent der Welt?',['Elfenbeinküste','Schweiz','Belgien','Deutschland'],'Zusammen mit Ghana stammt rund die Hälfte des Kakaos von dort – oft von Familien, die unter der Armutsgrenze leben.'),
+  tf('Fair gehandelte Produkte gibt es nur im Weltladen.',false,'Fairtrade-Produkte gibt es inzwischen in fast jedem Supermarkt und Discounter.'),
+  pair('Welches Siegel steht wofür?',[['Fairtrade','Faire Handelsbedingungen'],['Blauer Engel','Umweltfreundliche Produkte'],['FSC','Nachhaltige Forstwirtschaft'],['MSC','Nachhaltiger Fischfang']],'Siegel helfen beim Einkaufen – aber sie prüfen jeweils ganz unterschiedliche Dinge.'),
+  mc('Wie viele Kinder weltweit sind laut ILO und UNICEF von Kinderarbeit betroffen?',['rund 140 Millionen','rund 1 Million','rund 14.000','rund 1,4 Milliarden'],'Laut Schätzung von 2025 sind es rund 138 Millionen Kinder – viele davon in der Landwirtschaft.'),
+  fill('Das deutsche ___ verpflichtet große Unternehmen seit 2023, auf Menschenrechte in ihren Lieferketten zu achten.',['Lieferkettengesetz','Grundgesetz','Pfandgesetz','Tierschutzgesetz'],'Seit 2024 gilt es für Unternehmen ab 1.000 Beschäftigten in Deutschland (2023: ab 3.000). Die Bundesregierung will es im Zuge der EU-Lieferkettenrichtlinie überarbeiten.'),
+  tf('Bei Fairtrade entscheiden die Kooperativen gemeinsam, wofür die Fairtrade-Prämie ausgegeben wird.',true,'Zum Beispiel für Schulen, Brunnen, Gesundheitsstationen oder bessere Anbaumethoden.'),
+  ord('Bringe den Weg einer Tafel Schokolade in die richtige Reihenfolge.',['Kakaofrüchte ernten','Bohnen fermentieren und trocknen','Transport per Schiff','Verarbeitung in der Fabrik','Verkauf im Supermarkt'],'Der Großteil der Wertschöpfung passiert erst in Europa – nicht bei den Bauernfamilien.'),
+  mc('Welche Produkte gehören zu den bekanntesten Fairtrade-Produkten?',['Kaffee, Bananen und Kakao','Äpfel, Birnen und Pflaumen','Milch, Käse und Butter','Kartoffeln, Kohl und Rüben'],'Diese Produkte wachsen vor allem im globalen Süden und werden weltweit gehandelt.'),
+  mc('Was ist ein Weltladen?',['Ein Fachgeschäft für fair gehandelte Produkte','Ein Reisebüro für Weltreisen','Ein Laden für Globen und Karten','Ein Geschäft nur für Luxusimporte'],'In Deutschland gibt es rund 900 Weltläden – viele werden ehrenamtlich betrieben.'),
+  tf('Kleinbauernfamilien erhalten im konventionellen Kaffeehandel oft nur einen kleinen Bruchteil des Ladenpreises.',true,'Ein Großteil des Preises bleibt bei Röstereien, Handel und Steuern im Verkaufsland.'),
+  fill('Fairer Handel soll Produzent*innen ein existenzsicherndes ___ ermöglichen.',['Einkommen','Hobby','Zeugnis','Wetter'],'Existenzsichernd heißt: genug für Essen, Wohnen, Bildung und Gesundheit.')
+ ]},
+ {t:'Müll & Recycling', d:'Vermeiden, trennen, wiederverwenden.', c:'#7ED957', s:'#5DB23A', i:'#1E440E', qs:[
+  ord('Sortiere nach Zerfallsdauer in der Natur – von kurz nach lang.',['Bananenschale','Zigarettenfilter','Getränkedose (Alu)','Plastikflasche'],'Bananenschale: Wochen bis Monate. Zigarettenfilter: Jahre. Alu-Dose: bis zu 200 Jahre. Plastikflasche: rund 450 Jahre.'),
+  pair('Was gehört in welche Tonne?',[['Joghurtbecher','Gelbe Tonne'],['Zeitung','Papiertonne'],['Kartoffelschalen','Biotonne'],['Kassenbon','Restmüll']],'Kassenbons bestehen meist aus Thermopapier – das stört das Papierrecycling.'),
+  tf('Trinkgläser und Keramik gehören in den Altglascontainer.',false,'Sie schmelzen bei anderen Temperaturen und verunreinigen das Recyclingglas. Sie gehören in den Restmüll.'),
+  ord('Die Abfallhierarchie: Was ist am besten? Sortiere vom besten zum schlechtesten Weg.',['Vermeiden','Wiederverwenden','Recyceln','Verbrennen (Energie gewinnen)','Deponieren'],'Der beste Müll ist der, der gar nicht erst entsteht.'),
+  mc('Wie viel Pfand gibt es in Deutschland auf eine Einweg-Plastikflasche?',['25 Cent','8 Cent','15 Cent','50 Cent'],'Mehrwegflaschen haben meist 8 oder 15 Cent Pfand – und werden viele Male wiederbefüllt.'),
+  fill('Winzige Plastikteilchen, kleiner als 5 Millimeter, nennt man ___.',['Mikroplastik','Nanopapier','Makroglas','Bioplastik'],'Mikroplastik entsteht z. B. durch Reifenabrieb und zerfallenden Plastikmüll.'),
+  tf('Glas-Mehrwegflaschen können bis zu 50-mal wiederbefüllt werden.',true,'Deshalb sind regionale Mehrwegflaschen meist die umweltfreundlichste Wahl.'),
+  mc('Wohin mit alten Batterien?',['In eine Sammelbox im Handel oder zum Wertstoffhof','In den Restmüll','In die gelbe Tonne','In die Biotonne'],'Batterien enthalten Schadstoffe und wertvolle Metalle. Geschäfte, die Batterien verkaufen, müssen sie zurücknehmen.'),
+  mc('Was bedeutet „Upcycling“?',['Aus Altem etwas Neues, Wertvolleres machen','Müll nach oben tragen','Bergauf Fahrrad fahren','Plastik verbrennen'],'Aus alten Jeans wird eine Tasche, aus Paletten ein Sofa.'),
+  tf('Den Aludeckel vom Joghurtbecher sollte man vor dem Wegwerfen abtrennen.',true,'So kann die Sortieranlage die Materialien richtig erkennen und trennen.'),
+  mc('Warum sind Coffee-to-go-Becher ein Problem?',['Sie sind meist mit Kunststoff beschichtet und schwer zu recyceln','Sie bestehen aus reinem Glas','Sie sind essbar','Sie lösen sich im Kaffee auf'],'Ein Mehrwegbecher spart schon nach wenigen Wochen viele Einwegbecher.'),
+  fill('Ein Lebensstil mit möglichst wenig Abfall heißt „Zero ___“.',['Waste','Plastic','Water','Hero'],'Unverpackt-Läden, Mehrwegdosen und Stoffbeutel helfen dabei.')
+ ]},
+ {t:'Wasser & Ozeane', d:'Virtuelles Wasser, Plastik im Meer und Korallen.', c:'#C1FF72', s:'#9BD64A', i:'#2E6417', qs:[
+  mc('Wie viel des Wassers auf der Erde ist Süßwasser?',['rund 2,5 %','rund 25 %','rund 50 %','rund 97 %'],'Und davon ist der größte Teil in Gletschern und Polkappen gebunden.'),
+  ord('Sortiere nach „virtuellem Wasser“ in der Herstellung – von wenig nach viel.',['1 Tomate','1 Tasse Kaffee','1 Baumwoll-T-Shirt','1 kg Rindfleisch'],'Tomate: ca. 13 l, Kaffee: ca. 130 l, T-Shirt: ca. 2.700 l, Rindfleisch: ca. 15.000 l.'),
+  tf('In Deutschland verbraucht eine Person durchschnittlich rund 122 Liter Trinkwasser pro Tag.',true,'Das meiste davon für Duschen, Baden und die Toilettenspülung – nur wenige Liter zum Trinken und Kochen.'),
+  mc('Was nimmt das Meer in großen Mengen auf, sodass es versauert?',['CO₂ aus der Luft','Salz aus Flüssen','Sand vom Strand','Sauerstoff von Fischen'],'Die Ozeane schlucken rund ein Viertel des menschengemachten CO₂ – das senkt den pH-Wert.'),
+  fill('Wenn Korallen durch zu warmes Wasser ihre Farbe verlieren, spricht man von Korallen___.',['bleiche','blüte','schlaf','fest'],'Die Korallen stoßen ihre farbigen Algen ab – bleibt es zu lange warm, sterben sie.'),
+  tf('Duschen verbraucht meist weniger Wasser als ein Vollbad.',true,'Ein Vollbad braucht rund 150 Liter, eine 5-Minuten-Dusche mit Sparduschkopf deutlich weniger.'),
+  pair('Welche Bedrohung hat welche Ursache?',[['Überfischung','Zu viele Fangschiffe'],['Plastikmüll','Weggeworfene Verpackungen'],['Versauerung','CO₂-Aufnahme'],['Korallenbleiche','Wärmeres Wasser']],'Viele Bedrohungen verstärken sich gegenseitig.'),
+  mc('Was ist der „Great Pacific Garbage Patch“?',['Ein riesiger Müllstrudel im Pazifik','Eine Insel aus Korallen','Ein Meeresschutzgebiet','Ein Unterwasservulkan'],'Meeresströmungen sammeln dort Plastikmüll auf einer Fläche von über einer Million Quadratkilometern.'),
+  tf('Sauberes Trinkwasser ist weltweit für alle Menschen sicher verfügbar.',false,'Mehr als 2 Milliarden Menschen haben keinen sicheren Zugang zu Trinkwasser.'),
+  mc('Warum gehören Feuchttücher nicht in die Toilette?',['Sie zersetzen sich kaum und verstopfen Pumpen und Kläranlagen','Sie machen das Wasser zu sauber','Sie sind zu teuer','Sie färben das Wasser grün'],'Feuchttücher enthalten oft Kunststofffasern – sie gehören in den Restmüll.'),
+  fill('Die Meere produzieren etwa ___ des Sauerstoffs, den wir atmen.',['die Hälfte','ein Zehntel','ein Hundertstel','ein Tausendstel'],'Den größten Teil leistet winziges Plankton.'),
+  mc('Welches Siegel kennzeichnet Fisch aus nachhaltigerer Fischerei?',['MSC','TÜV','CE','DIN'],'MSC steht für Marine Stewardship Council.')
+ ]},
+ {t:'Essen & Klima', d:'Saisonal, regional und nichts verschwenden.', c:'#00BF63', s:'#00934C', i:'#fff', qs:[
+  ord('Sortiere nach Treibhausgasen pro Kilogramm – von wenig nach viel.',['Kartoffeln','Tofu','Hähnchenfleisch','Rindfleisch'],'Rindfleisch verursacht ein Vielfaches der Emissionen von pflanzlichen Lebensmitteln.'),
+  pair('Wann haben diese Lebensmittel in Deutschland Saison?',[['Spargel','April bis Juni'],['Erdbeeren','Mai bis Juli'],['Kürbis','September bis November'],['Grünkohl','November bis Februar']],'Saisonal gekauft sparen sie beheizte Gewächshäuser und lange Transportwege.'),
+  tf('Nach Ablauf des Mindesthaltbarkeitsdatums (MHD) muss man Lebensmittel sofort wegwerfen.',false,'Anschauen, riechen, probieren! Vorsicht nur beim „zu verbrauchen bis“-Datum, z. B. bei Hackfleisch.'),
+  mc('Wie viele Lebensmittel werden in Deutschland pro Jahr weggeworfen?',['rund 11 Millionen Tonnen','rund 11.000 Tonnen','rund 110 Tonnen','rund 1 Milliarde Tonnen'],'Mehr als die Hälfte davon in privaten Haushalten – rund 75 kg pro Person.'),
+  mc('Warum sind Erdbeeren im Januar meist klimaschädlicher?',['Lange Transportwege, teils per Flugzeug, oder beheizte Gewächshäuser','Sie haben im Winter mehr Zucker','Sie sind röter','Sie sind nicht klimaschädlicher'],'Regional und saisonal ist fast immer die bessere Wahl.'),
+  fill('Obst und Gemüse, das in der Nähe angebaut wird, nennt man ___.',['regional','global','digital','optional'],'Regional heißt kurze Wege – am besten kombiniert mit saisonal.'),
+  tf('Rindfleisch braucht viel mehr Fläche als Getreide oder Hülsenfrüchte mit gleichem Nährwert.',true,'Ein großer Teil der Ackerfläche weltweit wird für Tierfutter genutzt.'),
+  mc('Was ist „Foodsharing“?',['Übrige Lebensmittel weitergeben statt wegwerfen','Im Restaurant teilen müssen','Fotos von Essen posten','Ein Diätprogramm'],'Über Fairteiler und Apps retten Menschen Lebensmittel vor der Tonne.'),
+  mc('Wofür steht das EU-Bio-Siegel unter anderem?',['Keine chemisch-synthetischen Pflanzenschutzmittel','Kostenlose Lieferung','Besonders große Portionen','Garantiert faire Löhne'],'Wichtig: Bio heißt nicht automatisch fair – das prüfen andere Siegel.'),
+  tf('„Krumme“ Gurken oder kleine Kartoffeln sind genauso nahrhaft wie makellos aussehende.',true,'Viel Obst und Gemüse wird nur wegen seines Aussehens aussortiert.'),
+  mc('Welche Lebensmittel sind Hülsenfrüchte?',['Linsen, Bohnen, Kichererbsen','Reis, Nudeln, Brot','Äpfel, Birnen, Kirschen','Käse, Quark, Joghurt'],'Hülsenfrüchte sind eiweißreich und binden sogar Stickstoff im Boden.'),
+  fill('Die „Planetary Health Diet“ empfiehlt viel Gemüse, Obst, Vollkorn und Hülsenfrüchte – und nur wenig ___.',['Fleisch','Wasser','Salat','Obst'],'So ließen sich 10 Milliarden Menschen gesund und innerhalb planetarer Grenzen ernähren.')
+ ]},
+ {t:'Artenvielfalt', d:'Bienen, Moore und warum Totholz lebt.', c:'#2E6417', s:'#1E440E', i:'#C1FF72', qs:[
+  mc('Wie viele Tier- und Pflanzenarten sind laut Weltbiodiversitätsrat vom Aussterben bedroht?',['rund 1 Million','rund 1.000','rund 100','rund 10 Milliarden'],'Das stellte der Weltbiodiversitätsrat IPBES 2019 fest.'),
+  tf('Moore speichern mehr Kohlenstoff als alle Wälder der Erde zusammen – obwohl sie nur rund 3 % der Landfläche bedecken.',true,'Deshalb ist es so wichtig, trockengelegte Moore wieder zu vernässen.'),
+  pair('Welches Tier lebt wo?',[['Biber','Fluss und Bach'],['Seehund','Wattenmeer'],['Specht','Wald'],['Feldlerche','Feld und Wiese']],'Wer Lebensräume schützt, schützt die Arten darin.'),
+  mc('Warum sind Bienen und andere Bestäuber so wichtig?',['Rund drei Viertel der wichtigsten Nutzpflanzen profitieren von ihrer Bestäubung','Sie produzieren Sauerstoff','Sie fressen Plastik','Sie halten Wölfe fern'],'Ohne Bestäuber gäbe es viel weniger Äpfel, Kirschen, Kürbisse und Mandeln.'),
+  fill('Wenn auf einer großen Fläche jahrelang nur eine einzige Pflanzenart wächst, nennt man das ___.',['Monokultur','Mischwald','Blühstreifen','Fruchtfolge'],'Monokulturen bieten wenig Lebensraum und sind anfällig für Schädlinge.'),
+  tf('Ein aufgeräumter Garten mit kurz gemähtem Rasen ist besonders gut für Insekten.',false,'Wilde Ecken, heimische Blumen und Laubhaufen sind viel wertvoller.'),
+  mc('Wie stark ging laut der Krefelder Studie die Masse fliegender Insekten in Schutzgebieten zwischen 1989 und 2016 zurück?',['um mehr als 75 %','um etwa 5 %','um etwa 20 %','gar nicht'],'Die Studie von 2017 hat das Thema Insektensterben bekannt gemacht.'),
+  mc('Welcher Lebensraum ist besonders artenreich?',['Tropischer Regenwald','Fichten-Monokultur','Parkplatz mit Bäumen','Weihnachtsbaumplantage'],'Tropische Regenwälder bedecken wenig Fläche, beherbergen aber rund die Hälfte aller Arten an Land.'),
+  ord('Bringe diese Nahrungskette in die richtige Reihenfolge – vom Anfang bis zum Ende.',['Plankton-Algen','Kleinkrebse','Hering','Seehund'],'Fällt ein Glied aus, gerät die ganze Kette ins Wanken.'),
+  tf('Tote Bäume (Totholz) sind wertlos für die Natur.',false,'Totholz ist Lebensraum für Tausende Käfer-, Pilz- und Vogelarten.'),
+  mc('Was sind „invasive Arten“?',['Eingeschleppte Arten, die heimische Arten verdrängen','Besonders seltene heimische Arten','Tiere, die Winterschlaf halten','Pflanzen, die nur im Topf wachsen'],'Ein Beispiel ist der Asiatische Marienkäfer.'),
+  fill('Ein Streifen mit Wildblumen am Ackerrand heißt ___ und bietet Insekten Nahrung.',['Blühstreifen','Mittelstreifen','Zebrastreifen','Seitenstreifen'],'Schon ein Balkonkasten mit heimischen Blumen hilft Wildbienen.')
+ ]},
+ {t:'Mode & Konsum', d:'Fast Fashion, Smartphones und Reparieren.', c:'#7ED957', s:'#5DB23A', i:'#1E440E', qs:[
+  mc('Was versteht man unter „Fast Fashion“?',['Billige Kleidung, die schnell produziert und schnell weggeworfen wird','Sportkleidung zum Rennen','Kleidung aus recyceltem Plastik','Mode, die nur online verkauft wird'],'Manche Marken bringen jede Woche neue Kollektionen heraus.'),
+  mc('2013 stürzte in Bangladesch die Textilfabrik Rana Plaza ein. Wie viele Menschen starben?',['über 1.100','etwa 10','etwa 50','niemand'],'Die Katastrophe führte zu einem verbindlichen Abkommen für mehr Gebäudesicherheit.'),
+  tf('Viele Kleidungsstücke in deutschen Schränken werden selten oder nie getragen.',true,'Umfragen zufolge wird rund 40 % der Kleidung kaum oder gar nicht getragen.'),
+  pair('Welcher Begriff passt zu welcher Idee?',[['Secondhand','Gebraucht kaufen'],['Upcycling','Aufwerten statt wegwerfen'],['Repair-Café','Gemeinsam reparieren'],['Kleidertausch','Tauschen statt kaufen']],'Das nachhaltigste Kleidungsstück ist das, das schon existiert.'),
+  fill('Wenn Unternehmen sich umweltfreundlicher darstellen, als sie sind, nennt man das ___.',['Greenwashing','Brainstorming','Upcycling','Carsharing'],'Achte auf unabhängige Siegel statt auf grüne Werbesprüche.'),
+  mc('Welcher Rohstoff für Handy-Akkus wird oft in der Demokratischen Republik Kongo abgebaut – teils unter gefährlichen Bedingungen?',['Kobalt','Holz','Schafwolle','Kakao'],'Auch Kinder arbeiten dort in Kleinminen.'),
+  tf('Das Smartphone länger zu nutzen ist einer der wirksamsten Wege, seinen Handy-Fußabdruck zu senken.',true,'Der größte Teil der Emissionen eines Smartphones entsteht bei der Herstellung.'),
+  ord('Bringe den Lebensweg eines T-Shirts in die richtige Reihenfolge.',['Baumwolle anbauen','Garn spinnen','Stoff weben und färben','T-Shirt nähen','Im Laden verkaufen'],'Oft liegen diese Schritte in verschiedenen Ländern – ein T-Shirt reist tausende Kilometer.'),
+  mc('Wie viele neue Kleidungsstücke kauft eine Person in Deutschland durchschnittlich pro Jahr?',['rund 60','rund 5','rund 500','rund 1'],'Das ist mehr als ein neues Teil pro Woche.'),
+  mc('Was ist das „Recht auf Reparatur“?',['EU-Regeln, die Reparaturen und Ersatzteile leichter zugänglich machen','Ein Gesetz, das Reparaturen verbietet','Ein kostenloses Handy für alle','Eine Garantie für neue Kleidung'],'Die EU hat dazu 2024 eine Richtlinie beschlossen.'),
+  tf('Kleidung aus Polyester verliert beim Waschen Mikroplastikfasern.',true,'Ein Waschbeutel mit Filter und seltener waschen helfen.'),
+  fill('Dinge zu leihen, zu tauschen oder gemeinsam zu nutzen, statt sie neu zu kaufen, nennt man ___.',['Sharing','Shopping','Streaming','Styling'],'Bohrmaschine, Lastenrad, Auto – vieles lässt sich prima teilen.')
+ ]},
+ {t:'Globale Gerechtigkeit', d:'Die 17 Ziele, Klimagerechtigkeit und faire Chancen.', c:'#C1FF72', s:'#9BD64A', i:'#2E6417', qs:[
+  mc('Wie viele Ziele für nachhaltige Entwicklung (SDGs) haben die Vereinten Nationen 2015 beschlossen?',['17','5','10','100'],'Die 17 Ziele bilden zusammen die Agenda 2030.'),
+  pair('Welches Nachhaltigkeitsziel hat welches Thema?',[['SDG 5','Geschlechter­gleichheit'],['SDG 6','Sauberes Wasser'],['SDG 12','Nachhaltiger Konsum'],['SDG 13','Klimaschutz']],'Alle 17 Ziele hängen miteinander zusammen.'),
+  fill('Die Ziele für nachhaltige Entwicklung sollen bis zum Jahr ___ erreicht werden.',['2030','2025','2050','2100'],'Deshalb heißt der Plan auch „Agenda 2030“.'),
+  mc('Wenn alle Menschen so leben würden wie wir in Deutschland – wie viele Erden bräuchten wir etwa?',['rund 3','rund 1','rund 0,5','rund 10'],'Deshalb liegt der deutsche Erdüberlastungstag schon im Mai (2026: 10. Mai).'),
+  tf('Länder, die am wenigsten zur Klimakrise beigetragen haben, sind oft am stärksten von ihren Folgen betroffen.',true,'Genau darum geht es bei Klimagerechtigkeit.'),
+  mc('Was bedeutet der „Erdüberlastungstag“?',['Ab diesem Tag hat die Menschheit mehr verbraucht, als die Erde im Jahr erneuern kann','Der Tag mit dem meisten Verkehr','Der heißeste Tag des Jahres','Der Tag der Erde am 22. April'],'Weltweit liegt er inzwischen Ende Juli.'),
+  mc('Wie groß war 2025 in Deutschland der unbereinigte Gender Pay Gap (Stundenlohn Frauen gegenüber Männern)?',['16 %','1 %','50 %','0 %'],'Frauen verdienten pro Stunde im Schnitt 16 % weniger als Männer.'),
+  tf('Die reichsten 10 % der Weltbevölkerung verursachen rund die Hälfte der weltweiten Konsum-Emissionen.',true,'Die ärmere Hälfte der Menschheit verursacht dagegen nur rund 8 %.'),
+  ord('Bringe diese Meilensteine der Klimapolitik in die zeitliche Reihenfolge.',['Erdgipfel in Rio de Janeiro','Kyoto-Protokoll','Pariser Klimaabkommen'],'Rio 1992, Kyoto 1997, Paris 2015.'),
+  mc('Wofür steht SDG 1?',['Keine Armut','Kein Plastik','Keine Autos','Keine Hausaufgaben'],'Mehr als 800 Millionen Menschen leben in extremer Armut – mit weniger als 3 US-Dollar pro Tag.'),
+  fill('Wer sich unbezahlt für eine gute Sache engagiert, arbeitet ___.',['ehrenamtlich','hauptberuflich','nebenbei','heimlich'],'In Deutschland engagieren sich Millionen Menschen ehrenamtlich.'),
+  tf('Nachhaltigkeit hat drei Dimensionen: Ökologie, Ökonomie und Soziales.',true,'Nur wenn alle drei zusammenpassen, ist etwas wirklich nachhaltig.')
+ ]}
+];
+/* Aufgaben 13–18 jeder Einheit = eigene Aufgaben für Lektion 3 („Profi“) */
+const PROFI = [
+ [ mc('Um wie viel hat sich die Erde seit Beginn der Industrialisierung ungefähr erwärmt?',['rund 1,4 °C','rund 0,1 °C','rund 5 °C','rund 10 °C'],'Das Jahr 2024 lag sogar schon über 1,5 °C – im langjährigen Mittel sind es rund 1,4 °C.'),
+   tf('Wetter und Klima sind dasselbe.',false,'Wetter ist das, was wir heute draußen erleben. Klima ist der Durchschnitt des Wetters über mindestens 30 Jahre.'),
+   fill('Der natürliche ___ sorgt dafür, dass es auf der Erde im Schnitt etwa 15 °C statt –18 °C warm ist.',['Treibhauseffekt','Ozonloch','Golfstrom','Mondzyklus'],'Ohne ihn wäre die Erde eisig. Zum Problem wird erst der zusätzliche, menschengemachte Treibhauseffekt.'),
+   pair('Welche Folge des Klimawandels passt zu welchem Beispiel?',[['Meeresspiegelanstieg','Überflutete Küsten'],['Hitzewellen','Mehr Hitzetote'],['Dürre','Ernteausfälle'],['Gletscherschmelze','Weniger Wasser in Bergregionen']],'Viele Folgen treffen Menschen, die wenig zur Krise beigetragen haben.'),
+   mc('Welches Land stößt derzeit insgesamt am meisten CO₂ aus?',['China','Deutschland','Brasilien','Schweiz'],'Pro Kopf liegen aber z. B. die USA deutlich vor China – und historisch haben die Industrieländer am meisten ausgestoßen.'),
+   ord('Sortiere nach CO₂ pro Kilowattstunde Strom – von wenig nach viel.',['Windkraft','Erdgas','Braunkohle'],'Braunkohle ist der klimaschädlichste Energieträger – Wind verursacht nur einen Bruchteil davon.') ],
+ [ mc('Was ist eine Kooperative?',['Ein Zusammenschluss von Produzent*innen, die gemeinsam wirtschaften','Ein Supermarkt','Eine Bank nur für Reiche','Ein Rezept für Schokolade'],'Gemeinsam haben Kleinbauernfamilien mehr Verhandlungsmacht.'),
+   tf('Die Fairtrade-Standards verbieten ausbeuterische Kinderarbeit.',true,'Kontrollen und Schutzprogramme sollen Kinderarbeit verhindern und Kindern den Schulbesuch ermöglichen.'),
+   pair('Welches Produkt kommt besonders oft aus welchem Land?',[['Kaffee','Brasilien'],['Bananen','Ecuador'],['Kakao','Elfenbeinküste'],['Baumwolle','Indien']],'Brasilien ist der größte Kaffeeproduzent, Ecuador der größte Bananenexporteur der Welt. Indien gehört zu den größten Baumwollproduzenten.'),
+   fill('Die Internationale ___ (ILO) ist die UN-Organisation für Arbeitsrechte.',['Arbeitsorganisation','Handelskammer','Bankenaufsicht','Raumfahrtbehörde'],'Sie setzt weltweite Mindeststandards, z. B. gegen Kinder- und Zwangsarbeit.'),
+   mc('Welches Siegel steht NICHT für fairen Handel?',['Blauer Engel','Fairtrade','GEPA fair+','Naturland Fair'],'Der Blaue Engel ist ein Umweltzeichen – er prüft keine fairen Handelsbedingungen.'),
+   tf('Auch Blumen wie Rosen gibt es mit Fairtrade-Siegel.',true,'Viele Fairtrade-Rosen kommen aus Kenia und Äthiopien.') ],
+ [ mc('Was ist Kreislaufwirtschaft?',['Produkte und Rohstoffe möglichst lange im Kreislauf halten','Müll im Kreis fahren','Nur Papier recyceln','Alles verbrennen'],'Ziel: Aus Abfall werden wieder Rohstoffe – statt immer neue abzubauen.'),
+   tf('Deutschland verursacht im EU-Vergleich besonders viel Verpackungsmüll pro Kopf.',true,'Deutschland liegt deutlich über dem EU-Durchschnitt.'),
+   fill('Wegwerfprodukte aus Plastik wie Strohhalme und Einweg-Besteck sind in der EU seit ___ verboten.',['2021','1990','2010','2035'],'Das Verbot gilt seit dem 3. Juli 2021.'),
+   pair('Was wird aus dem Abfall?',[['Altpapier','Recyclingpapier'],['PET-Flaschen','Fleecestoff und neue Flaschen'],['Altglas','Neue Glasflaschen'],['Bioabfall','Kompost und Biogas']],'Richtig getrennt wird Müll zum Rohstoff.'),
+   mc('In welchen Altglascontainer gehört eine blaue Glasflasche?',['Grünglas','Weißglas','Braunglas','Restmüll'],'Alle Farben außer Weiß und Braun – also auch blau oder rot – gehören ins Grünglas.'),
+   tf('Recyceln ist immer besser als Wiederverwenden.',false,'Laut Abfallhierarchie steht Wiederverwenden vor dem Recyceln.') ],
+ [ mc('Wofür wird in deutschen Haushalten das meiste Trinkwasser verwendet?',['Baden, Duschen und Körperpflege','Trinken und Kochen','Blumen gießen','Geschirrspülen'],'Gut ein Drittel geht in die Körperpflege, gut ein Viertel in die Toilettenspülung.'),
+   tf('Die Landwirtschaft ist weltweit der größte Wasserverbraucher.',true,'Rund 70 % des weltweit entnommenen Süßwassers fließen in die Landwirtschaft.'),
+   fill('Wasser, das wir indirekt über Produkte verbrauchen, nennt man ___ Wasser.',['virtuelles','heiliges','leichtes','schweres'],'Der Begriff zeigt, wie viel Wasser in Kleidung, Essen und Technik steckt.'),
+   mc('Welcher See in Zentralasien ist durch übermäßige Bewässerung größtenteils ausgetrocknet?',['Aralsee','Bodensee','Gardasee','Victoriasee'],'Seine Zuflüsse wurden für Baumwollfelder abgeleitet – eine der größten Umweltkatastrophen.'),
+   pair('Welches Meerestier ist wodurch bedroht?',[['Meeresschildkröte','Verwechselt Plastiktüten mit Quallen'],['Kabeljau','Überfischung'],['Wal','Schiffslärm und Kollisionen'],['Korallenriff','Meereserwärmung']],'Meeresschutzgebiete helfen vielen Arten, sich zu erholen.'),
+   tf('In Deutschland ist es besonders wirksam, warmes Wasser zu sparen – wegen der Energie zum Erhitzen.',true,'Kürzer und weniger heiß duschen spart Wasser, Energie und Geld.') ],
+ [ mc('Was bedeutet „saisonal“ beim Essen?',['Obst und Gemüse essen, wenn es bei uns natürlich reif wird','Nur im Sommer essen','Nur Tiefkühlware kaufen','Nur Essen aus Dosen'],'Saisonal heißt: ohne beheiztes Gewächshaus und ohne weite Transporte.'),
+   tf('Tiefkühlgemüse ist immer klimaschädlicher als frisches Gemüse.',false,'„Immer“ stimmt nicht: Tiefgekühltes kann besser sein als frisches Gemüse, das weit eingeflogen wurde.'),
+   fill('Wechselt man die angebauten Pflanzen auf einem Feld jedes Jahr, um den Boden zu schonen, nennt man das ___.',['Fruchtfolge','Monokultur','Flurbereinigung','Treibhaus'],'Eine gute Fruchtfolge hält den Boden fruchtbar und beugt Schädlingen vor.'),
+   pair('Woraus wird das gemacht?',[['Tofu','Sojabohnen'],['Pommes','Kartoffeln'],['Hummus','Kichererbsen'],['Schokolade','Kakaobohnen']],'Wer weiß, woraus Essen besteht, kann bewusster einkaufen.'),
+   mc('Wofür wird der größte Teil der weltweit angebauten Sojabohnen verwendet?',['Als Tierfutter','Für Tofu','Für Sojamilch','Für Kosmetik'],'Rund drei Viertel landen im Futtertrog – für Tofu und Sojadrinks wird nur ein kleiner Teil genutzt.'),
+   ord('Sortiere nach CO₂ pro Tonne Fracht und Kilometer – von wenig nach viel.',['Güterzug','Lkw','Flugzeug'],'Luftfracht verursacht ein Vielfaches der Emissionen von Bahn und Lkw.') ],
+ [ mc('Was ist ein Nationalpark?',['Ein großes Schutzgebiet, in dem sich die Natur möglichst frei entwickeln darf','Ein Freizeitpark','Ein Stadtpark mit Spielplatz','Ein Zoo'],'Deutschland hat 16 Nationalparks, z. B. den Bayerischen Wald und das Wattenmeer.'),
+   fill('Die Rote ___ zeigt, welche Tier- und Pflanzenarten gefährdet sind.',['Liste','Karte','Linie','Ampel'],'Die weltweite Rote Liste führt die Weltnaturschutzunion IUCN.'),
+   tf('In Deutschland leben wieder frei lebende Wölfe.',true,'Seit etwa 2000 sind Wölfe nach Deutschland zurückgekehrt.'),
+   pair('Welcher Begriff bedeutet was?',[['Biotop','Lebensraum'],['Ökosystem','Lebewesen und Umwelt als Einheit'],['Artenvielfalt','Anzahl verschiedener Arten'],['Bestäubung','Übertragung von Pollen']],'Diese Begriffe brauchst du, um über Naturschutz mitzureden.'),
+   mc('Welcher Greifvogel war in Deutschland fast verschwunden und brütet heute wieder in vielen Regionen?',['Seeadler','Amsel','Spatz','Taube'],'Dank Schutzmaßnahmen und Verbot des Insektizids DDT hat sich der Bestand erholt.'),
+   tf('Helle Beleuchtung in der Nacht schadet Insekten.',true,'Lichtverschmutzung lockt nachtaktive Insekten an, die dann erschöpft sterben.') ],
+ [ mc('Was versteht man unter „geplanter Obsoleszenz“?',['Den Vorwurf, dass Produkte absichtlich so gebaut werden, dass sie früh kaputtgehen','Einen Rabatt beim Kauf','Eine längere Garantie','Ein Recyclingverfahren'],'Ob das gezielt passiert, ist umstritten – klar ist: Reparierbare Produkte halten länger.'),
+   fill('Das staatliche Siegel für nachhaltig produzierte Textilien in Deutschland heißt „Grüner ___“.',['Knopf','Faden','Punkt','Engel'],'Es prüft soziale und ökologische Anforderungen an Produkt und Unternehmen.'),
+   tf('Bio-Baumwolle wird ohne chemisch-synthetische Pestizide angebaut.',true,'Außerdem ist gentechnisch verändertes Saatgut nicht erlaubt.'),
+   pair('Welches Siegel oder Label gehört zu welchem Bereich?',[['GOTS','Bio-Textilien'],['Grüner Knopf','Staatliches Textilsiegel'],['EU-Energielabel','Energieverbrauch von Geräten'],['Blauer Engel','Umweltfreundliche Produkte']],'Siegel helfen – aber nur, wenn man weiß, was sie prüfen.'),
+   mc('Der Reißverschluss deiner Lieblingsjacke ist kaputt. Was ist am nachhaltigsten?',['Reparieren lassen','Jacke wegwerfen','Neue Jacke kaufen','In den Restmüll damit'],'Eine Reparatur kostet oft wenig und spart viele Ressourcen.'),
+   tf('Online bestellte Kleidung wird häufig zurückgeschickt – das verursacht zusätzliche Transporte.',true,'Deutschland gehört zu den Ländern mit den meisten Rücksendungen in Europa.') ],
+ [ mc('In welchem Jahr wurde die Allgemeine Erklärung der Menschenrechte verabschiedet?',['1948','1848','1989','2001'],'Die Vereinten Nationen verabschiedeten sie am 10. Dezember 1948.'),
+   fill('Die Klimabewegung „Fridays for ___“ wurde durch Schulstreiks bekannt.',['Future','Freedom','Fun','Friends'],'Sie begann 2018 mit dem Schulstreik von Greta Thunberg in Schweden.'),
+   tf('Das Recht auf Bildung ist ein Menschenrecht.',true,'Es steht in Artikel 26 der Allgemeinen Erklärung der Menschenrechte.'),
+   pair('Noch mehr Ziele: Welches SDG hat welches Thema?',[['SDG 2','Kein Hunger'],['SDG 4','Hochwertige Bildung'],['SDG 7','Saubere Energie'],['SDG 14','Leben unter Wasser']],'Zusammen mit SDG 1, 5, 6, 12 und 13 kennst du jetzt schon viele der 17 Ziele.'),
+   mc('Was bedeutet „Generationengerechtigkeit“?',['Heute so leben, dass auch künftige Generationen gute Lebenschancen haben','Ältere müssen mehr bezahlen','Jede Generation hat eigene Schulen','Nur Kinder dürfen wählen'],'Das ist der Kern der Idee von Nachhaltigkeit.'),
+   tf('Auch Jugendliche unter 18 können sich politisch engagieren, z. B. in Jugendparlamenten.',true,'In vielen Städten gibt es Jugendparlamente oder Jugendbeiräte.') ]
+];
+PROFI.forEach((qs,u)=>UNITS[u].qs.push(...qs));
+/* ===== Neue Einheiten 9–12 ===== */
+const NEW_UNITS = [
+ {t:'Mobilität & Verkehr', d:'Auto, Rad, Bahn und die Verkehrswende.', c:'#00BF63', s:'#00934C', i:'#fff', qs:[
+  /* Lektion 1 – Grundlagen */
+  mc('Welcher Anteil der Treibhausgas-Emissionen in Deutschland stammt aus dem Verkehr?',['rund ein Fünftel','rund ein Hundertstel','rund die Hälfte','fast alles'],'2023 waren es rund 22 %. Der allergrößte Teil davon kommt aus dem Straßenverkehr, vor allem von Pkw und Lkw.'),
+  tf('Die Treibhausgas-Emissionen des Verkehrs in Deutschland sind seit 1990 nur wenig gesunken.',true,'Bis 2023 nur um rund 11 % – viel weniger als in anderen Bereichen. Motoren wurden zwar sparsamer, aber es gibt mehr und größere Autos und mehr Verkehr.'),
+  fill('Mit dem ___ kann man für einen festen Monatspreis in ganz Deutschland Busse, Straßenbahnen und Regionalzüge nutzen.',['Deutschlandticket','Flugticket','Parkticket','Kinoticket'],'Das Ticket gibt es seit Mai 2023. ICE- und IC-Züge sind nicht enthalten. Der Preis wurde schon mehrfach angepasst (2026: 63 Euro im Monat).'),
+  mc('Wie viele Stunden steht ein Auto in Deutschland durchschnittlich pro Tag ungenutzt herum?',['rund 23 Stunden','rund 2 Stunden','rund 8 Stunden','rund 12 Stunden'],'Im Schnitt wird ein Auto weniger als eine Stunde am Tag bewegt – den Rest der Zeit braucht es einen Parkplatz.'),
+  pair('Welcher Begriff passt zu welcher Beschreibung?',[['Carsharing','Autos bei Bedarf stundenweise leihen'],['Pedelec','Fahrrad mit Elektro-Unterstützung'],['Park-and-Ride','Mit dem Auto zum Bahnhof, weiter mit der Bahn'],['Fahrgemeinschaft','Mehrere Personen fahren zusammen in einem Auto']],'So kommt man flexibel ans Ziel, ohne dass jede Person ein eigenes Auto braucht.'),
+  tf('E-Scooter darf man in Deutschland ab 14 Jahren fahren.',true,'Einen Führerschein braucht man nicht. Aber: nur eine Person pro Roller – und auf dem Gehweg ist das Fahren verboten.'),
+  /* Lektion 2 – Vertiefung */
+  mc('Wie viele Personen sitzen in Deutschland durchschnittlich in einem fahrenden Auto?',['rund 1,4','rund 2,5','rund 3,5','rund 4,5'],'Die meisten Plätze bleiben also leer. Mit Fahrgemeinschaften ließen sich viele Fahrten einsparen.'),
+  mc('Wie viele Pkw sind in Deutschland ungefähr zugelassen?',['knapp 50 Millionen','rund 5 Millionen','rund 150 Millionen','rund 500.000'],'Das sind mehr als halb so viele Autos wie Einwohner*innen – und die Zahl steigt immer noch leicht.'),
+  tf('Ein Elektroauto ist über sein ganzes Autoleben betrachtet meist klimafreundlicher als ein Benziner – obwohl die Herstellung des Akkus viel CO₂ verursacht.',true,'Den Nachteil aus der Herstellung holt das E-Auto im Betrieb nach einiger Zeit auf. Je mehr Ökostrom es lädt, desto größer wird sein Vorsprung.'),
+  fill('Wenn Kinder mit dem Auto bis direkt vor das Schultor gebracht werden, spricht man vom „Eltern___“.',['taxi','boot','flug','zug'],'Elterntaxis sorgen morgens für Stau und gefährliche Situationen vor Schulen. Zu Fuß, mit dem Rad oder dem Bus zu kommen bringt Bewegung und macht selbstständig.'),
+  ord('Bringe diese Meilensteine der Mobilität in die zeitliche Reihenfolge.',['Erste deutsche Eisenbahn Nürnberg–Fürth','Carl Benz meldet sein Auto mit Benzinmotor zum Patent an','Erster ICE im Linienverkehr','Start des Deutschlandtickets'],'1835, 1886, 1991, 2023 – die erste deutsche Eisenbahn fuhr übrigens in Bayern.'),
+  pair('Welcher Antrieb gehört zu welchem Fahrzeug?',[['Elektroauto','Akku (Batterie)'],['Brennstoffzellenauto','Wasserstoff'],['Straßenbahn','Strom aus der Oberleitung'],['Dieselbus','Kraftstoff aus Erdöl']],'Wie klimafreundlich ein Elektroantrieb ist, hängt davon ab, wie der Strom oder der Wasserstoff erzeugt wird.'),
+  /* Lektion 3 – Profi: Verkehrswende */
+  mc('Was gilt in einer Fahrradstraße?',['Radfahrende dürfen nebeneinander fahren, Autos nur mit Zusatzschild','Fahrräder müssen dort geschoben werden','Autos haben dort immer Vorrang vor Rädern','Dort gilt kein Tempolimit'],'Für alle Fahrzeuge gilt dort höchstens Tempo 30 – und der Radverkehr darf nicht behindert werden.'),
+  tf('Beim Fliegen schadet nur das ausgestoßene CO₂ dem Klima.',false,'Auch Kondensstreifen und Stickoxide in großer Höhe heizen die Erde auf. Nach Berechnungen des DLR geht nur rund ein Drittel der Klimawirkung des Luftverkehrs auf CO₂ zurück.'),
+  mc('Wie viel Fläche braucht ein einzelner Auto-Stellplatz ungefähr?',['rund 12 m²','rund 1 m²','rund 100 m²','rund 1.000 m²'],'Das ist etwa so groß wie ein Kinderzimmer. Auf derselben Fläche lassen sich rund acht bis zehn Fahrräder abstellen.'),
+  fill('Die Idee, dass man Schule, Einkauf, Arztpraxis und Park in einer Viertelstunde zu Fuß oder mit dem Rad erreicht, heißt „___-Minuten-Stadt“.',['15','5','60','90'],'Bekannt gemacht hat das Konzept vor allem Paris. Kurze Wege vermeiden Verkehr, bevor er entsteht.'),
+  ord('Das Prinzip der Verkehrswende: Was hat Vorrang? Sortiere von der ersten zur letzten Stufe.',['Verkehr vermeiden','Verkehr verlagern (z. B. auf Bahn und Rad)','Verkehr verbessern (z. B. saubere Antriebe)'],'Am klimafreundlichsten ist die Fahrt, die gar nicht nötig ist – ganz ähnlich wie beim Müll, wo Vermeiden an erster Stelle steht.'),
+  mc('Bis zu welcher Geschwindigkeit unterstützt der Motor eines normalen Pedelecs beim Treten?',['25 km/h','10 km/h','60 km/h','120 km/h'],'Ein Pedelec gilt deshalb rechtlich als Fahrrad – ohne Führerschein und Versicherungskennzeichen. Schnellere S-Pedelecs (bis 45 km/h) zählen dagegen als Kleinkraftrad.')
+ ]},
+ {t:'Digitales & Klima', d:'Streaming, Rechenzentren, KI und E-Schrott.', c:'#2E6417', s:'#1E440E', i:'#C1FF72', qs:[
+  /* Lektion 1 – Grundlagen */
+  mc('Welcher Anteil der weltweiten Treibhausgas-Emissionen geht ungefähr auf digitale Technik zurück (Geräte, Netze und Rechenzentren)?',['rund 2 bis 4 %','rund 30 bis 40 %','rund 60 bis 70 %','weniger als 0,01 %'],'Das ist ungefähr so viel wie der gesamte Flugverkehr – und der Anteil wächst.'),
+  mc('Welche Daten machen den größten Teil des weltweiten Internet-Datenverkehrs aus?',['Videos, z. B. beim Streaming','E-Mails','Textnachrichten','Websuchen'],'Videos in hoher Auflösung erzeugen riesige Datenmengen. Wer die Auflösung an die Bildschirmgröße anpasst, spart Daten und Energie.'),
+  tf('Eine Stunde Video auf einem großen Fernseher braucht mehr Strom als dieselbe Stunde auf dem Smartphone.',true,'Beim Streaming verbraucht oft das Gerät selbst den meisten Strom – ein großer Fernseher ein Vielfaches eines Handys.'),
+  tf('Beim Streaming ist die Datenübertragung über Glasfaser klimafreundlicher als über das Mobilfunknetz.',true,'Laut einer Studie für das Umweltbundesamt verursacht eine Stunde HD-Streaming über Glasfaser rund 2 g CO₂ (Rechenzentrum und Übertragung), über das alte 3G-Netz waren es rund 90 g. Zu Hause also lieber WLAN nutzen!'),
+  fill('Das Symbol der durchgestrichenen ___ bedeutet: Dieses Gerät gehört nicht in den Hausmüll.',['Mülltonne','Glühbirne','Steckdose','Sonne'],'Elektrogeräte enthalten wertvolle Rohstoffe und teils Schadstoffe. Sie gehören zum Wertstoffhof oder in eine Rücknahmestelle im Handel.'),
+  pair('Welcher Begriff passt zu welcher Erklärung?',[['Rechenzentrum','Gebäude voller Server'],['Cloud','Daten auf fremden Servern speichern'],['E-Schrott','Ausgediente Elektrogeräte'],['Refurbished','Generalüberholtes Gebrauchtgerät']],'Die „Cloud“ ist also keine Wolke: Deine Fotos liegen in Rechenzentren, die rund um die Uhr Strom brauchen.'),
+  /* Lektion 2 – Vertiefung */
+  mc('Wie viel Elektroschrott ist weltweit im Jahr 2022 angefallen?',['rund 62 Millionen Tonnen','rund 62.000 Tonnen','rund 620 Tonnen','rund 6 Milliarden Tonnen'],'Nur knapp ein Viertel davon wurde nachweislich gesammelt und recycelt. Bis 2030 könnten es laut UN rund 82 Millionen Tonnen werden.'),
+  tf('Große Elektrohändler und viele Supermärkte müssen kleine Elektro-Altgeräte kostenlos zurücknehmen – auch wenn man nichts Neues kauft.',true,'Das gilt für Geräte bis 25 cm Kantenlänge, z. B. Handys, Ladekabel oder Kopfhörer – bis zu drei Stück pro Geräteart.'),
+  mc('Wie viele alte, ungenutzte Handys liegen laut einer Bitkom-Umfrage in deutschen Haushalten herum?',['rund 170 Millionen','rund 1,7 Millionen','rund 17.000','rund 1,7 Milliarden'],'In ihnen stecken Gold, Silber und andere wertvolle Rohstoffe. Die Zahl sinkt zwar – Ende 2022 waren es noch rund 210 Millionen –, ist aber immer noch riesig.'),
+  fill('Seit Ende 2024 müssen neue Handys in der EU einen einheitlichen ___-Ladeanschluss haben.',['USB-C','HDMI','VGA','Klinken'],'So passt ein Ladegerät für viele Geräte. Neue Geräte dürfen auch ohne Netzteil verkauft werden – das spart Elektroschrott.'),
+  ord('Sortiere nach Stromverbrauch beim Videoschauen – von wenig nach viel.',['Smartphone','Laptop','Großer Fernseher'],'Ein Smartphone braucht nur wenige Watt, ein großer Fernseher oft über 100 Watt. Kleinerer Bildschirm heißt weniger Strom.'),
+  mc('Was schreibt die EU seit Juni 2025 für neue Smartphones vor?',['Wichtige Ersatzteile müssen noch 7 Jahre nach Verkaufsende lieferbar sein','Jedes Handy muss 20 Jahre lang funktionieren','Handys dürfen nur noch in Europa hergestellt werden','Handys dürfen keine Kamera mehr haben'],'Außerdem: mindestens 5 Jahre Updates nach Verkaufsende und Akkus, die nach 800 Ladezyklen noch mindestens 80 % Kapazität haben. So halten Handys länger.'),
+  /* Lektion 3 – Profi: Rechenzentren & KI */
+  mc('Wie viel des weltweiten Stroms verbrauchten Rechenzentren im Jahr 2024 laut Internationaler Energieagentur (IEA)?',['rund 1,5 %','rund 15 %','rund 50 %','rund 0,001 %'],'Bis 2030 könnte sich ihr Verbrauch laut IEA mehr als verdoppeln – auf etwa so viel Strom, wie Japan heute insgesamt verbraucht.'),
+  tf('Rechenzentren brauchen nicht nur Strom, sondern oft auch viel Wasser zum Kühlen.',true,'Server werden beim Rechnen heiß. Viele Anlagen kühlen mit Wasser, das dabei teilweise verdunstet – in trockenen Regionen kann das zum Problem werden.'),
+  fill('Wenn Technik sparsamer wird, wir sie dadurch aber viel mehr nutzen und am Ende kaum Energie sparen, nennt man das ___-Effekt.',['Rebound','Domino','Treibhaus','Placebo'],'Beispiel: Streaming wird effizienter, aber wir schauen immer mehr Videos in immer höherer Auflösung.'),
+  pair('Was gehört zusammen?',[['Server','Computer, der Daten und Dienste für andere bereitstellt'],['KI-Training','Ein Modell lernt aus riesigen Datenmengen'],['Abwärme','Wärme aus Servern, die Wohnungen heizen kann'],['Ökostrom','Strom aus Sonne, Wind und Wasser']],'Das deutsche Energieeffizienzgesetz verlangt, dass Rechenzentren ab 2027 ihren Strom komplett aus erneuerbaren Energien beziehen.'),
+  ord('Sortiere diese Datenmengen – von klein nach groß.',['Kilobyte','Megabyte','Gigabyte','Terabyte'],'Jede Stufe ist rund 1.000-mal so groß wie die vorige. Eine Stunde Video in HD-Qualität kann schon mehrere Gigabyte umfassen.'),
+  mc('Was treibt den Strombedarf von Rechenzentren derzeit besonders stark nach oben?',['Künstliche Intelligenz (KI)','Gedruckte Zeitungen','Telefonate über das Festnetz','Taschenrechner'],'Das Trainieren und Nutzen großer KI-Modelle erfordert besonders leistungsstarke Chips. Laut IEA ist KI der wichtigste Treiber für den wachsenden Stromverbrauch der Rechenzentren.')
+ ]},
+ {t:'Kinderrechte', d:'Deine Rechte – in der Schule, online und weltweit.', c:'#7ED957', s:'#5DB23A', i:'#1E440E', qs:[
+  /* Lektion 1 – Grundlagen */
+  mc('In welchem Jahr haben die Vereinten Nationen die UN-Kinderrechtskonvention beschlossen?',['1989','1948','1968','2015'],'Sie wurde am 20. November 1989 verabschiedet. Deshalb ist der 20. November der Internationale Tag der Kinderrechte.'),
+  tf('Laut UN-Kinderrechtskonvention gilt jeder Mensch unter 18 Jahren als Kind.',true,'So steht es in Artikel 1. Die Rechte gelten für alle Kinder – egal, woher sie kommen, welches Geschlecht oder welche Religion sie haben.'),
+  fill('Die UN-Kinderrechtskonvention besteht aus ___ Artikeln.',['54','10','17','100'],'Die ersten 41 Artikel beschreiben die Rechte der Kinder. Die übrigen regeln, wie die Staaten sie umsetzen und überprüfen lassen.'),
+  mc('Welcher Staat hat die UN-Kinderrechtskonvention als einziger UN-Mitgliedstaat nicht ratifiziert?',['die USA','Deutschland','Frankreich','Brasilien'],'Alle anderen – insgesamt 196 Vertragsstaaten – sind dabei. Die USA haben die Konvention 1995 zwar unterzeichnet, aber nie ratifiziert.'),
+  pair('Welches Kinderrecht ist hier betroffen?',[['Ein Mädchen darf nicht zur Schule gehen','Recht auf Bildung'],['Ein Kind hat nach der Schule nie Zeit zum Spielen','Recht auf Freizeit und Spiel'],['Ein Kind wird geschlagen','Recht auf Schutz vor Gewalt'],['Bei der Planung des Schulhofs werden die Kinder nicht gefragt','Recht auf Beteiligung']],'Diese Rechte stehen in den Artikeln 28 (Bildung), 31 (Freizeit und Spiel), 19 (Schutz vor Gewalt) und 12 (Beteiligung).'),
+  tf('In Deutschland haben Kinder ein gesetzliches Recht auf gewaltfreie Erziehung.',true,'Seit 2000 steht im Bürgerlichen Gesetzbuch: Körperliche Bestrafungen, seelische Verletzungen und andere entwürdigende Maßnahmen sind verboten.'),
+  /* Lektion 2 – Vertiefung */
+  mc('Was bedeutet der Grundsatz „Vorrang des Kindeswohls“?',['Bei allen Entscheidungen, die Kinder betreffen, muss ihr Wohl vorrangig berücksichtigt werden','Kinder dürfen alle Entscheidungen allein treffen','Kinder müssen Erwachsenen immer gehorchen','Nur Kinder dürfen über Gesetze abstimmen'],'Das steht in Artikel 3 und gilt z. B. für Gerichte, Behörden, Parlamente und soziale Einrichtungen.'),
+  fill('Bei der „Nummer gegen ___“ (116 111) finden Kinder und Jugendliche kostenlos und anonym ein offenes Ohr.',['Kummer','Hunger','Langeweile','Lärm'],'Man muss seinen Namen nicht nennen. Samstags beraten dort auch junge Berater*innen zwischen 16 und 21 Jahren.'),
+  mc('Wie heißt das Kinderhilfswerk der Vereinten Nationen?',['UNICEF','NATO','OPEC','FIFA'],'UNICEF wurde 1946 gegründet, um Kindern nach dem Zweiten Weltkrieg zu helfen. Heute ist es in über 190 Ländern und Gebieten aktiv.'),
+  ord('Bringe diese Ereignisse der Kinderrechte in die zeitliche Reihenfolge.',['Genfer Erklärung der Rechte des Kindes','Gründung von UNICEF','Verabschiedung der UN-Kinderrechtskonvention','Die Konvention tritt in Deutschland in Kraft'],'1924, 1946, 1989, 1992. Die Genfer Erklärung des Völkerbunds war noch kein verbindlicher Vertrag – die Konvention ist es.'),
+  tf('Kinderrechte stehen ausdrücklich im deutschen Grundgesetz.',false,'Darüber wird seit Jahren gestritten, doch bisher (Stand 2026) fehlt die nötige Zwei-Drittel-Mehrheit. Viele Landesverfassungen enthalten dagegen schon Kinderrechte.'),
+  mc('Was garantiert Artikel 12 der UN-Kinderrechtskonvention?',['Kinder dürfen in allen Angelegenheiten, die sie betreffen, ihre Meinung sagen – und sie muss berücksichtigt werden','Kinder dürfen ab 12 Jahren wählen','Kinder müssen ab 12 Jahren arbeiten','Kinder bekommen ab 12 Jahren ein eigenes Handy'],'Die Meinung wird je nach Alter und Reife berücksichtigt. Klassensprecher*innen und Schülervertretungen sind ein Beispiel für Beteiligung.'),
+  /* Lektion 3 – Profi: Kinderrechte heute – Umwelt, Digitales, Mitbestimmung */
+  mc('Was hat der UN-Ausschuss für die Rechte des Kindes 2023 ausdrücklich bestätigt?',['Kinder haben ein Recht auf eine saubere, gesunde und nachhaltige Umwelt','Kinder haben ein Recht auf ein eigenes Smartphone','Kinder dürfen ab 12 Jahren an Wahlen teilnehmen','Kinder müssen keine Schule besuchen'],'In der „Allgemeinen Bemerkung Nr. 26“ fordert der Ausschuss die Staaten auf, Kinder vor den Folgen der Klimakrise zu schützen. Über 16.000 Kinder aus 121 Ländern haben daran mitgewirkt.'),
+  tf('Fotos von Mitschüler*innen darf man ohne deren Erlaubnis im Internet veröffentlichen.',false,'Jeder Mensch hat ein Recht am eigenen Bild. Die UN-Kinderrechtskonvention schützt außerdem die Privatsphäre von Kindern (Artikel 16).'),
+  fill('Wenn Eltern viele Fotos und Videos ihrer Kinder in sozialen Netzwerken teilen, nennt man das ___.',['Sharenting','Upcycling','Carsharing','Greenwashing'],'Das Wort verbindet „share“ (teilen) und „parenting“ (Erziehung). Kinderschutz-Fachleute raten: Kinder vorher fragen und keine peinlichen Bilder posten.'),
+  mc('Was entschied das Bundesverfassungsgericht 2021 nach einer Klage junger Menschen?',['Das Klimaschutzgesetz musste nachgebessert werden, um die Freiheit künftiger Generationen zu schützen','Schulen dürfen keinen Klimaunterricht mehr anbieten','Autos mit Verbrennungsmotor wurden sofort verboten','Klimaschutz ist reine Privatsache'],'Das Gericht stellte fest: Zu wenig Klimaschutz heute würde Jüngeren später sehr harte Einschnitte aufbürden. Der Bundestag verschärfte daraufhin die Klimaziele.'),
+  ord('Wie wird ein UN-Vertrag wie die Kinderrechtskonvention in einem Land wirksam? Bringe die Schritte in die richtige Reihenfolge.',['Die UN-Generalversammlung beschließt den Vertrag','Ein Staat unterzeichnet den Vertrag','Der Staat ratifiziert den Vertrag','Der Staat berichtet regelmäßig an den UN-Ausschuss in Genf'],'Der UN-Ausschuss für die Rechte des Kindes prüft die Berichte und gibt den Staaten Empfehlungen, was sie verbessern sollen.'),
+  pair('Welche Altersgrenze gilt in Deutschland wofür?',[['7 Jahre','Beschränkt geschäftsfähig (z. B. Taschengeldkäufe)'],['14 Jahre','Strafmündig'],['16 Jahre','Wählen bei der Europawahl'],['18 Jahre','Volljährig']],'Bei der Europawahl 2024 durften in Deutschland erstmals 16-Jährige wählen. Für Bundestags- und bayerische Landtagswahlen gilt weiterhin 18 Jahre.')
+ ]},
+ {t:'Wald & Moore in Bayern', d:'Wälder im Klimawandel und Moore als Klimaschützer.', c:'#C1FF72', s:'#9BD64A', i:'#2E6417', qs:[
+  /* Lektion 1 – Grundlagen */
+  mc('Welcher Anteil der Fläche Bayerns ist mit Wald bedeckt?',['gut ein Drittel','rund ein Zehntel','rund zwei Drittel','fast die ganze Fläche'],'Laut Bundeswaldinventur sind es rund 37 % – etwa 2,6 Millionen Hektar.'),
+  tf('Bayern hat die größte Waldfläche aller deutschen Bundesländer.',true,'Mit rund 2,6 Millionen Hektar steht in Bayern gut ein Fünftel des deutschen Waldes.'),
+  mc('Welche Baumart ist in Bayerns Wäldern am häufigsten?',['Fichte','Buche','Eiche','Birke'],'Die Fichte wächst auf fast 40 % der Waldfläche, danach folgen Kiefer und Buche.'),
+  ord('Ein Wald hat Stockwerke. Sortiere von unten nach oben.',['Moosschicht','Krautschicht','Strauchschicht','Baumschicht'],'Jedes Stockwerk bietet anderen Tieren und Pflanzen Lebensraum – ein Grund, warum naturnahe Wälder so artenreich sind.'),
+  fill('Der Begriff „Nachhaltigkeit“ stammt aus der ___: Hans Carl von Carlowitz forderte 1713, nur so viel Holz zu fällen, wie nachwächst.',['Forstwirtschaft','Fischerei','Autoindustrie','Raumfahrt'],'Carlowitz leitete den Bergbau in Sachsen. Damals drohte Holzmangel, weil Bergwerke und Hütten riesige Mengen Holz verbrauchten.'),
+  pair('Welcher Baum hat welche Früchte oder Zapfen?',[['Rotbuche','Bucheckern'],['Eiche','Eicheln'],['Fichte','Hängende Zapfen'],['Weißtanne','Aufrecht stehende Zapfen']],'Tannenzapfen zerfallen schon am Baum. Was man am Boden findet und „Tannenzapfen“ nennt, sind meist Fichtenzapfen.'),
+  /* Lektion 2 – Vertiefung */
+  mc('Warum sind viele Fichtenwälder in Bayern in Gefahr?',['Hitze und Trockenheit schwächen die Bäume, dann befällt sie der Borkenkäfer','Es gibt zu viele Eichhörnchen','Fichten brauchen mehr Schnee, als heute fällt','Fichten wachsen zu schnell und brechen ab'],'Geschwächte Fichten können sich kaum mit Harz wehren. Der Buchdrucker, eine Borkenkäferart, vermehrt sich in heißen Sommern besonders schnell.'),
+  tf('Die Fichte ist ein Tiefwurzler und kommt deshalb gut mit Trockenheit zurecht.',false,'Die Fichte ist ein Flachwurzler. Tiefwurzler wie Weißtanne oder Eiche erreichen Wasser in tieferen Bodenschichten – und stehen stabiler bei Sturm.'),
+  fill('Werden reine Nadelwälder nach und nach in klimastabile Mischwälder verwandelt, spricht man von Wald___.',['umbau','brand','lauf','sterben'],'Bayern will bis 2030 rund 200.000 Hektar im Privat- und Körperschaftswald umbauen. Mischwälder sind widerstandsfähiger gegen Hitze, Sturm und Schädlinge.'),
+  mc('Wem gehört der größte Teil des Waldes in Bayern?',['Privatleuten','Dem Bund','Der Europäischen Union','Den Kirchen'],'Gut die Hälfte ist Privatwald, rund 700.000 Menschen besitzen Wald. Rund 30 % gehören dem Freistaat und werden überwiegend von den Bayerischen Staatsforsten bewirtschaftet.'),
+  tf('Laut Bundeswaldinventur hat der Wald in Deutschland zwischen 2017 und 2022 mehr Kohlenstoff verloren als gespeichert.',true,'Dürre, Stürme und Borkenkäfer ließen so viele Bäume absterben, dass der Wald in dieser Zeit zur CO₂-Quelle wurde statt zum CO₂-Speicher.'),
+  mc('Was ist ein Schutzwald in den Alpen?',['Ein Wald, der Dörfer und Straßen vor Lawinen, Steinschlag und Muren schützt','Ein Wald, den niemand betreten darf','Ein eingezäunter Wald für Wildschweine','Ein Wald nur aus jungen Bäumchen'],'Stirbt ein Schutzwald, müssen teure Verbauungen aus Stahl und Beton seine Aufgabe übernehmen. Bayern pflegt und saniert ihn deshalb gezielt.'),
+  /* Lektion 3 – Profi: Moore in Bayern */
+  mc('Wie schnell wächst die Torfschicht in einem intakten Hochmoor ungefähr?',['rund 1 Millimeter pro Jahr','rund 1 Meter pro Jahr','rund 10 Zentimeter pro Monat','rund 1 Zentimeter pro Tag'],'Für einen Meter Torf braucht ein Moor also rund 1.000 Jahre. Ein entwässertes Moor schrumpft dagegen viel schneller.'),
+  tf('Wer torffreie Blumenerde kauft, hilft beim Schutz der Moore.',true,'Für herkömmliche Blumenerde wird Torf aus Mooren abgebaut. Torffreie Erde enthält stattdessen z. B. Kompost, Holzfasern oder Rindenhumus.'),
+  pair('Was passt zusammen?',[['Hochmoor','Wird nur von Regenwasser gespeist'],['Niedermoor','Wird von Grundwasser gespeist'],['Torfmoos','Saugt sich voll Wasser wie ein Schwamm'],['Sonnentau','Fleischfressende Moorpflanze']],'Hochmoore sind sehr nährstoffarm. Der Sonnentau gleicht das aus, indem er kleine Insekten mit klebrigen Tröpfchen fängt.'),
+  fill('Wird ein entwässertes Moor wieder nass gemacht, spricht man von ___.',['Wiedervernässung','Trockenlegung','Aufforstung','Flurbereinigung'],'Steht das Wasser wieder hoch, zersetzt sich der Torf nicht weiter. Das Moor setzt kaum noch CO₂ frei und kann wieder wachsen.'),
+  ord('Wie entsteht ein Hochmoor aus einem See? Bringe die Stufen in die richtige Reihenfolge.',['Flacher See','Verlandung mit Schilf und Seggen','Niedermoor','Hochmoor'],'Das dauert viele Jahrtausende. Viele bayerische Moore sind nach der letzten Eiszeit im Alpenvorland entstanden.'),
+  mc('Wie viel der Moorflächen in Bayern sind entwässert?',['rund 95 %','rund 5 %','rund 25 %','rund 50 %'],'Entwässerte Moore setzen große Mengen CO₂ frei. Im Donaumoos, dem größten Niedermoor Süddeutschlands, ist der Boden dadurch schon um mehr als 3 Meter abgesackt.')
+ ]}
+];
+
+const NEW_INFOS = [
+ [{t:'Unterwegs – aber wie?', l:'Verkehr, Klima und die Wahl des Verkehrsmittels.', p:[
+   'Der Verkehr verursacht rund ein Fünftel der Treibhausgase in Deutschland (2023: rund 22 %). Der allergrößte Teil stammt aus dem Straßenverkehr.',
+   'Seit 1990 sind die Verkehrs-Emissionen nur wenig gesunken (bis 2023 um rund 11 %): Motoren wurden sparsamer, aber es gibt mehr und größere Autos und mehr Verkehr.',
+   'Mit dem Deutschlandticket (seit Mai 2023) fährt man für einen festen Monatspreis bundesweit mit Bus, Straßenbahn und Regionalzug – ICE und IC sind nicht dabei. 2026 kostet es 63 Euro im Monat.',
+   'In Deutschland sind knapp 50 Millionen Pkw zugelassen. Ein Auto steht rund 23 Stunden am Tag herum, und im Schnitt sitzen nur rund 1,4 Personen darin.',
+   'Begriffe: Carsharing = Autos bei Bedarf stundenweise leihen, Pedelec = Fahrrad mit Elektro-Unterstützung, Park-and-Ride = mit dem Auto zum Bahnhof und weiter mit der Bahn, Fahrgemeinschaft = mehrere Personen fahren zusammen.',
+   'E-Scooter darf man ab 14 Jahren fahren – ohne Führerschein, nur allein und nicht auf dem Gehweg.',
+   'Ein Elektroauto ist über sein ganzes Leben meist klimafreundlicher als ein Benziner, obwohl die Akku-Herstellung viel CO₂ verursacht. Mit Ökostrom wird der Vorsprung größer.',
+   'Antriebe: Elektroauto – Akku, Brennstoffzellenauto – Wasserstoff, Straßenbahn – Strom aus der Oberleitung, Dieselbus – Kraftstoff aus Erdöl.',
+   'Werden Kinder mit dem Auto bis vors Schultor gebracht, spricht man vom „Elterntaxi“. Das sorgt für Stau und Gefahr vor Schulen.',
+   'Meilensteine: erste deutsche Eisenbahn Nürnberg–Fürth (1835), Benz-Patent für das Auto mit Benzinmotor (1886), erster ICE im Linienverkehr (1991), Deutschlandticket (2023).']},
+  {t:'Die Verkehrswende', l:'Wie Städte und Reisen klimafreundlicher werden.', p:[
+   'In einer Fahrradstraße dürfen Radfahrende nebeneinander fahren. Autos dürfen nur hinein, wenn ein Zusatzschild es erlaubt, und für alle gilt höchstens Tempo 30.',
+   'Beim Fliegen wirken auch Kondensstreifen und Stickoxide aufs Klima. Laut DLR geht nur rund ein Drittel der Klimawirkung des Luftverkehrs auf CO₂ zurück.',
+   'Ein Auto-Stellplatz braucht rund 12 m² – so viel wie ein Kinderzimmer. Auf derselben Fläche passen acht bis zehn Fahrräder.',
+   'In der „15-Minuten-Stadt“ erreicht man alles Wichtige in einer Viertelstunde zu Fuß oder mit dem Rad. Paris hat das Konzept bekannt gemacht.',
+   'Das Prinzip der Verkehrswende: 1. Verkehr vermeiden, 2. Verkehr verlagern (auf Bahn, Bus, Rad), 3. Verkehr verbessern (saubere Antriebe).',
+   'Der Motor eines Pedelecs unterstützt bis 25 km/h – rechtlich ist es ein Fahrrad. S-Pedelecs (bis 45 km/h) gelten als Kleinkraftrad.']}],
+ [{t:'Der digitale Fußabdruck', l:'Streaming, Geräte und Elektroschrott.', p:[
+   'Digitale Technik (Geräte, Netze, Rechenzentren) verursacht rund 2 bis 4 % der weltweiten Treibhausgase – etwa so viel wie der Flugverkehr.',
+   'Videos (Streaming) machen den größten Teil des Internet-Datenverkehrs aus. Beim Streaming verbraucht oft das Gerät selbst am meisten Strom: Smartphone < Laptop < großer Fernseher.',
+   'Die Übertragung zählt: Eine Stunde HD-Streaming über Glasfaser verursacht rund 2 g CO₂, über das alte 3G-Netz waren es rund 90 g (Studie für das Umweltbundesamt). Zu Hause lieber WLAN nutzen.',
+   'Die durchgestrichene Mülltonne bedeutet: Das Gerät gehört nicht in den Hausmüll, sondern zum Wertstoffhof oder in eine Rücknahmestelle.',
+   'Begriffe: Rechenzentrum = Gebäude voller Server, Cloud = Daten auf fremden Servern speichern, E-Schrott = ausgediente Elektrogeräte, Refurbished = generalüberholtes Gebrauchtgerät.',
+   '2022 fielen weltweit rund 62 Millionen Tonnen Elektroschrott an, nur knapp ein Viertel wurde nachweislich recycelt.',
+   'Große Elektrohändler und viele Supermärkte müssen kleine Altgeräte (bis 25 cm) kostenlos zurücknehmen – auch ohne Neukauf.',
+   'Laut Bitkom liegen in deutschen Haushalten rund 170 Millionen ungenutzte Alt-Handys (2026) – voller Gold, Silber und anderer Rohstoffe.',
+   'Seit Ende 2024 haben neue Handys in der EU einen einheitlichen USB-C-Ladeanschluss.',
+   'Seit Juni 2025 gilt in der EU: Ersatzteile für Smartphones müssen noch 7 Jahre nach Verkaufsende lieferbar sein, Updates gibt es mindestens 5 Jahre.']},
+  {t:'Rechenzentren & KI', l:'Wo das Internet wohnt – und was es braucht.', p:[
+   'Rechenzentren verbrauchten 2024 laut IEA rund 1,5 % des weltweiten Stroms. Bis 2030 könnte sich ihr Verbrauch mehr als verdoppeln.',
+   'Wichtigster Treiber ist künstliche Intelligenz (KI): Training und Nutzung großer Modelle brauchen besonders leistungsstarke Chips.',
+   'Server werden heiß. Viele Rechenzentren kühlen mit Wasser – in trockenen Regionen ein Problem. Ihre Abwärme kann Wohnungen heizen.',
+   'Begriffe: Server = Computer, der Daten und Dienste für andere bereitstellt, KI-Training = ein Modell lernt aus riesigen Datenmengen, Ökostrom = Strom aus Sonne, Wind und Wasser. Das Energieeffizienzgesetz verlangt ab 2027 100 % Ökostrom für Rechenzentren.',
+   'Rebound-Effekt: Technik wird sparsamer, wird dadurch aber mehr genutzt – am Ende wird kaum Energie gespart.',
+   'Datenmengen: Kilobyte < Megabyte < Gigabyte < Terabyte – jede Stufe ist rund 1.000-mal größer.']}],
+ [{t:'Deine Rechte', l:'Die UN-Kinderrechtskonvention und was sie für dich bedeutet.', p:[
+   'Die UN-Kinderrechtskonvention wurde am 20. November 1989 beschlossen. Der 20. November ist der Internationale Tag der Kinderrechte.',
+   'Sie hat 54 Artikel und gilt für alle Menschen unter 18 Jahren (Artikel 1).',
+   '196 Staaten haben sie ratifiziert – nur die USA nicht.',
+   'Wichtige Rechte: Bildung (Art. 28), Freizeit und Spiel (Art. 31), Schutz vor Gewalt (Art. 19), Beteiligung (Art. 12): Kinder dürfen bei allem, was sie betrifft, ihre Meinung sagen, und sie muss berücksichtigt werden.',
+   'Vorrang des Kindeswohls (Art. 3): Bei allen Entscheidungen, die Kinder betreffen, steht ihr Wohl an erster Stelle.',
+   'In Deutschland haben Kinder seit 2000 ein gesetzliches Recht auf gewaltfreie Erziehung.',
+   'Bei der „Nummer gegen Kummer“ (116 111) gibt es kostenlose und anonyme Hilfe.',
+   'UNICEF ist das Kinderhilfswerk der Vereinten Nationen, gegründet 1946.',
+   'Zeitleiste: Genfer Erklärung der Rechte des Kindes (1924), UNICEF (1946), UN-Kinderrechtskonvention (1989), in Deutschland in Kraft (1992).',
+   'Im Grundgesetz stehen Kinderrechte bisher nicht ausdrücklich (Stand 2026) – dafür fehlt eine Zwei-Drittel-Mehrheit.']},
+  {t:'Kinderrechte heute', l:'Klima, Internet und Mitbestimmung.', p:[
+   '2023 bestätigte der UN-Ausschuss für die Rechte des Kindes: Kinder haben ein Recht auf eine saubere, gesunde und nachhaltige Umwelt (Allgemeine Bemerkung Nr. 26).',
+   'Jeder Mensch hat ein Recht am eigenen Bild: Fotos anderer nur mit Erlaubnis veröffentlichen. Die Konvention schützt auch die Privatsphäre (Art. 16).',
+   '„Sharenting“ heißt es, wenn Eltern viele Fotos und Videos ihrer Kinder online teilen.',
+   '2021 entschied das Bundesverfassungsgericht nach einer Klage junger Menschen: Das Klimaschutzgesetz muss nachgebessert werden, um die Freiheit künftiger Generationen zu schützen.',
+   'Ein UN-Vertrag wird so wirksam: UN-Generalversammlung beschließt → Staat unterzeichnet → Staat ratifiziert → Staat berichtet regelmäßig an den UN-Ausschuss in Genf.',
+   'Altersgrenzen in Deutschland: mit 7 beschränkt geschäftsfähig, mit 14 strafmündig, mit 16 Wahlrecht bei der Europawahl, mit 18 volljährig.']}],
+ [{t:'Bayerns Wälder', l:'Viel Wald – und viel Arbeit für die Zukunft.', p:[
+   'Gut ein Drittel Bayerns (rund 37 %, etwa 2,6 Millionen Hektar) ist bewaldet. Bayern hat die größte Waldfläche aller Bundesländer.',
+   'Häufigste Baumart ist die Fichte (fast 40 % der Waldfläche), danach folgen Kiefer und Buche.',
+   'Stockwerke des Waldes von unten nach oben: Moosschicht, Krautschicht, Strauchschicht, Baumschicht.',
+   '„Nachhaltigkeit“ kommt aus der Forstwirtschaft: Hans Carl von Carlowitz forderte 1713, nur so viel Holz zu fällen, wie nachwächst.',
+   'Früchte und Zapfen: Rotbuche – Bucheckern, Eiche – Eicheln, Fichte – hängende Zapfen, Weißtanne – aufrecht stehende Zapfen.',
+   'Die Fichte ist ein Flachwurzler. Hitze und Trockenheit schwächen sie, dann befällt sie der Borkenkäfer. Tiefwurzler wie Tanne und Eiche kommen besser mit Trockenheit zurecht.',
+   'Waldumbau heißt: aus reinen Nadelwäldern klimastabile Mischwälder machen. Bayern will bis 2030 rund 200.000 Hektar umbauen.',
+   'Gut die Hälfte des bayerischen Waldes gehört Privatleuten, rund 30 % dem Freistaat (Bayerische Staatsforsten).',
+   'Laut Bundeswaldinventur hat der Wald in Deutschland zwischen 2017 und 2022 mehr Kohlenstoff verloren als gespeichert.',
+   'Schutzwald in den Alpen schützt Dörfer und Straßen vor Lawinen, Steinschlag und Muren.']},
+  {t:'Moore – nasse Klimaschützer', l:'Wie Moore wachsen und warum sie nass bleiben müssen.', p:[
+   'Ein intaktes Hochmoor wächst nur rund 1 Millimeter pro Jahr – ein Meter Torf braucht rund 1.000 Jahre.',
+   'Hochmoore werden nur von Regenwasser gespeist, Niedermoore von Grundwasser. Torfmoos saugt sich voll Wasser wie ein Schwamm, der Sonnentau ist eine fleischfressende Moorpflanze.',
+   'Aus einem flachen See kann über Jahrtausende ein Moor werden: See → Verlandung mit Schilf und Seggen → Niedermoor → Hochmoor.',
+   'In Bayern gibt es rund 228.000 Hektar Moorböden – rund 95 % davon sind entwässert und setzen CO₂ frei. Im Donaumoos ist der Boden schon um mehr als 3 Meter abgesackt.',
+   'Wiedervernässung heißt: ein entwässertes Moor wieder nass machen. Dann zersetzt sich der Torf nicht weiter.',
+   'Torffreie Blumenerde schützt Moore, denn für herkömmliche Erde wird Torf abgebaut.']}]
+];
+
+/* =====================================================================
+   QUELLEN (Faktencheck, Stand 25.09.2026)
+
+   Einheit 1 – Mobilität & Verkehr
+   - UBA, Klimaschutz im Verkehr / Emissionen des Verkehrs:
+     https://www.umweltbundesamt.de/themen/verkehr/klimaschutz-im-verkehr
+     https://www.umweltbundesamt.de/daten/umweltzustand-trends/verkehr/emissionen-des-verkehrs
+     (2023: rund 146 Mio. t, rund 22 %; -10,9 % gegenüber 1990)
+   - BMV, Mobilität in Deutschland (MiD 2023): Pkw-Besetzungsgrad 1,4; Nutzungsdauer ca. 42 min/Tag (-> rund 23 h Standzeit)
+     https://www.forschungsinformationssystem.de/servlet/is/79638/ ; https://www.forschungsinformationssystem.de/servlet/is/80873/
+   - KBA, Fahrzeugbestand am 1. Januar 2026: 49.486.487 Pkw
+     https://www.kba.de/DE/Presse/Pressemitteilungen/Fahrzeugbestand/2026/pm09_fz_bestand_pm_komplett.html
+   - Bundesregierung / bahn.de, Deutschlandticket (seit 1.5.2023; 2026: 63 Euro)
+     https://www.bundesregierung.de/breg-de/aktuelles/deutschlandticket-2134074
+   - eKFV (E-Scooter ab 14; Novelle Feb. 2026 ändert Mindestalter nicht), ADAC:
+     https://www.adac.de/rund-ums-fahrzeug/elektromobilitaet/e-kleinstfahrzeuge/e-scooter/
+   - UBA/BMUV, Klimabilanz E-Autos: https://www.bundesumweltministerium.de/fileadmin/Daten_BMU/Download_PDF/Verkehr/emob_klimabilanz_bf.pdf
+   - StVO Zeichen 244.1 Fahrradstraße, ADAC: https://www.adac.de/rund-ums-fahrzeug/zweirad/fahrrad-ebike-pedelec/vorschriften-verhalten/fahrradstrassen/
+   - DLR, Klimawirkung Luftverkehr (1/3 CO₂, 2/3 Nicht-CO₂): https://www.dlr.de/de/forschung-und-transfer/themen/klimavertraegliches-fliegen/klimawirkung-luftverkehr
+     UBA, Klimawirkung des Luftverkehrs: https://www.umweltbundesamt.de/publikationen/klimawirkung-des-luftverkehrs
+   - UBA, Prinzip „Vermeiden – Verlagern – Verbessern“ (Bausteine klimaverträglicher Verkehr, 2025)
+   - Allgemeinwissen/Standard: Ludwigsbahn 1835, Benz-Patent 1886, ICE-Linienverkehr 1991, Pedelec 25 km/h (§ 1 Abs. 3 StVG), Stellplatz ca. 2,5 x 5 m
+
+   Einheit 2 – Digitales & Klima
+   - IEA, Energy and AI (2025): Rechenzentren 2024 rund 415 TWh = ca. 1,5 %; 2030 ca. 945 TWh (≈ Japan); KI/beschleunigte Server wichtigster Treiber
+     https://www.iea.org/reports/energy-and-ai/executive-summary
+   - ITU/UNITAR, Global E-waste Monitor 2024: 62 Mio. t (2022), 22,3 % dokumentiert recycelt, 82 Mio. t bis 2030
+     https://www.itu.int/en/ITU-D/Environment/Pages/Publications/The-Global-E-waste-Monitor-2024.aspx
+   - Bitkom, „Deutsche horten noch 167 Millionen Alt-Handys“ (Umfrage KW 9–12/2026; Ende 2022: 210 Mio.)
+     https://www.bitkom.org/Presse/Presseinformation/Deutsche-horten-167-Millionen-Alt-Handys
+   - UBA / Öko-Institut / Fraunhofer IZM, Green Cloud Computing (2020): HD-Streaming Glasfaser 2 g, VDSL 4 g, UMTS 90 g CO₂/h
+     https://www.umweltbundesamt.de/presse/pressemitteilungen/video-streaming-art-der-datenuebertragung
+   - ElektroG, Rücknahme im Handel (400 m² Elektrofläche / 800 m² Lebensmittelhandel, bis 25 cm, max. 3 pro Geräteart)
+     https://www.elektrogesetz.de/themen/ruecknahme-handel/
+   - EU-Ökodesign-VO (EU) 2023/1670 für Smartphones, gültig ab 20.06.2025 (Ersatzteile 7 J., Updates 5 J., 800 Zyklen/80 %)
+     https://www.zdfheute.de/wirtschaft/oekodesign-verordnung-handy-smartphone-reparatur-nachhaltigkeit-100.html
+   - Funkanlagenrichtlinie (EU) 2022/2380: USB-C Pflicht seit 28.12.2024
+   - EnEfG § 11 (100 % erneuerbarer Strom ab 1.1.2027): https://www.gesetze-im-internet.de/enefg/__11.html
+   - Anteil Digitales 2–4 %: Freitag et al. (2021), Patterns, „The real climate and transformative impact of ICT“
+
+   Einheit 3 – Kinderrechte
+   - UN-Kinderrechtskonvention (Text, Art. 1, 3, 12, 16, 19, 28, 31; 54 Artikel), z. B. https://www.kinderrechtskonvention.info/
+   - bpb, 30 Jahre UN-Kinderrechtskonvention (196 Staaten, USA 1995 unterzeichnet, nicht ratifiziert; D: in Kraft 5.4.1992)
+     https://www.bpb.de/kurz-knapp/hintergrund-aktuell/195229/30-jahre-un-kinderrechtskonvention/
+   - Deutsches Kinderhilfswerk / Institut für Menschenrechte: Kinderrechte nicht im Grundgesetz, aktueller Koalitionsvertrag sieht es nicht vor
+     https://www.dkhw.de/informieren/im-ueberblick/aktuelles/nachricht/deutsches-kinderhilfswerk-2026-muss-das-jahr-der-kinderrechte-werden/
+     https://www.institut-fuer-menschenrechte.de/themen/kinderrechte/kinderrechte-ins-grundgesetz
+   - § 1631 Abs. 2 BGB (gewaltfreie Erziehung, seit 2000)
+   - Nummer gegen Kummer, 116 111: https://www.nummergegenkummer.de/kinder-und-jugendberatung/faq-kinder-und-jugendtelefon/
+   - UN CRC, General Comment No. 26 (2023): https://www.ohchr.org/en/documents/general-comments-and-recommendations/crccgc26-general-comment-no-26-2023-childrens-rights
+     (16.331 Beiträge von Kindern aus 121 Ländern)
+   - BVerfG, Beschluss vom 24.03.2021, 1 BvR 2656/18 u. a. (Klimabeschluss)
+   - UNICEF (gegründet 11.12.1946), Genfer Erklärung 1924 (Völkerbund); Europawahlgesetz: Wahlalter 16 seit Europawahl 2024;
+     § 106 BGB (7 J.), § 19 StGB (14 J.), § 2 BGB (18 J.); KUG § 22 (Recht am eigenen Bild)
+
+   Einheit 4 – Wald & Moore in Bayern
+   - LWF Bayern, BWI 4 Bayern: 2,617 Mio. ha, 37,1 % Waldanteil, größte Waldfläche; Fichte 38,8 %, Kiefer 16,8 %, Buche ca. 15 %;
+     Privatwald 55,7 %, Staatswald Bayern 29,8 %, Körperschaftswald 12,5 %, Bund 2,0 %
+     https://www.bundeswaldinventur.bayern.de/080777/index.php ; https://www.lwf.bayern.de/bwi/080772/index.php
+   - StMELF, Wald in Zahlen (rund 700.000 Privatwaldbesitzende): https://www.stmelf.bayern.de/wald/forstverwaltung/wald-in-zahlen-fakten-ueber-bayerns-waelder/index.html
+   - StMELF, Waldumbauoffensive 2030 (200.000 ha Privat- und Körperschaftswald): https://www.stmelf.bayern.de/wald/klimawandel/waldumbauoffensive-2030/index.html
+   - Thünen-Institut, BWI 2022: Wald 2017–2022 Kohlenstoffquelle (-41,5 Mio. t C)
+     https://www.thuenen.de/de/themenfelder/waelder/die-bundeswaldinventur/ergebnisse-der-bundeswaldinventur-2022
+   - LfL Bayern, Moorbodenschutz: ca. 228.000 ha Moorböden, 95 % entwässert: https://www.lfl.bayern.de/moorbodenschutz
+   - LfU Bayern, UmweltWissen „Kompost nutzen – Moore schützen“ (Torfwachstum ca. 1 mm/Jahr): https://www.lfu.bayern.de/buerger/doc/uw_109_kompost_nutzen_moore_schuetzen.pdf
+   - LfU Bayern / BfN, Donaumoos (größtes Niedermoor Süddeutschlands, >3 m Moorschwund): https://www.lfu.bayern.de/boden/tag_des_bodens/2012/index.htm ; https://www.bfn.de/bedeutsame-landschaft/donaumoos
+   - Allgemeines Fachwissen (Schulbiologie): Waldstockwerke, Flach-/Tiefwurzler, Tannenzapfen stehen aufrecht und zerfallen am Baum,
+     Hoch-/Niedermoor, Verlandungsmoor, Sonnentau; Carlowitz „Sylvicultura oeconomica“ (1713)
+
+   ---------------------------------------------------------------------
+   JÄHRLICH ZU PRÜFENDE ZAHLEN
+   - E1 Q1 „Welcher Anteil der Treibhausgas-Emissionen … Verkehr?“ – rund ein Fünftel / 2023: 22 % – UBA (jährliche Emissionsdaten, März)
+   - E1 Q2 „…seit 1990 nur wenig gesunken“ – bis 2023 rund -11 % – UBA
+   - E1 Q3 „Mit dem ___ … Monatspreis“ – 2026: 63 Euro, ab 2027 Kostenindex – Bundesregierung/VDV
+   - E1 Q7 „Wie viele Personen sitzen …“ – 1,4 – MiD 2023 (nächste MiD in einigen Jahren)
+   - E1 Q8 „Wie viele Pkw sind …“ – knapp 50 Mio. (1.1.2026: 49,49 Mio.) – KBA (jährlich im Frühjahr); bei Überschreiten von 50 Mio. Formulierung anpassen
+   - E2 Q7 „Wie viel Elektroschrott … 2022“ – 62 Mio. t, 22,3 % – Global E-waste Monitor (nächste Ausgabe abwarten)
+   - E2 Q9 „Wie viele alte, ungenutzte Handys …“ – rund 170 Mio. (2026: 167 Mio.) – Bitkom (jährliche Umfrage, Frühjahr)
+   - E2 Q13 „…Rechenzentren im Jahr 2024 … IEA“ – 1,5 % / Verdopplung bis 2030 – IEA (Energy and AI, Folgeberichte)
+   - E2 Q16 Erklärung „Energieeffizienzgesetz … ab 2027 … erneuerbaren Energien“ – EnEfG-Novelle 2026 im Verfahren (100-%-Ökostrom-Pflicht laut Entwurf unverändert)
+   - E3 Q4 „…als einziger UN-Mitgliedstaat nicht ratifiziert“ – 196 Vertragsstaaten, USA – UN Treaty Collection
+   - E3 Q8 „Nummer gegen ___“ – Erklärung: Samstags-Beratung durch 16- bis 21-Jährige – nummergegenkummer.de
+   - E3 Q11 „Kinderrechte stehen ausdrücklich im deutschen Grundgesetz“ – false (Stand 2026) – bei Grundgesetzänderung sofort ändern!
+   - E4 Q1/Q2/Q3/Q10 Waldfläche, Baumarten, Besitz – BWI 4 (2022); ändert sich erst mit BWI 5, aktuell stabil
+   - E4 Q9 Erklärung „bis 2030 rund 200.000 Hektar“ – Waldumbauoffensive 2030 – StMELF (nach 2030 aktualisieren)
+   - E4 Q18 „Wie viel der Moorflächen in Bayern sind entwässert?“ – rund 95 % (228.000 ha) – LfL/LfU Bayern
+   ===================================================================== */
+
+NEW_UNITS.forEach(u=>UNITS.push(u));
+UNITS.forEach((u,ui)=>u.qs.forEach((q,qi)=>q.id=ui+'.'+qi));
+const LESSON_NAMES = ['Grundlagen','Vertiefung','Profi','Einheitstest'];
+const FACT_STAND = 'September 2026';   /* bei jeder Aktualisierung der Zahlen anpassen – siehe FAKTEN-STAND.md */
+/* Infotexte: je einer vor Lektion 1 (für Lektion 1–2) und vor Lektion 3 (für Lektion 3 + Test) */
+const INFOS = [
+ [{t:'Treibhausgase & Energiewende', l:'Was die Erde aufheizt – und womit wir sauberen Strom machen.', p:[
+   'CO₂ entsteht vor allem beim Verbrennen von Kohle, Öl und Gas. Es macht rund drei Viertel der weltweiten Treibhausgas-Emissionen aus.',
+   'Methan entsteht u. a. im Magen von Rindern, in Reisfeldern und auf Mülldeponien. Über 20 Jahre wirkt es rund 80-mal stärker als CO₂.',
+   'Im Pariser Klimaabkommen (2015) haben sich fast alle Staaten verpflichtet, die Erwärmung auf deutlich unter 2 °C zu begrenzen – möglichst auf 1,5 °C.',
+   'Erneuerbare Energien: Sonne (Photovoltaik), Wind (Windrad), fließendes Wasser (Wasserkraftwerk) und Erdwärme (Geothermie). 2024 lieferten sie in Deutschland mehr als die Hälfte des Stroms.',
+   'Unterwegs gilt: Fahrrad vor Zug vor Auto vor Flugzeug – so steigt der CO₂-Ausstoß pro Person und Kilometer.',
+   'Auch im Standby verbrauchen Geräte Strom. Eine abschaltbare Steckdosenleiste hilft.']},
+  {t:'Energie sparen zu Hause', l:'Kleine Handgriffe mit großer Wirkung.', p:[
+   'Schon 1 °C weniger Raumtemperatur spart rund 6 % Heizenergie.',
+   'Stoßlüften (mehrmals täglich 5–10 Minuten weit öffnen) ist besser als ein dauerhaft gekipptes Fenster.',
+   'Eine Wärmepumpe heizt mit Wärme aus Luft, Erdreich oder Grundwasser – mit Ökostrom fast klimaneutral.',
+   'Eine Person in Deutschland verursacht im Schnitt rund 10 Tonnen Treibhausgase pro Jahr. Klimaverträglich wäre langfristig weniger als 1 Tonne.',
+   'Klimaneutral heißt: Unterm Strich werden keine zusätzlichen Treibhausgase ausgestoßen – vermeiden zuerst, den Rest ausgleichen.']}],
+ [{t:'Was ist fairer Handel?', l:'Faire Preise, Siegel und Menschenrechte.', p:[
+   'Das Fairtrade-Siegel garantiert einen Mindestpreis und eine Prämie. Über die Prämie entscheiden die Kooperativen gemeinsam – z. B. für Schulen oder Brunnen.',
+   'Die Elfenbeinküste ist der größte Kakaoproduzent der Welt. Zusammen mit Ghana stammt rund die Hälfte des Kakaos von dort.',
+   'Laut ILO und UNICEF sind rund 138 Millionen Kinder von Kinderarbeit betroffen (Schätzung 2025).',
+   'Siegel prüfen Unterschiedliches: Fairtrade (faire Handelsbedingungen), Blauer Engel (umweltfreundliche Produkte), FSC (Forstwirtschaft), MSC (Fischfang).',
+   'Das deutsche Lieferkettengesetz gilt seit 2023 und verpflichtet große Unternehmen, auf Menschenrechte in ihren Lieferketten zu achten.']},
+  {t:'Von der Bohne bis ins Regal', l:'Wer verdient eigentlich an deiner Schokolade?', p:[
+   'Der Weg der Schokolade: Kakaofrüchte ernten → Bohnen fermentieren und trocknen → Transport per Schiff → Verarbeitung in der Fabrik → Verkauf im Supermarkt.',
+   'Ein Großteil der Wertschöpfung passiert erst in Europa. Auch beim Kaffee erhalten Kleinbauernfamilien oft nur einen kleinen Bruchteil des Ladenpreises.',
+   'Bekannte Fairtrade-Produkte sind Kaffee, Bananen und Kakao. Es gibt sie inzwischen in fast jedem Supermarkt.',
+   'Weltläden sind Fachgeschäfte für fair gehandelte Produkte – viele werden ehrenamtlich betrieben.',
+   'Ziel des fairen Handels: ein existenzsicherndes Einkommen – genug für Essen, Wohnen, Bildung und Gesundheit.']}],
+ [{t:'Richtig trennen', l:'Was gehört wohin – und wie lange bleibt Müll liegen?', p:[
+   'Gelbe Tonne: Verpackungen aus Kunststoff, Metall und Verbundstoffen, z. B. Joghurtbecher. Papier in die Papiertonne, Schalen in die Biotonne.',
+   'Kassenbons aus Thermopapier gehören in den Restmüll. Trinkgläser und Keramik auch – nicht ins Altglas.',
+   'Zerfallsdauer in der Natur: Bananenschale Wochen bis Monate, Zigarettenfilter Jahre, Alu-Dose bis zu 200 Jahre, Plastikflasche rund 450 Jahre.',
+   'Die Abfallhierarchie: Vermeiden → Wiederverwenden → Recyceln → Verbrennen (Energie gewinnen) → Deponieren.',
+   'Pfand: 25 Cent auf Einwegflaschen, meist 8 oder 15 Cent auf Mehrwegflaschen.']},
+  {t:'Weniger Müll im Alltag', l:'Mehrweg, Upcycling und Zero Waste.', p:[
+   'Mikroplastik sind Plastikteilchen, die kleiner als 5 Millimeter sind.',
+   'Glas-Mehrwegflaschen können bis zu 50-mal wiederbefüllt werden.',
+   'Alte Batterien gehören in die Sammelbox im Handel oder zum Wertstoffhof.',
+   'Upcycling heißt: Aus Altem etwas Neues, Wertvolleres machen. Zero Waste heißt: möglichst wenig Abfall.',
+   'Coffee-to-go-Becher sind meist mit Kunststoff beschichtet und schwer zu recyceln. Den Aludeckel vom Joghurtbecher trennst du ab, damit die Sortieranlage die Materialien erkennt.']}],
+ [{t:'Wasser – kostbar und knapp', l:'Süßwasser, virtuelles Wasser und das Meer.', p:[
+   'Nur rund 2,5 % des Wassers auf der Erde ist Süßwasser – und das meiste davon steckt im Eis.',
+   'Virtuelles Wasser (Herstellung): 1 Tomate ca. 13 l, 1 Tasse Kaffee ca. 130 l, 1 Baumwoll-T-Shirt ca. 2.700 l, 1 kg Rindfleisch ca. 15.000 l.',
+   'In Deutschland verbraucht eine Person rund 122 Liter Trinkwasser pro Tag. Duschen braucht meist weniger als ein Vollbad.',
+   'Das Meer nimmt rund ein Viertel des menschengemachten CO₂ auf und versauert dadurch.',
+   'Zu warmes Wasser führt zur Korallenbleiche. Weitere Bedrohungen: Überfischung und Plastikmüll.']},
+  {t:'Ozeane unter Druck', l:'Müllstrudel, Trinkwasser und Sauerstoff.', p:[
+   'Der „Great Pacific Garbage Patch“ ist ein riesiger Müllstrudel im Pazifik.',
+   'Mehr als 2 Milliarden Menschen haben keinen sicheren Zugang zu Trinkwasser.',
+   'Feuchttücher gehören nicht ins Klo: Sie zersetzen sich kaum und verstopfen Pumpen und Kläranlagen.',
+   'Die Meere liefern etwa die Hälfte des Sauerstoffs, den wir atmen – vor allem dank Plankton.',
+   'Das MSC-Siegel kennzeichnet Fisch aus nachhaltigerer Fischerei.']}],
+ [{t:'Klimafreundlich essen', l:'Was auf dem Teller liegt, zählt fürs Klima.', p:[
+   'Treibhausgase pro Kilogramm: Kartoffeln < Tofu < Hähnchenfleisch < Rindfleisch.',
+   'Saison in Deutschland: Spargel April–Juni, Erdbeeren Mai–Juli, Kürbis September–November, Grünkohl November–Februar.',
+   'Das Mindesthaltbarkeitsdatum (MHD) ist kein Wegwerfdatum: anschauen, riechen, probieren. Vorsicht beim „zu verbrauchen bis“-Datum.',
+   'In Deutschland werden pro Jahr rund 11 Millionen Tonnen Lebensmittel weggeworfen, mehr als die Hälfte in Haushalten.',
+   'Regional heißt aus der Nähe. Erdbeeren im Winter kommen oft von weit her oder aus beheizten Gewächshäusern.']},
+  {t:'Bio, Fläche und Hülsenfrüchte', l:'Wie wir alle satt werden – ohne den Planeten zu überlasten.', p:[
+   'Rindfleisch braucht viel mehr Fläche als Getreide oder Hülsenfrüchte mit gleichem Nährwert.',
+   'Beim Foodsharing werden übrige Lebensmittel weitergegeben statt weggeworfen.',
+   'Das EU-Bio-Siegel steht u. a. für den Verzicht auf chemisch-synthetische Pflanzenschutzmittel. Bio heißt aber nicht automatisch fair.',
+   '„Krummes“ Gemüse ist genauso nahrhaft wie makelloses.',
+   'Hülsenfrüchte wie Linsen, Bohnen und Kichererbsen sind eiweißreich. Die „Planetary Health Diet“ empfiehlt viel Pflanzliches und wenig Fleisch.']}],
+ [{t:'Vielfalt des Lebens', l:'Warum Arten, Moore und Bienen so wichtig sind.', p:[
+   'Laut Weltbiodiversitätsrat (IPBES, 2019) sind rund 1 Million Arten vom Aussterben bedroht.',
+   'Moore bedecken nur rund 3 % der Landfläche, speichern aber mehr Kohlenstoff als alle Wälder der Erde zusammen.',
+   'Jede Art braucht ihren Lebensraum: Biber am Fluss, Seehund im Wattenmeer, Specht im Wald, Feldlerche auf Feld und Wiese.',
+   'Rund drei Viertel der wichtigsten Nutzpflanzen profitieren von der Bestäubung durch Insekten.',
+   'Wächst auf einer Fläche jahrelang nur eine Pflanzenart, heißt das Monokultur.']},
+  {t:'Insekten & Lebensräume', l:'Was die Natur zum Leben braucht.', p:[
+   'Wilde Ecken, heimische Blumen und Laubhaufen helfen Insekten mehr als kurz gemähter Rasen.',
+   'Die Krefelder Studie zeigte: Die Masse fliegender Insekten in Schutzgebieten ging zwischen 1989 und 2016 um mehr als 75 % zurück.',
+   'Tropische Regenwälder sind besonders artenreich.',
+   'Eine Nahrungskette im Meer: Plankton-Algen → Kleinkrebse → Hering → Seehund.',
+   'Totholz ist wertvoller Lebensraum. Invasive Arten sind eingeschleppte Arten, die heimische verdrängen. Blühstreifen am Ackerrand bieten Insekten Nahrung.']}],
+ [{t:'Die wahre Geschichte deiner Kleidung', l:'Fast Fashion und bessere Alternativen.', p:[
+   'Fast Fashion ist billige Kleidung, die schnell produziert und schnell weggeworfen wird.',
+   '2013 stürzte in Bangladesch die Textilfabrik Rana Plaza ein – über 1.100 Menschen starben.',
+   'Ein großer Teil der Kleidung in deutschen Schränken wird selten oder nie getragen.',
+   'Alternativen: Secondhand (gebraucht kaufen), Upcycling (aufwerten statt wegwerfen), Repair-Café (gemeinsam reparieren), Kleidertausch.',
+   'Greenwashing: Unternehmen stellen sich umweltfreundlicher dar, als sie sind.']},
+  {t:'Smartphone, T-Shirt & Co.', l:'Rohstoffe, Lebenswege und Reparieren.', p:[
+   'Kobalt für Handy-Akkus stammt oft aus der Demokratischen Republik Kongo – teils aus gefährlichen Kleinminen.',
+   'Der größte Teil der Emissionen eines Smartphones entsteht bei der Herstellung. Lange nutzen lohnt sich!',
+   'Der Weg eines T-Shirts: Baumwolle anbauen → Garn spinnen → Stoff weben und färben → nähen → im Laden verkaufen.',
+   'Eine Person in Deutschland kauft rund 60 neue Kleidungsstücke pro Jahr. Die EU hat 2024 ein „Recht auf Reparatur“ beschlossen.',
+   'Polyester verliert beim Waschen Mikroplastikfasern. Sharing heißt: leihen, tauschen, gemeinsam nutzen.']}],
+ [{t:'Die 17 Ziele der Welt', l:'Die Agenda 2030 und Klimagerechtigkeit.', p:[
+   'Die Vereinten Nationen haben 2015 17 Ziele für nachhaltige Entwicklung (SDGs) beschlossen – zu erreichen bis 2030.',
+   'Beispiele: SDG 1 Keine Armut, SDG 5 Geschlechtergleichheit, SDG 6 Sauberes Wasser, SDG 12 Nachhaltiger Konsum, SDG 13 Klimaschutz.',
+   'Würden alle so leben wie wir in Deutschland, bräuchten wir rund 3 Erden.',
+   'Der Erdüberlastungstag markiert, ab wann die Menschheit mehr verbraucht hat, als die Erde im Jahr erneuern kann.',
+   'Klimagerechtigkeit: Wer am wenigsten zur Klimakrise beiträgt, ist oft am stärksten betroffen.']},
+  {t:'Fair für alle', l:'Gerechtigkeit zwischen Menschen und Generationen.', p:[
+   'Der unbereinigte Gender Pay Gap lag 2025 in Deutschland bei 16 %.',
+   'Die reichsten 10 % der Menschheit verursachen rund die Hälfte der Konsum-Emissionen.',
+   'Meilensteine der Klimapolitik: Erdgipfel in Rio (1992), Kyoto-Protokoll (1997), Pariser Abkommen (2015).',
+   'Mehr als 800 Millionen Menschen leben in extremer Armut.',
+   'Nachhaltigkeit hat drei Dimensionen: Ökologie, Ökonomie und Soziales. Wer sich unbezahlt engagiert, arbeitet ehrenamtlich.']}]
+];
+const TIPS = [
+ ['Stecker ziehen','Eine abschaltbare Steckdosenleiste beendet den Standby-Verbrauch mit einem Klick.'],
+ ['Leitungswasser trinken','Leitungswasser ist in Deutschland streng kontrolliert, viel klimafreundlicher als Flaschenwasser und kommt ohne Plastik aus.'],
+ ['Deckel drauf','Mit Deckel auf dem Topf braucht Kochen deutlich weniger Energie.'],
+ ['Brotdose statt Folie','Brotdose und Trinkflasche ersetzen jeden Tag Einwegverpackungen.'],
+ ['Erst reparieren','Im Repair-Café helfen Ehrenamtliche beim Reparieren von Toaster, Hose oder Fahrrad.'],
+ ['Saisonkalender','Hänge einen Saisonkalender in die Küche – dann weißt du, was gerade regional wächst.'],
+ ['Kleidertausch','Organisiere mit Freund*innen eine Kleidertauschparty – neue Lieblingsstücke, null Kosten.'],
+ ['30 Grad reichen','Normal verschmutzte Wäsche wird bei 30 °C sauber und spart gegenüber 60 °C viel Strom.'],
+ ['Rad statt Auto','Rund die Hälfte aller Autofahrten ist kürzer als 5 Kilometer – perfekt fürs Fahrrad.'],
+ ['Fair genießen','Bei Kaffee, Kakao und Bananen lohnt sich der Griff zum Fairtrade-Siegel besonders.'],
+ ['Resteküche','Aus Resten werden Suppe, Auflauf oder Bratreis – plane einmal pro Woche einen Restetag.'],
+ ['Balkon für Bienen','Heimische Blumen wie Kornblume, Lavendel oder Wilde Malve sind ein Festmahl für Wildbienen.']
+];
+/* Infotext 1 deckt Lektion 1–2 (Aufgaben 1–12) ab, Infotext 2 die Profi-Aufgaben von Lektion 3 + Test */
+const INFOS_PROFI = [
+ {t:'Klimawandel verstehen', l:'Wetter, Klima und die Folgen der Erwärmung.', p:[
+   'Seit Beginn der Industrialisierung hat sich die Erde um rund 1,4 °C erwärmt. Das Jahr 2024 lag schon über 1,5 °C.',
+   'Wetter ist das, was heute draußen passiert. Klima ist der Durchschnitt des Wetters über mindestens 30 Jahre.',
+   'Der natürliche Treibhauseffekt hält die Erde bei rund 15 °C statt –18 °C. Problematisch ist der zusätzliche, menschengemachte Anteil.',
+   'Folgen: Meeresspiegelanstieg überflutet Küsten, Hitzewellen fordern Tote, Dürren führen zu Ernteausfällen, Gletscherschmelze kostet Bergregionen Wasser.',
+   'China stößt insgesamt am meisten CO₂ aus – pro Kopf liegen aber z. B. die USA deutlich vor China.',
+   'Strom aus Windkraft verursacht viel weniger CO₂ als Erdgas; Braunkohle ist am klimaschädlichsten.']},
+ {t:'Arbeit & Rechte weltweit', l:'Kooperativen, Arbeitsrechte und Herkunftsländer.', p:[
+   'In einer Kooperative schließen sich Produzent*innen zusammen und wirtschaften gemeinsam – so haben sie mehr Verhandlungsmacht.',
+   'Die Fairtrade-Standards verbieten ausbeuterische Kinderarbeit.',
+   'Wichtige Herkunftsländer: Kaffee aus Brasilien, Bananen aus Ecuador, Kakao aus der Elfenbeinküste, Baumwolle aus Indien.',
+   'Die Internationale Arbeitsorganisation (ILO) ist die UN-Organisation für Arbeitsrechte.',
+   'Faire Siegel sind z. B. Fairtrade, GEPA fair+ und Naturland Fair. Der Blaue Engel ist dagegen ein Umweltzeichen.',
+   'Es gibt auch fair gehandelte Blumen, z. B. Rosen aus Kenia.']},
+ {t:'Kreislaufwirtschaft', l:'Aus Abfall werden neue Rohstoffe.', p:[
+   'Kreislaufwirtschaft heißt: Produkte und Rohstoffe möglichst lange im Kreislauf halten.',
+   'Deutschland verursacht deutlich mehr Verpackungsmüll pro Kopf als der EU-Durchschnitt.',
+   'Seit 2021 sind in der EU Einweg-Plastikprodukte wie Strohhalme und Plastikbesteck verboten.',
+   'Aus Altpapier wird Recyclingpapier, aus PET-Flaschen Fleece oder neue Flaschen, aus Altglas neues Glas, aus Bioabfall Kompost und Biogas.',
+   'Blaues oder rotes Glas gehört ins Grünglas.',
+   'Wiederverwenden ist besser als Recyceln.']},
+ {t:'Wasser im Alltag', l:'Wo unser Wasser bleibt – zu Hause und weltweit.', p:[
+   'Im Haushalt geht das meiste Trinkwasser in Baden, Duschen und Körperpflege, danach in die Toilettenspülung.',
+   'Weltweit ist die Landwirtschaft der größte Wasserverbraucher – rund 70 % des entnommenen Süßwassers.',
+   'Wasser, das in Produkten steckt, heißt virtuelles Wasser.',
+   'Der Aralsee in Zentralasien ist größtenteils ausgetrocknet, weil seine Zuflüsse für Baumwollfelder genutzt wurden.',
+   'Meerestiere sind bedroht: Schildkröten durch Plastik, Kabeljau durch Überfischung, Wale durch Schiffslärm, Korallen durch Erwärmung.',
+   'In Deutschland lohnt sich vor allem Warmwasser-Sparen – wegen der Energie zum Erhitzen.']},
+ {t:'Vom Acker auf den Teller', l:'Saison, Boden und was im Futtertrog landet.', p:[
+   'Saisonal heißt: Obst und Gemüse essen, wenn es bei uns natürlich reif wird.',
+   'Tiefkühlgemüse ist nicht immer schlechter – eingeflogenes frisches Gemüse kann klimaschädlicher sein.',
+   'Bei der Fruchtfolge wechseln die Pflanzen auf einem Feld jedes Jahr. Das schont den Boden.',
+   'Tofu wird aus Sojabohnen gemacht, Hummus aus Kichererbsen, Pommes aus Kartoffeln, Schokolade aus Kakaobohnen.',
+   'Der größte Teil der weltweiten Sojaernte wird als Tierfutter verwendet.',
+   'Transport: Güterzug verursacht am wenigsten CO₂, dann Lkw – Luftfracht am meisten.']},
+ {t:'Natur schützen', l:'Schutzgebiete, Rote Liste und Rückkehrer.', p:[
+   'In Nationalparks darf sich die Natur möglichst frei entwickeln. Deutschland hat 16 davon.',
+   'Die Rote Liste zeigt, welche Arten gefährdet sind.',
+   'Wölfe sind seit etwa 2000 nach Deutschland zurückgekehrt. Auch der Seeadler brütet wieder in vielen Regionen.',
+   'Begriffe: Biotop = Lebensraum, Ökosystem = Lebewesen und Umwelt als Einheit, Artenvielfalt = Anzahl der Arten, Bestäubung = Übertragung von Pollen.',
+   'Lichtverschmutzung in der Nacht schadet Insekten.']},
+ {t:'Klug konsumieren', l:'Siegel, Reparatur und Rücksendungen.', p:[
+   'Geplante Obsoleszenz ist der Vorwurf, dass Produkte absichtlich früh kaputtgehen.',
+   'Der „Grüne Knopf“ ist das staatliche Siegel für nachhaltige Textilien. GOTS steht für Bio-Textilien.',
+   'Bio-Baumwolle wird ohne chemisch-synthetische Pestizide angebaut.',
+   'Das EU-Energielabel zeigt den Energieverbrauch von Geräten, der Blaue Engel umweltfreundliche Produkte.',
+   'Reparieren ist fast immer nachhaltiger als neu kaufen. Rücksendungen von Onlinebestellungen verursachen zusätzliche Transporte.']},
+ {t:'Menschenrechte & Engagement', l:'Rechte für alle – und wie du mitmachen kannst.', p:[
+   'Die Allgemeine Erklärung der Menschenrechte wurde 1948 verabschiedet. Auch Bildung ist ein Menschenrecht.',
+   'Weitere SDGs: SDG 2 Kein Hunger, SDG 4 Hochwertige Bildung, SDG 7 Saubere Energie, SDG 14 Leben unter Wasser.',
+   'Generationengerechtigkeit: Heute so leben, dass auch künftige Generationen gute Chancen haben.',
+   '„Fridays for Future“ begann 2018 mit Schulstreiks für das Klima.',
+   'Auch unter 18 kann man sich engagieren, z. B. in Jugendparlamenten.']}
+];
+INFOS.forEach((x,u)=>{ x[0] = {t:x[0].t, l:x[0].l+' Dazu: '+x[1].t+'.', p:x[0].p.concat(x[1].p)}; x[1] = INFOS_PROFI[u]; });
+NEW_INFOS.forEach(x=>INFOS.push(x));
+/* ===== MMG-Special: AG „Going green und fair“ (Inhalte aus dem AG-Bericht) ===== */
+const AG = {t:'AG „Going green und fair“', d:'Engagement für Umwelt und fairen Handel am MMG.', c:'#2E6417', s:'#1E440E', i:'#C1FF72',
+ names:['Die AG & BNE','Change Fashion & Weltladen','Handys & MMG-Hefte'], qs:[
+  mc('Von wem stammt das Zitat „Was wir heute tun, entscheidet darüber, wie die Welt morgen aussieht“?',['Marie von Ebner-Eschenbach','Greta Thunberg','Albert Einstein','Johann Wolfgang von Goethe'],'Die Schriftstellerin lebte von 1830 bis 1916 – lange bevor es Wörter wie „Klimawandel“ gab. Ihr Satz motiviert trotzdem bis heute.'),
+  fill('Die AG am MMG heißt „Going green und ___“.',['fair','fit','fun','fast'],'Die AG engagiert sich für Umwelt und fairen Handel.'),
+  mc('Wofür steht die Abkürzung BNE?',['Bildung für nachhaltige Entwicklung','Bund für Natur und Energie','Bildung nur für Erwachsene','Bürgerinitiative Neue Energie'],'BNE soll Menschen zu zukunftsfähigem Denken und Handeln befähigen.'),
+  tf('BNE ist eine weltweite Bildungskampagne der Vereinten Nationen.',true,'Die AG folgt den Grundsätzen der BNE.'),
+  mc('Was sollen die AG-Mitglieder bei ihren Projekten erleben?',['Selbstwirksamkeit und Gemeinschaft','Nur bessere Noten','Freizeit ohne Aufgaben','Wettkämpfe gegeneinander'],'Selbstwirksamkeit heißt: spüren, dass das eigene Handeln etwas bewirkt.'),
+  fill('BNE soll es allen Menschen ermöglichen, die Auswirkungen des eigenen ___ auf die Welt zu verstehen.',['Handelns','Schlafens','Singens','Rechnens'],'Wer die Folgen seines Handelns versteht, kann verantwortungsvolle, nachhaltige Entscheidungen treffen.'),
+  mc('Wie hieß der Workshop der AG in der Woche der Gesundheit und Nachhaltigkeit?',['„Change Fashion“','„Fast Food Fun“','„Green Gaming“','„Plastic Party“'],'Der Workshop stand allen Schüler*innen und ihren Lehrkräften offen.'),
+  tf('Fast Fashion ist Trendmode, die in schnell aufeinanderfolgenden Kollektionen erscheint.',true,'Genau dieses Problemfeld nahm der Workshop „Change Fashion“ in den Blick.'),
+  mc('Wo sind die fairen Produkte des MMG-Weltladens gut sichtbar ausgestellt?',['In einer Glasvitrine in der Mensa','Im Lehrerzimmer','In der Turnhalle','Im Keller'],'So kann man sich schon vorher überlegen, was man beim nächsten fairen Pausenverkauf kaufen möchte.'),
+  mc('Wie oft öffnet der MMG-Weltladen?',['Einmal im Monat','Jeden Tag','Einmal im Jahr','Nur in den Ferien'],'Dann gibt es den fairen Pausenverkauf mit Produkten aus fairem Handel.'),
+  fill('Im Advent verteilten Nikolaus, Knecht Ruprecht und Engel faire ___ an alle Schüler*innen des MMG.',['Schokonikoläuse','Äpfel','Lebkuchenherzen','Bananen'],'Das gab es in diesem Schuljahr zum ersten Mal.'),
+  tf('Nikolaus, Knecht Ruprecht und die Engel waren Mitglieder der SMV.',true,'SMV steht für Schülermitverantwortung.'),
+  mc('Wie viel Geld erhielt das Hilfswerk „Missio“ pro gespendetem Handy?',['50 Cent','5 Cent','5 Euro','50 Euro'],'Das Geld unterstützt Projekte für Kinder.'),
+  mc('Wie viele Handys schickte das MMG an das Sammelcenter?',['49','9','149','490'],'Dafür erhielt das Gymnasium eine Urkunde.'),
+  tf('Mit den Handyspenden werden Projekte für Kinder unter anderem in Ghana und auf den Philippinen unterstützt.',true,'Die Projekte verbessern Bildung, Gesundheit und Lebensbedingungen von Kindern.'),
+  pair('Welche Eigenschaft der MMG-Hefte hat welchen Vorteil?',[['100 % Recyclingpapier','Schont Wälder'],['Aus Dorfen','Kurze Transportwege'],['Stabiler Einband','Kein Plastikumschlag nötig'],['Integrierter Heftstreifen','Kein extra Schnellhefter']],'Die Hefte hat die AG selbst entworfen – ab dem nächsten Schuljahr für die Unterstufe.'),
+  fill('Die MMG-Hefte kommen regional vom Musikverlag Streubel aus ___.',['Dorfen','Berlin','Hamburg','Wien'],'Regional heißt: kurze Wege.'),
+  mc('Wie erkennt man bei den MMG-Heften ohne Plastikumschlag das Fach?',['Man malt den Rand in der Fachfarbe an','Mit einem Plastikaufkleber','Gar nicht','Mit Klebeband'],'So spart man den Plastikumschlag ganz ein.')
+ ]};
+AG.qs.forEach((q,i)=>q.id='ag.'+i);
+const INFOS_AG = [
+ {t:'Unsere AG', l:'Wofür „Going green und fair“ steht – und was schon passiert ist.', p:[
+   '„Was wir heute tun, entscheidet darüber, wie die Welt morgen aussieht.“ – Marie von Ebner-Eschenbach (1830–1916)',
+   'Die AG setzt sich für Umwelt und fairen Handel ein. Die Mitglieder erleben dabei Selbstwirksamkeit und Gemeinschaft.',
+   'Die AG folgt der „Bildung für nachhaltige Entwicklung“ (BNE), einer weltweiten Bildungskampagne der Vereinten Nationen. Sie soll helfen, die Auswirkungen des eigenen Handelns zu verstehen.',
+   'In der Woche der Gesundheit und Nachhaltigkeit gab es den Workshop „Change Fashion“ über Fast Fashion – Trendmode in schnell aufeinanderfolgenden Kollektionen.',
+   'Einmal im Monat öffnet der MMG-Weltladen zum fairen Pausenverkauf. Die fairen Produkte sind in einer Glasvitrine in der Mensa gut sichtbar ausgestellt.',
+   'Im Advent verteilten Nikolaus, Knecht Ruprecht und Engel – alles SMV-Mitglieder – faire Schokonikoläuse an alle.']},
+ {t:'Handys & MMG-Hefte', l:'Zwei Projekte, die direkt etwas bewirken.', p:[
+   'Bei der Handysammelaktion bekam das Hilfswerk „Missio“ 50 Cent pro Handy. 49 Handys gingen ans Sammelcenter – das MMG erhielt eine Urkunde.',
+   'Das Geld unterstützt Projekte für Bildung, Gesundheit und Lebensbedingungen von Kindern, u. a. in Ghana und auf den Philippinen.',
+   'Die AG hat nachhaltige MMG-Hefte entworfen: 100 % Recyclingpapier, regional vom Musikverlag Streubel aus Dorfen.',
+   'Der stabile Einband macht den Plastikumschlag überflüssig – den Rand malt man in der Fachfarbe an. Ein integrierter Heftstreifen ersetzt den Schnellhefter.',
+   'Neue Mitglieder sind in der AG immer willkommen!']}
+];
+const PRAISE = ['Super!','Richtig!','Klasse!','Stark!','Genau!','Sehr gut!','Grün und klug!'];
+
+/* ================= Zustand ================= */
+const KEY = 'ggaf-quizzes-v1';
+const HEART_MS = 30*60*1000, MAX_H = 5;
+const defaults = () => ({name:'', xp:0, hearts:MAX_H, heartsTs:Date.now(), streak:0, lastDay:null, goal:30, log:{}, done:{}, badges:{}, lessons:0, perfect:0, answered:0, correct:0, blitzBest:0, missed:[], sound:true, tab:'learn', read:{}, spent:0, owned:[], outfit:'', freeze:0, boost:false, froze:0, introDone:false, srs:{}, dstat:{}, bg:'', recapWeek:''});
+const balance = () => S.xp - S.spent;   /* ausgebbare XP; S.xp bleibt die Gesamtsumme für Abzeichen */
+let S = load();
+function load(){ try{ const s = JSON.parse(localStorage.getItem(KEY)); if(s) return sanitize(s); }catch(e){} return defaults(); }
+/* Speicherstand absichern: falsche Typen aus alten/kaputten Ständen (oder Sicherungscodes) durch Standardwerte ersetzen */
+function sanitize(s){
+  const d = defaults(), r = Object.assign(defaults(), s);
+  Object.keys(d).forEach(k=>{ const def = d[k]; if(Array.isArray(def) ? !Array.isArray(r[k]) : (def!==null && (r[k]===null || typeof r[k]!==typeof def))) r[k] = def; });
+  if(!['learn','practice','shop','badges','profile'].includes(r.tab)) r.tab = 'learn';
+  return r;
+}
+function save(){ try{ localStorage.setItem(KEY, JSON.stringify(S)); }catch(e){} }
+const dayKey = (d=new Date()) => d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+const yesterday = () => { const d = new Date(); d.setDate(d.getDate()-1); return dayKey(d); };
+const streakNow = () => (S.lastDay===dayKey()||S.lastDay===yesterday()) ? S.streak : 0;
+const todayXp = () => S.log[dayKey()]||0;
+function regen(){
+  if(S.hearts>=MAX_H){ S.heartsTs = Date.now(); return; }
+  while(S.hearts<MAX_H && Date.now()-S.heartsTs >= HEART_MS){ S.hearts++; S.heartsTs += HEART_MS; }
+  if(S.hearts>=MAX_H) S.heartsTs = Date.now();
+}
+function nextHeartIn(){ const ms = Math.max(0, HEART_MS-(Date.now()-S.heartsTs)); const m = Math.floor(ms/60000), s = Math.floor(ms/1000)%60; return m+':'+String(s).padStart(2,'0'); }
+function addXp(n){
+  applyFreeze();   /* App kann tagelang offen bleiben – Serienschutz auch hier prüfen */
+  const t = dayKey(); let streakUp = false;
+  S.xp += n; S.log[t] = (S.log[t]||0)+n;
+  if(S.lastDay!==t){ S.streak = S.lastDay===yesterday() ? S.streak+1 : 1; S.lastDay = t; streakUp = true; }
+  return streakUp;
+}
+const addDays = n => { const d = new Date(); d.setDate(d.getDate()+n); return dayKey(d); };
+/* ===== Wiederholung mit Abstand: richtig gelernte Fragen kommen nach 1, 3, 7, 14, 30 Tagen wieder ===== */
+const SRS_DAYS = [1,3,7,14,30];
+function srsMark(q, ok, isReview){
+  const e = S.srs[q.id], today = dayKey();
+  if(!ok){ S.srs[q.id] = {l:0, d:addDays(1)}; return; }
+  if(!e){ S.srs[q.id] = {l:0, d:addDays(SRS_DAYS[0])}; return; }
+  if(isReview && e.d<=today){ e.l = Math.min(e.l+1, SRS_DAYS.length-1); e.d = addDays(SRS_DAYS[e.l]); }
+}
+const srsDue = () => Object.keys(S.srs).filter(id=>S.srs[id].d<=dayKey() && byId(id));
+/* ===== Tagesstatistik für den Wochenrückblick: dstat[Tag] = {l: Lektionen, u: {Einheit: [beantwortet, richtig]}} ===== */
+function statDay(){ const t = dayKey(); if(!S.dstat[t]) S.dstat[t] = {l:0, u:{}};
+  const keys = Object.keys(S.dstat).sort(); while(keys.length>70) delete S.dstat[keys.shift()];   /* max. ~10 Wochen aufheben */
+  return S.dstat[t]; }
+function statAnswer(q, ok){ const u = String(q.id).split('.')[0], d = statDay(); const s = d.u[u] || (d.u[u] = [0,0]); s[0]++; if(ok) s[1]++; }
+const unitTitle = u => u==='ag' ? 'AG „Going green und fair“' : (UNITS[+u] ? UNITS[+u].t : '');
+/* Rückblick über 7 Tage, die an „bis“ enden (Standard: heute) */
+function recap(endOffset){
+  let xp = 0, lessons = 0, active = 0; const per = {};
+  for(let i=0;i<7;i++){ const d = new Date(); d.setDate(d.getDate()-endOffset-i); const k = dayKey(d), ds = S.dstat[k];
+    xp += S.log[k]||0; if((S.log[k]||0)>0) active++;
+    if(ds){ lessons += ds.l; Object.keys(ds.u).forEach(u=>{ const p = per[u] || (per[u] = [0,0]); p[0] += ds.u[u][0]; p[1] += ds.u[u][1]; }); } }
+  const ranked = Object.keys(per).filter(u=>per[u][0]>=3).map(u=>({u, r:per[u][1]/per[u][0], n:per[u][0]})).sort((a,b)=>b.r-a.r || b.n-a.n);
+  return {xp, lessons, active, best: ranked[0], worst: ranked.length>1 ? ranked[ranked.length-1] : null};
+}
+function weekStart(){ const d = new Date(); const wd = (d.getDay()+6)%7; d.setDate(d.getDate()-wd); return dayKey(d); }
+function recapHTML(r){
+  return `<div class="tiles recap">
+    <div class="tile" style="color:var(--leafText)">${icon('leaf')}<div><b style="color:var(--ink)">${r.xp}</b><span>XP</span></div></div>
+    <div class="tile" style="color:var(--sproutShade)">${icon('check')}<div><b style="color:var(--ink)">${r.lessons}</b><span>Lektionen</span></div></div>
+    <div class="tile" style="color:var(--orange)">${icon('flame')}<div><b style="color:var(--ink)">${r.active}/7</b><span>aktive Tage</span></div></div>
+    <div class="tile" style="color:var(--forest)">${icon('target')}<div><b style="color:var(--ink)">${r.best?Math.round(r.best.r*100)+' %':'–'}</b><span>beste Quote</span></div></div>
+  </div>
+  ${r.best?`<p class="recapline"><b>Stärkstes Thema:</b> ${unitTitle(r.best.u)} (${Math.round(r.best.r*100)} % richtig)</p>`:''}
+  ${r.worst && r.worst.u!==r.best.u && r.worst.r<1?`<p class="recapline"><b>Übe mehr:</b> ${unitTitle(r.worst.u)} (${Math.round(r.worst.r*100)} % richtig)</p>`:''}
+  ${!r.xp?'<p class="recapline">Noch keine Aktivität in diesem Zeitraum – leg los!</p>':''}`;
+}
+const esc = s => String(s).replace(/[&<>"]/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const shuffle = a => { a = a.slice(); for(let i=a.length-1;i>0;i--){ const j = Math.floor(Math.random()*(i+1)); [a[i],a[j]] = [a[j],a[i]]; } return a; };
+const $ = s => document.querySelector(s);
+const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ================= Sound ================= */
+let AC;
+function tone(fs, type='sine', dur=.11, vol=.16){
+  if(!S.sound) return;
+  try{
+    AC = AC || new (window.AudioContext||window.webkitAudioContext)();
+    const t0 = AC.currentTime;
+    fs.forEach((f,i)=>{ const o = AC.createOscillator(), g = AC.createGain(); o.type = type; o.frequency.value = f;
+      const t = t0+i*dur; g.gain.setValueAtTime(.0001,t); g.gain.exponentialRampToValueAtTime(vol,t+.012); g.gain.exponentialRampToValueAtTime(.0001,t+dur*1.8);
+      o.connect(g).connect(AC.destination); o.start(t); o.stop(t+dur*2); });
+  }catch(e){}
+}
+const sOk = () => tone([660,990]), sBad = () => tone([196,165],'square',.13,.07), sWin = () => tone([523,659,784,1047],'triangle',.12);
+
+/* ================= Pfad-Logik ================= */
+/* u = -1 ist die AG-Einheit (eigener Pfad mit 3 Lektionen, von Anfang an frei) */
+const unitOf = u => u<0 ? AG : UNITS[u];
+const lessonName = (u,k) => u<0 ? AG.names[k] : LESSON_NAMES[k];
+const nodeId = (u,k) => (u<0 ? 'ag' : u)+'-'+k;
+const flat = () => UNITS.flatMap((_,u)=>[0,1,2,3].map(k=>[u,k]));
+function currentG(){ const f = flat(); const i = f.findIndex(([u,k])=>!S.done[nodeId(u,k)]); return i<0 ? f.length : i; }
+function nodeState(u,k){
+  if(S.done[nodeId(u,k)]) return 'done';
+  if(u<0) return (k===0 || S.done[nodeId(u,k-1)]) ? 'current' : 'locked';
+  return u*4+k===currentG() ? 'current' : 'locked';
+}
+function lessonQs(u,k){
+  const qs = unitOf(u).qs;
+  if(k===3) return shuffle(qs).slice(0,10);
+  return shuffle(qs.slice(k*6, k*6+6));   /* jede Lektion hat ihre eigenen 6 Aufgaben */
+}
+const byId = id => { const [u,q] = String(id).split('.'), un = u==='ag' ? AG : UNITS[+u]; return un ? un.qs[+q] : undefined; };
+
+/* ================= Badges ================= */
+const BADGES = [
+ {id:'first', t:'Erster Spross', d:'Schließe deine erste Lektion ab.', ic:'leaf', p:s=>[s.lessons,1]},
+ {id:'perfect', t:'Fehlerfrei', d:'Schaffe eine Lektion ohne Fehler.', ic:'target', p:s=>[s.perfect,1]},
+ {id:'streak3', t:'Glühende Serie', d:'Lerne 3 Tage in Folge.', ic:'flame', p:s=>[streakNow(),3]},
+ {id:'streak7', t:'Wochenfeuer', d:'Lerne 7 Tage in Folge.', ic:'flame', p:s=>[streakNow(),7]},
+ {id:'xp100', t:'Blattsammler', d:'Sammle 100 XP.', ic:'leaf', p:s=>[s.xp,100]},
+ {id:'xp500', t:'Waldhüter*in', d:'Sammle 500 XP.', ic:'star', p:s=>[s.xp,500]},
+ {id:'q100', t:'Wissensdurst', d:'Beantworte 100 Fragen richtig.', ic:'bulb', p:s=>[s.correct,100]},
+ {id:'blitz10', t:'Blitzmerker', d:'Schaffe 10 richtige Antworten in einer Blitzrunde.', ic:'bolt', p:s=>[s.blitzBest,10]},
+ {id:'unit', t:'Einheit gemeistert', d:'Bestehe deinen ersten Einheitstest.', ic:'trophy', p:s=>[UNITS.filter((_,u)=>s.done[nodeId(u,3)]).length,1]},
+ {id:'fair', t:'Fair-Profi', d:'Schließe die Einheit „Fairer Handel“ ab.', ic:'medal', p:s=>[s.done['1-3']?1:0,1]},
+ {id:'all', t:'Going green and Fair', d:'Schließe alle Einheiten des Lernpfads ab.', ic:'globe', p:s=>[UNITS.filter((_,u)=>s.done[nodeId(u,3)]).length,UNITS.length]},
+ {id:'ag', t:'AG-Profi', d:'Schließe alle drei Lektionen der AG „Going green und fair“ ab.', ic:'book', p:s=>[[0,1,2].filter(k=>s.done[nodeId(-1,k)]).length,3]},
+ {id:'shop', t:'Erster Einkauf', d:'Kaufe etwas im Shop.', ic:'bag', p:s=>[s.spent>0?1:0,1]},
+ {id:'style', t:'Sprossi-Stylist', d:'Kaufe ein Outfit oder einen Hintergrund im Shop.', ic:'star', p:s=>[s.owned.length,1]}
+];
+function checkBadges(){ const nw = []; BADGES.forEach(b=>{ const [v,m] = b.p(S); if(v>=m && !S.badges[b.id]){ S.badges[b.id] = dayKey(); nw.push(b); } }); return nw; }
+
+/* ================= Render: Shell ================= */
+const TABS = [['learn','Lernen','home'],['practice','Üben','dumbbell'],['shop','Shop','bag'],['badges','Erfolge','medal'],['profile','Profil','user']];
+/* ================= Shop ================= */
+const SHOP = [
+ {id:'heart1', t:'Ein Herz', d:'Sofort +1 Herz.', price:10, ic:'heart', col:'var(--red)'},
+ {id:'hearts', t:'Herzen auffüllen', d:'Alle 5 Herzen sofort zurück.', price:30, ic:'heart', col:'var(--red)'},
+ {id:'freeze', t:'Serienschutz', d:'Rettet deine Serie an einem Tag ohne Lernen. Du kannst 2 besitzen.', price:50, ic:'shield', col:'#3B82F6'},
+ {id:'boost', t:'Doppel-XP', d:'Deine nächste Lektion bringt doppelte XP.', price:40, ic:'bolt', col:'var(--orange)'}
+];
+const OUTFITS = [
+ {id:'brille', t:'Sonnenbrille', price:60},
+ {id:'muetze', t:'Wollmütze', price:80},
+ {id:'kranz', t:'Blumenkranz', price:100},
+ {id:'fliege', t:'Fliege', price:50},
+ {id:'kopfhoerer', t:'Kopfhörer', price:90},
+ {id:'sonnenhut', t:'Sonnenhut', price:70},
+ {id:'mmgcap', t:'MMG-Cap', price:120},
+ {id:'krone', t:'Krone', price:200}
+];
+const BGS = [
+ {id:'dots', t:'Tupfen', price:40},
+ {id:'stripes', t:'Streifen', price:50},
+ {id:'leaves', t:'Blätterregen', price:70}
+];
+function applyBg(){ document.body.className = document.body.className.replace(/\s*bg-\w+/g,'') + (S.bg ? ' bg-'+S.bg : ''); }
+function shopState(it){
+  if(it.id==='heart1'||it.id==='hearts') return S.hearts>=MAX_H ? 'Herzen sind voll' : '';
+  if(it.id==='freeze') return S.freeze>=2 ? 'Schon 2 im Besitz' : '';
+  if(it.id==='boost') return S.boost ? 'Schon aktiv' : '';
+  return '';
+}
+function renderShop(){
+  const b = balance();
+  $('#view').innerHTML = `<h1 class="h1">Shop</h1><p class="lead">Tausche deine XP gegen Hilfen und Outfits für Sprossi.</p>
+  <div class="wallet">${icon('leaf')}<div><b>${b} XP</b><span>zum Ausgeben · insgesamt verdient: ${S.xp} XP</span></div></div>
+  <h2 class="sec">Hilfen</h2>
+  <div class="stack">${SHOP.map(it=>{ const why = shopState(it), extra = it.id==='freeze' ? ` · Besitz: ${S.freeze}/2` : '';
+    return `<div class="card pcard"><div class="badge" style="background:${it.col};color:#fff">${icon(it.ic)}</div><div><h3>${it.t}</h3><p>${it.d}${extra}</p>${why?`<p class="why">${why}</p>`:''}</div><button class="btn go price" data-buy="${it.id}" ${why||b<it.price?'disabled':''}>${icon('leaf')}${it.price}</button></div>`; }).join('')}</div>
+  <h2 class="sec">Outfits für Sprossi</h2>
+  <div class="bgrid ogrid">${OUTFITS.map(o=>{ const own = S.owned.includes(o.id), on = S.outfit===o.id;
+    return `<div class="bdg outfit ${on?'on':''}">${mascot('happy', o.id)}<h3>${o.t}</h3>${own
+      ? `<button class="btn ${on?'ghost':''} block" data-wear="${o.id}">${on?'Ablegen':'Anziehen'}</button>`
+      : `<button class="btn block price" data-buy="${o.id}" ${b<o.price?'disabled':''}>${icon('leaf')}${o.price}</button>`}</div>`; }).join('')}</div>
+  <h2 class="sec">Hintergründe für den Lernpfad</h2>
+  <div class="bgrid ogrid bgs">${BGS.map(o=>{ const own = S.owned.includes(o.id), on = S.bg===o.id;
+    return `<div class="bdg outfit ${on?'on':''}"><div class="swatch bg-${o.id}"></div><h3>${o.t}</h3>${own
+      ? `<button class="btn ${on?'ghost':''} block" data-bgwear="${o.id}">${on?'Entfernen':'Verwenden'}</button>`
+      : `<button class="btn block price" data-buy="${o.id}" ${b<o.price?'disabled':''}>${icon('leaf')}${o.price}</button>`}</div>`; }).join('')}</div>`;
+}
+function buy(id){
+  const it = SHOP.find(x=>x.id===id) || OUTFITS.find(x=>x.id===id) || BGS.find(x=>x.id===id);
+  if(!it || balance()<it.price || (SHOP.includes(it) && shopState(it)) || S.owned.includes(id)) return;
+  S.spent += it.price;
+  if(id==='heart1') S.hearts = Math.min(MAX_H, S.hearts+1);
+  else if(id==='hearts') S.hearts = MAX_H;
+  else if(id==='freeze') S.freeze++;
+  else if(id==='boost') S.boost = true;
+  else if(BGS.includes(it)){ S.owned.push(id); S.bg = id; applyBg(); }
+  else { S.owned.push(id); S.outfit = id; }
+  const nb = checkBadges(); save(); tone([660,880,1100],'triangle',.09);
+  renderTop(); renderShop(); $('#logoMark').innerHTML = mascot('happy');
+  modal(`${mascot('cheer')}<h2>Gekauft: ${it.t}</h2><p>${OUTFITS.includes(it)?'Sprossi trägt es jetzt stolz.':BGS.includes(it)?'Dein Lernpfad hat jetzt einen neuen Hintergrund.':it.d}</p>${nb.map(b=>`<div class="newb"><div class="medal">${icon(b.ic)}</div><div>Neues Abzeichen: ${b.t}<small>${b.d}</small></div></div>`).join('')}<button class="btn block" data-act="close">Super</button>`);
+}
+/* Serienschutz: verpasste Tage werden mit gekauften Schutz-Items überbrückt */
+function applyFreeze(){
+  if(!S.lastDay || !S.freeze || S.lastDay===dayKey() || S.lastDay===yesterday()) return;
+  const p = S.lastDay.split('-').map(Number), last = new Date(p[0],p[1]-1,p[2]), now = new Date();
+  const missed = Math.round((new Date(now.getFullYear(),now.getMonth(),now.getDate()) - last)/864e5) - 1;
+  if(missed>0 && missed<=S.freeze){ S.freeze -= missed; S.lastDay = yesterday(); S.froze = missed; save(); }
+}
+function renderTop(){
+  regen(); applyFreeze();
+  const st = streakNow();
+  $('#stStreak').className = 'stat streak'+(st?'':' off');
+  $('#stStreak').innerHTML = icon('flame')+st;
+  $('#stStreak').setAttribute('aria-label', st+' Tage Serie');
+  $('#stXp').innerHTML = icon('leaf')+balance();
+  $('#stXp').setAttribute('aria-label', balance()+' XP zum Ausgeben');
+  $('#stHearts').innerHTML = icon('heart')+S.hearts;
+  $('#stHearts').setAttribute('aria-label', S.hearts+' Herzen');
+}
+function renderTabs(){
+  $('#tabs').innerHTML = TABS.map(([id,l,ic])=>`<button class="tab" data-tab="${id}" ${S.tab===id?'aria-current="page"':''}>${icon(ic)}${l}</button>`).join('');
+}
+function render(scrollToCurrent){
+  renderTop(); renderTabs();
+  ({learn:renderLearn, practice:renderPractice, shop:renderShop, badges:renderBadges, profile:renderProfile})[S.tab]();
+  if(scrollToCurrent && S.tab==='learn'){ const cs = document.querySelectorAll('.nwrap.current'), c = cs[cs.length-1]; if(c && currentG()>0) c.scrollIntoView({block:'center'}); else window.scrollTo(0,0); }
+  else window.scrollTo(0,0);
+}
+function goalRing(){
+  const v = todayXp(), r = 24, C = 2*Math.PI*r, p = Math.min(1, v/S.goal);
+  return `<div class="goalring" title="Tagesziel"><svg viewBox="0 0 58 58"><circle cx="29" cy="29" r="${r}" fill="none" stroke="var(--line)" stroke-width="7"/><circle cx="29" cy="29" r="${r}" fill="none" stroke="${p>=1?'var(--orange)':'var(--leaf)'}" stroke-width="7" stroke-linecap="round" stroke-dasharray="${C}" stroke-dashoffset="${C*(1-p)}"/></svg>${p>=1?icon('check'):Math.round(p*100)+'%'}</div>`;
+}
+function unitPath(ui){
+  /* ausgewogener Zickzack je Einheit: Mitte → rechts → links → Mitte */
+  const OFFS = [0,64,-64,0], u = unitOf(ui), ag = ui<0, nodes = ag ? 3 : 4;
+  const infos = ag ? INFOS_AG : INFOS[ui];
+  let h = `<section class="unit ${ag?'agunit':''}" style="--c:${u.c};--s:${u.s};--i:${u.i}"><div class="eb">${ag?'<span class="mmgtag">MMG</span>Special':'Einheit '+(ui+1)}</div><h2>${u.t}</h2><p>${u.d}</p></section><div class="path">`;
+  for(let k=0;k<nodes;k++){
+    const st = nodeState(ui,k), off = OFFS[k];
+    if(k===0||k===2){ const n = k/2, inf = infos[n], rd = S.read[ui+'-'+n];
+      h += `<button class="info ${st==='locked'?'locked':''}" data-info="${ui}|${n}" style="--c:${u.c};--i:${u.i}"><span class="bk">${icon('book')}</span><span><b>Infotext · ${k===0?'Lektion 1–2':ag?'Lektion 3':'Lektion 3 + Test'}</b><span>${inf.t}</span></span>${rd?`<span class="rd" aria-label="gelesen">${icon('check')}</span>`:''}</button>`; }
+    const ic = st==='locked' ? (k===3?'trophy':'lock') : st==='done' ? (k===3?'trophy':'check') : (k===3?'trophy':'star');
+    h += `<div class="nwrap ${st}" style="transform:translateX(${off}px);--c:${u.c};--s:${u.s};--i:${u.i}">${st==='current'?'<div class="bubble">START</div>':''}<button class="node" data-u="${ui}" data-k="${k}" aria-label="${u.t}: ${lessonName(ui,k)} (${st==='done'?'abgeschlossen':st==='current'?'aktuell':'gesperrt'})">${icon(ic)}</button>${k===1?`<div class="pmascot" style="right:calc(100% + 40px)">${mascot(st==='locked'?'wow':'happy')}</div>`:''}</div>`;
+  }
+  return h + '</div>';
+}
+function renderLearn(){
+  const v = todayXp(), nm = S.name ? ', '+esc(S.name) : '';
+  const saved = S.froze; if(saved){ S.froze = 0; save(); }
+  const hi = saved ? `Puh! Dein Serienschutz hat deine Serie gerettet${nm}. Lerne heute, um sie fortzusetzen.` : v>=S.goal ? `Tagesziel geschafft${nm}! Du bist ein echter Klimaheld.` :
+             v>0 ? `Weiter so${nm}! Noch ${S.goal-v} XP bis zu deinem Tagesziel.` :
+             S.lessons ? `Schön, dass du da bist${nm}! Bereit für die nächste Runde?` :
+             `Hallo${nm}! Ich bin Sprossi. Lass uns lernen, wie Leben grün und fair geht.`;
+  let h = `<div class="hello">${mascot(v>=S.goal?'cheer':'happy')}<div class="say">${hi}<small>${v} / ${S.goal} XP heute</small></div>${goalRing()}</div>`;
+  h += unitPath(-1);
+  UNITS.forEach((_,ui)=>{ h += unitPath(ui); });
+  h += `<div class="card" style="text-align:center;margin-top:10px">${mascot(currentG()>=flat().length?'cheer':'wow').replace('class="m"','class="m" style="width:90px"')}<h3 style="font-size:22px">${currentG()>=flat().length?'Alles geschafft – du bist Going green and Fair!':'Weitere Einheiten wachsen noch …'}</h3></div>`;
+  $('#view').innerHTML = h;
+}
+function renderPractice(){
+  const tip = TIPS[(function(){ const d = new Date(); return Math.floor(new Date(d.getFullYear(),d.getMonth(),d.getDate()).getTime()/864e5); })()%TIPS.length];
+  const mixN = UNITS.filter((_,u)=>u===0||S.done[nodeId(u,0)]).length, due = srsDue().length;
+  $('#view').innerHTML = `<h1 class="h1">Üben</h1><p class="lead">Ohne Herzverlust trainieren – und Herzen zurückgewinnen.</p>
+  <div class="stack">
+    <div class="card pcard"><div class="badge" style="background:var(--orange);color:#fff">${icon('bolt')}</div><div><h3>Blitzrunde</h3><p>60 Sekunden, so viele richtige Antworten wie möglich. Rekord: ${S.blitzBest}</p></div><button class="btn go" data-act="blitz">Los</button></div>
+    <div class="card pcard"><div class="badge" style="background:var(--leaf);color:#fff">${icon('shuffle')}</div><div><h3>Gemischtes Training</h3><p>8 Fragen aus ${mixN} ${mixN===1?'Einheit':'Einheiten'}. Bringt +1 Herz.</p></div><button class="btn go" data-act="mix">Los</button></div>
+    <div class="card pcard"><div class="badge" style="background:#3B82F6;color:#fff">${icon('clock')}</div><div><h3>Wiederholen mit Abstand</h3><p>${due ? `${due} ${due===1?'Frage ist':'Fragen sind'} heute fällig. So bleibt dein Wissen langfristig hängen.` : 'Heute ist nichts fällig. Gelernte Fragen kommen nach 1, 3, 7, 14 und 30 Tagen wieder.'}</p></div><button class="btn go" data-act="review" ${due?'':'disabled'}>Los</button></div>
+    <div class="card pcard"><div class="badge" style="background:var(--forest);color:var(--lime)">${icon('redo')}</div><div><h3>Fehler wiederholen</h3><p>${S.missed.length ? S.missed.length+' '+(S.missed.length===1?'Frage wartet':'Fragen warten')+' auf eine zweite Chance.' : 'Keine offenen Fehler – stark!'}</p></div><button class="btn go" data-act="missed" ${S.missed.length?'':'disabled'}>Los</button></div>
+    <div class="card tip"><div class="eb">Tipp des Tages</div><h3>${tip[0]}</h3><p>${tip[1]}</p></div>
+    <div class="card pcard"><div class="badge" style="background:var(--sprout);color:var(--forestShade)">${icon('user')}</div><div><h3>Klassen-Modus (Beamer)</h3><p>Eine ganze Einheit gemeinsam am Beamer lösen – große Schrift, ohne Herzen, zählt nicht für deinen Fortschritt.</p></div><button class="btn go" data-act="beamerPick">Wählen</button></div>
+  </div>`;
+}
+function renderBadges(){
+  const n = Object.keys(S.badges).length;
+  $('#view').innerHTML = `<h1 class="h1">Erfolge</h1><p class="lead">${n} von ${BADGES.length} Abzeichen gesammelt.</p><div class="bgrid">${
+    BADGES.map(b=>{ const [v,m] = b.p(S), got = !!S.badges[b.id];
+      return `<div class="bdg ${got?'':'off'}"><div class="medal">${icon(b.ic)}</div><h3>${b.t}</h3><p>${b.d}</p>${got?`<p style="color:var(--leafText)">Erhalten</p>`:`<div class="bar" aria-label="${Math.min(v,m)} von ${m}"><i style="width:${Math.min(100,v/m*100)}%"></i></div><p>${Math.min(v,m)} / ${m}</p>`}</div>`; }).join('')
+  }</div>`;
+}
+function renderProfile(){
+  const acc = S.answered ? Math.round(S.correct/S.answered*100) : 0;
+  const days = Array.from({length:7},(_,i)=>{ const d = new Date(); d.setDate(d.getDate()-6+i); return d; });
+  const vals = days.map(d=>S.log[dayKey(d)]||0), mx = Math.max(S.goal, ...vals)*1.1;
+  const WD = ['So','Mo','Di','Mi','Do','Fr','Sa'];
+  $('#view').innerHTML = `<h1 class="h1">Profil</h1><p class="lead">Dein Fortschritt bei GGAF Quizzes!</p>
+  <label class="field" for="name">Dein Name<input id="name" maxlength="24" placeholder="Wie soll Sprossi dich nennen?" value="${esc(S.name)}"></label>
+  <h2 class="sec">Statistik</h2>
+  <div class="tiles">
+    <div class="tile" style="color:var(--orange)">${icon('flame')}<div><b style="color:var(--ink)">${streakNow()}</b><span>Tage Serie</span></div></div>
+    <div class="tile" style="color:var(--leafText)">${icon('leaf')}<div><b style="color:var(--ink)">${S.xp}</b><span>XP gesamt</span></div></div>
+    <div class="tile" style="color:var(--sproutShade)">${icon('check')}<div><b style="color:var(--ink)">${S.lessons}</b><span>Lektionen</span></div></div>
+    <div class="tile" style="color:var(--forest)">${icon('target')}<div><b style="color:var(--ink)">${acc} %</b><span>Genauigkeit</span></div></div>
+  </div>
+  <h2 class="sec">XP der letzten 7 Tage</h2>
+  <div class="card"><div class="chart">
+    <div class="goal" style="bottom:${21+S.goal/mx*90}px"><span>Ziel ${S.goal}</span></div>
+    ${vals.map((v,i)=>`<div class="col ${i===6?'today':''}"><span class="v">${v||''}</span><div class="b" style="height:${v/mx*90}px"></div><span class="d">${i===6?'Heute':WD[days[i].getDay()]}</span></div>`).join('')}
+  </div></div>
+  <h2 class="sec">Dein Wochenrückblick</h2>
+  <div class="card">${recapHTML(recap(0))}<p class="recapnote">Die letzten 7 Tage bis heute.</p></div>
+  <h2 class="sec">Tagesziel</h2>
+  <div class="seg">${[[10,'Locker'],[20,'Normal'],[30,'Ernsthaft'],[50,'Intensiv']].map(([g,l])=>`<button data-goal="${g}" aria-pressed="${S.goal===g}">${g} XP<small>${l}</small></button>`).join('')}</div>
+  <h2 class="sec">Einstellungen</h2>
+  <div class="card stack">
+    <div class="row"><b>Soundeffekte</b><button class="switch" role="switch" id="snd" aria-checked="${S.sound}" aria-label="Soundeffekte"></button></div>
+    <div class="row"><b>Einführung</b><button class="btn ghost" data-act="intro" style="padding:10px 14px;font-size:13px">Ansehen</button></div>
+    <div class="row"><b>Fortschritt zurücksetzen</b><button class="btn ghost" data-act="reset" style="padding:10px 14px;font-size:13px">Zurücksetzen</button></div>
+  </div>
+  <h2 class="sec">Freunde einladen</h2>
+  <div class="card stack">${window.GGAFApp ? `
+    <p class="cardtxt">Schick die App direkt an Freund*innen – mit einer kurzen Anleitung zum Installieren. Funktioniert nur für Android-Handys.</p>
+    <button class="btn block" data-act="shareApk">${icon('chat')}App teilen</button>
+    <button class="btn ghost block" data-act="qrShare">${icon('target')}QR-Code im selben WLAN</button>` : `
+    <p class="cardtxt">In der Android-App kannst du GGAF Quizzes! hier direkt als Datei oder per QR-Code im WLAN an Freund*innen weitergeben.</p>`}
+  </div>
+  <h2 class="sec">Fortschritt sichern</h2>
+  <div class="card stack">
+    <p class="cardtxt">Neues Handy? Erstelle einen Sicherungscode und füge ihn auf dem neuen Gerät wieder ein. Der Code enthält nur deinen App-Fortschritt.</p>
+    <button class="btn block" data-act="backup">Sicherungscode erstellen</button>
+    <button class="btn ghost block" data-act="restore">Sicherungscode einfügen</button>
+  </div>
+  <p class="about"><b>GGAF Quizzes!</b> – Going green and Fair. Lerne in kleinen Lektionen alles über Klima, fairen Handel, Müll, Wasser, Ernährung, Artenvielfalt, Konsum, globale Gerechtigkeit, Mobilität, Digitales, Kinderrechte sowie Wald und Moore in Bayern. Dein Fortschritt wird nur auf diesem Gerät gespeichert.<br>Faktenstand: ${FACT_STAND}${window.GGAFApp && GGAFApp.version ? ' · App-Version '+esc(GGAFApp.version()) : ''}</p>`;
+}
+
+/* ================= Modal ================= */
+function modal(html){ $('#mbox').innerHTML = html; $('#modal').hidden = false; const b = $('#mbox').querySelector('.btn'); if(b) b.focus({preventScroll:true}); $('#mbox').scrollTop = 0; }
+function closeModal(){ stopQr(); $('#modal').hidden = true; $('#mbox').classList.remove('infobox'); if(S.tab==='learn' && $('#lesson').hidden && $('#result').hidden) renderLearn(); }
+$('#modal').addEventListener('click', e=>{ if(e.target.id==='modal') closeModal(); });
+function heartsModal(fromLesson){
+  regen();
+  const hs = Array.from({length:MAX_H},(_,i)=>icon('heart', i<S.hearts?'':'empty')).join('');
+  modal(`${mascot(S.hearts?'happy':'sad')}<h2>${S.hearts?'Deine Herzen':'Keine Herzen mehr'}</h2><div class="hrow">${hs}</div>
+   <p>${S.hearts>=MAX_H?'Alle Herzen sind voll. Jeder Fehler in einer Lektion kostet ein Herz.':'Nächstes Herz in '+nextHeartIn()+' Minuten. Im Training gewinnst du ein Herz sofort zurück.'}</p>
+   ${fromLesson && S.hearts>0 ? `<button class="btn block" data-act="resume">Weiterlernen</button>` : ''}
+   ${S.hearts<MAX_H?`<button class="btn ${fromLesson && S.hearts>0?'ghost':''} block" data-act="mix">Üben, um Herzen zu verdienen</button>`:''}
+   <button class="btn plain block" data-act="${fromLesson?'endLesson':'close'}">${fromLesson?'Lektion beenden':'Schließen'}</button>`);
+}
+
+/* ================= Lektion ================= */
+let L = null, blitzTimer = null;
+function startLesson(opts){
+  closeModal();
+  regen();
+  const needsHearts = opts.mode==='lesson'||opts.mode==='test';
+  if(needsHearts && S.hearts<=0){ heartsModal(false); return; }
+  let queue;
+  if(opts.mode==='lesson'||opts.mode==='test') queue = lessonQs(opts.u, opts.k);
+  else if(opts.mode==='mix'){ const us = UNITS.filter((_,u)=>u===0||S.done[nodeId(u,0)]); queue = shuffle(us.flatMap(u=>u.qs)).slice(0,8); }
+  else if(opts.mode==='missed'){ S.missed = S.missed.filter(byId); queue = shuffle(S.missed.map(byId)).slice(0,10); if(!queue.length){ save(); render(); return; } }
+  else if(opts.mode==='blitz') queue = shuffle(UNITS.flatMap(u=>u.qs).filter(q=>q.t==='mc'||q.t==='tf'));
+  else if(opts.mode==='review'){ queue = shuffle(srsDue().map(byId)).slice(0,10); if(!queue.length){ render(); return; } }
+  else if(opts.mode==='beamer') queue = unitOf(opts.u).qs.slice();   /* Klassen-Modus: alle 18 Aufgaben der Einheit in Reihenfolge */
+  L = Object.assign({queue, total:queue.length, done:0, mistakes:0, answered:0, combo:0, maxCombo:0, t0:Date.now(), phase:'answer', retry:{}}, opts);
+  $('#lesson').hidden = false; document.body.style.overflow = 'hidden';
+  $('#lesson').classList.toggle('beamer', L.mode==='beamer');
+  $('#quit').innerHTML = icon('close');
+  $('#prog').className = 'prog'+(L.mode==='blitz'?' timer':'');
+  $('#sheet').className = 'sheet';
+  if(L.mode==='blitz'){
+    L.score = 0; L.end = Date.now()+60000;
+    $('#check').hidden = true; $('#hint').textContent = 'Tippe die richtige Antwort!';
+    clearInterval(blitzTimer);
+    blitzTimer = setInterval(()=>{ const left = L.end-Date.now(); $('#prog i').style.width = Math.max(0,left/600)+'%'; if(left<=0){ clearInterval(blitzTimer); finish(); } },100);
+  } else { $('#check').hidden = false; $('#hint').textContent = ''; }
+  updLStat(); nextQ();
+}
+function updLStat(){
+  if(L.mode==='blitz'){ $('#lstat').className = 'lstat score'; $('#lstat').innerHTML = icon('bolt')+L.score; return; }
+  $('#lstat').className = 'lstat';
+  $('#lstat').innerHTML = (L.mode==='lesson'||L.mode==='test') ? icon('heart')+S.hearts : L.mode==='beamer' ? 'Aufgabe '+Math.min(L.done+1,L.total)+' von '+L.total : icon(L.mode==='review'?'clock':'dumbbell');
+  $('#prog i').style.width = (L.done/L.total*100)+'%';
+}
+const TYPE_LABEL = {mc:['Wähle die richtige Antwort','bulb'], tf:['Stimmt das?','chat'], fill:['Ergänze den Satz','chat'], order:['Bring es in die richtige Reihenfolge','shuffle'], match:['Finde die Paare','shuffle']};
+function nextQ(){
+  if(L.mode==='blitz' && Date.now()>=L.end) return;
+  if(!L.queue.length){ if(L.mode==='blitz'){ L.queue = shuffle(UNITS.flatMap(u=>u.qs).filter(q=>q.t==='mc'||q.t==='tf')); } else { finish(); return; } }
+  const q = L.q = L.queue.shift();
+  L.phase = 'answer'; L.sel = null;
+  const oldCont = $('#cont'); if(oldCont){ oldCont.disabled = true; oldCont.blur(); }
+  $('#sheet').className = 'sheet';
+  const chk = $('#check'); chk.disabled = true; chk.textContent = 'Überprüfen'; chk.className = 'btn';
+  const [lab, ic] = TYPE_LABEL[q.t];
+  const isRetry = L.mode==='missed' || !!L.retry[q.id];
+  $('#lesson').classList.toggle('retry', isRetry);
+  const combo = L.combo>=3 ? `${L.combo} in Folge richtig!` : '';
+  let h = isRetry ? `<div class="retrytag">${icon('redo')}Wiederholung – ${L.mode==='missed'?'war schon mal falsch':'das war vorhin falsch'}</div>` : `<div class="combo">${combo}</div>`;
+  h += `<div class="qtype">${icon(ic)}${lab}</div>`;
+  if(q.t==='mc'||q.t==='tf'){
+    L.opts = q.t==='tf' ? [{t:'Stimmt',ok:q.a===true,ic:'check'},{t:'Stimmt nicht',ok:q.a===false,ic:'x'}] : shuffle(q.o.map((t,i)=>({t,ok:i===0})));
+    h += q.t==='tf' ? `<div class="qhead">${mascot('wow')}<div class="say">${q.q}</div></div>` : `<h2 class="qtext">${q.q}</h2>`;
+    h += `<div class="opts ${q.t==='tf'?'tf':''}">${L.opts.map((o,i)=>`<button class="opt" data-opt="${i}">${q.t==='tf'?icon(o.ic,'big'):`<span class="k">${i+1}</span>`}<span>${o.t}</span></button>`).join('')}</div>`;
+  } else if(q.t==='fill'){
+    L.opts = shuffle(q.o.map((t,i)=>({t,ok:i===0})));
+    const [a,b] = q.q.split('___');
+    h += `<p class="sentence">${a}<span class="blank" id="blank">&nbsp;</span>${b}</p><div class="chips">${L.opts.map((o,i)=>`<button class="chip" data-fill="${i}">${o.t}</button>`).join('')}</div>`;
+  } else if(q.t==='order'){
+    let s; do { s = shuffle(q.o); } while(s.join()===q.o.join());
+    L.pool = s; L.ans = [];
+    h += `<h2 class="qtext">${q.q}</h2><div class="slots" id="slots"></div><div class="orderpool" id="opool"></div>`;
+  } else if(q.t==='match'){
+    L.left = shuffle(q.p.map((p,i)=>({t:p[0],i}))); L.right = shuffle(q.p.map((p,i)=>({t:p[1],i}))); L.matched = 0; L.mSel = null; L.mErr = 0;
+    h += `<h2 class="qtext">${q.q}</h2><div class="mgrid"><div class="mcol">${L.left.map(o=>`<button class="chip" data-m="L" data-i="${o.i}">${o.t}</button>`).join('')}</div><div class="mcol">${L.right.map(o=>`<button class="chip" data-m="R" data-i="${o.i}">${o.t}</button>`).join('')}</div></div>`;
+    chk.textContent = 'Paare finden';
+  }
+  $('#qarea').innerHTML = h;
+  if(q.t==='order') drawOrder();
+  $('.qwrap').scrollTop = 0;
+}
+function drawOrder(){
+  const q = L.q;
+  $('#slots').innerHTML = q.o.map((_,i)=>`<div class="slot"><span class="n">${i+1}</span>${L.ans[i]!==undefined?`<button class="chip" data-unord="${i}">${L.pool[L.ans[i]]}</button>`:''}</div>`).join('');
+  $('#opool').innerHTML = L.pool.map((t,i)=>`<button class="chip ${L.ans.includes(i)?'used':''}" data-ord="${i}" ${L.ans.includes(i)?'tabindex="-1" aria-hidden="true"':''}>${t}</button>`).join('');
+  $('#check').disabled = L.ans.length!==q.o.length;
+}
+function pick(i){
+  if(L.phase!=='answer') return;
+  const q = L.q;
+  if(q.t==='mc'||q.t==='tf'){
+    if(i>=L.opts.length) return;
+    if(L.mode==='blitz'){ blitzAnswer(i); return; }
+    L.sel = i;
+    document.querySelectorAll('.opt').forEach((b,j)=>b.classList.toggle('sel', j===i));
+    $('#check').disabled = false;
+  } else if(q.t==='fill'){
+    if(i>=L.opts.length) return;
+    L.sel = i;
+    document.querySelectorAll('[data-fill]').forEach((b,j)=>b.classList.toggle('sel', j===i));
+    const bl = $('#blank'); bl.textContent = L.opts[i].t; bl.classList.add('filled');
+    $('#check').disabled = false;
+  }
+  tone([520],'sine',.05,.05);
+}
+function blitzAnswer(i){
+  const ok = L.opts[i].ok, btns = document.querySelectorAll('.opt');
+  L.phase = 'wait';
+  btns.forEach((b,j)=>{ b.disabled = true; if(L.opts[j].ok) b.classList.add('right'); });
+  if(ok){ L.score++; L.combo++; S.correct++; sOk(); } else { btns[i].classList.add('wrong'); L.combo = 0; sBad(); }
+  S.answered++; L.answered++; if(!ok) L.mistakes++;
+  updLStat();
+  setTimeout(()=>{ if(L && L.mode==='blitz' && Date.now()<L.end) nextQ(); }, ok?380:900);
+}
+function check(){
+  const q = L.q; let ok = false, sol = '';
+  if(q.t==='mc'||q.t==='tf'){ ok = L.opts[L.sel].ok; sol = L.opts.find(o=>o.ok).t;
+    document.querySelectorAll('.opt').forEach((b,j)=>{ b.disabled = true; if(L.opts[j].ok) b.classList.add('right'); else if(j===L.sel) b.classList.add('wrong'); }); }
+  else if(q.t==='fill'){ ok = L.opts[L.sel].ok; sol = q.q.replace('___', q.o[0]); document.querySelectorAll('[data-fill]').forEach(b=>b.disabled = true); }
+  else if(q.t==='order'){ ok = L.ans.map(i=>L.pool[i]).join('|')===q.o.join('|'); sol = q.o.join(' → '); document.querySelectorAll('#qarea .chip').forEach(b=>b.disabled = true); }
+  else if(q.t==='match'){ ok = true; }
+  feedback(ok, sol);
+}
+function feedback(ok, sol){
+  const q = L.q, own = L.mode!=='beamer';   /* Klassen-Modus zählt nicht für den eigenen Fortschritt */
+  L.phase = 'feedback'; L.answered++;
+  if(own){ S.answered++; if(ok) S.correct++; statAnswer(q, ok); if(!L.retry[q.id]) srsMark(q, ok, L.mode==='review'); }
+  if(ok){ L.done++; L.combo++; L.maxCombo = Math.max(L.maxCombo, L.combo); sOk();
+    if(L.mode==='missed') S.missed = S.missed.filter(id=>id!==q.id);
+  } else { L.mistakes++; L.combo = 0; sBad();
+    if(own && !S.missed.includes(q.id)) S.missed.push(q.id);
+    if(L.mode==='beamer'){ L.done++; }   /* im Klassen-Modus einfach weiter – Auflösung steht im Feedback */
+    else {
+      L.retry[q.id] = true;
+      if(L.mode==='lesson'||L.mode==='test'){ L.queue.push(q); if(S.hearts>=MAX_H) S.heartsTs = Date.now(); S.hearts = Math.max(0,S.hearts-1); }
+      else if(L.mode==='mix'||L.mode==='missed'||L.mode==='review'){ L.queue.push(q); }
+    }
+  }
+  save(); updLStat();
+  const praise = PRAISE[Math.floor(Math.random()*PRAISE.length)];
+  $('#sheetIn').innerHTML = `<div class="t"><span class="dot">${icon(ok?'check':'x')}</span>${ok?praise:'Nicht ganz.'}</div>
+    ${ok?'':`<div class="sol">Richtige Antwort: ${sol}</div>`}
+    <div class="fact"><b>Wusstest du?</b> ${q.x}</div>
+    <button class="btn block" id="cont">Weiter</button>`;
+  $('#sheet').className = 'sheet show '+(ok?'ok':'bad');
+  $('#cont').focus();
+}
+function cont(){
+  if(!L || L.phase!=='feedback') return;   /* Doppeltipp auf „Weiter“ darf keine Frage überspringen */
+  if((L.mode==='lesson'||L.mode==='test') && S.hearts<=0){ heartsModal(true); return; }
+  nextQ();
+}
+function quitLesson(){
+  modal(`${mascot('sad')}<h2>Wirklich aufhören?</h2><p>Dein Fortschritt in dieser Lektion geht verloren.</p><button class="btn block" data-act="close">Weiterlernen</button><button class="btn plain block" data-act="endLesson">Beenden</button>`);
+}
+function endLesson(){ clearInterval(blitzTimer); L = null; $('#lesson').classList.remove('retry','beamer'); closeModal(); $('#lesson').hidden = true; document.body.style.overflow = ''; render(true); }
+function finish(){
+  const m = L.mode; clearInterval(blitzTimer);
+  let xp, title, sub;
+  if(m==='blitz'){ xp = L.score; const rec = L.score>S.blitzBest; if(rec) S.blitzBest = L.score; title = rec&&L.score?'Neuer Rekord!':'Zeit ist um!'; sub = `${L.score} ${L.score===1?'richtige Antwort':'richtige Antworten'} in 60 Sekunden.`; }
+  else if(m==='beamer'){ xp = 0; const right = L.answered-L.mistakes;
+    title = 'Klassenquiz beendet!'; sub = `${unitOf(L.u).t}: ${right} von ${L.total} Aufgaben richtig gelöst.`; }
+  else {
+    const perfect = L.mistakes===0;
+    xp = (m==='test'?20:m==='lesson'?10:5) + (perfect?5:0) + Math.floor(L.maxCombo/5)*2;
+    statDay().l++;
+    if(m==='lesson'||m==='test'){ S.done[nodeId(L.u,L.k)] = true; S.lessons++; }
+    if(m==='mix'||m==='missed'){ S.hearts = Math.min(MAX_H, S.hearts+1); }
+    if(perfect) S.perfect++;
+    title = m==='test' ? 'Einheit gemeistert!' : perfect ? 'Fehlerfrei!' : 'Lektion geschafft!';
+    sub = m==='test' ? `Du hast „${UNITS[L.u].t}“ abgeschlossen.` : m==='lesson' ? `${unitOf(L.u).t} · ${lessonName(L.u,L.k)}` : m==='review' ? `Wiederholung geschafft – noch ${srsDue().length} fällig.` : 'Training abgeschlossen – +1 Herz.';
+  }
+  const boosted = S.boost && xp>0;
+  if(boosted){ xp *= 2; S.boost = false; }
+  const before = todayXp();
+  const streakUp = xp>0 ? addXp(xp) : false;
+  const goalHit = before<S.goal && todayXp()>=S.goal;
+  const nb = checkBadges(); save();
+  const acc = L.answered ? Math.round((L.answered-L.mistakes)/L.answered*100) : 0;
+  const secs = Math.round((Date.now()-L.t0)/1000), tm = Math.floor(secs/60)+':'+String(secs%60).padStart(2,'0');
+  $('#resultIn').innerHTML = `${mascot('cheer')}<h1>${title}</h1><p class="sub">${sub}</p>
+   <div class="rt">
+     <div style="--k:var(--lime)"><span>XP</span><b style="color:var(--leafText)">${icon('leaf')}${xp}</b></div>
+     <div style="--k:var(--sprout)"><span>Genauigkeit</span><b>${icon('target')}${acc}%</b></div>
+     <div style="--k:var(--mist)"><span>Zeit</span><b>${icon('clock')}${tm}</b></div>
+   </div>
+   ${boosted?`<div class="streakline">${icon('bolt')}Doppel-XP eingelöst!</div>`:''}
+   ${streakUp?`<div class="streakline">${icon('flame')}${S.streak} ${S.streak===1?'Tag':'Tage'} Serie!</div>`:''}
+   ${goalHit?`<div class="streakline" style="color:var(--leafText)">${icon('target')}Tagesziel von ${S.goal} XP erreicht!</div>`:''}
+   ${nb.map(b=>`<div class="newb"><div class="medal">${icon(b.ic)}</div><div>Neues Abzeichen: ${b.t}<small>${b.d}</small></div></div>`).join('')}
+   <button class="btn" id="resDone">Weiter</button>`;
+  $('#lesson').hidden = true; $('#lesson').classList.remove('retry','beamer'); $('#result').hidden = false; L = null;
+  sWin(); confetti();
+  $('#resDone').focus();
+}
+
+/* ================= Konfetti ================= */
+function confetti(){
+  if(reduced) return;
+  const c = $('#confetti'), x = c.getContext('2d'), W = c.width = innerWidth, H = c.height = innerHeight;
+  const cols = ['#2E6417','#00BF63','#7ED957','#C1FF72','#D9F2CA','#FF9600'];
+  const P = Array.from({length:140},()=>({x:W/2+(Math.random()-.5)*W*.3, y:H*.35, vx:(Math.random()-.5)*14, vy:-Math.random()*14-4, r:Math.random()*6.28, vr:(Math.random()-.5)*.3, w:6+Math.random()*6, h:4+Math.random()*6, c:cols[Math.floor(Math.random()*cols.length)]}));
+  const t0 = performance.now();
+  (function f(t){ x.clearRect(0,0,W,H);
+    P.forEach(p=>{ p.vy += .35; p.vx *= .99; p.x += p.vx; p.y += p.vy; p.r += p.vr; x.save(); x.translate(p.x,p.y); x.rotate(p.r); x.fillStyle = p.c; x.fillRect(-p.w/2,-p.h/2,p.w,p.h); x.restore(); });
+    if(t-t0<3200) requestAnimationFrame(f); else x.clearRect(0,0,W,H); })(t0);
+}
+
+/* ================= Events ================= */
+document.addEventListener('click', e=>{
+  const t = e.target.closest('button'); if(!t) return;
+  if(t.dataset.tab){ if(!$('#modal').hidden) closeModal(); S.tab = t.dataset.tab; save(); render(t.dataset.tab==='learn'); return; }
+  if(t.classList.contains('node')){
+    const u = +t.dataset.u, k = +t.dataset.k, st = nodeState(u,k), un = unitOf(u);
+    modal(`<div class="eb">${u<0?'MMG-Special':'Einheit '+(u+1)} · ${un.t}</div><h2>${lessonName(u,k)}</h2>
+      <p>${st==='locked' ? 'Schließe zuerst die vorherigen Lektionen ab, um diese freizuschalten.' : k===3 ? '10 Fragen aus der ganzen Einheit. Bestehe den Test, um die nächste Einheit freizuschalten.' : (k===0?'Lektion 1 von 3':k===1?'Lektion 2 von 3':'Lektion 3 von 3')+' · 6 Fragen'}</p>
+      ${st==='locked' ? `<button class="btn block" disabled>${icon('lock')} Gesperrt</button>` : `<button class="btn block" data-act="start" data-u="${u}" data-k="${k}">${st==='done'?'Wiederholen':'Starten'} · +${k===3?20:10} XP</button>`}
+      <button class="btn plain block" data-act="close">Schließen</button>`);
+    return;
+  }
+  if(t.dataset.info){
+    const [u,n] = t.dataset.info.split('|').map(Number), inf = u<0 ? INFOS_AG[n] : INFOS[u][n], k = n*2, st = nodeState(u,k);
+    const next = st==='locked' ? '' : `<button class="btn block" data-act="start" data-u="${u}" data-k="${k}" data-read="${u}-${n}">Weiter zu „${lessonName(u,k)}“</button>`;
+    $('#mbox').classList.add('infobox');
+    modal(`<div class="top">${mascot('happy')}<div><div class="eb">${u<0?'MMG-Special':'Einheit '+(u+1)} · ${unitOf(u).t}</div><h2>${inf.t}</h2></div></div><p>${inf.l}</p>
+      <ul>${inf.p.map(x=>`<li>${x}</li>`).join('')}</ul>
+      ${next}<button class="btn ${next?'plain':''} block" data-act="close" data-read="${u}-${n}">${next?'Später':'Verstanden'}</button>`);
+    return;
+  }
+  if(t.dataset.read && !S.read[t.dataset.read]){ S.read[t.dataset.read] = true; save(); }
+  if(t.dataset.buy) return buy(t.dataset.buy);
+  if(t.dataset.wear){ S.outfit = S.outfit===t.dataset.wear ? '' : t.dataset.wear; save(); renderShop(); $('#logoMark').innerHTML = mascot('happy'); return; }
+  const a = t.dataset.act;
+  if(a==='start') return startLesson({mode:+t.dataset.k===3?'test':'lesson', u:+t.dataset.u, k:+t.dataset.k});
+  if(a==='blitz') return startLesson({mode:'blitz'});
+  if(a==='mix'){ if(L){ clearInterval(blitzTimer); L = null; $('#lesson').hidden = true; } return startLesson({mode:'mix'}); }
+  if(a==='missed') return startLesson({mode:'missed'});
+  if(a==='close') return closeModal();
+  if(a==='review') return startLesson({mode:'review'});
+  if(a==='beamerPick') return modal(`<div class="eb">Klassen-Modus</div><h2>Welche Einheit?</h2><p>Alle 18 Aufgaben der Einheit am Beamer – die Klasse berät, du tippst die Antwort.</p>
+      ${[-1].concat(UNITS.map((_,i)=>i)).map(u=>`<button class="btn ghost block" data-beamer="${u}">${u<0?'MMG-Special: AG':'Einheit '+(u+1)+': '+UNITS[u].t}</button>`).join('')}
+      <button class="btn plain block" data-act="close">Abbrechen</button>`);
+  if(t.dataset.beamer!==undefined) return startLesson({mode:'beamer', u:+t.dataset.beamer});
+  if(t.dataset.bgwear){ S.bg = S.bg===t.dataset.bgwear ? '' : t.dataset.bgwear; save(); applyBg(); renderShop(); return; }
+  if(a==='shareApk'){ try{ GGAFApp.shareApk(SHARE_TEXT); }catch(err){ modal(`<h2>Teilen nicht möglich</h2><p>${esc(err.message)}</p><button class="btn block" data-act="close">OK</button>`); } return; }
+  if(a==='qrShare') return showQr();
+  if(a==='backup') return showBackup();
+  if(a==='copyCode'){ copyText($('#codeOut')); return; }
+  if(a==='shareCode'){ try{ GGAFApp.shareText('Mein GGAF-Quizzes!-Sicherungscode:\n'+$('#codeOut').value); }catch(err){} return; }
+  if(a==='restore') return modal(`<h2>Sicherungscode einfügen</h2><p>Füge den Code ein, den du auf deinem alten Gerät erstellt hast. <b>Dein aktueller Fortschritt wird dabei ersetzt.</b></p>
+      <textarea class="codebox" id="codeIn" placeholder="GGAF1-…" aria-label="Sicherungscode"></textarea><p id="codeErr" class="why" hidden></p>
+      <button class="btn block" data-act="doRestore">Fortschritt laden</button><button class="btn plain block" data-act="close">Abbrechen</button>`);
+  if(a==='doRestore'){ const s = decodeBackup($('#codeIn').value);
+    if(!s){ const e = $('#codeErr'); e.textContent = 'Dieser Code ist ungültig. Prüfe, ob du ihn vollständig kopiert hast.'; e.hidden = false; return; }
+    S = s; save(); applyBg(); $('#logoMark').innerHTML = mascot('happy'); closeModal(); render();
+    modal(`${mascot('cheer')}<h2>Fortschritt geladen!</h2><p>${S.xp} XP, ${S.lessons} Lektionen und ${Object.keys(S.badges).length} Abzeichen sind zurück.</p><button class="btn block" data-act="close">Super</button>`); return; }
+  if(a==='introNext') return showIntro(introStep+1);
+  if(a==='introBack') return showIntro(introStep-1);
+  if(a==='introDone') return closeIntro();
+  if(a==='intro') return showIntro(0);
+  if(t.dataset.igoal){ S.goal = +t.dataset.igoal; const n = $('#introName'); if(n) S.name = n.value.trim(); save(); showIntro(introStep); return; }
+  if(a==='resume'){ closeModal(); if(L && S.hearts>0) nextQ(); return; }
+  if(a==='endLesson') return endLesson();
+  if(a==='reset') return modal(`${mascot('sad')}<h2>Alles zurücksetzen?</h2><p>XP, Serie, Abzeichen und freigeschaltete Lektionen werden gelöscht.</p><button class="btn red block" data-act="doReset">Ja, zurücksetzen</button><button class="btn plain block" data-act="close">Abbrechen</button>`);
+  if(a==='doReset'){ S = defaults(); S.tab = 'learn'; save(); closeModal(); applyBg(); $('#logoMark').innerHTML = mascot('happy'); render(); showIntro(0); return; }
+  if(t.id==='stHearts') return heartsModal(false);
+  if(t.id==='stStreak') return modal(`${mascot(streakNow()?'cheer':'wow')}<h2>${streakNow()} ${streakNow()===1?'Tag':'Tage'} Serie</h2><p>${S.lastDay===dayKey()?'Heute schon gelernt – deine Serie ist sicher!':'Mach heute eine Lektion, um deine Serie '+(streakNow()?'zu verlängern':'zu starten')+'.'}</p><button class="btn block" data-act="close">Weiter</button>`);
+  if(t.id==='stXp') return modal(`${mascot('happy')}<h2>${balance()} XP zum Ausgeben</h2><p>Insgesamt verdient: ${S.xp} XP · heute: ${todayXp()} von ${S.goal} XP. Lektionen bringen 10 XP, Einheitstests 20 XP, fehlerfreie Runden +5. Im Shop tauschst du XP gegen Hilfen und Outfits.</p><button class="btn block" data-tab="shop">Zum Shop</button><button class="btn plain block" data-act="close">Schließen</button>`);
+  if(t.id==='quit') return L && L.mode==='blitz' ? endLesson() : quitLesson();
+  if(t.id==='check') return (L && L.phase==='answer') ? check() : null;
+  if(t.id==='cont') return cont();
+  if(t.id==='resDone'){ $('#result').hidden = true; document.body.style.overflow = ''; render(true); return; }
+  if(t.id==='snd'){ S.sound = !S.sound; save(); t.setAttribute('aria-checked', S.sound); if(S.sound) sOk(); return; }
+  if(t.dataset.goal){ S.goal = +t.dataset.goal; save(); renderProfile(); return; }
+  if(!L) return;
+  if(t.dataset.opt!==undefined) return pick(+t.dataset.opt);
+  if(t.dataset.fill!==undefined) return pick(+t.dataset.fill);
+  if(t.dataset.ord!==undefined && L.phase==='answer'){ L.ans.push(+t.dataset.ord); tone([520],'sine',.05,.05); return drawOrder(); }
+  if(t.dataset.unord!==undefined && L.phase==='answer'){ L.ans.splice(+t.dataset.unord,1); return drawOrder(); }
+  if(t.dataset.m && L.phase==='answer'){
+    const side = t.dataset.m, i = +t.dataset.i;
+    if(!L.mSel || L.mSel.side===side){
+      document.querySelectorAll('[data-m].sel').forEach(b=>b.classList.remove('sel'));
+      t.classList.add('sel'); L.mSel = {side,i,el:t}; tone([520],'sine',.05,.05); return;
+    }
+    if(L.mSel.i===i){ [t, L.mSel.el].forEach(b=>{ b.classList.remove('sel'); b.classList.add('done'); }); L.matched++; tone([700,900],'sine',.06,.08);
+      t.disabled = true; L.mSel.el.disabled = true;
+      L.mSel = null;
+      if(L.matched===L.q.p.length){ const q = L.q; L.phase = 'wait';
+        /* Match gilt nur als richtig, wenn kein falsches Paar gewählt wurde */
+        setTimeout(()=>{ if(L && L.q===q){ L.phase = 'answer'; feedback(L.mErr===0, q.p.map(p=>p[0]+' → '+p[1]).join(' · ')); } }, 250); }
+    } else { const o = L.mSel.el; [t,o].forEach(b=>{ b.classList.remove('sel'); b.classList.add('shake'); setTimeout(()=>b.classList.remove('shake'),400); }); L.mSel = null; L.mErr++; sBad(); }
+  }
+});
+document.addEventListener('input', e=>{ if(e.target.id==='name'){ S.name = e.target.value.trim(); save(); } });
+document.addEventListener('keydown', e=>{
+  if(e.key==='Escape' && !$('#modal').hidden){ closeModal(); return; }
+  if(!L || $('#lesson').hidden || !$('#modal').hidden || e.target.tagName==='INPUT') return;
+  if(/^[1-9]$/.test(e.key)) pick(+e.key-1);
+  if(e.key==='Enter'){ const f = document.activeElement; if(f && f.tagName==='BUTTON' && f.id!=='check' && f.id!=='cont') return;   /* Enter auf fokussiertem Button (z. B. ✕) normal auslösen */
+    e.preventDefault(); if(L.phase==='answer' && !$('#check').disabled && !$('#check').hidden) check(); else if(L.phase==='feedback') cont(); }
+});
+document.addEventListener('visibilitychange', ()=>{ if(!document.hidden && $('#lesson').hidden && $('#result').hidden){ const s = streakNow(); applyFreeze(); regen(); if(s!==streakNow()) render(); else renderTop(); } });
+setInterval(()=>{ if($('#lesson').hidden && $('#result').hidden){ const h = S.hearts; regen(); if(h!==S.hearts){ save(); renderTop(); } } }, 30000);
+
+/* ================= Teilen, QR-Code, Sicherung ================= */
+const SHARE_TEXT = 'Hol dir GGAF Quizzes! – Going green and Fair, die Lern-App der AG „Going green und fair“ am MMG.\n\nSo installierst du sie (nur Android):\n1. Öffne die angehängte Datei „GGAF-Quizzes.apk“.\n2. Falls gefragt: Erlaube „Installation aus unbekannten Quellen“ für die App, mit der du die Datei geöffnet hast.\n3. Tippe auf „Installieren“ – fertig!';
+let qrOn = false;
+function showQr(){
+  let url = '';
+  try{ url = GGAFApp.startServer(); }catch(e){}
+  if(!url){ modal(`${mascot('sad')}<h2>Kein WLAN gefunden</h2><p>Verbinde dein Handy mit einem WLAN (oder schalte deinen Hotspot ein) und versuche es noch einmal.</p><button class="btn block" data-act="close">OK</button>`); return; }
+  qrOn = true;
+  let img = '';
+  try{ const qr = qrcode(0,'M'); qr.addData(url); qr.make(); img = qr.createImgTag(6, 8); }catch(e){ img = ''; }
+  modal(`<div class="eb">Im selben WLAN teilen</div><h2>QR-Code scannen</h2>
+    ${img?`<div class="qrbox">${img}</div>`:''}<div class="qrurl">${esc(url)}</div>
+    <ol><li>Dein*e Freund*in muss im selben WLAN sein wie du.</li><li>Mit der Handykamera den QR-Code scannen und die Seite öffnen.</li><li>„App herunterladen“ antippen, die Datei öffnen und installieren.</li></ol>
+    <p>Lass diese Anzeige offen, bis der Download fertig ist.</p>
+    <button class="btn block" data-act="close">Fertig</button>`);
+}
+function stopQr(){ if(qrOn){ qrOn = false; try{ GGAFApp.stopServer(); }catch(e){} } }
+function encodeBackup(){ return 'GGAF1-' + btoa(unescape(encodeURIComponent(JSON.stringify(S)))); }
+function decodeBackup(code){
+  try{ const raw = String(code).replace(/\s+/g,''); if(raw.indexOf('GGAF1-')!==0) return null;
+    const obj = JSON.parse(decodeURIComponent(escape(atob(raw.slice(6)))));
+    if(!obj || typeof obj.xp!=='number') return null;
+    return sanitize(obj); }catch(e){ return null; }
+}
+function showBackup(){
+  modal(`<h2>Dein Sicherungscode</h2><p>Kopiere den Code und bewahre ihn gut auf – zum Beispiel in einer Notiz oder als Nachricht an dich selbst.</p>
+    <textarea class="codebox" id="codeOut" readonly aria-label="Sicherungscode">${esc(encodeBackup())}</textarea>
+    <button class="btn block" data-act="copyCode">Code kopieren</button>
+    ${window.GGAFApp?'<button class="btn ghost block" data-act="shareCode">Code teilen / an mich senden</button>':''}
+    <button class="btn plain block" data-act="close">Schließen</button>`);
+}
+function copyText(ta){
+  const done = ()=>{ const b = document.querySelector('[data-act="copyCode"]'); if(b) b.textContent = 'Kopiert!'; };
+  const fallback = ()=>{ ta.focus(); ta.select(); try{ if(document.execCommand('copy')) done(); }catch(e){} };
+  try{ if(navigator.clipboard && window.isSecureContext){ navigator.clipboard.writeText(ta.value).then(done, fallback); } else fallback(); }catch(e){ fallback(); }
+}
+/* Wochenrückblick: am ersten App-Start einer neuen Woche die Vorwoche zeigen */
+function weeklyRecap(){
+  const ws = weekStart(); if(S.recapWeek===ws) return;
+  const first = !S.recapWeek; S.recapWeek = ws; save();
+  if(first) return;
+  const r = recap((new Date().getDay()+6)%7 + 1);
+  if(!r.xp) return;
+  modal(`${mascot('cheer')}<div class="eb">Wochenrückblick</div><h2>Deine letzte Woche</h2>${recapHTML(r)}<button class="btn block" data-act="close">Weiter geht’s</button>`);
+}
+
+/* ================= Einführung ================= */
+const INTRO = [
+ {e:'Willkommen', t:'Hallo, ich bin Sprossi!', p:'Mit GGAF Quizzes! – Going green and Fair – lernst du in kurzen Lektionen, wie Leben grün und fair geht. Eine App vom MMG.', mood:'cheer',
+  demo:()=>`<span class="chipx"><b class="mmgtag" style="margin:0">MMG</b>GGAF Quizzes! App</span>`},
+ {e:'Der Lernpfad', t:'Schritt für Schritt', p:`Der Pfad hat ${UNITS.length} Einheiten mit je 3 Lektionen und einem Einheitstest. Schließe eine Station ab, um die nächste freizuschalten.`, mood:'happy',
+  demo:()=>`<span class="mini">${icon('check')}</span><span class="mini">${icon('star')}</span><span class="mini lock">${icon('lock')}</span><span class="mini lock">${icon('trophy')}</span>`},
+ {e:'Infotexte', t:'Erst lesen, dann loslegen', p:'Vor je zwei Lektionen steht ein Infotext mit allem, was du für die nächsten Aufgaben wissen musst. Ein Haken zeigt, was du schon gelesen hast.', mood:'happy',
+  demo:()=>`<span class="chipx">${icon('book')}Infotext · Lektion 1–2</span><span class="chipx" style="color:var(--leafText)">${icon('check')}gelesen</span>`},
+ {e:'Aufgaben', t:'Fünf Arten von Aufgaben', p:'Antwort wählen, Stimmt oder Stimmt nicht, Lücken füllen, Reihenfolgen sortieren und Paare finden. Falsche Aufgaben kommen am Ende der Lektion in Rot-Orange zurück.', mood:'wow',
+  demo:()=>`<span class="chipx">${icon('bulb')}Antwort wählen</span><span class="chipx">${icon('chat')}Lücke füllen</span><span class="chipx">${icon('shuffle')}Paare finden</span><span class="retrytag" style="margin:0">${icon('redo')}Wiederholung</span>`},
+ {e:'Herzen', t:'Pass auf deine Herzen auf', p:'Jeder Fehler in einer Lektion kostet ein Herz. Alle 30 Minuten kommt eins zurück – oder du verdienst es dir im Bereich „Üben“.', mood:'happy',
+  demo:()=>`<span class="big" style="color:var(--red)">${icon('heart')}${icon('heart')}${icon('heart')}${icon('heart')}${icon('heart')}</span>`},
+ {e:'XP, Serie & Shop', t:'Sammeln und belohnen', p:'Für jede Lektion bekommst du XP. Lerne jeden Tag für deine Serie, erreiche dein Tagesziel und tausche XP im Shop gegen Hilfen und Outfits für mich.', mood:'cheer',
+  demo:()=>`<span class="big" style="color:var(--orange)">${icon('flame')}Serie</span><span class="big" style="color:var(--leafText)">${icon('leaf')}XP</span><span class="big" style="color:var(--ink2)">${icon('bag')}Shop</span>`},
+ {e:'Los geht’s', t:'Richte deine App ein', p:'Ganz oben im Pfad wartet das MMG-Special zur AG „Going green und fair“.', mood:'cheer', form:true}
+];
+let introStep = 0;
+function showIntro(i){
+  introStep = Math.max(0, Math.min(INTRO.length-1, i));
+  const s = INTRO[introStep], last = introStep===INTRO.length-1;
+  const form = s.form ? `<div class="form">
+      <label class="field" for="introName">Wie soll ich dich nennen?<input id="introName" maxlength="24" placeholder="Dein Vorname (freiwillig)" value="${esc(S.name)}"></label>
+      <div class="field">Dein Tagesziel<div class="seg">${[[10,'Locker'],[20,'Normal'],[30,'Ernsthaft'],[50,'Intensiv']].map(([g,l])=>`<button data-igoal="${g}" aria-pressed="${S.goal===g}">${g} XP<small>${l}</small></button>`).join('')}</div></div></div>` : '';
+  $('#introIn').innerHTML = `${last?'':'<button class="skip" data-act="introDone">Überspringen</button>'}
+    <div class="stage">${mascot(s.mood)}<div class="eb">${s.e}</div><h1>${s.t}</h1><p>${s.p}</p>${s.demo?`<div class="demo">${s.demo()}</div>`:''}${form}</div>
+    <div class="dots" aria-label="Schritt ${introStep+1} von ${INTRO.length}">${INTRO.map((_,j)=>`<i class="${j===introStep?'on':''}"></i>`).join('')}</div>
+    <div class="nav">${introStep>0?'<button class="btn ghost" data-act="introBack">Zurück</button>':''}<button class="btn" data-act="${last?'introDone':'introNext'}">${last?'Los geht’s!':'Weiter'}</button></div>`;
+  $('#intro').hidden = false; $('#intro').scrollTop = 0; document.body.style.overflow = 'hidden';
+}
+function closeIntro(){
+  const n = $('#introName'); if(n) S.name = n.value.trim();
+  S.introDone = true; save();
+  $('#intro').hidden = true; document.body.style.overflow = '';
+  render(true);
+}
+
+/* Zurück-Taste der Android-App: true = in der App behandelt */
+window.ggafBack = () => {
+  if(!$('#modal').hidden){ closeModal(); return true; }
+  if(!$('#intro').hidden){ if(introStep>0) showIntro(introStep-1); else closeIntro(); return true; }
+  if(!$('#result').hidden){ $('#resDone').click(); return true; }
+  if(!$('#lesson').hidden){ L && L.mode==='blitz' ? endLesson() : quitLesson(); return true; }
+  if(S.tab!=='learn'){ S.tab = 'learn'; save(); render(true); return true; }
+  return false;
+};
+S.missed = S.missed.filter(byId);   /* veraltete Fragen-IDs aus alten Speicherständen entfernen */
+applyFreeze();
+$('#logoMark').innerHTML = mascot('happy');
+render(true);
+applyBg();
+if(!S.introDone) showIntro(0);   /* Einführung beim ersten Start */
+else weeklyRecap();              /* sonst ggf. Rückblick auf die Vorwoche */
+</script>
