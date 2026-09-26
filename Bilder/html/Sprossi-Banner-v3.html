@@ -1,0 +1,45 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+html,body{margin:0;width:1500px;height:500px;overflow:hidden}
+.b{position:relative;width:1500px;height:500px;background:linear-gradient(115deg,#2E6417 0%,#1E440E 50%,#2E6417 100%);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.glow{position:absolute;left:490px;top:-10px;width:520px;height:520px;border-radius:50%;background:radial-gradient(#7ED957 0%,rgba(126,217,87,.35) 45%,transparent 70%)}
+.leaf{position:absolute;border-radius:0 70% 0 70%;background:#C1FF72;opacity:.14}
+.s{position:relative;margin-top:10px}
+</style></head><body><div class="b"><div class="glow"></div>
+<div class="leaf" style="width:130px;height:130px;right:70px;top:-30px"></div>
+<div class="leaf" style="width:90px;height:90px;right:300px;bottom:40px;transform:rotate(40deg)"></div>
+<div class="leaf" style="width:110px;height:110px;left:90px;top:40px;transform:rotate(70deg)"></div>
+<div class="leaf" style="width:70px;height:70px;left:330px;bottom:-10px;transform:rotate(-20deg)"></div>
+<div class="s"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="460" height="460">
+  <!-- Schatten -->
+  <ellipse cx="200" cy="352" rx="88" ry="12" fill="#2E6417" opacity=".18"/>
+  <!-- linker Arm (ruhend) -->
+  <path d="M112 262 C92 272 82 290 88 304" stroke="#00A857" stroke-width="18" fill="none" stroke-linecap="round"/>
+  <circle cx="88" cy="306" r="13" fill="#00BF63"/>
+  <!-- Stiel und Blätter -->
+  <path d="M200 142 C198 116 200 100 205 84" stroke="#2E6417" stroke-width="10" fill="none" stroke-linecap="round"/>
+  <path d="M203 104 C184 70 142 66 122 78 C136 112 176 120 203 104Z" fill="#7ED957"/>
+  <path d="M203 104 C220 72 260 64 283 74 C271 108 231 120 203 104Z" fill="#C1FF72"/>
+  <path d="M150 92 C168 94 186 98 200 104 M258 88 C240 92 222 97 206 104" stroke="#2E6417" stroke-width="3" fill="none" opacity=".45"/>
+  <!-- Körper -->
+  <path d="M200 136 C112 136 86 214 98 276 C110 338 290 338 302 276 C314 214 288 136 200 136Z" fill="#00BF63"/>
+  <path d="M118 236 C122 190 146 162 178 156" stroke="#fff" stroke-width="9" fill="none" opacity=".35" stroke-linecap="round"/>
+  <!-- rechter Arm (winkt) -->
+  <path d="M290 238 C318 222 332 196 336 166" stroke="#00A857" stroke-width="18" fill="none" stroke-linecap="round"/>
+  <g transform="rotate(-12 338 150)">
+    <ellipse cx="338" cy="150" rx="17" ry="20" fill="#00BF63"/>
+    <path d="M326 136 L322 122 M336 132 L335 116 M346 134 L350 120" stroke="#00BF63" stroke-width="7" stroke-linecap="round"/>
+  </g>
+  <!-- Winke-Striche -->
+  <path d="M362 112 C372 122 376 134 374 146 M372 96 C388 112 394 132 390 152" stroke="#2E6417" stroke-width="5" fill="none" stroke-linecap="round" opacity=".55"/>
+  <path d="M306 108 C298 116 294 126 294 136" stroke="#2E6417" stroke-width="5" fill="none" stroke-linecap="round" opacity=".4"/>
+  <!-- Augen -->
+  <ellipse cx="165" cy="222" rx="24" ry="27" fill="#fff"/><ellipse cx="235" cy="222" rx="24" ry="27" fill="#fff"/>
+  <circle cx="170" cy="226" r="12" fill="#1E440E"/><circle cx="240" cy="226" r="12" fill="#1E440E"/>
+  <circle cx="175" cy="220" r="4.5" fill="#fff"/><circle cx="245" cy="220" r="4.5" fill="#fff"/>
+  <!-- Wangen -->
+  <ellipse cx="130" cy="262" rx="15" ry="9" fill="#C1FF72" opacity=".85"/><ellipse cx="270" cy="262" rx="15" ry="9" fill="#C1FF72" opacity=".85"/>
+  <!-- lachender Mund -->
+  <path d="M172 262 Q200 300 228 262 Z" fill="#1E440E"/>
+  <path d="M186 280 Q200 290 214 280 Q200 272 186 280Z" fill="#EE4B4F"/>
+</svg>
+</div></div></body></html>
