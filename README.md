@@ -44,6 +44,15 @@ Die Lern-App der **AG „Going green und fair“ am MMG**. Mit kurzen Quiz-Lekti
 | **Klassen-Modus (Beamer)** | Eine ganze Einheit gemeinsam am Beamer: große Schrift, ohne Herzen, zählt nicht für den eigenen Fortschritt |
 | **Tipp des Tages** | Ein Alltagstipp für mehr Nachhaltigkeit |
 | **Lexikon** | 45 Fachbegriffe von „Agenda 2030“ bis „Zero Waste“, mit Suche |
+| **Schätzrunde** | 8 Schätzfragen mit Schieberegler – je näher, desto mehr XP (bis 3 pro Frage) |
+| **Wahr oder Mythos?** | 10 schnelle Aussagen zu verbreiteten Umwelt-Irrtümern |
+| **Klima-Check** | 6 Alltagsfragen mit persönlichen Tipps (grobe Einschätzung, keine genaue CO₂-Rechnung) |
+
+### Sprachen
+Die komplette App gibt es auf **Deutsch, Englisch und Französisch**: Fragen, Infotexte, Lexikon, Tipps, Einführung und alle Bedienelemente. Die Sprache wählt man unter **Profil → Sprache**. Der Fortschritt bleibt beim Wechsel erhalten.
+
+- **Übersetzungen:** Sie stecken in `index.html` in `CONTENT_PACKS` (Inhalte) und `I18N` (Bedienelemente).
+- **Neue deutsche Fragen:** Werden deutsche Fragen geändert oder ergänzt, müssen die Übersetzungen nachgezogen werden. Fehlt eine Übersetzung, zeigt die App automatisch den deutschen Text.
 
 ### Feedback
 - **Frage melden:** Unter jeder Rückmeldung steht „Frage falsch oder unklar? Melden“. Die App zeigt die Angaben zur Frage zum Kopieren an und öffnet das Feedback-Formular der AG.
