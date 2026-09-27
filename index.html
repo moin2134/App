@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#2E6417"><link rel="manifest" href="manifest.json"><link rel="apple-touch-icon" href="apple-touch-icon.png"><link rel="icon" type="image/png" href="icon-192.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="GGAF Quizzes!"><meta name="apple-mobile-web-app-status-bar-style" content="default"></head><body>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#2E6417"><title>GGAF Quizzes! - Going green and Fair</title><meta name="description" content="Die Lern-App der AG Going green und fair am MMG: kurze Quizzes zu Klima, fairem Handel und Nachhaltigkeit - mit Sprossi."><meta property="og:type" content="website"><meta property="og:title" content="GGAF Quizzes! - Going green and Fair"><meta property="og:description" content="Die Lern-App der AG am MMG: kurze Quizzes zu Klima, fairem Handel und Nachhaltigkeit."><meta property="og:image" content="https://moin2134.github.io/App/og-image.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:url" content="https://moin2134.github.io/App/"><meta property="og:locale" content="de_DE"><meta name="twitter:card" content="summary_large_image"><link rel="manifest" href="manifest.json"><link rel="apple-touch-icon" href="apple-touch-icon.png"><link rel="icon" type="image/png" href="icon-192.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="GGAF Quizzes!"><meta name="apple-mobile-web-app-status-bar-style" content="default"></head><body>
 <title>GGAF Quizzes!</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -84,6 +84,7 @@ main{padding:16px 16px 170px;overflow-x:hidden;overflow-x:clip}
 
 /* ---------- Buttons ---------- */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:16px;padding:14px 22px;font-weight:900;font-size:16px;letter-spacing:.06em;text-transform:uppercase;background:var(--leaf);color:#fff;box-shadow:0 4px 0 var(--leafShade);transition:transform .06s,box-shadow .06s,filter .15s}
+a.btn{text-decoration:none}
 .btn:hover{filter:brightness(1.05)}
 .btn:active{transform:translateY(4px);box-shadow:0 0 0 var(--leafShade)}
 .btn:disabled{background:var(--lock);color:var(--lockInk);box-shadow:0 4px 0 var(--lockShade);cursor:default;filter:none;transform:none}
@@ -357,6 +358,18 @@ svg.m{display:block;width:100%;height:auto}
 .qrbox svg,.qrbox img{width:100%;height:auto;display:block}
 .qrurl{font:700 15px ui-monospace,Consolas,monospace;color:var(--ink);word-break:break-all}
 .mbox ol{text-align:left;margin:0;padding-left:22px;color:var(--ink2);font-weight:700;display:grid;grid-gap:6px;gap:6px}
+/* Lexikon, Melden, Urkunde, Wachstum */
+.lexlist{display:grid;grid-gap:10px;gap:10px;text-align:left}
+.lex{padding:10px 12px;border:2px solid var(--line);border-radius:12px;background:var(--surface2)}
+.lex b{display:block;font-family:var(--display);font-size:17px;color:var(--leafText)}
+.lex span{display:block;font-weight:600;color:var(--ink);font-size:15px}
+.field input[type=search]{width:100%}
+.report{display:flex;align-items:center;justify-content:center;gap:6px;border:0;background:none;color:inherit;opacity:.75;font-weight:800;font-size:13px;padding:2px}
+.report .ic{width:16px;height:16px}
+.certimg{width:100%;border-radius:10px;border:2px solid var(--line)}
+.grow .m{width:84px;flex:none}
+.grow > div{flex:1;min-width:0}
+.grow .bar{margin-top:8px}
 /* Shop */
 .wallet{display:flex;align-items:center;gap:14px;padding:16px 18px;border-radius:18px;background:var(--forest);color:var(--lime);box-shadow:0 5px 0 var(--forestShade)}
 .wallet .ic{width:42px;height:42px;flex:none}
@@ -506,7 +519,11 @@ const WEAR = {
 };
 /* Sprossi mit sanften SVG-Animationen (SMIL – läuft auch auf alten Android-WebViews); mood 'wave' = winkt */
 const MOTION = !(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches);
+/* Sprossi wächst mit den gesammelten XP: 5 Stufen */
+const GROW = [{xp:0,t:'Keimling',k:.82},{xp:100,t:'Sprössling',k:1},{xp:300,t:'Jungpflanze',k:1.12},{xp:700,t:'Starke Pflanze',k:1.2},{xp:1500,t:'Blühender Sprossi',k:1.26}];
+function growStage(xp){ let n = 0; GROW.forEach((g,i)=>{ if(xp>=g.xp) n = i; }); return {n, k:GROW[n].k, t:GROW[n].t, next:GROW[n+1]}; }
 function mascot(mood='happy', outfit, still){
+  const gs = growStage((typeof S!=='undefined' && S) ? S.xp : 100);
   const wear = WEAR[outfit===undefined ? S.outfit : outfit] || '';
   const face = mood==='wave' ? 'cheer' : mood;
   const mouth = {
@@ -526,9 +543,13 @@ function mascot(mood='happy', outfit, still){
     <g>${bob}
     <g>${sway}
       <path d="M50 34 C49 24 50 18 52 12" stroke="#2E6417" stroke-width="4" fill="none" stroke-linecap="round"/>
+      <g transform="translate(51 20) scale(${gs.k}) translate(-51 -20)">
+      ${gs.n>=3?'<path d="M50 27 C44 22 36 22 32 25 C37 31 45 31 50 27Z" fill="#00A857"/>':''}
       <path d="M51 20 C43 6 26 5 18 10 C24 24 40 27 51 20Z" fill="#7ED957"/>
       <path d="M51 20 C58 7 74 4 83 8 C78 22 62 27 51 20Z" fill="#C1FF72"/>
       <path d="M31 18 C38 18 44 19 50 20M71 16 C64 17 58 18 52 20" stroke="#2E6417" stroke-width="1.6" fill="none" opacity=".5"/>
+      </g>
+      ${gs.n>=4?'<g><circle cx="52" cy="9" r="3.2" fill="#fff"/><circle cx="48.5" cy="6.5" r="3.2" fill="#fff"/><circle cx="55.5" cy="6.5" r="3.2" fill="#fff"/><circle cx="49.5" cy="11.5" r="3.2" fill="#fff"/><circle cx="54.5" cy="11.5" r="3.2" fill="#fff"/><circle cx="52" cy="9" r="2.4" fill="#FFC21A"/></g>':''}
     </g>
     ${arm}
     <path d="M50 30 C24 30 16 54 20 72 C24 90 76 90 80 72 C84 54 76 30 50 30Z" fill="#00BF63"/>
@@ -1259,6 +1280,69 @@ const INFOS = [
    'Mehr als 800 Millionen Menschen leben in extremer Armut.',
    'Nachhaltigkeit hat drei Dimensionen: Ökologie, Ökonomie und Soziales. Wer sich unbezahlt engagiert, arbeitet ehrenamtlich.']}]
 ];
+const FEEDBACK_URL = 'https://ggaf-2.jimdosite.com/feedback/';
+const APK_URL = 'https://github.com/moin2134/App/raw/main/GGAF-Quizzes.apk';
+const WEB_URL = 'https://moin2134.github.io/App/';
+/* Lexikon: Fachbegriffe aus den Einheiten, alphabetisch */
+const LEXIKON = [
+ ['Agenda 2030','Plan der Vereinten Nationen von 2015 mit 17 Zielen für nachhaltige Entwicklung, die bis 2030 erreicht werden sollen.'],
+ ['Artenvielfalt (Biodiversität)','Die Vielfalt aller Lebewesen: verschiedene Arten, ihre Lebensräume und die genetische Vielfalt innerhalb einer Art.'],
+ ['BNE – Bildung für nachhaltige Entwicklung','Bildungskonzept der Vereinten Nationen: Menschen sollen verstehen, wie ihr Handeln die Welt beeinflusst, und verantwortungsvoll entscheiden können.'],
+ ['Bio-Siegel (EU)','Kennzeichnet Lebensmittel aus ökologischer Landwirtschaft, z. B. ohne chemisch-synthetische Pflanzenschutzmittel. Bio heißt nicht automatisch fair.'],
+ ['Blauer Engel','Staatliches Umweltzeichen in Deutschland für besonders umweltfreundliche Produkte und Dienstleistungen.'],
+ ['CO₂-Äquivalent','Maßeinheit, die alle Treibhausgase vergleichbar macht: Wie stark würde die gleiche Menge CO₂ das Klima erwärmen?'],
+ ['CO₂-Fußabdruck','Die Menge an Treibhausgasen, die eine Person, ein Produkt oder ein Unternehmen verursacht.'],
+ ['CO₂-Preis','Preis, der für den Ausstoß von CO₂ gezahlt werden muss – so werden klimaschädliche Brennstoffe teurer und Klimaschutz lohnt sich.'],
+ ['Emissionshandel','System, bei dem Unternehmen Rechte zum Ausstoß von CO₂ kaufen müssen. Die Gesamtmenge ist begrenzt und sinkt mit der Zeit.'],
+ ['Erdüberlastungstag','Der Tag im Jahr, ab dem die Menschheit mehr Ressourcen verbraucht hat, als die Erde in einem Jahr erneuern kann.'],
+ ['Erneuerbare Energien','Energie aus Quellen, die nicht ausgehen: Sonne, Wind, Wasser, Erdwärme und Biomasse.'],
+ ['Fairer Handel','Handel mit fairen Preisen und Arbeitsbedingungen für Produzent*innen, vor allem im globalen Süden.'],
+ ['Fairtrade','Bekanntes Siegel für fairen Handel: garantiert unter anderem einen Mindestpreis und eine Prämie für Gemeinschaftsprojekte.'],
+ ['Fast Fashion','Billige Mode, die in schnell wechselnden Kollektionen produziert und oft nach kurzer Zeit weggeworfen wird.'],
+ ['Fruchtfolge','Auf einem Feld werden jedes Jahr andere Pflanzen angebaut. Das hält den Boden fruchtbar und beugt Schädlingen vor.'],
+ ['Generationengerechtigkeit','Heute so leben, dass auch künftige Generationen gute Lebenschancen haben.'],
+ ['Geplante Obsoleszenz','Der Vorwurf, dass Produkte absichtlich so gebaut werden, dass sie früh kaputtgehen.'],
+ ['Greenwashing','Ein Unternehmen stellt sich umweltfreundlicher dar, als es tatsächlich ist.'],
+ ['Grüner Knopf','Staatliches Siegel für Textilien, die unter sozialen und ökologischen Mindeststandards hergestellt wurden.'],
+ ['Invasive Arten','Eingeschleppte Tier- oder Pflanzenarten, die sich stark ausbreiten und heimische Arten verdrängen.'],
+ ['Klimagerechtigkeit','Die Idee, dass die Lasten der Klimakrise fair verteilt werden sollen – oft trifft sie am stärksten die, die am wenigsten dazu beigetragen haben.'],
+ ['Klimaneutralität','Unterm Strich werden keine zusätzlichen Treibhausgase ausgestoßen. Deutschland will das bis 2045 erreichen.'],
+ ['Kooperative','Zusammenschluss von Produzent*innen, die gemeinsam wirtschaften und so mehr Verhandlungsmacht haben.'],
+ ['Kreislaufwirtschaft','Produkte und Rohstoffe werden möglichst lange genutzt, repariert und wiederverwertet, statt sie wegzuwerfen.'],
+ ['Lichtverschmutzung','Zu viel künstliches Licht in der Nacht. Es stört Insekten, Vögel und andere Tiere.'],
+ ['Lieferkette','Alle Schritte, die ein Produkt vom Rohstoff bis in den Laden durchläuft – oft über viele Länder.'],
+ ['Mehrweg','Verpackungen wie Flaschen oder Becher, die gereinigt und viele Male wiederverwendet werden.'],
+ ['Mikroplastik','Plastikteilchen, die kleiner als 5 Millimeter sind, z. B. aus Reifenabrieb, Kleidung oder zerfallendem Müll.'],
+ ['Monokultur','Auf einer großen Fläche wächst jahrelang nur eine einzige Pflanzenart.'],
+ ['Moor','Dauerhaft nasser Lebensraum, in dem abgestorbene Pflanzen nicht vollständig zersetzt werden. Moore speichern sehr viel Kohlenstoff.'],
+ ['Nachhaltigkeit','So leben und wirtschaften, dass Umwelt, Wirtschaft und Soziales im Gleichgewicht sind – heute und für künftige Generationen.'],
+ ['Ökologischer Fußabdruck','Zeigt, wie viel Fläche der Erde nötig ist, um den Lebensstil eines Menschen oder Landes zu ermöglichen.'],
+ ['Pariser Klimaabkommen','Vertrag von 2015: Fast alle Staaten wollen die Erderwärmung auf deutlich unter 2 °C begrenzen, möglichst auf 1,5 °C.'],
+ ['Rebound-Effekt','Wenn etwas effizienter wird, wird es oft mehr genutzt – so wird ein Teil der Einsparung wieder aufgefressen.'],
+ ['Recycling','Abfälle werden gesammelt und zu neuen Rohstoffen verarbeitet.'],
+ ['Regional','Produkte, die in der Nähe hergestellt oder angebaut werden – mit kurzen Transportwegen.'],
+ ['Saisonal','Obst und Gemüse essen, wenn es bei uns natürlich reif wird.'],
+ ['SDGs','„Sustainable Development Goals“ – die 17 Ziele für nachhaltige Entwicklung der Vereinten Nationen.'],
+ ['Selbstwirksamkeit','Die Erfahrung, durch eigenes Handeln etwas bewirken zu können.'],
+ ['Treibhauseffekt','Gase in der Atmosphäre halten Wärme zurück. Der natürliche Treibhauseffekt macht die Erde bewohnbar, der zusätzliche menschengemachte heizt sie auf.'],
+ ['Upcycling','Aus etwas Altem wird etwas Neues und Wertvolleres, z. B. eine Tasche aus einer alten Jeans.'],
+ ['Virtuelles Wasser','Das Wasser, das bei der Herstellung eines Produkts verbraucht wird, z. B. für Kleidung oder Lebensmittel.'],
+ ['Wärmepumpe','Heizung, die Wärme aus Luft, Erdreich oder Grundwasser nutzt. Mit Ökostrom heizt sie fast klimaneutral.'],
+ ['Wiedervernässung','Trockengelegte Moore werden wieder nass gemacht, damit sie keinen Kohlenstoff mehr freisetzen und wieder speichern können.'],
+ ['Zero Waste','Ein Lebensstil, bei dem möglichst wenig Abfall entsteht.']
+];
+function showLexikon(){
+  $('#mbox').classList.add('infobox');
+  modal(`<div class="top">${mascot('happy')}<div><div class="eb">Nachschlagen</div><h2>Lexikon</h2></div></div>
+    <label class="field" for="lexq"><input id="lexq" type="search" placeholder="Begriff suchen …" autocomplete="off"></label>
+    <div class="lexlist" id="lexlist">${lexItems('')}</div>
+    <button class="btn block" data-act="close">Schließen</button>`);
+}
+function lexItems(q){
+  q = q.trim().toLowerCase();
+  const hits = LEXIKON.filter(([t,d])=>!q || t.toLowerCase().indexOf(q)>=0 || d.toLowerCase().indexOf(q)>=0);
+  return hits.length ? hits.map(([t,d])=>`<div class="lex"><b>${t}</b><span>${d}</span></div>`).join('') : '<p>Kein Begriff gefunden.</p>';
+}
 const TIPS = [
  ['Stecker ziehen','Eine abschaltbare Steckdosenleiste beendet den Standby-Verbrauch mit einem Klick.'],
  ['Leitungswasser trinken','Leitungswasser ist in Deutschland streng kontrolliert, viel klimafreundlicher als Flaschenwasser und kommt ohne Plastik aus.'],
@@ -1376,7 +1460,7 @@ const PRAISE = ['Super!','Richtig!','Klasse!','Stark!','Genau!','Sehr gut!','Gr�
 /* ================= Zustand ================= */
 const KEY = 'ggaf-quizzes-v1';
 const HEART_MS = 30*60*1000, MAX_H = 5;
-const defaults = () => ({name:'', xp:0, hearts:MAX_H, heartsTs:Date.now(), streak:0, lastDay:null, goal:30, log:{}, done:{}, badges:{}, lessons:0, perfect:0, answered:0, correct:0, blitzBest:0, missed:[], sound:true, tab:'learn', read:{}, spent:0, owned:[], outfit:'', freeze:0, boost:false, froze:0, introDone:false, srs:{}, dstat:{}, bg:'', recapWeek:'', unitOrder:2});
+const defaults = () => ({name:'', xp:0, hearts:MAX_H, heartsTs:Date.now(), streak:0, lastDay:null, goal:30, log:{}, done:{}, badges:{}, lessons:0, perfect:0, answered:0, correct:0, blitzBest:0, missed:[], sound:true, tab:'learn', read:{}, spent:0, owned:[], outfit:'', freeze:0, boost:false, froze:0, introDone:false, srs:{}, dstat:{}, bg:'', recapWeek:'', unitOrder:2, theme:'auto'});
 const balance = () => S.xp - S.spent;   /* ausgebbare XP; S.xp bleibt die Gesamtsumme für Abzeichen */
 let S = load();
 function load(){ try{ const s = JSON.parse(localStorage.getItem(KEY)); if(s) return sanitize(s); }catch(e){} return defaults(); }
@@ -1546,6 +1630,13 @@ const BGS = [
  {id:'stripes', t:'Streifen', price:50},
  {id:'leaves', t:'Blätterregen', price:70}
 ];
+/* Hell/Dunkel: „auto“ folgt dem Gerät, sonst fest (nutzt die vorhandenen [data-theme]-Farben) */
+function applyTheme(){
+  const r = document.documentElement;
+  if(S.theme==='light' || S.theme==='dark') r.setAttribute('data-theme', S.theme); else r.removeAttribute('data-theme');
+  const m = document.querySelector('meta[name=theme-color]');
+  if(m) m.setAttribute('content', S.theme==='dark' || (S.theme!=='light' && matchMedia('(prefers-color-scheme: dark)').matches) ? '#0D1808' : '#2E6417');
+}
 function applyBg(){ document.body.className = document.body.className.replace(/\s*bg-\w+/g,'') + (S.bg ? ' bg-'+S.bg : ''); }
 function shopState(it){
   if(it.id==='heart1'||it.id==='hearts') return S.hearts>=MAX_H ? 'Herzen sind voll' : '';
@@ -1658,6 +1749,7 @@ function renderPractice(){
     <div class="card pcard"><div class="badge" style="background:var(--forest);color:var(--lime)">${icon('redo')}</div><div><h3>Fehler wiederholen</h3><p>${S.missed.length ? S.missed.length+' '+(S.missed.length===1?'Frage wartet':'Fragen warten')+' auf eine zweite Chance.' : 'Keine offenen Fehler – stark!'}</p></div><button class="btn go" data-act="missed" ${S.missed.length?'':'disabled'}>Los</button></div>
     <div class="card tip"><div class="eb">Tipp des Tages</div><h3>${tip[0]}</h3><p>${tip[1]}</p></div>
     <div class="card pcard"><div class="badge" style="background:var(--sprout);color:var(--forestShade)">${icon('user')}</div><div><h3>Klassen-Modus (Beamer)</h3><p>Eine ganze Einheit gemeinsam am Beamer lösen – große Schrift, ohne Herzen, zählt nicht für deinen Fortschritt.</p></div><button class="btn go" data-act="beamerPick">Wählen</button></div>
+    <div class="card pcard"><div class="badge" style="background:var(--forest);color:var(--lime)">${icon('book')}</div><div><h3>Lexikon</h3><p>${LEXIKON.length} Fachbegriffe von „Agenda 2030“ bis „Zero Waste“ zum Nachschlagen – mit Suche.</p></div><button class="btn go" data-act="lexikon">Öffnen</button></div>
   </div>`;
 }
 function renderBadges(){
@@ -1690,6 +1782,16 @@ function renderProfile(){
   <div class="card">${recapHTML(recap(0))}<p class="recapnote">Die letzten 7 Tage bis heute.</p></div>
   <h2 class="sec">Tagesziel</h2>
   <div class="seg">${[[10,'Locker'],[20,'Normal'],[30,'Ernsthaft'],[50,'Intensiv']].map(([g,l])=>`<button data-goal="${g}" aria-pressed="${S.goal===g}">${g} XP<small>${l}</small></button>`).join('')}</div>
+  <h2 class="sec">Sprossi wächst mit</h2>
+  ${(()=>{ const g = growStage(S.xp); return `<div class="card pcard grow">${mascot('happy')}<div><h3>Stufe ${g.n+1} von ${GROW.length}: ${g.t}</h3><p>${g.next ? `Noch ${g.next.xp - S.xp} XP bis „${g.next.t}“.` : 'Höchste Stufe erreicht – Sprossi blüht!'}</p><div class="bar"><i style="width:${g.next ? Math.round((S.xp-GROW[g.n].xp)/(g.next.xp-GROW[g.n].xp)*100) : 100}%"></i></div></div></div>`; })()}
+  <h2 class="sec">Urkunden</h2>
+  ${(()=>{ const allN = UNITS.filter((_,u)=>S.done[nodeId(u,3)]).length, agN = [0,1,2].filter(k=>S.done[nodeId(-1,k)]).length;
+    const row = (title, n, m, act) => `<div class="card pcard"><div class="badge" style="background:${n>=m?'var(--lime)':'var(--lock)'};color:${n>=m?'var(--forest)':'var(--lockInk)'}">${icon('medal')}</div><div><h3>${title}</h3><p>${n>=m ? 'Geschafft! Hol dir deine Urkunde.' : `${n} von ${m} geschafft`}</p></div><button class="btn go" data-act="${act}" ${n>=m?'':'disabled'}>Ansehen</button></div>`;
+    return `<div class="stack">${row('Alle Einheiten gemeistert', allN, UNITS.length, 'certAll')}${row('MMG-Special: AG „Going green und fair“', agN, 3, 'certAg')}</div>`; })()}
+  <h2 class="sec">Feedback</h2>
+  <div class="card stack"><p class="cardtxt">Fehler gefunden, Idee für eine neue Frage oder Lob für die AG? Schreib uns!</p><a class="btn block" href="${FEEDBACK_URL}" target="_blank" rel="noopener">${icon('chat')}Feedback geben</a></div>
+  <h2 class="sec">Design</h2>
+  <div class="seg">${[['auto','Automatisch','wie das Gerät'],['light','Hell','immer hell'],['dark','Dunkel','immer dunkel']].map(([v,l,s])=>`<button data-theme-set="${v}" aria-pressed="${S.theme===v}">${l}<small>${s}</small></button>`).join('')}</div>
   <h2 class="sec">Einstellungen</h2>
   <div class="card stack">
     <div class="row"><b>Soundeffekte</b><button class="switch" role="switch" id="snd" aria-checked="${S.sound}" aria-label="Soundeffekte"></button></div>
@@ -1702,6 +1804,8 @@ function renderProfile(){
     <button class="btn block" data-act="shareApk">${icon('chat')}App teilen</button>
     <button class="btn ghost block" data-act="qrShare">${icon('target')}QR-Code im selben WLAN</button>` : `
     <p class="cardtxt"><b>Als App installieren:</b> iPhone: in Safari unten auf <b>Teilen</b> tippen, dann <b>„Zum Home-Bildschirm“</b>. Android: im Browser-Menü <b>„App installieren“</b> bzw. „Zum Startbildschirm hinzufügen“. Danach startet GGAF Quizzes! wie eine App – auch offline.</p>
+    <a class="btn block" href="${APK_URL}" rel="noopener">${icon('bag')}Android-App herunterladen</a>
+    <p class="cardtxt">Link zum Weitergeben: <b class="qrurl" style="font-size:13px">${WEB_URL}</b></p>
     <p class="cardtxt">In der Android-App kannst du GGAF Quizzes! außerdem direkt als Datei oder per QR-Code im WLAN an Freund*innen weitergeben.</p>`}
   </div>
   <h2 class="sec">Fortschritt sichern</h2>
@@ -1859,7 +1963,8 @@ function feedback(ok, sol){
   $('#sheetIn').innerHTML = `<div class="t"><span class="dot">${icon(ok?'check':'x')}</span>${ok?praise:'Nicht ganz.'}</div>
     ${ok?'':`<div class="sol">Richtige Antwort: ${sol}</div>`}
     <div class="fact"><b>Wusstest du?</b> ${q.x}</div>
-    <button class="btn block" id="cont">Weiter</button>`;
+    <button class="btn block" id="cont">Weiter</button>
+    <button class="report" data-act="report">${icon('chat')}Frage falsch oder unklar? Melden</button>`;
   $('#sheet').className = 'sheet show '+(ok?'ok':'bad');
   $('#cont').focus();
 }
@@ -1890,7 +1995,7 @@ function finish(){
   }
   const boosted = S.boost && xp>0;
   if(boosted){ xp *= 2; S.boost = false; }
-  const before = todayXp();
+  const before = todayXp(), growBefore = growStage(S.xp).n;
   const streakUp = xp>0 ? addXp(xp) : false;
   const goalHit = before<S.goal && todayXp()>=S.goal;
   const nb = checkBadges(); save();
@@ -1905,6 +2010,7 @@ function finish(){
    ${boosted?`<div class="streakline">${icon('bolt')}Doppel-XP eingelöst!</div>`:''}
    ${streakUp?`<div class="streakline">${icon('flame')}${S.streak} ${S.streak===1?'Tag':'Tage'} Serie!</div>`:''}
    ${goalHit?`<div class="streakline" style="color:var(--leafText)">${icon('target')}Tagesziel von ${S.goal} XP erreicht!</div>`:''}
+   ${growStage(S.xp).n>growBefore?`<div class="streakline" style="color:var(--leafText)">${icon('leaf')}Sprossi ist gewachsen: ${growStage(S.xp).t}!</div>`:''}
    ${nb.map(b=>`<div class="newb"><div class="medal">${icon(b.ic)}</div><div>Neues Abzeichen: ${b.t}<small>${b.d}</small></div></div>`).join('')}
    <button class="btn" id="resDone">Weiter</button>`;
   $('#lesson').hidden = true; $('#lesson').classList.remove('retry','beamer'); $('#result').hidden = false; L = null;
@@ -1954,6 +2060,17 @@ document.addEventListener('click', e=>{
   if(a==='mix'){ if(L){ clearInterval(blitzTimer); L = null; $('#lesson').hidden = true; } return startLesson({mode:'mix'}); }
   if(a==='missed') return startLesson({mode:'missed'});
   if(a==='close') return closeModal();
+  if(a==='lexikon') return showLexikon();
+  if(t.dataset.themeSet){ S.theme = t.dataset.themeSet; save(); applyTheme(); renderProfile(); return; }
+  if(a==='report'){ const q = L && L.q; if(!q) return;
+    return modal(`<div class="eb">Feedback</div><h2>Frage melden</h2><p>Danke! Kopiere die Angaben unten und füge sie im Feedback-Formular der AG ein.</p>
+      <textarea class="codebox" id="codeOut" readonly aria-label="Angaben zur Frage">Frage ${esc(q.id)} (${esc(q.id.split('.')[0]==='ag' ? 'MMG-Special' : 'Einheit '+(+q.id.split('.')[0]+1)+': '+UNITS[+q.id.split('.')[0]].t)}): ${esc(q.q)}</textarea>
+      <button class="btn ghost block" data-act="copyCode">Angaben kopieren</button>
+      <a class="btn block" href="${FEEDBACK_URL}" target="_blank" rel="noopener">Zum Feedback-Formular</a>
+      <button class="btn plain block" data-act="close">Zurück zur Aufgabe</button>`); }
+  if(a==='certAll') return showCert('all');
+  if(a==='certAg') return showCert('ag');
+  if(a==='certShare'){ try{ GGAFApp.shareImage($('#certImg').src); }catch(err){} return; }
   if(a==='toastClose'){ $('#toast').hidden = true; return; }
   if(a==='toastBackup'){ $('#toast').hidden = true; return showBackup(); }
   if(a==='review') return startLesson({mode:'review'});
@@ -1982,7 +2099,7 @@ document.addEventListener('click', e=>{
   if(a==='resume'){ closeModal(); if(L && S.hearts>0) nextQ(); return; }
   if(a==='endLesson') return endLesson();
   if(a==='reset') return modal(`${mascot('sad')}<h2>Alles zurücksetzen?</h2><p>XP, Serie, Abzeichen und freigeschaltete Lektionen werden gelöscht.</p><button class="btn red block" data-act="doReset">Ja, zurücksetzen</button><button class="btn plain block" data-act="close">Abbrechen</button>`);
-  if(a==='doReset'){ S = defaults(); S.tab = 'learn'; save(); closeModal(); applyBg(); $('#logoMark').innerHTML = mascot('happy',undefined,true); render(); showIntro(0); return; }
+  if(a==='doReset'){ S = defaults(); S.tab = 'learn'; save(); closeModal(); applyBg(); applyTheme(); $('#logoMark').innerHTML = mascot('happy',undefined,true); render(); showIntro(0); return; }
   if(t.id==='stHearts') return heartsModal(false);
   if(t.id==='stStreak') return modal(`${mascot(streakNow()?'cheer':'wow')}<h2>${streakNow()} ${streakNow()===1?'Tag':'Tage'} Serie</h2><p>${S.lastDay===dayKey()?'Heute schon gelernt – deine Serie ist sicher!':'Mach heute eine Lektion, um deine Serie '+(streakNow()?'zu verlängern':'zu starten')+'.'}</p><button class="btn block" data-act="close">Weiter</button>`);
   if(t.id==='stXp') return modal(`${mascot('happy')}<h2>${balance()} XP zum Ausgeben</h2><p>Insgesamt verdient: ${S.xp} XP · heute: ${todayXp()} von ${S.goal} XP. Lektionen bringen 10 XP, Einheitstests 20 XP, fehlerfreie Runden +5. Im Shop tauschst du XP gegen Hilfen und Outfits.</p><button class="btn block" data-tab="shop">Zum Shop</button><button class="btn plain block" data-act="close">Schließen</button>`);
@@ -2012,6 +2129,7 @@ document.addEventListener('click', e=>{
     } else { const o = L.mSel.el; [t,o].forEach(b=>{ b.classList.remove('sel'); b.classList.add('shake'); setTimeout(()=>b.classList.remove('shake'),400); }); L.mSel = null; L.mErr++; sBad(); }
   }
 });
+document.addEventListener('input', e=>{ if(e.target.id==='lexq'){ $('#lexlist').innerHTML = lexItems(e.target.value); return; } });
 document.addEventListener('input', e=>{ if(e.target.id==='name'){ S.name = e.target.value.trim(); save(); } });
 document.addEventListener('keydown', e=>{
   if(e.key==='Escape' && !$('#modal').hidden){ closeModal(); return; }
@@ -2024,7 +2142,7 @@ document.addEventListener('visibilitychange', ()=>{ if(!document.hidden && $('#l
 setInterval(()=>{ if($('#lesson').hidden && $('#result').hidden){ const h = S.hearts; regen(); if(h!==S.hearts){ save(); renderTop(); } } }, 30000);
 
 /* ================= Teilen, QR-Code, Sicherung ================= */
-const SHARE_TEXT = 'Hol dir GGAF Quizzes! – Going green and Fair, die Lern-App der AG „Going green und fair“ am MMG.\n\nSo installierst du sie (nur Android):\n1. Öffne die angehängte Datei „GGAF-Quizzes.apk“.\n2. Falls gefragt: Erlaube „Installation aus unbekannten Quellen“ für die App, mit der du die Datei geöffnet hast.\n3. Tippe auf „Installieren“ – fertig!';
+const SHARE_TEXT = 'Hol dir GGAF Quizzes! – Going green and Fair, die Lern-App der AG „Going green und fair“ am MMG.\n\nSo installierst du sie (nur Android):\n1. Öffne die angehängte Datei „GGAF-Quizzes.apk“.\n2. Falls gefragt: Erlaube „Installation aus unbekannten Quellen“ für die App, mit der du die Datei geöffnet hast.\n3. Tippe auf „Installieren“ – fertig!\n\nImmer die neueste Version: ' + APK_URL + '\niPhone oder PC: ' + WEB_URL;
 let qrOn = false;
 function showQr(){
   let url = '';
@@ -2067,6 +2185,56 @@ function weeklyRecap(){
   const r = recap((new Date().getDay()+6)%7 + 1);
   if(!r.xp) return;
   modal(`${mascot('cheer')}<div class="eb">Wochenrückblick</div><h2>Deine letzte Woche</h2>${recapHTML(r)}<button class="btn block" data-act="close">Weiter geht’s</button>`);
+}
+
+/* ================= Urkunde ================= */
+function showCert(type){
+  const W = 1600, H = 1130, c = document.createElement('canvas'); c.width = W; c.height = H;
+  const x = c.getContext('2d'), ag = type==='ag';
+  const name = S.name || 'Lernchampion';
+  const d = new Date(), datum = d.getDate()+'. '+['Januar','Februar','März','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'][d.getMonth()]+' '+d.getFullYear();
+  const svg = mascot('cheer','',true).replace('<svg ', '<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" ');
+  const img = new Image();
+  const draw = () => {
+    x.fillStyle = '#F5FBF0'; x.fillRect(0,0,W,H);
+    x.fillStyle = '#D9F2CA'; x.fillRect(40,40,W-80,H-80);
+    x.strokeStyle = '#2E6417'; x.lineWidth = 14; x.strokeRect(40,40,W-80,H-80);
+    x.strokeStyle = '#7ED957'; x.lineWidth = 4; x.strokeRect(72,72,W-144,H-144);
+    x.fillStyle = 'rgba(126,217,87,.18)';
+    [[140,160,70],[W-150,H-170,90],[W-230,150,50],[190,H-200,55]].forEach(([cx,cy,r])=>{ x.beginPath(); x.ellipse(cx,cy,r,r*.55,-.6,0,Math.PI*2); x.fill(); });
+    x.textAlign = 'center';
+    x.fillStyle = '#2E6417'; x.fillRect(W/2-90,120,180,50);
+    x.fillStyle = '#C1FF72'; x.font = '900 34px "Baloo 2", "Nunito", sans-serif'; x.fillText('MMG', W/2, 157);
+    x.fillStyle = '#1B3A0D'; x.font = '800 120px "Baloo 2", "Nunito", sans-serif'; x.fillText('Urkunde', W/2, 300);
+    x.fillStyle = '#2E6417'; x.font = '700 38px "Nunito", sans-serif'; x.fillText('GGAF Quizzes! – Going green and Fair', W/2, 360);
+    x.fillStyle = '#557248'; x.font = '700 36px "Nunito", sans-serif'; x.fillText('Diese Urkunde erhält', W/2, 460);
+    x.fillStyle = '#00934C'; x.font = '800 96px "Baloo 2", "Nunito", sans-serif'; x.fillText(name, W/2, 570);
+    x.strokeStyle = '#7ED957'; x.lineWidth = 4; x.beginPath(); x.moveTo(W/2-380,600); x.lineTo(W/2+380,600); x.stroke();
+    x.fillStyle = '#1B3A0D'; x.font = '700 38px "Nunito", sans-serif';
+    const l1 = ag ? 'für den erfolgreichen Abschluss aller Lektionen' : 'für den erfolgreichen Abschluss aller '+UNITS.length+' Einheiten';
+    const l2 = ag ? 'des MMG-Specials zur AG „Going green und fair“.' : 'rund um Klima, fairen Handel und Nachhaltigkeit.';
+    x.fillText(l1, W/2, 680); x.fillText(l2, W/2, 730);
+    x.fillStyle = '#557248'; x.font = '700 32px "Nunito", sans-serif';
+    x.fillText(S.xp+' XP gesammelt · '+Object.keys(S.badges).length+' Abzeichen', W/2, 800);
+    x.textAlign = 'left'; x.fillStyle = '#1B3A0D'; x.font = '700 32px "Nunito", sans-serif'; x.fillText(datum, 180, 960);
+    x.strokeStyle = '#2E6417'; x.lineWidth = 3; x.beginPath(); x.moveTo(180,975); x.lineTo(560,975); x.stroke();
+    x.fillStyle = '#557248'; x.font = '700 26px "Nunito", sans-serif'; x.fillText('Datum', 180, 1010);
+    x.textAlign = 'right'; x.fillStyle = '#1B3A0D'; x.font = '700 32px "Nunito", sans-serif'; x.fillText('AG „Going green und fair“', W-180, 960);
+    x.beginPath(); x.moveTo(W-560,975); x.lineTo(W-180,975); x.stroke();
+    x.fillStyle = '#557248'; x.font = '700 26px "Nunito", sans-serif'; x.fillText('MMG', W-180, 1010);
+    try{ x.drawImage(img, W/2-130, 820, 260, 260); }catch(e){}
+    const url = c.toDataURL('image/png');
+    const app = !!window.GGAFApp;
+    modal(`<div class="eb">Herzlichen Glückwunsch!</div><h2>Deine Urkunde</h2>
+      <img id="certImg" class="certimg" src="${url}" alt="Urkunde für ${esc(name)}">
+      ${S.name ? '' : '<p>Tipp: Trag unter Profil deinen Namen ein, dann steht er auf der Urkunde.</p>'}
+      ${app ? '<button class="btn block" data-act="certShare">Urkunde teilen / speichern</button>'
+            : `<a class="btn block" href="${url}" download="GGAF-Urkunde.png">Urkunde herunterladen</a><p>Am Handy kannst du das Bild auch lange antippen und speichern.</p>`}
+      <button class="btn plain block" data-act="close">Schließen</button>`);
+  };
+  img.onload = draw; img.onerror = draw;
+  const go = () => { img.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg); };
+  if(document.fonts && document.fonts.load){ Promise.all([document.fonts.load('800 40px "Baloo 2"'), document.fonts.load('700 40px "Nunito"')]).then(go, go); } else go();
 }
 
 /* ================= Einführung ================= */
@@ -2120,7 +2288,7 @@ S.missed = S.missed.filter(byId);   /* veraltete Fragen-IDs aus alten Speicherst
 applyFreeze();
 $('#logoMark').innerHTML = mascot('happy',undefined,true);
 render(true);
-applyBg();
+applyBg(); applyTheme();
 if(!storageTest()) setTimeout(storageWarn, 1200);   /* nach dem Start kurz Bescheid geben, wenn Speichern nicht geht */
 /* Speicher als „dauerhaft“ anfragen, damit Browser (v. a. Safari) ihn nicht so schnell löschen */
 try{ if(navigator.storage && navigator.storage.persist) navigator.storage.persist().catch(()=>{}); }catch(e){}

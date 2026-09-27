@@ -3,8 +3,9 @@
 Die Lern-App der **AG „Going green und fair“ am MMG**. Mit kurzen Quiz-Lektionen im Stil von Duolingo lernen Schüler*innen alles über Klima, fairen Handel, Umwelt und Nachhaltigkeit. Begleitet werden sie von **Sprossi**, dem Pflanzen-Maskottchen.
 
 - **Web-App:** https://moin2134.github.io/App/
-- **Android:** `GGAF-Quizzes.apk` (ab Android 7)
+- **Android-App herunterladen (immer die neueste Version):** https://github.com/moin2134/App/raw/main/GGAF-Quizzes.apk
 - **iPhone:** als Web-App über „Zum Home-Bildschirm“
+- **Feedback an die AG:** https://ggaf-2.jimdosite.com/feedback/
 
 ---
 
@@ -42,6 +43,11 @@ Die Lern-App der **AG „Going green und fair“ am MMG**. Mit kurzen Quiz-Lekti
 | **Fehler wiederholen** | Alle bisher falsch beantworteten Fragen |
 | **Klassen-Modus (Beamer)** | Eine ganze Einheit gemeinsam am Beamer: große Schrift, ohne Herzen, zählt nicht für den eigenen Fortschritt |
 | **Tipp des Tages** | Ein Alltagstipp für mehr Nachhaltigkeit |
+| **Lexikon** | 45 Fachbegriffe von „Agenda 2030“ bis „Zero Waste“, mit Suche |
+
+### Feedback
+- **Frage melden:** Unter jeder Rückmeldung steht „Frage falsch oder unklar? Melden“. Die App zeigt die Angaben zur Frage zum Kopieren an und öffnet das Feedback-Formular der AG.
+- **Feedback geben:** Im Profil führt ein Button direkt zum Formular.
 
 ### Motivation
 - **XP** für jede Lektion (Lektion 10 XP, Einheitstest 20 XP, +5 bei fehlerfreien Runden)
@@ -50,6 +56,8 @@ Die Lern-App der **AG „Going green und fair“ am MMG**. Mit kurzen Quiz-Lekti
 - **Herzen:** Jeder Fehler in einer Lektion kostet ein Herz. Alle 30 Minuten kommt eins zurück.
 - **14 Abzeichen**, z. B. „Erster Spross“, „Wochenfeuer“, „Fair-Profi“, „AG-Profi“, „Going green and Fair“
 - **Wochenrückblick:** XP, Lektionen, aktive Tage, stärkstes Thema und „Übe mehr“, im Profil und zu Beginn jeder Woche
+- **Sprossi wächst mit:** 5 Stufen je nach XP: Keimling (0) → Sprössling (100) → Jungpflanze (300) → Starke Pflanze (700, drittes Blatt) → Blühender Sprossi (1500, mit Blüte)
+- **Urkunden:** für alle Einheiten und für das MMG-Special, als Bild mit Namen, Datum und XP. In der Web-App herunterladen, in der Android-App teilen oder speichern.
 
 ### Shop
 Verdiente XP lassen sich ausgeben. Abzeichen zählen trotzdem alle jemals verdienten XP.
@@ -62,7 +70,8 @@ Verdiente XP lassen sich ausgeben. Abzeichen zählen trotzdem alle jemals verdie
 
 ### Gestaltung
 - Farbschema der AG: Dunkelgrün `#2E6417`, Grün `#00BF63`, Hellgrün `#7ED957`, Limette `#C1FF72`, Mint `#D9F2CA`
-- **Heller und dunkler Modus**, folgt automatisch den Handy-Einstellungen
+- **Heller und dunkler Modus:** unter Profil → Design wählbar: Automatisch (wie das Gerät), Hell oder Dunkel
+- **Link-Vorschau:** Beim Teilen des Links (WhatsApp, Signal …) erscheint ein Vorschaubild mit Sprossi
 - **Animationen:** Sprossi winkt, blinzelt und wiegt seine Blätter, richtige Antworten „ploppen“, Zahlen hüpfen. Bei „Bewegung reduzieren“ in den Systemeinstellungen sind die Animationen aus.
 - Unten rechts: **MMG · GGAF Quizzes! App · Going green and Fair**
 
@@ -98,7 +107,7 @@ Alle Fakten wurden mit Quellen geprüft, u. a. Umweltbundesamt, Destatis, Bundes
 ## Installation
 
 ### Android (App-Datei)
-1. `GGAF-Quizzes.apk` aufs Handy laden, z. B. per Link, Messenger oder QR-Code aus der App.
+1. Die APK aufs Handy laden: über **https://github.com/moin2134/App/raw/main/GGAF-Quizzes.apk**, per Messenger oder per QR-Code aus der App.
 2. Datei antippen.
 3. Falls gefragt: **„Installation aus unbekannten Quellen“** erlauben.
 4. **Installieren** antippen.
@@ -158,6 +167,7 @@ ProjektGGAF_App/
 │   ├── manifest.json     ← macht die Seite installierbar
 │   ├── sw.js             ← Offline-Speicher
 │   ├── apple-touch-icon.png, icon-192.png, icon-512.png
+│   └── og-image.png      ← Vorschaubild beim Teilen des Links
 ├── android/              ← Android-Hülle und Build-Skript
 │   ├── build.ps1         ← baut APK und web/index.html
 │   ├── AndroidManifest.xml
@@ -167,7 +177,9 @@ ProjektGGAF_App/
 └── Grafiken/             ← alle Grafiken der App (Sprossi, Outfits, Symbole, Hintergründe, App-Symbole)
 ```
 
-**Wichtig für GitHub:** Immer die Dateien aus dem Ordner **`web`** hochladen, nicht die `index.html` aus dem Hauptordner. Die richtige Datei beginnt mit `<!doctype html>`.
+**Wichtig für GitHub:**
+- Immer die Dateien aus dem Ordner **`web`** hochladen, nicht die `index.html` aus dem Hauptordner. Die richtige Datei beginnt mit `<!doctype html>`.
+- Die aktuelle `GGAF-Quizzes.apk` ebenfalls ins Repository hochladen, **mit genau diesem Dateinamen**. Dann zeigt der Download-Link immer auf die neueste Version.
 
 ---
 
