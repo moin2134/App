@@ -747,7 +747,7 @@ const NEW_UNITS = [
   mc('Wie viel des weltweiten Stroms verbrauchten Rechenzentren im Jahr 2024 laut Internationaler Energieagentur (IEA)?',['rund 1,5 %','rund 15 %','rund 50 %','rund 0,001 %'],'Bis 2030 könnte sich ihr Verbrauch laut IEA mehr als verdoppeln – auf etwa so viel Strom, wie Japan heute insgesamt verbraucht.'),
   tf('Rechenzentren brauchen nicht nur Strom, sondern oft auch viel Wasser zum Kühlen.',true,'Server werden beim Rechnen heiß. Viele Anlagen kühlen mit Wasser, das dabei teilweise verdunstet – in trockenen Regionen kann das zum Problem werden.'),
   fill('Wenn Technik sparsamer wird, wir sie dadurch aber viel mehr nutzen und am Ende kaum Energie sparen, nennt man das ___-Effekt.',['Rebound','Domino','Treibhaus','Placebo'],'Beispiel: Streaming wird effizienter, aber wir schauen immer mehr Videos in immer höherer Auflösung.'),
-  pair('Was gehört zusammen?',[['Server','Computer, der Daten und Dienste für andere bereitstellt'],['KI-Training','Ein Modell lernt aus riesigen Datenmengen'],['Abwärme','Wärme aus Servern, die Wohnungen heizen kann'],['Ökostrom','Strom aus Sonne, Wind und Wasser']],'Das deutsche Energieeffizienzgesetz verlangt, dass Rechenzentren ab 2027 ihren Strom komplett aus erneuerbaren Energien beziehen.'),
+  pair('Rechenzentren: Was gehört zusammen?',[['Server','Computer, der Daten und Dienste für andere bereitstellt'],['KI-Training','Ein Modell lernt aus riesigen Datenmengen'],['Abwärme','Wärme aus Servern, die Wohnungen heizen kann'],['Ökostrom','Strom aus Sonne, Wind und Wasser']],'Das deutsche Energieeffizienzgesetz verlangt, dass Rechenzentren ab 2027 ihren Strom komplett aus erneuerbaren Energien beziehen.'),
   ord('Sortiere diese Datenmengen – von klein nach groß.',['Kilobyte','Megabyte','Gigabyte','Terabyte'],'Jede Stufe ist rund 1.000-mal so groß wie die vorige. Eine Stunde Video in HD-Qualität kann schon mehrere Gigabyte umfassen.'),
   mc('Was treibt den Strombedarf von Rechenzentren derzeit besonders stark nach oben?',['Künstliche Intelligenz (KI)','Gedruckte Zeitungen','Telefonate über das Festnetz','Taschenrechner'],'Das Trainieren und Nutzen großer KI-Modelle erfordert besonders leistungsstarke Chips. Laut IEA ist KI der wichtigste Treiber für den wachsenden Stromverbrauch der Rechenzentren.')
  ]},
@@ -963,6 +963,178 @@ const NEW_INFOS = [
    ===================================================================== */
 
 NEW_UNITS.forEach(u=>UNITS.push(u));
+/* ===== Einheiten 13–15: Deutschland & Umweltpolitik ===== */
+const DE_UNITS = [
+ {t:'Umweltpolitik in Deutschland', d:'Ministerien, Gesetze und der CO₂-Preis.', c:'#00BF63', s:'#00934C', i:'#fff', qs:[
+  /* Lektion 1 – Wer macht Umweltpolitik? */
+  mc('Welches Bundesministerium ist seit 2025 für den Klimaschutz zuständig?',['Das Bundesministerium für Umwelt, Klimaschutz, Naturschutz und nukleare Sicherheit','Das Bundesministerium der Finanzen','Das Auswärtige Amt','Das Bundesministerium der Verteidigung'],'Bis 2025 lag der Klimaschutz beim Wirtschaftsministerium. Die Abkürzung des Umweltministeriums lautet heute BMUKN.'),
+  tf('Das Umweltbundesamt hat seinen Hauptsitz in Dessau-Roßlau (Sachsen-Anhalt).',true,'Das Umweltbundesamt ist die wissenschaftliche Umweltbehörde des Bundes. Es sammelt zum Beispiel jedes Jahr die Daten zu den Treibhausgas-Emissionen.'),
+  fill('Der Schutz der natürlichen Lebensgrundlagen steht seit 1994 als Staatsziel in Artikel ___ des Grundgesetzes.',['20a','1','38','116'],'Ein Staatsziel verpflichtet Bundestag, Regierung und Gerichte, den Umweltschutz bei ihren Entscheidungen zu beachten – auch mit Blick auf künftige Generationen.'),
+  mc('Über welches Verfassungsorgan wirken die 16 Bundesländer bei der Gesetzgebung des Bundes mit?',['Bundesrat','Bundestag','Bundesverfassungsgericht','Bundespräsident'],'Im Bundesrat sitzen Mitglieder der Landesregierungen. Viele Umweltgesetze führen die Länder aus, zum Beispiel beim Naturschutz oder bei Genehmigungen für Windräder.'),
+  pair('Welches Bundesministerium ist wofür zuständig?',[['Umweltministerium (BMUKN)','Klima-, Natur- und Umweltschutz'],['Wirtschaftsministerium (BMWE)','Energie und Strommarkt'],['Verkehrsministerium','Straßen und Schienen'],['Landwirtschaftsministerium (BMLEH)','Landwirtschaft, Ernährung und Wald']],'Umweltpolitik ist Teamarbeit: Viele Entscheidungen fürs Klima fallen auch in den Ministerien für Energie, Verkehr und Landwirtschaft.'),
+  ord('Wie entsteht ein Bundesgesetz? Sortiere die Schritte.',['Ein Gesetzentwurf wird eingebracht, oft von der Bundesregierung','Der Bundestag berät und beschließt das Gesetz','Der Bundesrat berät über das Gesetz','Der Bundespräsident unterzeichnet, das Gesetz wird verkündet'],'Verkündet wird im Bundesgesetzblatt. Erst danach kann ein Gesetz in Kraft treten.'),
+  /* Lektion 2 – Wichtige Gesetze */
+  mc('Bis wann soll Deutschland laut Klimaschutzgesetz treibhausgasneutral sein?',['2045','2030','2060','2100'],'Treibhausgasneutral heißt: Es wird nicht mehr ausgestoßen, als zum Beispiel Wälder und Moore wieder aufnehmen. Die EU hat sich dieses Ziel für 2050 gesetzt.'),
+  fill('Bis 2030 sollen die Treibhausgas-Emissionen in Deutschland um mindestens ___ % gegenüber 1990 sinken.',['65','15','35','100'],'Bis 2040 sollen es mindestens 88 % weniger sein. Diese Zwischenziele stehen im Bundes-Klimaschutzgesetz.'),
+  tf('Im April 2023 wurden die letzten drei Atomkraftwerke in Deutschland abgeschaltet.',true,'Am 15. April 2023 gingen Isar 2 (Bayern), Emsland und Neckarwestheim 2 vom Netz. Damit endete die Stromerzeugung aus Atomkraft in Deutschland.'),
+  mc('Bis spätestens wann soll in Deutschland laut Gesetz kein Kohlestrom mehr erzeugt werden?',['2038','2025','2050','2070'],'Das Kohleausstiegsgesetz von 2020 legt 2038 als spätestes Datum fest. Kraftwerke werden nach und nach stillgelegt.'),
+  mc('Was regelt das Erneuerbare-Energien-Gesetz (EEG)?',['Den Ausbau und die Förderung von Strom aus Sonne, Wind und anderen erneuerbaren Quellen','Die Mülltrennung in Haushalten','Die Höhe der Hundesteuer','Tempolimits auf Autobahnen'],'Das EEG gibt es seit dem Jahr 2000. Es garantiert zum Beispiel, dass Strom aus Solar- und Windanlagen ins Netz eingespeist und vergütet wird.'),
+  ord('Bringe diese Meilensteine der Umweltpolitik in die zeitliche Reihenfolge.',['Umweltschutz wird Staatsziel im Grundgesetz','Das Erneuerbare-Energien-Gesetz tritt in Kraft','Der EU-Emissionshandel startet','Das Bundes-Klimaschutzgesetz wird beschlossen'],'1994, 2000, 2005, 2019 – das Klimaschutzgesetz wurde 2021 und 2024 noch einmal geändert.'),
+  /* Lektion 3 – Profi: CO₂-Preis und Klimageld */
+  mc('Worauf wird der nationale CO₂-Preis nach dem Brennstoffemissionshandelsgesetz (BEHG) erhoben?',['Auf Brennstoffe wie Heizöl, Erdgas, Benzin und Diesel','Auf Obst und Gemüse','Auf Strom aus Solaranlagen','Auf Bücher und Zeitungen'],'Den Preis zahlen zuerst die Unternehmen, die die Brennstoffe verkaufen. Sie geben ihn über den Preis an der Tankstelle oder die Heizkosten weiter.'),
+  fill('Den nationalen CO₂-Preis für Heizen und Tanken gibt es in Deutschland seit ___.',['2021','1990','2010','2030'],'Zum Start kostete eine Tonne CO₂ 25 Euro. Der Preis stieg danach Schritt für Schritt.'),
+  tf('2026 und 2027 liegt der CO₂-Preis nach dem BEHG in einem Korridor von 55 bis 65 Euro pro Tonne.',true,'Der Korridor soll Planungssicherheit geben. Ab 2028 wird der Preis nicht mehr staatlich festgelegt, sondern bildet sich am Markt.'),
+  mc('Wer muss beim EU-Emissionshandel (EU-ETS) seit 2005 für seinen CO₂-Ausstoß Zertifikate haben?',['Kraftwerke und große Industrieanlagen','Nur private Autofahrerinnen und Autofahrer','Nur Bauernhöfe','Nur Schulen und Krankenhäuser'],'Für jede ausgestoßene Tonne CO₂ muss ein Zertifikat abgegeben werden. Die Gesamtmenge der Zertifikate sinkt jedes Jahr.'),
+  pair('CO₂-Preise: Was gehört zusammen?',[['EU-ETS','Kraftwerke und Industrie, seit 2005'],['ETS2','EU-weiter CO₂-Preis für Gebäude und Verkehr, ab 2028'],['BEHG','Nationaler CO₂-Preis auf Brennstoffe, seit 2021'],['Klima- und Transformationsfonds','Sondertopf des Bundes für Klimaschutz und Energiewende']],'Die Einnahmen aus dem CO₂-Preis fließen in den Klima- und Transformationsfonds (KTF).'),
+  tf('Der neue EU-Emissionshandel für Gebäude und Verkehr (ETS2) startet wie ursprünglich geplant 2027.',false,'Die EU hat den Start auf 2028 verschoben. Bis dahin gilt in Deutschland weiter der nationale CO₂-Preis.')
+ ]},
+ {t:'Die neue Bundesregierung & die Umwelt', d:'Was sich seit Mai 2025 in der Klimapolitik tut.', c:'#2E6417', s:'#1E440E', i:'#C1FF72', qs:[
+  /* Lektion 1 – Neue Regierung, neue Zuständigkeiten */
+  mc('Seit wann regiert in Deutschland die Koalition aus CDU/CSU und SPD unter Bundeskanzler Friedrich Merz?',['Seit Mai 2025','Seit Januar 2021','Seit Dezember 2021','Seit Januar 2027'],'Friedrich Merz wurde am 6. Mai 2025 vom Bundestag zum Bundeskanzler gewählt.'),
+  tf('Mit der neuen Bundesregierung wechselte die Zuständigkeit für den Klimaschutz vom Wirtschaftsministerium ins Umweltministerium.',true,'Das Umweltministerium heißt seitdem „Bundesministerium für Umwelt, Klimaschutz, Naturschutz und nukleare Sicherheit“ (BMUKN). Die Energiepolitik liegt beim Bundesministerium für Wirtschaft und Energie (BMWE).'),
+  mc('Wie viele Milliarden Euro aus dem Sondervermögen Infrastruktur sollen in den Klima- und Transformationsfonds fließen?',['100 Milliarden Euro','1 Milliarde Euro','10 Milliarden Euro','500 Milliarden Euro'],'Der Klima- und Transformationsfonds (KTF) bezahlt zum Beispiel Förderprogramme für Gebäude, E-Mobilität und Entlastungen beim Strompreis.'),
+  fill('Im März 2025 änderte der Bundestag das Grundgesetz für ein Sondervermögen für Infrastruktur und Klimaneutralität von ___ Milliarden Euro.',['500','5','50','5.000'],'Beschlossen hat das noch der alte Bundestag, kurz vor dem Amtsantritt der neuen Regierung. Das Geld soll über zwölf Jahre ausgegeben werden.'),
+  pair('Wer leitet welches Amt in der Bundesregierung?',[['Bundeskanzler','Friedrich Merz (CDU)'],['Umweltministerium (BMUKN)','Carsten Schneider (SPD)'],['Wirtschafts- und Energieministerium (BMWE)','Katherina Reiche (CDU)'],['Verkehrsministerium','Patrick Schnieder (CDU)']],'Friedrich Merz ist der zehnte Bundeskanzler der Bundesrepublik Deutschland.'),
+  tf('Seit der Grundgesetzänderung von 2025 steht das Ziel „Klimaneutralität bis 2045“ auch im Grundgesetz.',true,'Es steht in Artikel 143h, der das Sondervermögen regelt: Das Geld ist für Infrastruktur und für das Erreichen der Klimaneutralität bis 2045 bestimmt.'),
+  /* Lektion 2 – Energie und Entlastungen */
+  mc('Mit wie viel Geld aus dem Klima- und Transformationsfonds bezuschusst der Bund 2026 die Stromnetzentgelte?',['6,5 Milliarden Euro','65 Millionen Euro','650 Milliarden Euro','65 Euro pro Haushalt'],'Netzentgelte sind ein Teil des Strompreises und bezahlen die Stromleitungen. Für 2027 bis 2029 sind jeweils rund 5,5 Milliarden Euro geplant.'),
+  fill('Für das produzierende Gewerbe sowie die Land- und Forstwirtschaft wurde die Stromsteuer dauerhaft auf den EU-___ gesenkt.',['Mindestsatz','Höchstsatz','Durchschnittssatz','Rekordsatz'],'Sie sank von 2,05 auf 0,05 Cent pro Kilowattstunde. Für private Haushalte gilt diese Senkung nicht.'),
+  tf('Die Gasspeicherumlage auf den Gaspreis wurde zum Jahr 2026 abgeschafft.',true,'Die Umlage bezahlte das Füllen der Gasspeicher. Zusammen mit den niedrigeren Netzentgelten spart ein Haushalt nach Angaben der Bundesregierung bis zu 150 Euro im Jahr.'),
+  mc('Welche Bedingung gilt für neue Gaskraftwerke nach der Kraftwerksstrategie der Bundesregierung?',['Sie müssen später auf Wasserstoff umgestellt werden können („H₂-ready“)','Sie müssen mit Kohle betrieben werden','Sie dürfen nur im Sommer laufen','Sie müssen auf Schiffen stehen'],'Die Kraftwerke sollen Strom liefern, wenn wenig Wind weht und keine Sonne scheint. Die EU-Kommission stimmte den Eckpunkten im Januar 2026 grundsätzlich zu.'),
+  mc('Wie hoch ist die neue staatliche Förderung beim Kauf eines Elektroautos seit 2026 höchstens?',['6.000 Euro','600 Euro','60.000 Euro','Es gibt keine Förderung'],'Die Förderung gibt es für Haushalte mit bis zu 80.000 Euro zu versteuerndem Jahreseinkommen (mit Kindern etwas mehr). Sie gilt für Neuwagen, die seit dem 1. Januar 2026 zugelassen wurden.'),
+  pair('Welche Maßnahme gehört zu welchem Inhalt?',[['Gebäudemodernisierungsgesetz','Ersetzt das bisherige „Heizungsgesetz“'],['Kraftwerksstrategie','Neue, wasserstofffähige Gaskraftwerke'],['E-Auto-Förderung','Prämie von bis zu 6.000 Euro'],['KTF-Zuschuss','Niedrigere Netzentgelte beim Strom']],'Viele dieser Maßnahmen werden aus dem Klima- und Transformationsfonds bezahlt.'),
+  /* Lektion 3 – Profi: Heizen, Ticket, EU */
+  mc('Wie heißt das Gesetz, das 2026 das Gebäudeenergiegesetz (das sogenannte „Heizungsgesetz“) ersetzt hat?',['Gebäudemodernisierungsgesetz','Heizungsverbotsgesetz','Kohleausstiegsgesetz','Lieferkettengesetz'],'Es gilt seit dem 29. Juli 2026. Vorher wurde es vom Bundestag und vom Bundesrat beschlossen.'),
+  tf('Nach dem neuen Gebäudemodernisierungsgesetz müssen neue Heizungen nicht mehr zu 65 % mit erneuerbaren Energien betrieben werden.',true,'Eigentümerinnen und Eigentümer können die Heiztechnik wieder frei wählen. Stattdessen müssen Brennstoffe schrittweise klimafreundlicher werden: Ab 2029 beginnt ein Pflichtanteil, 2045 sollen sie klimaneutral sein.'),
+  fill('Das Gebäudemodernisierungsgesetz ist seit ___ 2026 in Kraft.',['Juli','Januar','März','Dezember'],'Genau: seit dem 29. Juli 2026. Die Förderung für klimafreundliche Heizungen richtet sich seit Juli 2026 stärker nach dem Einkommen.'),
+  ord('Bringe die Schritte zum Gebäudemodernisierungsgesetz in die richtige Reihenfolge.',['Das Bundeskabinett beschließt den Gesetzentwurf','Bundestag und Bundesrat stimmen zu','Das Gesetz tritt in Kraft'],'13. Mai 2026 Kabinett, Mitte Juli Bundestag und Bundesrat, 29. Juli 2026 Inkrafttreten.'),
+  mc('Welches Klimaziel für 2040 haben sich EU-Parlament und EU-Staaten gesetzt?',['90 % weniger Treibhausgase als 1990','20 % weniger Treibhausgase als 1990','Doppelt so viele Treibhausgase wie 1990','Kein Ziel, nur Empfehlungen'],'Bis zu 5 Prozentpunkte davon dürfen ab 2036 über hochwertige internationale Klimaschutz-Zertifikate erbracht werden. Umweltverbände kritisieren das, andere sehen darin mehr Spielraum.'),
+  ord('Wie hat sich der Monatspreis des Deutschlandtickets entwickelt? Sortiere vom ersten zum aktuellen Preis.',['49 Euro (Start 2023)','58 Euro (2025)','63 Euro (2026)'],'Ab 2027 soll der Preis nicht mehr politisch ausgehandelt werden, sondern sich nach einem Kostenindex richten (Personal-, Energie- und sonstige Kosten).')
+ ]},
+ {t:'Deutschland: Energie & Klima in Zahlen', d:'Emissionen, Ökostrom und Bayerns Solarboom.', c:'#7ED957', s:'#5DB23A', i:'#1E440E', qs:[
+  /* Lektion 1 – Treibhausgase */
+  mc('Wie viele Treibhausgase hat Deutschland 2025 ungefähr ausgestoßen (in CO₂-Äquivalenten)?',['rund 650 Millionen Tonnen','rund 65 Millionen Tonnen','rund 6,5 Milliarden Tonnen','rund 65 Milliarden Tonnen'],'Genau waren es rund 649 Millionen Tonnen. Das sind etwa 7,7 Tonnen pro Person.'),
+  mc('Um wie viel lagen die Treibhausgas-Emissionen 2025 unter dem Wert von 1990?',['rund 48 %','rund 5 %','rund 25 %','rund 90 %'],'1990 waren es rund 1.253 Millionen Tonnen. Bis 2030 sollen es 65 % weniger sein.'),
+  fill('Laut Klimaschutzgesetz darf Deutschland 2030 nur noch rund ___ Millionen Tonnen Treibhausgase ausstoßen.',['438','43','4.380','1.253'],'Das entspricht dem Ziel von 65 % weniger als 1990. Bis 2045 soll Deutschland treibhausgasneutral sein.'),
+  tf('Von 2024 auf 2025 sind die Treibhausgas-Emissionen in Deutschland kaum gesunken.',true,'Der Rückgang betrug nur rund 0,1 % – knapp eine Million Tonnen. In der Industrie sanken die Emissionen, bei Verkehr und Gebäuden stiegen sie.'),
+  tf('Im Verkehr und bei den Gebäuden sind die Emissionen 2025 im Vergleich zum Vorjahr gestiegen.',true,'Verkehr: plus rund 2,1 Millionen Tonnen, Gebäude: plus rund 3,4 Millionen Tonnen. Der Rückgang insgesamt kam vor allem aus der Industrie.'),
+  ord('Sortiere die Treibhausgas-Mengen Deutschlands vom größten zum kleinsten Wert.',['1990: rund 1.253 Millionen Tonnen','2025: rund 649 Millionen Tonnen','Ziel 2030: rund 438 Millionen Tonnen','Ziel 2045: netto null'],'Bis 2025 wurde fast die Hälfte geschafft – in den nächsten 20 Jahren muss die andere Hälfte folgen.'),
+  /* Lektion 2 – Strom */
+  mc('Wie viel Prozent des Stromverbrauchs in Deutschland deckten erneuerbare Energien 2025?',['fast 56 %','rund 16 %','rund 36 %','fast 96 %'],'Das sind 0,7 Prozentpunkte mehr als 2024 – obwohl der Wind zu Jahresbeginn sehr schwach war. Der Zubau an Solaranlagen glich das aus.'),
+  mc('Welche Energiequelle erzeugte 2025 den meisten Strom in Deutschland?',['Windkraft','Braunkohle','Erdgas','Atomkraft'],'Auf Platz 2 lag erstmals die Photovoltaik. Wind und Sonne bildeten damit zum ersten Mal gemeinsam die Spitze.'),
+  tf('Solaranlagen erzeugten 2025 erstmals mehr Strom als Braunkohlekraftwerke.',true,'Die Solarstromerzeugung stieg 2025 um rund 21 %. Braunkohlekraftwerke erzeugten rund 67 Terawattstunden, etwas weniger als im Vorjahr.'),
+  fill('Ende 2025 hatten alle Solaranlagen in Deutschland zusammen rund ___ Gigawatt Leistung.',['117','11','1.170','11.700'],'2025 kamen rund 16,4 Gigawatt dazu. Ein Gigawatt entspricht etwa der Leistung eines großen Kraftwerksblocks.'),
+  mc('Wie viel Leistung hatten alle Windräder an Land in Deutschland Ende 2025 ungefähr?',['rund 68 Gigawatt','rund 6,8 Gigawatt','rund 680 Gigawatt','rund 6.800 Gigawatt'],'2025 kamen rund 4,6 Gigawatt dazu – doppelt so viel wie im Jahr davor.'),
+  pair('Welche Leistung gehört zu welcher Anlagenart (Deutschland, Ende 2025)?',[['Solaranlagen','rund 117 Gigawatt'],['Windräder an Land','rund 68 Gigawatt'],['Windräder auf See','rund 9,5 Gigawatt'],['Alle erneuerbaren Anlagen zusammen','rund 210 Gigawatt']],'Die Leistung erneuerbarer Anlagen wuchs 2025 um rund 11 %. Die stärksten Windräder in der Nordsee haben je 15 Megawatt.'),
+  /* Lektion 3 – Profi: Bayern */
+  mc('Welches Bundesland hat die meiste Solarleistung installiert?',['Bayern','Bremen','Hamburg','Saarland'],'Ende 2025 standen in Bayern Solaranlagen mit rund 35 Gigawatt – etwa 30 % der gesamten deutschen Solarleistung.'),
+  fill('Ende 2025 gab es in Bayern fast ___ Millionen Photovoltaik-Anlagen.',['1,4','14','0,1','40'],'Viele davon sind kleine Anlagen auf Hausdächern. Dazu kommen große Solarparks auf Freiflächen.'),
+  tf('Bayern hat 2025 so viel Solarleistung neu gebaut wie kein anderes Bundesland.',true,'Rund 4,5 Gigawatt kamen 2025 in Bayern hinzu – mehr als ein Viertel des deutschen Zubaus.'),
+  mc('Was besagte die bayerische „10H-Regel“ für Windräder?',['Ein Windrad muss mindestens das Zehnfache seiner Höhe von Wohnhäusern entfernt stehen','Ein Windrad darf höchstens 10 Meter hoch sein','Ein Windrad darf nur 10 Stunden am Tag laufen','In jedem Dorf müssen 10 Windräder stehen'],'Bei einem 200 Meter hohen Windrad wären das 2 Kilometer Abstand. Dadurch wurden in Bayern jahrelang nur wenige neue Windräder gebaut.'),
+  ord('Bringe die Geschichte der 10H-Regel in Bayern in die richtige Reihenfolge.',['Die 10H-Regel wird eingeführt','Der Landtag beschließt eine Lockerung','Die Lockerung tritt in Kraft'],'2014 Einführung, 27. Oktober 2022 Beschluss im Landtag, 16. November 2022 Inkrafttreten.'),
+  pair('Welche Zahl gehört zu welchem Bayern-Fakt?',[['rund 35 Gigawatt','Solarleistung in Bayern Ende 2025'],['rund 4,5 Gigawatt','Solar-Zubau in Bayern 2025'],['2014','Einführung der 10H-Regel'],['1.000 Meter','Mindestabstand nach der Lockerung, z. B. in Wäldern und an Autobahnen']],'Seit der Lockerung gilt der kürzere Abstand zum Beispiel in Wäldern, an Autobahnen und Bahnstrecken, nahe Gewerbegebieten und in Wind-Vorranggebieten.')
+ ]}
+];
+const DE_INFOS = [
+ [{t:'Wer macht Umweltpolitik?', l:'Ministerien, Behörden, Parlamente und wichtige Gesetze.', p:[
+   'Für den Klimaschutz ist seit 2025 das Bundesministerium für Umwelt, Klimaschutz, Naturschutz und nukleare Sicherheit (BMUKN) zuständig. Energie und Strommarkt liegen beim Bundesministerium für Wirtschaft und Energie (BMWE).',
+   'Weitere Zuständigkeiten: Verkehrsministerium – Straßen und Schienen, Landwirtschaftsministerium (BMLEH) – Landwirtschaft, Ernährung und Wald.',
+   'Das Umweltbundesamt mit Hauptsitz in Dessau-Roßlau ist die wissenschaftliche Umweltbehörde des Bundes. Es erfasst z. B. jedes Jahr die Treibhausgas-Emissionen.',
+   'Seit 1994 steht der Schutz der natürlichen Lebensgrundlagen als Staatsziel in Artikel 20a des Grundgesetzes.',
+   'Über den Bundesrat wirken die 16 Länder an der Gesetzgebung des Bundes mit. Viele Umweltgesetze führen die Länder aus, etwa beim Naturschutz.',
+   'So entsteht ein Bundesgesetz: Gesetzentwurf (oft von der Bundesregierung) → Beschluss im Bundestag → Beratung im Bundesrat → Unterzeichnung durch den Bundespräsidenten und Verkündung.',
+   'Das Bundes-Klimaschutzgesetz (2019, geändert 2021 und 2024): mindestens 65 % weniger Treibhausgase bis 2030 und 88 % bis 2040 (gegenüber 1990), treibhausgasneutral bis 2045.',
+   'Atomausstieg: Am 15. April 2023 gingen die letzten drei Atomkraftwerke vom Netz. Kohleausstieg: spätestens 2038 (Kohleausstiegsgesetz 2020).',
+   'Das Erneuerbare-Energien-Gesetz (EEG, seit 2000) regelt den Ausbau und die Förderung von Strom aus Sonne, Wind und anderen erneuerbaren Quellen.',
+   'Meilensteine: Staatsziel Umweltschutz (1994), EEG (2000), EU-Emissionshandel (2005), Klimaschutzgesetz (2019).']},
+  {t:'Der Preis für CO₂', l:'Emissionshandel, CO₂-Preis und Klimafonds.', p:[
+   'Seit 2021 gibt es nach dem Brennstoffemissionshandelsgesetz (BEHG) einen CO₂-Preis auf Heizöl, Erdgas, Benzin und Diesel. Zum Start kostete eine Tonne 25 Euro.',
+   '2026 und 2027 liegt der Preis in einem Korridor von 55 bis 65 Euro pro Tonne. Ab 2028 bildet er sich frei am Markt.',
+   'Im EU-Emissionshandel (EU-ETS) brauchen Kraftwerke und große Industrieanlagen seit 2005 für jede Tonne CO₂ ein Zertifikat. Die Menge der Zertifikate sinkt jedes Jahr.',
+   'Der neue EU-Emissionshandel für Gebäude und Verkehr (ETS2) sollte 2027 starten, wurde aber auf 2028 verschoben.',
+   'Die Einnahmen fließen in den Klima- und Transformationsfonds (KTF), einen Sondertopf des Bundes für Klimaschutz und Energiewende.']}],
+ [{t:'Neue Regierung, neue Politik', l:'Was sich seit Mai 2025 geändert hat.', p:[
+   'Seit Mai 2025 regiert eine Koalition aus CDU/CSU und SPD. Friedrich Merz wurde am 6. Mai 2025 zum Bundeskanzler gewählt.',
+   'Der Klimaschutz wechselte vom Wirtschafts- ins Umweltministerium (BMUKN, Minister Carsten Schneider, SPD). Wirtschaft und Energie (BMWE) leitet Katherina Reiche (CDU), Verkehr Patrick Schnieder (CDU).',
+   'Im März 2025 änderte der damalige Bundestag das Grundgesetz: Ein Sondervermögen von 500 Milliarden Euro für Infrastruktur und Klimaneutralität, davon 100 Milliarden Euro für den Klima- und Transformationsfonds (KTF).',
+   'In Artikel 143h des Grundgesetzes steht seitdem das Ziel „Klimaneutralität bis 2045“.',
+   'Strompreis: 2026 bezuschusst der Bund die Netzentgelte mit 6,5 Milliarden Euro aus dem KTF, für 2027 bis 2029 sind je rund 5,5 Milliarden Euro geplant.',
+   'Die Stromsteuer für das produzierende Gewerbe und die Land- und Forstwirtschaft wurde dauerhaft auf den EU-Mindestsatz gesenkt (0,05 statt 2,05 Cent pro kWh). Private Haushalte sind nicht erfasst.',
+   'Die Gasspeicherumlage wurde zum Jahr 2026 abgeschafft. Zusammen mit den Netzentgelten spart ein Haushalt laut Bundesregierung bis zu 150 Euro im Jahr.',
+   'Kraftwerksstrategie: Neue Gaskraftwerke sollen einspringen, wenn Wind und Sonne fehlen, und müssen „H₂-ready“ (auf Wasserstoff umstellbar) sein. Die EU-Kommission stimmte den Eckpunkten im Januar 2026 grundsätzlich zu.',
+   'E-Auto-Förderung seit 2026: bis zu 6.000 Euro für Haushalte mit bis zu 80.000 Euro zu versteuerndem Jahreseinkommen (mit Kindern etwas mehr).']},
+  {t:'Heizen, Ticket, EU-Ziel', l:'Neue Regeln für Gebäude und Verkehr.', p:[
+   'Das Gebäudemodernisierungsgesetz hat das Gebäudeenergiegesetz („Heizungsgesetz“) ersetzt: Kabinettsbeschluss am 13. Mai 2026, Zustimmung von Bundestag und Bundesrat Mitte Juli, in Kraft seit 29. Juli 2026.',
+   'Die Pflicht, neue Heizungen zu 65 % mit erneuerbaren Energien zu betreiben, entfällt. Stattdessen müssen Brennstoffe ab 2029 schrittweise klimafreundlicher und bis 2045 klimaneutral werden.',
+   'Die Förderung für klimafreundliches Heizen richtet sich seit Juli 2026 stärker nach dem Einkommen.',
+   'EU-Klimaziel 2040: 90 % weniger Treibhausgase als 1990. Ab 2036 dürfen bis zu 5 Prozentpunkte über internationale Zertifikate erbracht werden. Umweltverbände kritisieren das, Befürworter sehen mehr Spielraum.',
+   'Deutschlandticket: 49 Euro (2023), 58 Euro (2025), 63 Euro (2026). Ab 2027 soll sich der Preis nach einem Kostenindex richten.']}],
+ [{t:'Treibhausgase & Strom', l:'Wo Deutschland heute steht.', p:[
+   '2025 stieß Deutschland rund 649 Millionen Tonnen Treibhausgase (CO₂-Äquivalente) aus – rund 48 % weniger als 1990 (rund 1.253 Millionen Tonnen).',
+   'Gegenüber 2024 sanken die Emissionen nur um rund 0,1 %. Die Industrie stieß weniger aus, Verkehr (plus rund 2,1 Mio. t) und Gebäude (plus rund 3,4 Mio. t) mehr.',
+   'Ziel 2030 laut Klimaschutzgesetz: höchstens rund 438 Millionen Tonnen (65 % weniger als 1990). Ziel 2045: netto null.',
+   'Erneuerbare Energien deckten 2025 fast 56 % des Stromverbrauchs – 0,7 Prozentpunkte mehr als 2024.',
+   'Windkraft war 2025 die stärkste Stromquelle, auf Platz 2 lag erstmals die Photovoltaik. Solarstrom überholte erstmals die Braunkohle (rund 67 TWh).',
+   'Installierte Leistung Ende 2025: Solar rund 117 Gigawatt (Zubau 2025: 16,4 GW), Wind an Land rund 68 GW (Zubau 4,6 GW), Wind auf See rund 9,5 GW, alle Erneuerbaren zusammen rund 210 GW.']},
+  {t:'Bayern: Sonne und Wind', l:'Solar-Spitzenreiter mit langer Wind-Debatte.', p:[
+   'Bayern hat die meiste Solarleistung aller Bundesländer: Ende 2025 rund 35 Gigawatt, etwa 30 % der deutschen Solarleistung.',
+   'In Bayern gab es Ende 2025 fast 1,4 Millionen Photovoltaik-Anlagen. 2025 kamen rund 4,5 Gigawatt hinzu – mehr als in jedem anderen Bundesland.',
+   '10H-Regel (seit 2014): Ein Windrad musste mindestens das Zehnfache seiner Höhe von Wohnhäusern entfernt stehen.',
+   'Der Landtag beschloss am 27. Oktober 2022 eine Lockerung, sie gilt seit 16. November 2022: In Wäldern, an Autobahnen und Bahnstrecken, nahe Gewerbegebieten und in Wind-Vorranggebieten reichen 1.000 Meter.']}]
+];
+/*
+QUELLEN UND PRÜFLISTE (Stand der Recherche: 27.09.2026)
+
+Einheit 1 – Umweltpolitik in Deutschland
+ - UBA Treibhausgasminderungsziele: https://www.umweltbundesamt.de/daten/umweltzustand-trends/klima/treibhausgasminderungsziele-deutschlands (65 % 2030, 88 % 2040, 2045)
+ - Bundestag hib BEHG-Änderung: https://www.bundestag.de/presse/hib/kurzmeldungen-1210950 ; BDEW: https://www.bdew.de/service/brennstoffemissionshandel-dritte-aenderung-des-behg-fuehrt-co2-preiskorridor-fuer-2027-fort/
+ - EP/DNR zur ETS2-Verschiebung: https://www.dnr.de/aktuelles-termine/aktuelles/eu-parlament-bestaetigt-schwaches-2040-klimaziel-und-ets2-verschiebung
+ - Allgemeinwissen, nicht eigens neu abgerufen: Art. 20a GG (1994), EEG (2000), EU-ETS (2005), KSG (2019), Kohleausstieg 2038, Atomausstieg 15.04.2023, UBA-Sitz Dessau-Roßlau, BEHG-Start 25 €/t, Gesetzgebungsablauf.
+ Zu prüfen:
+ - Q1/Q5 Ministeriumsnamen BMUKN, BMWE, BMLEH – Organisationserlass Mai 2025
+ - Q15 „Preiskorridor 55–65 € 2026 und 2027“ – hib 1210950: ist die 3. BEHG-Änderung endgültig verkündet? (hib berichtet zum Gesetzentwurf)
+ - Q18 „ETS2 Start 2028“ – EU-Beschluss formal in Kraft?
+ - BVerfG-Urteil 2021 absichtlich weggelassen (schon in index.html, NEW_INFOS Kinderrechte).
+
+Einheit 2 – Die neue Bundesregierung & die Umwelt
+ - Gebäudemodernisierungsgesetz: https://www.bundesregierung.de/breg-de/aktuelles/neues-gebaeudemodernisierungsgesetz-2430284 (Kabinett 13.05., BT/BR Mitte Juli, BGBl 28.07., in Kraft 29.07.2026; 65-%-Regel entfällt; Bio-Anteil ab 2029; klimaneutral 2045; Förderung ab 21.07.2026)
+ - Netzentgelte: https://www.bundesregierung.de/breg-de/aktuelles/niedrigere-netzentgelte-2382396 (6,5 Mrd. 2026; 5,525 Mrd./Jahr 2027–29); Stromsteuer 0,05 ct und Gasspeicherumlage: iww.de / DATEV-Berichte
+ - E-Auto: https://www.bundesregierung.de/breg-de/aktuelles/e-auto-foerderportal-2403088 ; BAFA
+ - Kraftwerksstrategie: https://www.solarserver.de/2026/01/16/bundesregierung-einigt-sich-mit-eu-auf-kraftwerksstrategie/ ; pv magazine 13.05.2026
+ - EU 2040: https://www.europarl.europa.eu/news/de/press-room/20260205IPR33620/eu-climate-law-a-2040-emissions-reduction-target-of-90-for-the-eu
+ - Deutschlandticket Index ab 2027: heise.de (Verkehrsministerkonferenz)
+ Zu prüfen:
+ - Q1 Wahl Merz 06.05.2025 (Allgemeinwissen)
+ - Q3/Q4/Q6 Sondervermögen 500 Mrd., 100 Mrd. KTF, Art. 143h „Klimaneutralität bis 2045“, 12 Jahre (Allgemeinwissen, GG-Änderung März 2025)
+ - Q5 Minister: Schneider, Reiche, Schnieder – aktuell noch im Amt? BMUKN erster Dienstsitz Bonn
+ - Q8 Stromsteuer: Senkung für Private nicht erfolgt – Stand 09/2026 prüfen
+ - Q9 „bis zu 150 Euro“ – Angabe der Bundesregierung/Berichterstattung
+ - Q10 Kraftwerksstrategie: StromVKG vom Kabinett beschlossen (Mai 2026) – ob Bundestag inzwischen beschlossen, bewusst nicht abgefragt
+ - Q11 E-Auto bis 6.000 €, Einkommensgrenze 80.000 € – BAFA
+ - Q17 EU 2040: formale Annahme durch Rat abgeschlossen?
+ - Q18 Deutschlandticket 2027-Preis (lt. Presse evtl. 66,40 €) bis Ende 09/2026 festzulegen – bewusst nicht abgefragt; 58 € (2025) Allgemeinwissen
+ - Lieferkettengesetz-Änderung nicht aufgenommen: Endgültiger Beschluss konnte nicht sicher bestätigt werden.
+
+Einheit 3 – Deutschland: Energie & Klima in Zahlen
+ - UBA Emissionen 2025: https://www.umweltbundesamt.de/daten/umweltzustand-trends/klima/treibhausgas-emissionen-in-deutschland (649 Mio. t, −48,2 %, 1.253 Mio. t 1990, 438 Mio. t 2030)
+ - UBA/BMUKN PM März 2026 (Verkehr +2,1, Gebäude +3,4, Industrie −5,7 Mio. t): https://www.bundesumweltministerium.de/pressemitteilung/treibhausgasdaten-zeigen-klimaschutz-braucht-neuen-schub
+ - BDEW/ZSW: https://www.bdew.de/presse/erneuerbare-energien-stromverbrauch-2025/ (fast 56 %, +0,7 Pp.) – vorläufig, Dez. 2025
+ - Fraunhofer ISE: https://www.ise.fraunhofer.de/en/press-media/press-releases/2026/german-public-electricity-generation-in-2025-wind-and-solar-power-take-the-lead.html (Wind Platz 1, PV Platz 2, PV > Braunkohle, Braunkohle 67,2 TWh, PV +21 %)
+ - BNetzA: https://www.bundesnetzagentur.de/SharedDocs/Pressemitteilungen/DE/2026/20260108_EEG.html (Solar 117 GW, +16,4; Wind an Land 68,1 GW, +4,6; See 9,5 GW; gesamt ~210 GW, +11 %; 15-MW-Anlagen)
+ - Bayern PV: Energie-Atlas Bayern https://www.energieatlas.bayern.de/erneuerbare-energien/photovoltaik/ausbau-entwicklung ; BNetzA (4,5 GW Zubau)
+ - 10H: https://www.bayern.de/bayerischer-landtag-beschliet-lockerung-von-10h/ ; https://www.bayern.de/am-16-november-treten-die-genderten-10h-regelungen-in-kraft-die-nachfrage-nach-neuen-windenergieprojekten-ist-bereits-gestiegen/
+ Zu prüfen:
+ - Q1 „7,7 t pro Person“ – selbst gerechnet (649 Mio. t / ca. 84 Mio. Einw.)
+ - Q5 Gebäude-Anstieg „kühlere Witterung“ – UBA-Hintergrundpapier bestätigen, sonst Satz streichen
+ - Q7 56 % sind vorläufige Werte; endgültige AGEE-Stat-Zahl kann abweichen
+ - Q13/Q18 Bayern Solar „rund 35 GW“ (Quellen nennen 35,4 bzw. 32,68 GW) und „etwa 30 %“ – im Energie-Atlas prüfen
+ - Q14 „fast 1,4 Mio. Anlagen“ (Quelle: fast 1,37 Mio.)
+ - Q15 „mehr als ein Viertel des deutschen Zubaus“ (4,5 von 16,4 GW = 27 %, gerechnet)
+ - Q16 Beispielrechnung 200 m → 2 km (gerechnet)
+*/
+
+
+DE_UNITS.forEach(u=>UNITS.push(u));
 UNITS.forEach((u,ui)=>u.qs.forEach((q,qi)=>q.id=ui+'.'+qi));
 const LESSON_NAMES = ['Grundlagen','Vertiefung','Profi','Einheitstest'];
 const FACT_STAND = 'September 2026';   /* bei jeder Aktualisierung der Zahlen anpassen – siehe FAKTEN-STAND.md */
@@ -1138,6 +1310,7 @@ const INFOS_PROFI = [
 ];
 INFOS.forEach((x,u)=>{ x[0] = {t:x[0].t, l:x[0].l+' Dazu: '+x[1].t+'.', p:x[0].p.concat(x[1].p)}; x[1] = INFOS_PROFI[u]; });
 NEW_INFOS.forEach(x=>INFOS.push(x));
+DE_INFOS.forEach(x=>INFOS.push(x));
 /* ===== MMG-Special: AG „Going green und fair“ (Inhalte aus dem AG-Bericht) ===== */
 const AG = {t:'AG „Going green und fair“', d:'Engagement für Umwelt und fairen Handel am MMG.', c:'#2E6417', s:'#1E440E', i:'#C1FF72',
  names:['Die AG & BNE','Change Fashion & Weltladen','Handys & MMG-Hefte'], qs:[
@@ -1492,7 +1665,7 @@ function renderProfile(){
     <button class="btn block" data-act="backup">Sicherungscode erstellen</button>
     <button class="btn ghost block" data-act="restore">Sicherungscode einfügen</button>
   </div>
-  <p class="about"><b>GGAF Quizzes!</b> – Going green and Fair. Lerne in kleinen Lektionen alles über Klima, fairen Handel, Müll, Wasser, Ernährung, Artenvielfalt, Konsum, globale Gerechtigkeit, Mobilität, Digitales, Kinderrechte sowie Wald und Moore in Bayern. Dein Fortschritt wird nur auf diesem Gerät gespeichert.<br>Faktenstand: ${FACT_STAND}${window.GGAFApp && GGAFApp.version ? ' · App-Version '+esc(GGAFApp.version()) : ''}</p>`;
+  <p class="about"><b>GGAF Quizzes!</b> – Going green and Fair. Lerne in kleinen Lektionen alles über Klima, fairen Handel, Müll, Wasser, Ernährung, Artenvielfalt, Konsum, globale Gerechtigkeit, Mobilität, Digitales, Kinderrechte, Wald und Moore in Bayern sowie Umweltpolitik in Deutschland. Dein Fortschritt wird nur auf diesem Gerät gespeichert.<br>Faktenstand: ${FACT_STAND}${window.GGAFApp && GGAFApp.version ? ' · App-Version '+esc(GGAFApp.version()) : ''}</p>`;
 }
 
 /* ================= Modal ================= */
@@ -1863,6 +2036,8 @@ const INTRO = [
   demo:()=>`<span class="big" style="color:var(--red)">${icon('heart')}${icon('heart')}${icon('heart')}${icon('heart')}${icon('heart')}</span>`},
  {e:'XP, Serie & Shop', t:'Sammeln und belohnen', p:'Für jede Lektion bekommst du XP. Lerne jeden Tag für deine Serie, erreiche dein Tagesziel und tausche XP im Shop gegen Hilfen und Outfits für mich.', mood:'cheer',
   demo:()=>`<span class="big" style="color:var(--orange)">${icon('flame')}Serie</span><span class="big" style="color:var(--leafText)">${icon('leaf')}XP</span><span class="big" style="color:var(--ink2)">${icon('bag')}Shop</span>`},
+ {e:'Fortschritt sichern', t:'Dein Fortschritt bleibt – fast immer', p:'Alles wird automatisch auf diesem Gerät gespeichert. Aber: Beim Löschen der Browserdaten, im Inkognito-Modus oder auf einem neuen Handy ist er weg. Erstelle deshalb ab und zu unter Profil → „Fortschritt sichern“ einen Sicherungscode und bewahre ihn auf.', mood:'happy',
+  demo:()=>`<span class="chipx">${icon('user')}Profil</span><span class="big" style="color:var(--ink2);font-size:18px">→</span><span class="chipx">${icon('shield')}Sicherungscode erstellen</span><span class="chipx">${icon('redo')}Code einfügen</span>`},
  {e:'Los geht’s', t:'Richte deine App ein', p:'Ganz oben im Pfad wartet das MMG-Special zur AG „Going green und fair“.', mood:'cheer', form:true}
 ];
 let introStep = 0;
