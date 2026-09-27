@@ -1,5 +1,3 @@
-<!doctype html>
-<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#2E6417"><link rel="manifest" href="manifest.json"><link rel="apple-touch-icon" href="apple-touch-icon.png"><link rel="icon" type="image/png" href="icon-192.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="GGAF Quizzes!"><meta name="apple-mobile-web-app-status-bar-style" content="default"></head><body>
 <title>GGAF Quizzes!</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -45,6 +43,8 @@
 *{box-sizing:border-box}
 [hidden]{display:none!important}
 html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+/* nie seitlich verschiebbar – sonst wandern auf Handys die festen Leisten mit */
+html,body{max-width:100%;overflow-x:hidden}
 html,body{height:100%}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.45;-webkit-tap-highlight-color:transparent}
 button{font:inherit;color:inherit;cursor:pointer;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
@@ -57,10 +57,13 @@ h1,h2,h3{font-family:var(--display);line-height:1.1;margin:0;text-wrap:balance}
 /* ---------- Shell ---------- */
 #app{max-width:600px;margin:0 auto;min-height:100%}
 .topbar{position:-webkit-sticky;position:sticky;top:0;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 16px;border-bottom:2px solid var(--line)}
-.logo{display:flex;align-items:center;gap:8px;font-family:var(--display);font-weight:800;font-size:22px;letter-spacing:-.01em;white-space:nowrap}
+.logo{display:flex;align-items:center;gap:8px;font-family:var(--display);font-weight:800;font-size:22px;letter-spacing:-.01em;white-space:nowrap;min-width:0;flex:1 1 auto;overflow:hidden}
+.logo > span:last-child{overflow:hidden;text-overflow:ellipsis;min-width:0}
+.logo svg.m{flex:none}
 .logo .g{color:var(--leafText)}
 .logo svg.m{width:34px;height:34px}
-.stats{display:flex;gap:4px}
+.stats{display:flex;gap:4px;flex:none}
+@media (max-width:340px){.logo > span:last-child{display:none}}
 .stat{display:flex;align-items:center;gap:5px;font-weight:900;font-size:16px;background:none;border:0;padding:6px 8px;border-radius:12px;font-variant-numeric:tabular-nums}
 .stat:hover{background:var(--surface2)}
 .stat .ic{width:24px;height:24px}
@@ -1135,6 +1138,14 @@ Einheit 3 – Deutschland: Energie & Klima in Zahlen
 
 
 DE_UNITS.forEach(u=>UNITS.push(u));
+/* Reihenfolge im Pfad: „Umweltpolitik in Deutschland“ und „Die neue Bundesregierung“ (vorher 13 und 14) stehen jetzt an Platz 4 und 5.
+   UNIT_ORDER[neuer Platz] = alter Platz; alte Speicherstände werden in sanitize() mit OLD2NEW umgerechnet. */
+const UNIT_ORDER = [0,1,2,12,13,3,4,5,6,7,8,9,10,11,14];
+const OLD2NEW = []; UNIT_ORDER.forEach((oldI,newI)=>{ OLD2NEW[oldI] = newI; });
+(function(){ const re = UNIT_ORDER.map(i=>UNITS[i]); UNITS.length = 0; re.forEach(u=>UNITS.push(u));
+  const COLORS = [['#00BF63','#00934C','#fff'],['#2E6417','#1E440E','#C1FF72'],['#7ED957','#5DB23A','#1E440E'],['#C1FF72','#9BD64A','#2E6417']];
+  UNITS.forEach((u,i)=>{ const c = COLORS[i%4]; u.c = c[0]; u.s = c[1]; u.i = c[2]; });   /* Farben wieder im Wechsel */
+})();
 UNITS.forEach((u,ui)=>u.qs.forEach((q,qi)=>q.id=ui+'.'+qi));
 const LESSON_NAMES = ['Grundlagen','Vertiefung','Profi','Einheitstest'];
 const FACT_STAND = 'September 2026';   /* bei jeder Aktualisierung der Zahlen anpassen – siehe FAKTEN-STAND.md */
@@ -1311,6 +1322,7 @@ const INFOS_PROFI = [
 INFOS.forEach((x,u)=>{ x[0] = {t:x[0].t, l:x[0].l+' Dazu: '+x[1].t+'.', p:x[0].p.concat(x[1].p)}; x[1] = INFOS_PROFI[u]; });
 NEW_INFOS.forEach(x=>INFOS.push(x));
 DE_INFOS.forEach(x=>INFOS.push(x));
+(function(){ const re = UNIT_ORDER.map(i=>INFOS[i]); INFOS.length = 0; re.forEach(x=>INFOS.push(x)); })();
 /* ===== MMG-Special: AG „Going green und fair“ (Inhalte aus dem AG-Bericht) ===== */
 const AG = {t:'AG „Going green und fair“', d:'Engagement für Umwelt und fairen Handel am MMG.', c:'#2E6417', s:'#1E440E', i:'#C1FF72',
  names:['Die AG & BNE','Change Fashion & Weltladen','Handys & MMG-Hefte'], qs:[
@@ -1354,13 +1366,26 @@ const PRAISE = ['Super!','Richtig!','Klasse!','Stark!','Genau!','Sehr gut!','Gr�
 /* ================= Zustand ================= */
 const KEY = 'ggaf-quizzes-v1';
 const HEART_MS = 30*60*1000, MAX_H = 5;
-const defaults = () => ({name:'', xp:0, hearts:MAX_H, heartsTs:Date.now(), streak:0, lastDay:null, goal:30, log:{}, done:{}, badges:{}, lessons:0, perfect:0, answered:0, correct:0, blitzBest:0, missed:[], sound:true, tab:'learn', read:{}, spent:0, owned:[], outfit:'', freeze:0, boost:false, froze:0, introDone:false, srs:{}, dstat:{}, bg:'', recapWeek:''});
+const defaults = () => ({name:'', xp:0, hearts:MAX_H, heartsTs:Date.now(), streak:0, lastDay:null, goal:30, log:{}, done:{}, badges:{}, lessons:0, perfect:0, answered:0, correct:0, blitzBest:0, missed:[], sound:true, tab:'learn', read:{}, spent:0, owned:[], outfit:'', freeze:0, boost:false, froze:0, introDone:false, srs:{}, dstat:{}, bg:'', recapWeek:'', unitOrder:2});
 const balance = () => S.xp - S.spent;   /* ausgebbare XP; S.xp bleibt die Gesamtsumme für Abzeichen */
 let S = load();
 function load(){ try{ const s = JSON.parse(localStorage.getItem(KEY)); if(s) return sanitize(s); }catch(e){} return defaults(); }
 /* Speicherstand absichern: falsche Typen aus alten/kaputten Ständen (oder Sicherungscodes) durch Standardwerte ersetzen */
+/* Alte Speicherstände (vor dem Umsortieren der Einheiten) auf die neuen Plätze umrechnen */
+function migrateUnits(s){
+  const mapU = u => (/^\d+$/.test(u) && OLD2NEW[+u]!==undefined) ? String(OLD2NEW[+u]) : u;
+  const mapKey = (k, sep) => { const i = k.indexOf(sep); return i<0 ? k : mapU(k.slice(0,i)) + k.slice(i); };
+  const remap = (obj, sep) => { const o = {}; Object.keys(obj||{}).forEach(k=>{ o[mapKey(k,sep)] = obj[k]; }); return o; };
+  if(s.done) s.done = remap(s.done, '-');
+  if(s.read) s.read = remap(s.read, '-');   /* „-1-0“ (AG) bleibt unverändert */
+  if(s.srs) s.srs = remap(s.srs, '.');
+  if(Array.isArray(s.missed)) s.missed = s.missed.map(id=>mapKey(String(id), '.'));
+  if(s.dstat) Object.keys(s.dstat).forEach(day=>{ const d = s.dstat[day]; if(d && d.u) d.u = remap(d.u, '\u0000'); if(d && d.u){ const o = {}; Object.keys(d.u).forEach(u=>{ o[mapU(u)] = d.u[u]; }); d.u = o; } });
+}
 function sanitize(s){
+  if(s && s.unitOrder!==2){ migrateUnits(s); }
   const d = defaults(), r = Object.assign(defaults(), s);
+  r.unitOrder = 2;
   Object.keys(d).forEach(k=>{ const def = d[k]; if(Array.isArray(def) ? !Array.isArray(r[k]) : (def!==null && (r[k]===null || typeof r[k]!==typeof def))) r[k] = def; });
   if(!['learn','practice','shop','badges','profile'].includes(r.tab)) r.tab = 'learn';
   return r;
@@ -2079,5 +2104,3 @@ if('serviceWorker' in navigator && location.protocol==='https:' && !window.GGAFA
 if(!S.introDone) showIntro(0);   /* Einführung beim ersten Start */
 else weeklyRecap();              /* sonst ggf. Rückblick auf die Vorwoche */
 </script>
-
-</body></html>
