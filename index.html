@@ -1,9 +1,7 @@
 <!doctype html>
 <html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#2E6417"><title>GGAF Quizzes! - Going green and Fair</title><meta name="description" content="Die Lern-App der AG Going green und fair am MMG: kurze Quizzes zu Klima, fairem Handel und Nachhaltigkeit - mit Sprossi."><meta property="og:type" content="website"><meta property="og:title" content="GGAF Quizzes! - Going green and Fair"><meta property="og:description" content="Die Lern-App der AG am MMG: kurze Quizzes zu Klima, fairem Handel und Nachhaltigkeit."><meta property="og:image" content="https://moin2134.github.io/App/og-image.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:url" content="https://moin2134.github.io/App/"><meta property="og:locale" content="de_DE"><meta name="twitter:card" content="summary_large_image"><link rel="manifest" href="manifest.json"><link rel="apple-touch-icon" href="apple-touch-icon.png"><link rel="icon" type="image/png" href="icon-192.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="GGAF Quizzes!"><meta name="apple-mobile-web-app-status-bar-style" content="default"></head><body>
 <title>GGAF Quizzes!</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@600;700;800;900&display=swap">
+<style>@font-face{font-family:'Baloo 2';font-style:normal;font-weight:400 800;font-display:swap;src:url(fonts/baloo2-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}@font-face{font-family:'Baloo 2';font-style:normal;font-weight:400 800;font-display:swap;src:url(fonts/baloo-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF}@font-face{font-family:'Nunito';font-style:normal;font-weight:200 1000;font-display:swap;src:url(fonts/nunito-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}@font-face{font-family:'Nunito';font-style:normal;font-weight:200 1000;font-display:swap;src:url(fonts/nunito-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF}@font-face{font-family:'Nunito';font-style:normal;font-weight:200 1000;font-display:swap;src:url(fonts/nunito-cyrillic.woff2) format('woff2');unicode-range:U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116}</style>
 <style>
 :root{
   --forest:#2E6417; --forestShade:#1E440E;
@@ -233,6 +231,16 @@ svg.m{display:block;width:100%;height:auto}
 .opts.tf .opt{flex-direction:column;justify-content:center;text-align:center;padding:22px 12px;font-family:var(--display);font-size:22px}
 .opts.tf .opt .big{width:44px;height:44px}
 .opt.sel{border-color:var(--leaf);background:var(--selBg);color:var(--selInk)}
+.qtrow{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.spk{display:inline-flex;align-items:center;gap:6px;border:2px solid var(--line);border-bottom-width:3px;border-radius:12px;background:var(--surface);color:var(--leafText);font-weight:800;font-size:13px;padding:6px 10px;cursor:pointer}
+.spk svg{width:18px;height:18px}
+.opt.struck{opacity:.4;text-decoration:line-through}
+.qimg{background:var(--mist);border-radius:20px;padding:10px;display:flex;justify-content:center;margin:6px 0 10px}
+.qimg svg{width:100%;max-width:260px;height:auto}
+.sgform select,.sgform input,.sgform textarea{width:100%;box-sizing:border-box;font:inherit;font-size:15px;padding:10px 12px;border:2px solid var(--line);border-radius:12px;background:var(--surface);color:var(--ink);margin:4px 0 10px}
+.sgform label{display:block;font-weight:800;font-size:13px;text-align:left}
+.legal{text-align:left;font-size:14px;line-height:1.5}
+.legal h3{margin:14px 0 4px;font-size:16px}
 .opt.sel .k{border-color:var(--leaf);color:var(--selInk)}
 .opt.right{border-color:var(--leaf);background:var(--okBg);color:var(--okInk)}
 .opt.wrong{border-color:var(--red);background:var(--badBg);color:var(--badInk)}
@@ -2541,6 +2549,134 @@ gsw:{"tab_learn": "Lerne",
  "d_code_paste": "Code iifüege"
 }
 };
+/* Zusätzliche UI-Texte (Version 3.2): Vorlesen, einfacher Modus, Bilderrätsel, Frage vorschlagen, Datenschutz.
+   Übersetzungen stehen in UI_EXTRA[sprache] und werden in I18N eingemischt. */
+const UI_EXTRA = {de:{
+ speak:'Vorlesen', speak_stop:'Vorlesen stoppen',
+ easy_mode:'Einfacher Modus', easy_mode_s:'3 statt 4 Antworten und ein Tipp-Button – gut für die Unterstufe', hint:'Tipp', hint_used:'Eine falsche Antwort ist jetzt durchgestrichen.',
+ pics:'Bilderrätsel', pics_d:'10 Bilderfragen: Wohin gehört der Müll? Welche Energie ist das?', ty_img:'Was ist auf dem Bild?',
+ suggest:'Frage vorschlagen', suggest_d:'Du hast eine gute Idee für eine Frage? Schick sie der AG – vielleicht kommt sie mit deinem Namen in die App!',
+ sg_unit:'Thema', sg_other:'Anderes Thema', sg_q:'Deine Frage', sg_right:'Richtige Antwort', sg_wrong:'Falsche Antworten (eine pro Zeile)', sg_src:'Quelle (z. B. Webseite oder Buch)', sg_name:'Dein Name und deine Klasse (freiwillig)',
+ sg_copy:'Kopieren & Formular öffnen', sg_hint:'Dein Vorschlag wird kopiert. Füge ihn im Feedback-Formular der AG ein.', sg_missing:'Bitte gib mindestens die Frage und die richtige Antwort ein.', sg_copied:'Kopiert! Jetzt im Formular einfügen.',
+ privacy:'Datenschutz & Impressum'
+}};
+const EXTRA_TR = {"ui":{
+"en":{"speak":"Read aloud","speak_stop":"Stop reading","easy_mode":"Easy mode","easy_mode_s":"3 instead of 4 answers and a hint button – good for younger pupils","hint":"Hint","hint_used":"One wrong answer is now crossed out.","pics":"Picture puzzle","pics_d":"10 picture questions: Where does the rubbish go? Which energy is this?","ty_img":"What’s in the picture?","suggest":"Suggest a question","suggest_d":"Got a good idea for a question? Send it to the club – maybe it will appear in the app with your name!","sg_unit":"Topic","sg_other":"Other topic","sg_q":"Your question","sg_right":"Correct answer","sg_wrong":"Wrong answers (one per line)","sg_src":"Source (e.g. website or book)","sg_name":"Your name and class (optional)","sg_copy":"Copy & open form","sg_hint":"Your suggestion will be copied. Paste it into the club’s feedback form.","sg_missing":"Please enter at least the question and the correct answer.","sg_copied":"Copied! Now paste it into the form.","privacy":"Privacy & legal notice"},
+"fr":{"speak":"Lire à voix haute","speak_stop":"Arrêter la lecture","easy_mode":"Mode facile","easy_mode_s":"3 réponses au lieu de 4 et un bouton d’indice – idéal pour les plus jeunes","hint":"Indice","hint_used":"Une mauvaise réponse est maintenant barrée.","pics":"Devinettes en images","pics_d":"10 questions en images : où vont les déchets ? Quelle énergie est-ce ?","ty_img":"Qu’y a-t-il sur l’image ?","suggest":"Proposer une question","suggest_d":"Tu as une bonne idée de question ? Envoie-la au groupe – elle apparaîtra peut-être dans l’appli avec ton nom !","sg_unit":"Thème","sg_other":"Autre thème","sg_q":"Ta question","sg_right":"Bonne réponse","sg_wrong":"Mauvaises réponses (une par ligne)","sg_src":"Source (p. ex. site web ou livre)","sg_name":"Ton nom et ta classe (facultatif)","sg_copy":"Copier et ouvrir le formulaire","sg_hint":"Ta proposition sera copiée. Colle-la dans le formulaire de retour du groupe.","sg_missing":"Indique au moins la question et la bonne réponse.","sg_copied":"Copié ! Colle-le maintenant dans le formulaire.","privacy":"Confidentialité et mentions légales"},
+"pl":{"speak":"Czytaj na głos","speak_stop":"Zatrzymaj czytanie","easy_mode":"Tryb łatwy","easy_mode_s":"3 zamiast 4 odpowiedzi i przycisk podpowiedzi – dobre dla młodszych klas","hint":"Podpowiedź","hint_used":"Jedna błędna odpowiedź jest teraz przekreślona.","pics":"Zagadki obrazkowe","pics_d":"10 pytań z obrazkami: gdzie wyrzucić śmieci? Jaka to energia?","ty_img":"Co jest na obrazku?","suggest":"Zaproponuj pytanie","suggest_d":"Masz dobry pomysł na pytanie? Wyślij go do koła – może pojawi się w aplikacji z twoim imieniem!","sg_unit":"Temat","sg_other":"Inny temat","sg_q":"Twoje pytanie","sg_right":"Poprawna odpowiedź","sg_wrong":"Błędne odpowiedzi (jedna w wierszu)","sg_src":"Źródło (np. strona internetowa lub książka)","sg_name":"Twoje imię i klasa (dobrowolnie)","sg_copy":"Kopiuj i otwórz formularz","sg_hint":"Twoja propozycja zostanie skopiowana. Wklej ją w formularzu opinii koła.","sg_missing":"Wpisz co najmniej pytanie i poprawną odpowiedź.","sg_copied":"Skopiowano! Teraz wklej w formularzu.","privacy":"Prywatność i nota prawna"},
+"cs":{"speak":"Přečíst nahlas","speak_stop":"Zastavit čtení","easy_mode":"Snadný režim","easy_mode_s":"3 místo 4 odpovědí a tlačítko s nápovědou – vhodné pro mladší žáky","hint":"Nápověda","hint_used":"Jedna špatná odpověď je teď přeškrtnutá.","pics":"Obrázkové hádanky","pics_d":"10 otázek s obrázky: Kam patří odpad? Jaká je to energie?","ty_img":"Co je na obrázku?","suggest":"Navrhnout otázku","suggest_d":"Máš dobrý nápad na otázku? Pošli ho kroužku – možná se objeví v aplikaci s tvým jménem!","sg_unit":"Téma","sg_other":"Jiné téma","sg_q":"Tvoje otázka","sg_right":"Správná odpověď","sg_wrong":"Špatné odpovědi (jedna na řádek)","sg_src":"Zdroj (např. web nebo kniha)","sg_name":"Tvoje jméno a třída (nepovinné)","sg_copy":"Kopírovat a otevřít formulář","sg_hint":"Tvůj návrh se zkopíruje. Vlož ho do formuláře zpětné vazby kroužku.","sg_missing":"Zadej prosím alespoň otázku a správnou odpověď.","sg_copied":"Zkopírováno! Teď vlož do formuláře.","privacy":"Ochrana údajů a tiráž"},
+"uk":{"speak":"Читати вголос","speak_stop":"Зупинити читання","easy_mode":"Легкий режим","easy_mode_s":"3 відповіді замість 4 і кнопка підказки – добре для молодших класів","hint":"Підказка","hint_used":"Одну неправильну відповідь тепер закреслено.","pics":"Загадки з картинками","pics_d":"10 питань із картинками: куди викидати сміття? Що це за енергія?","ty_img":"Що на картинці?","suggest":"Запропонувати питання","suggest_d":"Маєш гарну ідею для питання? Надішли її гуртку – можливо, вона з’явиться в застосунку з твоїм ім’ям!","sg_unit":"Тема","sg_other":"Інша тема","sg_q":"Твоє питання","sg_right":"Правильна відповідь","sg_wrong":"Неправильні відповіді (по одній у рядку)","sg_src":"Джерело (напр. вебсайт або книжка)","sg_name":"Твоє ім’я і клас (необов’язково)","sg_copy":"Копіювати й відкрити форму","sg_hint":"Твою пропозицію буде скопійовано. Встав її у форму відгуків гуртка.","sg_missing":"Введи принаймні питання й правильну відповідь.","sg_copied":"Скопійовано! Тепер встав у форму.","privacy":"Захист даних і вихідні дані"},
+"la":{"speak":"Recita","speak_stop":"Recitare desine","easy_mode":"Modus facilis","easy_mode_s":"III responsa pro IV et globulus auxilii – aptum discipulis minoribus","hint":"Auxilium","hint_used":"Unum responsum falsum nunc deletum est.","pics":"Aenigmata imaginum","pics_d":"X quaestiones imaginum: Quo purgamenta pertinent? Quae energia est?","ty_img":"Quid in imagine vides?","suggest":"Quaestionem propone","suggest_d":"Habesne bonam quaestionis notionem? Mitte eam sodalitati – fortasse cum nomine tuo in applicatione apparebit!","sg_unit":"Argumentum","sg_other":"Aliud argumentum","sg_q":"Quaestio tua","sg_right":"Responsum rectum","sg_wrong":"Responsa falsa (singula in singulis versibus)","sg_src":"Fons (e. g. pagina interretialis aut liber)","sg_name":"Nomen et classis tua (si vis)","sg_copy":"Exscribe et formulam aperi","sg_hint":"Propositum tuum exscribetur. Insere id in formulam sodalitatis.","sg_missing":"Scribe saltem quaestionem et responsum rectum.","sg_copied":"Exscriptum! Nunc in formulam insere.","privacy":"Tutela datorum et impressum"},
+"bar":{"speak":"Vorlesn","speak_stop":"Vorlesn aufhörn","easy_mode":"Leichter Modus","easy_mode_s":"3 statt 4 Antwortn und a Tipp-Knopf – guad für de Kloana","hint":"Tipp","hint_used":"A foische Antwort is jetz durchgstricha.","pics":"Buidlrätsl","pics_d":"10 Buidlfragn: Wo ghört da Müll hi? Wos für a Energie is des?","ty_img":"Wos is auf dem Buidl?","suggest":"Frog vorschlogn","suggest_d":"Hast a guade Idee für a Frog? Schick’s da AG – vielleicht kimmt’s mit deim Nama in d’App!","sg_unit":"Thema","sg_other":"A anders Thema","sg_q":"Dei Frog","sg_right":"Richtige Antwort","sg_wrong":"Foische Antwortn (oane pro Zeil)","sg_src":"Quelln (z. B. Webseitn oder Buach)","sg_name":"Dei Nama und dei Klass (freiwillig)","sg_copy":"Kopiern & Formular aufmacha","sg_hint":"Dei Vorschlog werd kopiert. Füg’n im Feedback-Formular vo da AG ei.","sg_missing":"Gib bittschön mindestns d’Frog und de richtige Antwort ei.","sg_copied":"Kopiert! Jetz im Formular eifügn.","privacy":"Datnschutz & Impressum"},
+"gsw":{"speak":"Vorläse","speak_stop":"Vorläse stoppe","easy_mode":"Eifache Modus","easy_mode_s":"3 statt 4 Antworte und en Tipp-Chnopf – guet für di Chliinere","hint":"Tipp","hint_used":"E falschi Antwort isch jetzt duregstriche.","pics":"Bilderrätsel","pics_d":"10 Bilderfroge: Wohii ghört dr Abfall? Was für e Energie isch das?","ty_img":"Was isch uf em Bild?","suggest":"Frog vorschlaa","suggest_d":"Hesch e gueti Idee für e Frog? Schick si dr AG – vilicht chunnt si mit dim Name i d App!","sg_unit":"Thema","sg_other":"Anders Thema","sg_q":"Dini Frog","sg_right":"Richtigi Antwort","sg_wrong":"Falschi Antworte (eini pro Ziile)","sg_src":"Quelle (z. B. Websiite oder Buech)","sg_name":"Din Name und dini Klass (freiwillig)","sg_copy":"Kopiere & Formular ufmache","sg_hint":"Din Vorschlag wird kopiert. Füeg en im Feedback-Formular vo dr AG ii.","sg_missing":"Bitte gib mindestens d Frog und di richtig Antwort ii.","sg_copied":"Kopiert! Jetzt im Formular iifüege.","privacy":"Dateschutz & Impressum"}
+},
+"pics":{
+"en":[
+{"q":"Where does the empty yoghurt pot go?","o":["In the yellow bin / yellow bag (in Germany: packaging)","In the paper bin","In the organic waste bin","In the bottle bank"],"x":"Packaging made of plastic, metal and composite materials goes in the yellow bin. Scraping it clean is enough – no need to rinse. Pull the lid off completely so both parts can be sorted.","alt":"An empty yoghurt pot with a lid"},
+{"q":"Where does the old newspaper go?","o":["In the paper bin","In the yellow bin","In the general waste bin","In the organic waste bin"],"x":"Newspapers are turned into recycled paper. Waste paper can be recycled several times – that saves wood, water and energy.","alt":"A newspaper with a picture and columns of text"},
+{"q":"Where does the banana peel go?","o":["In the organic waste bin","In the yellow bin","In the bottle bank","In the paper bin"],"x":"Organic waste becomes compost, or electricity and heat in a biogas plant. But plastic bags don’t belong in the organic bin!","alt":"A yellow banana peel"},
+{"q":"What do you do with the dead battery?","o":["Put it in a battery collection box, e.g. at the supermarket","In the general waste bin","In the yellow bin","In the organic waste bin"],"x":"Batteries contain valuable and partly toxic substances. Wherever batteries are sold, there must be a free collection box. In the rubbish they can even start fires.","alt":"A battery with plus and minus signs"},
+{"q":"Where does the green single-use glass bottle without a deposit go?","o":["In the green glass container","In the clear glass container","In the yellow bin","In the general waste bin"],"x":"Waste glass is sorted by colour: clear, green, brown. Other colours (e.g. blue) go with the green glass. Bottles with a deposit, of course, go back to the shop.","alt":"A green glass bottle with a cap"},
+{"q":"The ceramic mug is broken. Where does it go?","o":["In the general waste bin","In the bottle bank","In the yellow bin","In the paper bin"],"x":"Ceramics and porcelain only melt at much higher temperatures than glass. Even small shards in waste glass make new glass unusable – so: general waste.","alt":"A broken mug with a crack and shards"},
+{"q":"Where does the till receipt go?","o":["In the general waste bin","In the paper bin","In the yellow bin","In the organic waste bin"],"x":"Most receipts are made of thermal paper with a special coating that disrupts paper recycling. Tip: only take the receipt if you really need it.","alt":"A long receipt with lines of text"},
+{"q":"What kind of energy is produced here?","o":["Wind energy","Hydropower","Solar energy","Energy from coal"],"x":"Wind turbines are Germany’s most important source of green electricity: they supply about a third of all electricity.","alt":"A wind turbine in a green meadow"},
+{"q":"What can you see in the picture?","o":["A solar system (photovoltaics)","A wind turbine","A heat exchanger","A coal power station"],"x":"Solar panels turn sunlight directly into electricity. Many are on roofs – schools can also produce their own electricity this way.","alt":"A blue solar panel in the sun"},
+{"q":"Why is what the bee is doing here so important?","o":["It pollinates the flower – that’s how fruit and vegetables grow","It damages the flower","It fertilises the plant with honey","It chases away pests"],"x":"About three quarters of the world’s most important crops benefit from pollinators such as bees, bumblebees and butterflies. Flower strips and wildflowers help them.","alt":"A bee flying towards a pink flower"}
+],
+"fr":[
+{"q":"Où jeter le pot de yaourt vide ?","o":["Dans la poubelle jaune / le sac jaune (en Allemagne : emballages)","Dans la poubelle à papier","Dans la poubelle bio","Dans le conteneur à verre"],"x":"Les emballages en plastique, métal et matériaux composites vont dans la poubelle jaune. Il suffit de bien le vider – pas besoin de le rincer. Retire complètement le couvercle pour que les deux parties soient triées.","alt":"Un pot de yaourt vide avec couvercle"},
+{"q":"Où va le vieux journal ?","o":["Dans la poubelle à papier","Dans la poubelle jaune","Dans les ordures ménagères","Dans la poubelle bio"],"x":"Les journaux deviennent du papier recyclé. Le vieux papier peut être recyclé plusieurs fois – cela économise du bois, de l’eau et de l’énergie.","alt":"Un journal avec une image et des colonnes de texte"},
+{"q":"Où jeter la peau de banane ?","o":["Dans la poubelle bio","Dans la poubelle jaune","Dans le conteneur à verre","Dans la poubelle à papier"],"x":"Les déchets bio deviennent du compost, ou de l’électricité et de la chaleur dans une usine de biogaz. Mais les sacs plastique n’ont rien à faire dans la poubelle bio !","alt":"Une peau de banane jaune"},
+{"q":"Que faire de la pile usagée ?","o":["La mettre dans une boîte de collecte, p. ex. au supermarché","Dans les ordures ménagères","Dans la poubelle jaune","Dans la poubelle bio"],"x":"Les piles contiennent des substances précieuses et parfois toxiques. Partout où l’on vend des piles, il doit y avoir une boîte de collecte gratuite. Dans les poubelles, elles peuvent même provoquer des incendies.","alt":"Une pile avec les signes plus et moins"},
+{"q":"Où va la bouteille en verre vert jetable, sans consigne ?","o":["Dans le conteneur à verre vert","Dans le conteneur à verre blanc","Dans la poubelle jaune","Dans les ordures ménagères"],"x":"Le verre usagé est trié par couleur : blanc, vert, brun. Les autres couleurs (p. ex. bleu) vont avec le verre vert. Les bouteilles consignées, tu les rapportes bien sûr au magasin.","alt":"Une bouteille en verre vert avec bouchon"},
+{"q":"La tasse en céramique est cassée. Où la jeter ?","o":["Dans les ordures ménagères","Dans le conteneur à verre","Dans la poubelle jaune","Dans la poubelle à papier"],"x":"La céramique et la porcelaine fondent à des températures bien plus élevées que le verre. De petits éclats dans le verre usagé suffisent à rendre le nouveau verre inutilisable – donc : ordures ménagères.","alt":"Une tasse cassée avec une fissure et des éclats"},
+{"q":"Où va le ticket de caisse ?","o":["Dans les ordures ménagères","Dans la poubelle à papier","Dans la poubelle jaune","Dans la poubelle bio"],"x":"La plupart des tickets sont en papier thermique avec un revêtement spécial qui gêne le recyclage du papier. Astuce : ne prends le ticket que si tu en as vraiment besoin.","alt":"Un long ticket de caisse avec des lignes"},
+{"q":"Quelle énergie est produite ici ?","o":["L’énergie éolienne","L’énergie hydraulique","L’énergie solaire","L’énergie du charbon"],"x":"Les éoliennes sont la principale source d’électricité verte en Allemagne : elles fournissent environ un tiers de toute l’électricité.","alt":"Une éolienne dans un pré vert"},
+{"q":"Que vois-tu sur l’image ?","o":["Une installation solaire (photovoltaïque)","Une éolienne","Un échangeur de chaleur","Une centrale à charbon"],"x":"Les panneaux solaires transforment directement la lumière du soleil en électricité. Beaucoup sont sur des toits – les écoles aussi peuvent ainsi produire leur propre électricité.","alt":"Un panneau solaire bleu au soleil"},
+{"q":"Pourquoi ce que fait l’abeille ici est-il si important ?","o":["Elle pollinise la fleur – ainsi poussent fruits et légumes","Elle abîme la fleur","Elle fertilise la plante avec du miel","Elle chasse les nuisibles"],"x":"Environ trois quarts des principales cultures du monde profitent des pollinisateurs comme les abeilles, les bourdons et les papillons. Les bandes fleuries et les fleurs sauvages les aident.","alt":"Une abeille vole vers une fleur rose"}
+],
+"pl":[
+{"q":"Gdzie wyrzucić pusty kubek po jogurcie?","o":["Do żółtego pojemnika / worka (w Niemczech: opakowania)","Do pojemnika na papier","Do pojemnika na bioodpady","Do pojemnika na szkło"],"x":"Opakowania z plastiku, metalu i materiałów wielowarstwowych wrzucamy do żółtego pojemnika. Wystarczy wyjeść do końca – nie trzeba płukać. Zdejmij całe wieczko, aby obie części mogły zostać posortowane.","alt":"Pusty kubek po jogurcie z wieczkiem"},
+{"q":"Gdzie wyrzucić starą gazetę?","o":["Do pojemnika na papier","Do żółtego pojemnika","Do odpadów zmieszanych","Do pojemnika na bioodpady"],"x":"Z gazet powstaje papier z recyklingu. Makulaturę można przetwarzać wiele razy – to oszczędza drewno, wodę i energię.","alt":"Gazeta ze zdjęciem i kolumnami tekstu"},
+{"q":"Gdzie wyrzucić skórkę od banana?","o":["Do pojemnika na bioodpady","Do żółtego pojemnika","Do pojemnika na szkło","Do pojemnika na papier"],"x":"Z bioodpadów powstaje kompost albo w biogazowni prąd i ciepło. Ale plastikowe torebki nie należą do bioodpadów!","alt":"Żółta skórka od banana"},
+{"q":"Co zrobić ze zużytą baterią?","o":["Wrzucić do pojemnika na baterie, np. w supermarkecie","Do odpadów zmieszanych","Do żółtego pojemnika","Do pojemnika na bioodpady"],"x":"Baterie zawierają cenne i częściowo trujące substancje. Wszędzie, gdzie sprzedaje się baterie, musi być bezpłatny pojemnik do ich zbiórki. W śmieciach mogą nawet wywołać pożar.","alt":"Bateria ze znakiem plus i minus"},
+{"q":"Gdzie wyrzucić zieloną jednorazową butelkę szklaną bez kaucji?","o":["Do pojemnika na szkło zielone","Do pojemnika na szkło białe","Do żółtego pojemnika","Do odpadów zmieszanych"],"x":"Szkło segreguje się według kolorów: białe, zielone, brązowe. Inne kolory (np. niebieskie) wrzucamy do zielonego. Butelki z kaucją oczywiście oddajesz w sklepie.","alt":"Zielona szklana butelka z zakrętką"},
+{"q":"Ceramiczny kubek się stłukł. Gdzie go wyrzucić?","o":["Do odpadów zmieszanych","Do pojemnika na szkło","Do żółtego pojemnika","Do pojemnika na papier"],"x":"Ceramika i porcelana topią się w dużo wyższej temperaturze niż szkło. Nawet małe odłamki w szkle z recyklingu psują nowe szkło – dlatego: odpady zmieszane.","alt":"Rozbity kubek z pęknięciem i odłamkami"},
+{"q":"Gdzie wyrzucić paragon?","o":["Do odpadów zmieszanych","Do pojemnika na papier","Do żółtego pojemnika","Do pojemnika na bioodpady"],"x":"Większość paragonów jest z papieru termicznego ze specjalną powłoką, która przeszkadza w recyklingu papieru. Wskazówka: bierz paragon tylko wtedy, gdy naprawdę go potrzebujesz.","alt":"Długi paragon z wierszami"},
+{"q":"Jaka energia jest tu wytwarzana?","o":["Energia wiatru","Energia wodna","Energia słoneczna","Energia z węgla"],"x":"Turbiny wiatrowe są w Niemczech najważniejszym źródłem zielonego prądu: dostarczają około jednej trzeciej całej energii elektrycznej.","alt":"Turbina wiatrowa na zielonej łące"},
+{"q":"Co widzisz na obrazku?","o":["Instalację słoneczną (fotowoltaikę)","Turbinę wiatrową","Wymiennik ciepła","Elektrownię węglową"],"x":"Panele słoneczne zamieniają światło słoneczne bezpośrednio w prąd. Wiele z nich jest na dachach – także szkoły mogą w ten sposób wytwarzać własny prąd.","alt":"Niebieski panel słoneczny w słońcu"},
+{"q":"Dlaczego to, co robi tu pszczoła, jest tak ważne?","o":["Zapyla kwiat – dzięki temu rosną owoce i warzywa","Niszczy kwiat","Nawozi roślinę miodem","Odstrasza szkodniki"],"x":"Około trzech czwartych najważniejszych roślin uprawnych świata korzysta z zapylaczy, takich jak pszczoły, trzmiele i motyle. Pomagają im pasy kwietne i dzikie kwiaty.","alt":"Pszczoła leci do różowego kwiatu"}
+],
+"cs":[
+{"q":"Kam patří prázdný kelímek od jogurtu?","o":["Do žluté popelnice / žlutého pytle (v Německu: obaly)","Do popelnice na papír","Do bioodpadu","Do kontejneru na sklo"],"x":"Obaly z plastu, kovu a kompozitních materiálů patří do žluté popelnice. Stačí ho vyjíst – vymývat ho nemusíš. Víčko úplně odtrhni, aby se daly obě části roztřídit.","alt":"Prázdný kelímek od jogurtu s víčkem"},
+{"q":"Kam patří staré noviny?","o":["Do popelnice na papír","Do žluté popelnice","Do směsného odpadu","Do bioodpadu"],"x":"Z novin se vyrábí recyklovaný papír. Starý papír lze recyklovat několikrát – šetří to dřevo, vodu a energii.","alt":"Noviny s obrázkem a sloupci textu"},
+{"q":"Kam patří banánová slupka?","o":["Do bioodpadu","Do žluté popelnice","Do kontejneru na sklo","Do popelnice na papír"],"x":"Z bioodpadu vzniká kompost, nebo v bioplynové stanici elektřina a teplo. Igelitové tašky ale do bioodpadu nepatří!","alt":"Žlutá banánová slupka"},
+{"q":"Kam s vybitou baterií?","o":["Do sběrného boxu na baterie, např. v supermarketu","Do směsného odpadu","Do žluté popelnice","Do bioodpadu"],"x":"Baterie obsahují cenné a zčásti jedovaté látky. Všude, kde se baterie prodávají, musí být bezplatný sběrný box. V odpadu mohou dokonce způsobit požár.","alt":"Baterie se znaménkem plus a minus"},
+{"q":"Kam patří zelená jednorázová skleněná láhev bez zálohy?","o":["Do kontejneru na zelené sklo","Do kontejneru na čiré sklo","Do žluté popelnice","Do směsného odpadu"],"x":"Staré sklo se třídí podle barev: čiré, zelené, hnědé. Jiné barvy (např. modrá) patří k zelenému sklu. Zálohované láhve samozřejmě vrátíš v obchodě.","alt":"Zelená skleněná láhev s víčkem"},
+{"q":"Keramický hrnek je rozbitý. Kam s ním?","o":["Do směsného odpadu","Do kontejneru na sklo","Do žluté popelnice","Do popelnice na papír"],"x":"Keramika a porcelán tají až při mnohem vyšších teplotách než sklo. I malé střepy ve starém skle znehodnotí nové sklo – proto: směsný odpad.","alt":"Rozbitý hrnek s prasklinou a střepy"},
+{"q":"Kam patří účtenka?","o":["Do směsného odpadu","Do popelnice na papír","Do žluté popelnice","Do bioodpadu"],"x":"Většina účtenek je z termopapíru se speciální vrstvou, která narušuje recyklaci papíru. Tip: účtenku si ber, jen když ji opravdu potřebuješ.","alt":"Dlouhá účtenka s řádky"},
+{"q":"Jaká energie se tu získává?","o":["Větrná energie","Vodní energie","Sluneční energie","Energie z uhlí"],"x":"Větrné elektrárny jsou v Německu nejdůležitějším zdrojem zelené elektřiny: dodávají asi třetinu veškeré elektřiny.","alt":"Větrná elektrárna na zelené louce"},
+{"q":"Co vidíš na obrázku?","o":["Solární elektrárnu (fotovoltaiku)","Větrnou elektrárnu","Výměník tepla","Uhelnou elektrárnu"],"x":"Solární panely mění sluneční světlo přímo na elektřinu. Mnoho jich je na střechách – i školy si tak mohou vyrábět vlastní elektřinu.","alt":"Modrý solární panel na slunci"},
+{"q":"Proč je to, co tu dělá včela, tak důležité?","o":["Opyluje květ – díky tomu roste ovoce a zelenina","Ničí květ","Hnojí rostlinu medem","Zahání škůdce"],"x":"Asi tři čtvrtiny nejdůležitějších plodin světa těží z opylovačů, jako jsou včely, čmeláci a motýli. Pomáhají jim kvetoucí pásy a divoké květiny.","alt":"Včela letí k růžovému květu"}
+],
+"uk":[
+{"q":"Куди викинути порожній стаканчик від йогурту?","o":["У жовтий контейнер / жовтий мішок (у Німеччині: упаковки)","У контейнер для паперу","У контейнер для біовідходів","У контейнер для скла"],"x":"Упаковки з пластику, металу та комбінованих матеріалів кладуть у жовтий контейнер. Достатньо доїсти – мити не потрібно. Повністю зніми кришечку, щоб обидві частини можна було сортувати.","alt":"Порожній стаканчик від йогурту з кришечкою"},
+{"q":"Куди викинути стару газету?","o":["У контейнер для паперу","У жовтий контейнер","У змішані відходи","У контейнер для біовідходів"],"x":"Із газет роблять перероблений папір. Макулатуру можна переробляти кілька разів – це економить деревину, воду й енергію.","alt":"Газета з малюнком і колонками тексту"},
+{"q":"Куди викинути бананову шкірку?","o":["У контейнер для біовідходів","У жовтий контейнер","У контейнер для скла","У контейнер для паперу"],"x":"Із біовідходів роблять компост або на біогазовій установці – електрику й тепло. Але пластикові пакети в біовідходи не кладуть!","alt":"Жовта бананова шкірка"},
+{"q":"Куди подіти використану батарейку?","o":["У бокс для збору батарейок, напр. у супермаркеті","У змішані відходи","У жовтий контейнер","У контейнер для біовідходів"],"x":"Батарейки містять цінні й частково отруйні речовини. Скрізь, де продають батарейки, має бути безкоштовний бокс для збору. У смітті вони можуть навіть спричинити пожежу.","alt":"Батарейка зі знаками плюс і мінус"},
+{"q":"Куди викинути зелену одноразову скляну пляшку без застави?","o":["У контейнер для зеленого скла","У контейнер для білого скла","У жовтий контейнер","У змішані відходи"],"x":"Склобій сортують за кольорами: біле, зелене, коричневе. Інші кольори (напр. синій) кладуть до зеленого скла. Пляшки із заставою, звісно, повертаєш у магазин.","alt":"Зелена скляна пляшка з кришкою"},
+{"q":"Керамічна чашка розбилася. Куди її подіти?","o":["У змішані відходи","У контейнер для скла","У жовтий контейнер","У контейнер для паперу"],"x":"Кераміка й порцеляна плавляться за набагато вищої температури, ніж скло. Навіть дрібні уламки у склобої псують нове скло – тому: змішані відходи.","alt":"Розбита чашка з тріщиною та уламками"},
+{"q":"Куди викинути касовий чек?","o":["У змішані відходи","У контейнер для паперу","У жовтий контейнер","У контейнер для біовідходів"],"x":"Більшість чеків надруковано на термопапері зі спеціальним покриттям, яке заважає переробці паперу. Порада: бери чек, лише якщо він справді потрібен.","alt":"Довгий касовий чек із рядками"},
+{"q":"Яку енергію тут отримують?","o":["Енергію вітру","Енергію води","Сонячну енергію","Енергію з вугілля"],"x":"Вітрові турбіни – найважливіше джерело зеленої електроенергії в Німеччині: вони дають приблизно третину всієї електроенергії.","alt":"Вітрова турбіна на зеленому лузі"},
+{"q":"Що ти бачиш на картинці?","o":["Сонячну електростанцію (фотовольтаїку)","Вітрову турбіну","Теплообмінник","Вугільну електростанцію"],"x":"Сонячні панелі перетворюють сонячне світло безпосередньо на електрику. Багато з них стоять на дахах – так і школи можуть виробляти власну електрику.","alt":"Синя сонячна панель на сонці"},
+{"q":"Чому те, що робить тут бджола, таке важливе?","o":["Вона запилює квітку – так ростуть фрукти й овочі","Вона псує квітку","Вона удобрює рослину медом","Вона відганяє шкідників"],"x":"Близько трьох чвертей найважливіших сільськогосподарських культур світу залежать від запилювачів – бджіл, джмелів і метеликів. Квіткові смуги й дикі квіти їм допомагають.","alt":"Бджола летить до рожевої квітки"}
+],
+"la":[
+{"q":"Quo pertinet poculum iogurti vacuum?","o":["In cistam flavam / saccum flavum (in Germania: involucra)","In cistam chartae","In cistam purgamentorum naturalium","In receptaculum vitri"],"x":"Involucra e materia plastica, metallo vel materiis mixtis in cistam flavam pertinent. Satis est cochleari exhaurire – lavare non necesse est. Operculum totum detrahe, ut ambae partes separari possint.","alt":"Poculum iogurti vacuum cum operculo"},
+{"q":"Quo pertinent acta diurna vetera?","o":["In cistam chartae","In cistam flavam","In purgamenta reliqua","In cistam purgamentorum naturalium"],"x":"Ex actis diurnis charta renovata fit. Charta vetus saepius renovari potest – ita lignum, aqua, energia servantur.","alt":"Acta diurna cum imagine et columnis verborum"},
+{"q":"Quo pertinet cortex bananae?","o":["In cistam purgamentorum naturalium","In cistam flavam","In receptaculum vitri","In cistam chartae"],"x":"Ex purgamentis naturalibus fit stercus aut in officina biogasi vis electrica et calor. Sacculi plastici autem in eam cistam non pertinent!","alt":"Cortex bananae flavus"},
+{"q":"Quo cum pila electrica exhausta?","o":["In capsam collectionis pilarum, e. g. in taberna magna","In purgamenta reliqua","In cistam flavam","In cistam purgamentorum naturalium"],"x":"Pilae electricae materias pretiosas et partim venenatas continent. Ubicumque pilae venduntur, capsa collectionis gratuita adesse debet. In purgamentis etiam incendia excitare possunt.","alt":"Pila electrica cum signis plus et minus"},
+{"q":"Quo pertinet lagoena vitrea viridis semel adhibenda sine pignore?","o":["In receptaculum vitri viridis","In receptaculum vitri albi","In cistam flavam","In purgamenta reliqua"],"x":"Vitrum vetus secundum colores separatur: album, viride, fuscum. Alii colores (e. g. caeruleus) ad vitrum viride pertinent. Lagoenas cum pignore scilicet in tabernam refers.","alt":"Lagoena vitrea viridis cum operculo"},
+{"q":"Poculum fictile fractum est. Quo cum eo?","o":["In purgamenta reliqua","In receptaculum vitri","In cistam flavam","In cistam chartae"],"x":"Fictilia et porcellana multo altiore calore liquescunt quam vitrum. Etiam parva fragmenta in vitro vetere novum vitrum inutile reddunt – ergo: purgamenta reliqua.","alt":"Poculum fractum cum rima et fragmentis"},
+{"q":"Quo pertinet schedula pretii?","o":["In purgamenta reliqua","In cistam chartae","In cistam flavam","In cistam purgamentorum naturalium"],"x":"Plurimae schedulae e charta thermica cum tegumento speciali factae sunt, quod chartam renovandam impedit. Consilium: schedulam cape, si vere ea eges.","alt":"Schedula pretii longa cum versibus"},
+{"q":"Quae energia hic gignitur?","o":["Energia venti","Vis aquae","Energia solis","Energia e carbone"],"x":"Rotae venti in Germania fons gravissimus electricitatis viridis sunt: fere tertiam partem totius electricitatis praebent.","alt":"Rota venti in prato viridi"},
+{"q":"Quid in imagine vides?","o":["Machinam solarem (photovoltaicam)","Rotam venti","Commutatorium caloris","Officinam carbonariam"],"x":"Tabulae solares lucem solis statim in vim electricam convertunt. Multae in tectis stant – etiam scholae ita suam electricitatem gignere possunt.","alt":"Tabula solaris caerulea in sole"},
+{"q":"Cur id, quod apis hic facit, tam magni momenti est?","o":["Florem pollinat – ita poma et holera crescunt","Florem delet","Plantam melle stercorat","Bestiolas noxias fugat"],"x":"Fere tres quartae partes gravissimarum plantarum cultarum orbis terrarum pollinatoribus iuvantur, ut apibus, bombis, papilionibus. Tractus florum et flores silvestres eos adiuvant.","alt":"Apis ad florem roseum volat"}
+],
+"bar":[
+{"q":"Wo ghört da laare Joghurtbecher hi?","o":["In de Gelbe Tonne / in Gelbn Sack","In de Papiertonne","In de Biotonne","In Glascontainer"],"x":"Verpackunga aus Plastik, Metall und Verbundstoff ghörn in de Gelbe Tonne. Auslöffln langt – ausspüln muaßt ned. Deckl ganz obziagn, dann kennan beide Teile sortiert wern.","alt":"A laara Joghurtbecher mit Deckl"},
+{"q":"Wo kimmt de oide Zeitung hi?","o":["In de Papiertonne","In de Gelbe Tonne","In Restmüll","In de Biotonne"],"x":"Aus Zeitunga werd Recyclingpapier. Oidpapier ko mehrmois wiederverwertet wern – des spart Holz, Wasser und Energie.","alt":"A Zeitung mit Buidl und Textspoitn"},
+{"q":"Wo ghört de Bananaschoin hi?","o":["In de Biotonne","In de Gelbe Tonne","In Glascontainer","In de Papiertonne"],"x":"Aus Bioabfall werd Kompost oder in ana Biogasanlag Strom und Wärme. Plastiktütn ghörn aber ned in de Biotonne!","alt":"A gelbe Bananaschoin"},
+{"q":"Wohi mit da laarn Batterie?","o":["In a Batterie-Sammelbox, z. B. im Supermarkt","In Restmüll","In de Gelbe Tonne","In de Biotonne"],"x":"Batterien ham wertvolle und zum Teil giftige Stoffe drin. Überoi, wo’s Batterien z’kaffa gibt, muaß a kostenlose Sammelbox steh. Im Müll kennan’s sogar Brände auslösn.","alt":"A Batterie mit Plus- und Minuszeichn"},
+{"q":"Wo ghört de grüne Einweg-Glasflaschn ohne Pfand hi?","o":["In Grünglas-Container","In Weißglas-Container","In de Gelbe Tonne","In Restmüll"],"x":"Oidglas werd nach Farbn trennt: weiß, grün, braun. Andere Farbn (z. B. blau) kemman zum Grünglas. Flaschn mit Pfand gibst natürlich im Ladn zruck.","alt":"A grüne Glasflaschn mit Deckl"},
+{"q":"De Keramiktassn is hi. Wohi damit?","o":["In Restmüll","In Glascontainer","In de Gelbe Tonne","In de Papiertonne"],"x":"Keramik und Porzellan schmelzn erst bei vui höhere Temperaturn ois Glas. Scho kloane Scherbn im Oidglas machan neis Glas unbrauchbar – drum: Restmüll.","alt":"A zbrochane Tassn mit Riss und Scherbn"},
+{"q":"Wo ghört da Kassenzettl hi?","o":["In Restmüll","In de Papiertonne","In de Gelbe Tonne","In de Biotonne"],"x":"De meistn Kassenzettl san aus Thermopapier mit ana Spezialbeschichtung. De stört as Papierrecycling. Tipp: Zettl bloß mitnehma, wennst’n wirklich brauchst.","alt":"A langa Kassenzettl mit Zeiln"},
+{"q":"Wos für a Energie werd do gwonna?","o":["Windenergie","Wasserkraft","Sonnenenergie","Energie aus Kohle"],"x":"Windradl san in Deutschland de wichtigste Quelln für Ökostrom: Sie liefern ungefähr a Drittl vom ganzn Strom.","alt":"A Windradl auf ana grüna Wiesn"},
+{"q":"Wos siehgst auf dem Buidl?","o":["A Solaranlag (Photovoltaik)","A Windradl","An Wärmetauscher","A Kohlekraftwerk"],"x":"Solarmodule machan aus Sonnalicht direkt Strom. Vui stehngan auf Dächer – aa Schuin kennan so eigna Strom erzeugn.","alt":"A blaus Solarmodul in da Sonn"},
+{"q":"Warum is des, wos de Bian do macht, so wichtig?","o":["Sie bestäubt de Bliah – so wachst Obst und Gmias","Sie macht de Bliah hi","Sie düngt de Pflanzn mit Honig","Sie vertreibt Schädlinge"],"x":"Ungefähr drei Viertl vo de wichtigstn Nutzpflanzn auf da Welt profitiern vo Bestäuber wia Bienen, Hummeln und Schmetterling. Bliahstreifn und Wuidbluma helfan eana.","alt":"A Bian fliagt zu ana rosa Bliah"}
+],
+"gsw":[
+{"q":"Wohii ghört dr läär Joghurtbecher?","o":["I di Gäli Tonne / dr Gäl Sack (in Dütschland: Verpackige)","I d Papiertonne","I d Biotonne","In Glascontainer"],"x":"Verpackige us Plastik, Metall und Verbundstoff ghöre i di Gäli Tonne. Uslöffle längt – usspüele muesch nöd. Dr Deckel ganz abzieh, dänn chönd beidi Teil sortiert wärde.","alt":"En läre Joghurtbecher mit Deckel"},
+{"q":"Wohii chunnt di alt Ziitig?","o":["I d Papiertonne","I di Gäli Tonne","In Kehricht","I d Biotonne"],"x":"Us Ziitige git’s Recyclingpapier. Altpapier cha mehrmals wiederverwertet wärde – das spart Holz, Wasser und Energie.","alt":"E Ziitig mit Bild und Textspalte"},
+{"q":"Wohii ghört d Bananeschale?","o":["I d Biotonne","I di Gäli Tonne","In Glascontainer","I d Papiertonne"],"x":"Us Bioabfall wird Kompost oder i nere Biogasaalag Strom und Wärmi. Plastiksäckli ghöre aber nöd i d Biotonne!","alt":"E gäli Bananeschale"},
+{"q":"Wohii mit dr lääre Batterie?","o":["In e Batterie-Sammelbox, z. B. im Supermarkt","In Kehricht","I di Gäli Tonne","I d Biotonne"],"x":"Batterie händ wertvolli und zum Teil giftigi Stoff drin. Überall, wo Batterie verchauft wärde, mues es e gratis Sammelbox gäh. Im Abfall chönd si sogar Bränd uslöse.","alt":"E Batterie mit Plus- und Minuszeiche"},
+{"q":"Wohii ghört di grüen Einweg-Glasfläsche ohni Pfand?","o":["In Grüenglas-Container","In Wiissglas-Container","I di Gäli Tonne","In Kehricht"],"x":"Altglas wird nach Farbe trennt: wiiss, grüen, bruun. Anderi Farbe (z. B. blau) chömed zum Grüenglas. Fläsche mit Pfand gisch natürli im Lade zrugg.","alt":"E grüeni Glasfläsche mit Deckel"},
+{"q":"D Keramiktasse isch kaputt. Wohii dermit?","o":["In Kehricht","In Glascontainer","I di Gäli Tonne","I d Papiertonne"],"x":"Keramik und Porzellan schmelzed erst bi vil höchere Temperature als Glas. Scho chliini Scherbe im Altglas mached neus Glas unbruuchbar – drum: Kehricht.","alt":"E verbrocheni Tasse mit Riss und Scherbe"},
+{"q":"Wohii ghört dr Kassezettel?","o":["In Kehricht","I d Papiertonne","I di Gäli Tonne","I d Biotonne"],"x":"Di meischte Kassezettel sind us Thermopapier mit ere Spezialbeschichtig. Die stört s Papierrecycling. Tipp: Zettel nur mitnäh, wänn du ne würkli bruuchsch.","alt":"En lange Kassezettel mit Ziile"},
+{"q":"Was für e Energie wird da gwunne?","o":["Windenergie","Wasserchraft","Sunneenergie","Energie us Kohle"],"x":"Windräder sind in Dütschland di wichtigschti Quelle für Ökostrom: Si liefered öppe en Drittel vom ganze Strom.","alt":"Es Windrad uf ere grüene Wiese"},
+{"q":"Was gsehsch uf em Bild?","o":["E Solaraalag (Photovoltaik)","Es Windrad","En Wärmetuuscher","Es Kohlechraftwerk"],"x":"Solarmodul wandled Sunneliecht direkt in Strom um. Vili stönd uf Dächer – au Schuele chönd so eigete Strom mache.","alt":"Es blaus Solarmodul i dr Sunne"},
+{"q":"Warum isch das, wo d Biene da macht, so wichtig?","o":["Si bestäubt d Blüete – so wachsed Obst und Gmües","Si macht d Blüete kaputt","Si düngt d Pflanze mit Hunig","Si verjagt Schädling"],"x":"Öppe drü Viertel vo de wichtigschte Nutzpflanze uf dr Wält profitiered vo Bestäuber wie Biene, Hummle und Schmetterling. Blüestreife und Wildblueme hälfed ne.","alt":"E Biene flüügt zu nere rosa Blüete"}
+]
+}};
+Object.keys(EXTRA_TR.ui).forEach(l=>{ UI_EXTRA[l] = EXTRA_TR.ui[l]; });
+Object.keys(UI_EXTRA).forEach(l=>{ if(I18N[l]) Object.assign(I18N[l], UI_EXTRA[l]); });
+/* Impressum: bitte ausfüllen (erscheint unter Profil → Datenschutz & Impressum) */
+const LEGAL = {
+  name: '',      /* z. B. 'AG „Going green und fair“, Musterstadt-Gymnasium (MMG)' */
+  person: '',    /* verantwortliche Person, z. B. 'Frau Muster (Lehrkraft)' */
+  address: '',   /* Anschrift der Schule */
+  email: ''      /* Kontakt-E-Mail */
+};
 /* T('key', {name:…}) → Text in der aktuellen Sprache (Rückfall: Deutsch), {name}-Platzhalter werden ersetzt */
 function T(key, vars){
   const L = I18N[LANG] || I18N.de; let s = L[key]; if(s===undefined) s = I18N.de[key]; if(s===undefined) return key;
@@ -2588,7 +2724,10 @@ const ICONS = {
   bag:{f:'M4.5 8.5h15l-1.2 12a1 1 0 0 1-1 .9H6.7a1 1 0 0 1-1-.9z',s:'M9 11V7a3 3 0 0 1 6 0v4'},
   shield:{f:'M12 2.5 20 5.6v6.1c0 4.9-3.4 8.6-8 9.8-4.6-1.2-8-4.9-8-9.8V5.6z'},
   book:{f:'M3 5.2c3-.9 6-.6 8.2.9V20c-2.2-1.3-5.2-1.5-8.2-.7zM21 5.2c-3-.9-6-.6-8.2.9V20c2.2-1.3 5.2-1.5 8.2-.7z'},
-  chat:{f:'M4 4.5h16a1 1 0 0 1 1 1V16a1 1 0 0 1-1 1h-9l-5 4v-4H4a1 1 0 0 1-1-1V5.5a1 1 0 0 1 1-1z'}
+  chat:{f:'M4 4.5h16a1 1 0 0 1 1 1V16a1 1 0 0 1-1 1h-9l-5 4v-4H4a1 1 0 0 1-1-1V5.5a1 1 0 0 1 1-1z'},
+  speaker:{f:'M3.5 9h4l5-4.5v15l-5-4.5h-4z',s:'M16 8.5a5 5 0 0 1 0 7M18.8 5.8a9 9 0 0 1 0 12.4'},
+  image:{s:'M4 4.5h16a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-13a1 1 0 0 1 1-1zM3.5 16l5-5 4 4 3-3 5 5',f:'M15.5 7a1.8 1.8 0 1 1 0 3.6 1.8 1.8 0 0 1 0-3.6z'},
+  pen:{f:'M15.5 4.5l4 4L8.5 19.5 3.5 20.5l1-5z'}
 };
 function icon(n, cls=''){
   const d = ICONS[n]; if(!d) return '';
@@ -3619,7 +3758,7 @@ const PRAISE = ['Super!','Richtig!','Klasse!','Stark!','Genau!','Sehr gut!','Gr�
 /* ================= Zustand ================= */
 const KEY = 'ggaf-quizzes-v1';
 const HEART_MS = 30*60*1000, MAX_H = 5;
-const defaults = () => ({name:'', xp:0, hearts:MAX_H, heartsTs:Date.now(), streak:0, lastDay:null, goal:30, log:{}, done:{}, badges:{}, lessons:0, perfect:0, answered:0, correct:0, blitzBest:0, missed:[], sound:true, tab:'learn', read:{}, spent:0, owned:[], outfit:'', freeze:0, boost:false, froze:0, introDone:false, srs:{}, dstat:{}, bg:'', recapWeek:'', unitOrder:2, theme:'auto', lang:'de'});
+const defaults = () => ({name:'', xp:0, hearts:MAX_H, heartsTs:Date.now(), streak:0, lastDay:null, goal:30, log:{}, done:{}, badges:{}, lessons:0, perfect:0, answered:0, correct:0, blitzBest:0, missed:[], sound:true, tab:'learn', read:{}, spent:0, owned:[], outfit:'', freeze:0, boost:false, froze:0, introDone:false, srs:{}, dstat:{}, bg:'', recapWeek:'', unitOrder:2, theme:'auto', lang:'de', easy:false});
 const balance = () => S.xp - S.spent;   /* ausgebbare XP; S.xp bleibt die Gesamtsumme für Abzeichen */
 let S = load();
 LANG = S.lang;   /* Sprache aus dem Speicherstand (gilt bis zum nächsten Neuladen) */
@@ -3914,6 +4053,8 @@ function renderPractice(){
     <div class="card pcard"><div class="badge" style="background:var(--red);color:#fff">${icon('bulb')}</div><div><h3>${T('myth_t')}</h3><p>${T('myth_d')}</p></div><button class="btn go" data-act="myth">${T('go')}</button></div>
     <div class="card pcard"><div class="badge" style="background:var(--sprout);color:var(--forestShade)">${icon('leaf')}</div><div><h3>${T('check_title')}</h3><p>${T('check_d')}</p></div><button class="btn go" data-check="0">${T('start')}</button></div>
     <div class="card pcard"><div class="badge" style="background:var(--forest);color:var(--lime)">${icon('book')}</div><div><h3>${T('lex_title')}</h3><p>${T('lex_d',{n:LEXIKON.length})}</p></div><button class="btn go" data-act="lexikon">${T('open')}</button></div>
+    <div class="card pcard"><div class="badge" style="background:#3B82F6;color:#fff">${icon('image')}</div><div><h3>${T('pics')}</h3><p>${T('pics_d')}</p></div><button class="btn go" data-act="pics">${T('go')}</button></div>
+    <div class="card pcard"><div class="badge" style="background:var(--lime);color:var(--forest)">${icon('pen')}</div><div><h3>${T('suggest')}</h3><p>${T('suggest_d')}</p></div><button class="btn go" data-act="suggest">${T('open')}</button></div>
   </div>`;
 }
 function renderBadges(){
@@ -3953,7 +4094,7 @@ function renderProfile(){
     const row = (title, n, m, act) => `<div class="card pcard"><div class="badge" style="background:${n>=m?'var(--lime)':'var(--lock)'};color:${n>=m?'var(--forest)':'var(--lockInk)'}">${icon('medal')}</div><div><h3>${title}</h3><p>${n>=m ? T('cert_ready') : T('n_of_m_done',{n, m})}</p></div><button class="btn go" data-act="${act}" ${n>=m?'':'disabled'}>${T('view')}</button></div>`;
     return `<div class="stack">${row(T('cert_all_t'), allN, UNITS.length, 'certAll')}${row(T('cert_ag_t',{ag:AG.t}), agN, 3, 'certAg')}</div>`; })()}
   <h2 class="sec">${T('feedback')}</h2>
-  <div class="card stack"><p class="cardtxt">${T('feedback_text')}</p><a class="btn block" href="${FEEDBACK_URL}" target="_blank" rel="noopener">${icon('chat')}${T('feedback_give')}</a></div>
+  <div class="card stack"><p class="cardtxt">${T('feedback_text')}</p><a class="btn block" href="${FEEDBACK_URL}" target="_blank" rel="noopener">${icon('chat')}${T('feedback_give')}</a><button class="btn ghost block" data-act="suggest">${icon('pen')}${T('suggest')}</button></div>
   <h2 class="sec">${T('language')}</h2>
   <div class="seg langs">${LANGS.map(([v,l])=>`<button data-lang-set="${v}" lang="${v}" aria-pressed="${LANG===v}">${l}</button>`).join('')}</div>
   <h2 class="sec">${T('design')}</h2>
@@ -3961,6 +4102,8 @@ function renderProfile(){
   <h2 class="sec">${T('settings')}</h2>
   <div class="card stack">
     <div class="row"><b>${T('sound')}</b><button class="switch" role="switch" id="snd" aria-checked="${S.sound}" aria-label="${T('sound')}"></button></div>
+    <div class="row"><div><b>${T('easy_mode')}</b><br><small>${T('easy_mode_s')}</small></div><button class="switch" role="switch" id="easy" aria-checked="${S.easy}" aria-label="${T('easy_mode')}"></button></div>
+    <div class="row"><b>${T('privacy')}</b><button class="btn ghost" data-act="privacy" style="padding:10px 14px;font-size:13px">${T('view')}</button></div>
     <div class="row"><b>${T('intro')}</b><button class="btn ghost" data-act="intro" style="padding:10px 14px;font-size:13px">${T('view')}</button></div>
     <div class="row"><b>${T('reset_progress')}</b><button class="btn ghost" data-act="reset" style="padding:10px 14px;font-size:13px">${T('reset')}</button></div>
   </div>
@@ -3990,7 +4133,7 @@ function factStand(){
 
 /* ================= Modal ================= */
 function modal(html){ $('#mbox').innerHTML = html; $('#modal').hidden = false; const b = $('#mbox').querySelector('.btn'); if(b) b.focus({preventScroll:true}); $('#mbox').scrollTop = 0; }
-function closeModal(){ stopQr(); $('#modal').hidden = true; $('#mbox').classList.remove('infobox'); if(S.tab==='learn' && $('#lesson').hidden && $('#result').hidden) renderLearn(); }
+function closeModal(){ stopQr(); stopSpeak(); $('#modal').hidden = true; $('#mbox').classList.remove('infobox'); if(S.tab==='learn' && $('#lesson').hidden && $('#result').hidden) renderLearn(); }
 $('#modal').addEventListener('click', e=>{ if(e.target.id==='modal') closeModal(); });
 function heartsModal(fromLesson){
   regen();
@@ -4017,6 +4160,7 @@ function startLesson(opts){
   else if(opts.mode==='review'){ queue = shuffle(srsDue().map(byId)).slice(0,10); if(!queue.length){ render(); return; } }
   else if(opts.mode==='beamer') queue = unitOf(opts.u).qs.slice();
   else if(opts.mode==='estimate') queue = shuffle(ESTIMATES).slice(0,8);
+  else if(opts.mode==='pics') queue = shuffle(PICQ);
   else if(opts.mode==='myth') queue = shuffle(MYTHS).slice(0,10);   /* Klassen-Modus: alle 18 Aufgaben der Einheit in Reihenfolge */
   L = Object.assign({queue, total:queue.length, done:0, mistakes:0, answered:0, combo:0, maxCombo:0, t0:Date.now(), phase:'answer', retry:{}, pts:0}, opts);
   $('#lesson').hidden = false; document.body.style.overflow = 'hidden';
@@ -4038,12 +4182,80 @@ function updLStat(){
   $('#lstat').innerHTML = (L.mode==='lesson'||L.mode==='test') ? icon('heart')+S.hearts : L.mode==='beamer' ? T('task_n',{i:Math.min(L.done+1,L.total), n:L.total}) : icon(L.mode==='review'?'clock':'dumbbell');
   $('#prog i').style.width = (L.done/L.total*100)+'%';
 }
-const TYPE_LABEL = {mc:['ty_mc','bulb'], tf:['ty_tf','chat'], fill:['ty_fill','chat'], order:['ty_order','shuffle'], match:['ty_match','shuffle'], est:['ty_est','target']};   /* Text über T() */
+const TYPE_LABEL = {mc:['ty_mc','bulb'], tf:['ty_tf','chat'], fill:['ty_fill','chat'], order:['ty_order','shuffle'], match:['ty_match','shuffle'], est:['ty_est','target'], img:['ty_img','image']};   /* Text über T() */
+/* ================= Bilderrätsel: selbst gezeichnete SVG-Bilder (keine fremden Fotos oder Marken-Logos) ================= */
+const SK = 'stroke="#2E6417" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"';
+const PIC_SVG = {
+  yogurt:`<svg viewBox="0 0 200 140"><path d="M68 42h64l-9 82H77z" fill="#fff" ${SK}/><rect x="62" y="30" width="76" height="13" rx="5" fill="#C9D1D9" ${SK}/><path d="M73 70h54l-3 26H76z" fill="#F7B6C8"/><circle cx="92" cy="82" r="6" fill="#E0457B"/><circle cx="109" cy="79" r="4" fill="#E0457B"/></svg>`,
+  paper:`<svg viewBox="0 0 200 140"><rect x="48" y="22" width="104" height="100" rx="4" fill="#fff" ${SK}/><rect x="58" y="32" width="84" height="14" fill="#2E6417"/><rect x="58" y="54" width="38" height="30" fill="#D9F2CA" stroke="#2E6417" stroke-width="2"/><path d="M104 56h38M104 64h38M104 72h38M104 80h30M58 94h84M58 102h84M58 110h60" stroke="#8A9A8A" stroke-width="3"/></svg>`,
+  banana:`<svg viewBox="0 0 200 140"><path d="M100 40c-6 30-30 60-58 76 22-2 44-16 58-38 14 22 36 36 58 38-28-16-52-46-58-76z" fill="#FFD84A" ${SK}/><path d="M100 40c-4 26-2 50 0 70 2-20 4-44 0-70z" fill="#FFE98A" ${SK}/><path d="M94 22h12l-2 20h-8z" fill="#8B6B2E" ${SK}/><circle cx="70" cy="100" r="3" fill="#8B6B2E"/><circle cx="130" cy="96" r="3" fill="#8B6B2E"/></svg>`,
+  battery:`<svg viewBox="0 0 200 140"><rect x="40" y="46" width="112" height="48" rx="8" fill="#3B3F46" ${SK}/><rect x="152" y="58" width="12" height="24" rx="3" fill="#C9D1D9" ${SK}/><rect x="40" y="46" width="38" height="48" rx="8" fill="#00BF63"/><rect x="40" y="46" width="112" height="48" rx="8" fill="none" ${SK}/><path d="M110 70h24M122 58v24" stroke="#fff" stroke-width="5" stroke-linecap="round"/><path d="M52 70h14" stroke="#fff" stroke-width="5" stroke-linecap="round"/></svg>`,
+  bottle:`<svg viewBox="0 0 200 140"><path d="M90 14h20v24c0 6 16 12 16 28v58a6 6 0 0 1-6 6H80a6 6 0 0 1-6-6V66c0-16 16-22 16-28z" fill="#2F9E44" ${SK}/><rect x="88" y="8" width="24" height="10" rx="3" fill="#C9D1D9" ${SK}/><rect x="80" y="76" width="40" height="30" rx="4" fill="#D9F2CA"/><path d="M86 30v30" stroke="#C1FF72" stroke-width="4" stroke-linecap="round" opacity=".7"/></svg>`,
+  cup:`<svg viewBox="0 0 200 140"><path d="M56 36h76v56a22 22 0 0 1-22 22H78a22 22 0 0 1-22-22z" fill="#F4EDE1" ${SK}/><path d="M132 50h10a16 16 0 0 1 0 32h-10" fill="none" ${SK}/><path d="M86 36l8 22-10 14 12 18-4 24" fill="none" stroke="#2E6417" stroke-width="3" stroke-linejoin="round"/><path d="M64 52c18 6 40 6 60 0" stroke="#7ED957" stroke-width="5" fill="none" stroke-linecap="round"/><path d="M30 118l10-6M160 116l12-4M150 126l8 2" ${SK}/></svg>`,
+  receipt:`<svg viewBox="0 0 200 140"><path d="M66 12h68v112l-8-6-9 6-8-6-9 6-9-6-8 6-9-6-8 6z" fill="#fff" ${SK}/><path d="M78 30h44M78 44h30M78 54h36M78 64h26M78 74h34" stroke="#8A9A8A" stroke-width="3" stroke-linecap="round"/><path d="M78 92h44" stroke="#2E6417" stroke-width="4" stroke-linecap="round"/><path d="M78 104h20M110 104h12" stroke="#2E6417" stroke-width="3" stroke-linecap="round"/></svg>`,
+  wind:`<svg viewBox="0 0 200 140"><path d="M60 132c20-10 60-10 80 0z" fill="#7ED957"/><path d="M97 48h6l4 84H93z" fill="#fff" ${SK}/><path d="M100 46 96 6c10 2 12 22 4 40zM100 46l38 18c-6 8-26 4-38-18zM100 46l-34 22c-4-10 16-22 34-22z" fill="#fff" ${SK}/><circle cx="100" cy="46" r="6" fill="#C1FF72" ${SK}/><path d="M146 24h20M150 34h22M28 30h22" stroke="#9FB6C8" stroke-width="3" stroke-linecap="round"/></svg>`,
+  solar:`<svg viewBox="0 0 200 140"><circle cx="164" cy="26" r="14" fill="#FFD84A"/><path d="M164 4v6M164 42v6M142 26h6M180 26h6M149 11l4 4M175 37l4 4M179 11l-4 4M153 37l-4 4" stroke="#FFB020" stroke-width="3" stroke-linecap="round"/><path d="M40 60h110l-16 50H24z" fill="#2B5DAB" ${SK}/><path d="M76 60l-14 50M112 60l-14 50M33 85h108" stroke="#9CC3FF" stroke-width="3"/><path d="M84 110v18M70 128h28" ${SK}/></svg>`,
+  bee:`<svg viewBox="0 0 200 140"><path d="M60 136c0-20 4-40 0-60" stroke="#2E6417" stroke-width="5" fill="none"/><path d="M60 110c-16-4-24-14-24-22 12 0 22 8 24 22z" fill="#7ED957" ${SK}/><g fill="#F7B6C8" ${SK}><circle cx="60" cy="50" r="14"/><circle cx="80" cy="66" r="14"/><circle cx="60" cy="82" r="14"/><circle cx="40" cy="66" r="14"/></g><circle cx="60" cy="66" r="10" fill="#FFD84A" ${SK}/><ellipse cx="136" cy="42" rx="16" ry="20" fill="#D6ECFF" stroke="#2E6417" stroke-width="3" opacity=".9"/><ellipse cx="146" cy="70" rx="30" ry="20" fill="#FFD84A" ${SK}/><path d="M138 52v36M152 51v38" stroke="#2E6417" stroke-width="6"/><circle cx="120" cy="66" r="12" fill="#3B3F46" ${SK}/><circle cx="116" cy="63" r="2.5" fill="#fff"/><path d="M110 58l-16 4" ${SK}/><path d="M92 58l-6 4M90 70l-8 2" stroke="#FFB020" stroke-width="3" stroke-linecap="round" stroke-dasharray="1 6"/></svg>`
+};
+/* q = Frage, o = Antworten (erste = richtig), x = Erklärung, alt = Bildbeschreibung für Screenreader */
+const PICQ = [
+  {img:'yogurt', q:'Wohin gehört der leere Joghurtbecher?', o:['In die Gelbe Tonne / den Gelben Sack','In die Papiertonne','In die Biotonne','In den Glascontainer'], x:'Verpackungen aus Kunststoff, Metall und Verbundstoff gehören in die Gelbe Tonne. Auslöffeln reicht – ausspülen musst du nicht. Deckel ganz abziehen, dann können beide Teile sortiert werden.', alt:'Ein leerer Joghurtbecher mit Deckel'},
+  {img:'paper', q:'Wohin kommt die alte Zeitung?', o:['In die Papiertonne','In die Gelbe Tonne','In den Restmüll','In die Biotonne'], x:'Zeitungen werden zu Recyclingpapier. Altpapier kann mehrmals wiederverwertet werden – das spart Holz, Wasser und Energie.', alt:'Eine Zeitung mit Bild und Textspalten'},
+  {img:'banana', q:'Wohin gehört die Bananenschale?', o:['In die Biotonne','In die Gelbe Tonne','In den Glascontainer','In die Papiertonne'], x:'Aus Bioabfall wird Kompost oder in einer Biogasanlage Strom und Wärme. Plastiktüten gehören aber nicht in die Biotonne!', alt:'Eine gelbe Bananenschale'},
+  {img:'battery', q:'Wohin mit der leeren Batterie?', o:['In eine Batterie-Sammelbox, z. B. im Supermarkt','In den Restmüll','In die Gelbe Tonne','In die Biotonne'], x:'Batterien enthalten wertvolle und teils giftige Stoffe. Überall, wo Batterien verkauft werden, muss es eine kostenlose Sammelbox geben. Im Müll können sie sogar Brände auslösen.', alt:'Eine Batterie mit Plus- und Minuszeichen'},
+  {img:'bottle', q:'Wohin gehört die grüne Einweg-Glasflasche ohne Pfand?', o:['In den Grünglas-Container','In den Weißglas-Container','In die Gelbe Tonne','In den Restmüll'], x:'Altglas wird nach Farben getrennt: weiß, grün, braun. Andere Farben (z. B. blau) kommen zum Grünglas. Flaschen mit Pfand gibst du natürlich im Laden zurück.', alt:'Eine grüne Glasflasche mit Deckel'},
+  {img:'cup', q:'Die Keramiktasse ist kaputt. Wohin damit?', o:['In den Restmüll','In den Glascontainer','In die Gelbe Tonne','In die Papiertonne'], x:'Keramik und Porzellan schmelzen erst bei viel höheren Temperaturen als Glas. Schon kleine Scherben im Altglas machen neues Glas unbrauchbar – deshalb: Restmüll.', alt:'Eine zerbrochene Tasse mit Riss und Scherben'},
+  {img:'receipt', q:'Wohin gehört der Kassenbon?', o:['In den Restmüll','In die Papiertonne','In die Gelbe Tonne','In die Biotonne'], x:'Die meisten Kassenbons sind aus Thermopapier mit einer Spezialbeschichtung. Die stört das Papierrecycling. Tipp: Bon nur mitnehmen, wenn du ihn wirklich brauchst.', alt:'Ein langer Kassenbon mit Zeilen'},
+  {img:'wind', q:'Welche Energie wird hier gewonnen?', o:['Windenergie','Wasserkraft','Sonnenenergie','Energie aus Kohle'], x:'Windräder sind in Deutschland die wichtigste Quelle für Ökostrom: Sie liefern etwa ein Drittel des gesamten Stroms.', alt:'Ein Windrad auf einer grünen Wiese'},
+  {img:'solar', q:'Was siehst du auf dem Bild?', o:['Eine Solaranlage (Photovoltaik)','Ein Windrad','Einen Wärmetauscher','Ein Kohlekraftwerk'], x:'Solarmodule wandeln Sonnenlicht direkt in Strom um. Viele stehen auf Dächern – auch Schulen können so eigenen Strom erzeugen.', alt:'Ein blaues Solarmodul in der Sonne'},
+  {img:'bee', q:'Warum ist das, was die Biene hier macht, so wichtig?', o:['Sie bestäubt die Blüte – so wachsen Obst und Gemüse','Sie macht die Blüte kaputt','Sie düngt die Pflanze mit Honig','Sie verscheucht Schädlinge'], x:'Etwa drei Viertel der wichtigsten Nutzpflanzen der Welt profitieren von Bestäubern wie Bienen, Hummeln und Schmetterlingen. Blühstreifen und Wildblumen helfen ihnen.', alt:'Eine Biene fliegt zu einer rosa Blüte'}
+].map((q,i)=>Object.assign({t:'img', id:'pic.'+i}, q));
+(EXTRA_TR.pics[LANG]||[]).forEach((tr,i)=>{ if(PICQ[i] && tr && tr.o && tr.o.length===PICQ[i].o.length) Object.assign(PICQ[i], {q:tr.q, o:tr.o, x:tr.x, alt:tr.alt}); });
+/* ================= Vorlesen (Web: speechSynthesis, Android-App: TextToSpeech über GGAFApp) ================= */
+const TTS_LANG = {de:'de-DE', en:'en-GB', fr:'fr-FR', pl:'pl-PL', cs:'cs-CZ', uk:'uk-UA', la:'it-IT', bar:'de-DE', gsw:'de-CH'};   /* Latein: italienische Stimme kommt der Schulaussprache am nächsten */
+const canSpeak = () => !!((window.GGAFApp && GGAFApp.speak) || window.speechSynthesis);
+function speak(txt){
+  txt = String(txt).replace(/<[^>]+>/g,' ').replace(/___/g,' … ').replace(/\s+/g,' ').trim();
+  const lang = TTS_LANG[LANG] || 'de-DE';
+  try{ if(window.GGAFApp && GGAFApp.speak){ GGAFApp.speak(txt, lang); return; } }catch(e){}
+  if(!window.speechSynthesis) return;
+  speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(txt), vs = speechSynthesis.getVoices();
+  u.lang = lang; u.rate = .95;
+  const v = vs.find(v=>v.lang.replace('_','-')===lang) || vs.find(v=>v.lang.slice(0,2)===lang.slice(0,2)); if(v) u.voice = v;
+  speechSynthesis.speak(u);
+}
+function stopSpeak(){ try{ if(window.GGAFApp && GGAFApp.stopSpeak) GGAFApp.stopSpeak(); }catch(e){} try{ if(window.speechSynthesis) speechSynthesis.cancel(); }catch(e){} }
+const spkBtn = (act, extra='') => canSpeak() ? `<button class="spk" data-act="${act}" ${extra} aria-label="${T('speak')}">${icon('speaker')}${T('speak')}</button>` : '';
+function speakQ(){
+  const q = L && L.q; if(!q) return;
+  let s = q.q;
+  if(L.opts && (q.t==='mc'||q.t==='img'||q.t==='fill')) s += '. ' + L.opts.map((o,i)=>(i+1)+': '+o.t).join('. ');
+  else if(q.t==='tf') s += '. ' + L.opts.map(o=>o.t).join(' – ');
+  else if(q.t==='order') s += '. ' + L.pool.join(', ');
+  else if(q.t==='match') s += '. ' + L.left.map(o=>o.t).join(', ') + '. ' + L.right.map(o=>o.t).join(', ');
+  speak(s);
+}
+/* Einfacher Modus: nur 3 Antworten, dazu ein Tipp, der eine falsche Antwort durchstreicht */
+const easyOn = () => S.easy && L && L.mode!=='blitz' && L.mode!=='beamer';
+function easyOpts(q){
+  const all = q.o.map((t,i)=>({t,ok:i===0}));
+  return shuffle(easyOn() && all.length>3 ? [all[0]].concat(shuffle(all.slice(1)).slice(0,2)) : all);
+}
+function useHint(){
+  if(!L || L.phase!=='answer' || L.hinted) return;
+  const sel = L.q.t==='fill' ? '[data-fill]' : '.opt', btns = document.querySelectorAll(sel);
+  const cand = L.opts.map((o,i)=>i).filter(i=>!L.opts[i].ok && i!==L.sel);
+  if(!cand.length) return;
+  const i = cand[Math.floor(Math.random()*cand.length)];
+  L.hinted = true; L.opts[i].gone = true; btns[i].disabled = true; btns[i].classList.add('struck');
+  const hb = document.querySelector('[data-act="hint"]'); if(hb){ hb.disabled = true; hb.textContent = T('hint_used'); }
+}
 function nextQ(){
   if(L.mode==='blitz' && Date.now()>=L.end) return;
   if(!L.queue.length){ if(L.mode==='blitz'){ L.queue = shuffle(UNITS.flatMap(u=>u.qs).filter(q=>q.t==='mc'||q.t==='tf')); } else { finish(); return; } }
   const q = L.q = L.queue.shift();
-  L.phase = 'answer'; L.sel = null;
+  L.phase = 'answer'; L.sel = null; L.hinted = false; L.opts = null; stopSpeak();
   const oldCont = $('#cont'); if(oldCont){ oldCont.disabled = true; oldCont.blur(); }
   $('#sheet').className = 'sheet';
   const chk = $('#check'); chk.disabled = true; chk.textContent = T('check_btn'); chk.className = 'btn';
@@ -4052,16 +4264,18 @@ function nextQ(){
   $('#lesson').classList.toggle('retry', isRetry);
   const combo = L.combo>=3 ? T('combo',{n:L.combo}) : '';
   let h = isRetry ? `<div class="retrytag">${icon('redo')}${T('retry_tag')} – ${L.mode==='missed'?T('retry_missed'):T('retry_earlier')}</div>` : `<div class="combo">${combo}</div>`;
-  h += `<div class="qtype">${icon(ic)}${T(lab)}</div>`;
-  if(q.t==='mc'||q.t==='tf'){
-    L.opts = q.t==='tf' ? (L.mode==='myth' ? [{t:T('myth_true'),ok:q.a===true,ic:'check'},{t:T('myth_false'),ok:q.a===false,ic:'x'}] : [{t:T('tf_true'),ok:q.a===true,ic:'check'},{t:T('tf_false'),ok:q.a===false,ic:'x'}]) : shuffle(q.o.map((t,i)=>({t,ok:i===0})));
+  const hintBtn = easyOn() && (q.t==='mc'||q.t==='img'||q.t==='fill') ? `<button class="spk" data-act="hint">${icon('bulb')}${T('hint')}</button>` : '';
+  h += `<div class="qtrow"><div class="qtype">${icon(ic)}${T(lab)}</div><div>${hintBtn} ${L.mode==='blitz' ? '' : spkBtn('speakQ')}</div></div>`;
+  if(q.t==='mc'||q.t==='tf'||q.t==='img'){
+    L.opts = q.t==='tf' ? (L.mode==='myth' ? [{t:T('myth_true'),ok:q.a===true,ic:'check'},{t:T('myth_false'),ok:q.a===false,ic:'x'}] : [{t:T('tf_true'),ok:q.a===true,ic:'check'},{t:T('tf_false'),ok:q.a===false,ic:'x'}]) : easyOpts(q);
+    if(q.t==='img') h += `<div class="qimg" role="img" aria-label="${esc(q.alt||'')}">${PIC_SVG[q.img]||''}</div>`;
     h += q.t==='tf' ? `<div class="qhead">${mascot('wow')}<div class="say">${q.q}</div></div>` : `<h2 class="qtext">${q.q}</h2>`;
     h += `<div class="opts ${q.t==='tf'?'tf':''}">${L.opts.map((o,i)=>`<button class="opt" data-opt="${i}">${q.t==='tf'?icon(o.ic,'big'):`<span class="k">${i+1}</span>`}<span>${o.t}</span></button>`).join('')}</div>`;
   } else if(q.t==='est'){
     const mid = Math.round(((q.min+q.max)/2)/q.step)*q.step;
     h += `<h2 class="qtext">${q.q}</h2><div class="est"><output id="estv">${fmtNum(mid)} ${q.unit}</output><input type="range" id="estr" min="${q.min}" max="${q.max}" step="${q.step}" value="${mid}" aria-label="${T('est_aria')}"><div class="estscale"><span>${fmtNum(q.min)}</span><span>${fmtNum(q.max)}</span></div></div>`;
   } else if(q.t==='fill'){
-    L.opts = shuffle(q.o.map((t,i)=>({t,ok:i===0})));
+    L.opts = easyOpts(q);
     const [a,b] = q.q.split('___');
     h += `<p class="sentence">${a}<span class="blank" id="blank">&nbsp;</span>${b}</p><div class="chips">${L.opts.map((o,i)=>`<button class="chip" data-fill="${i}">${o.t}</button>`).join('')}</div>`;
   } else if(q.t==='order'){
@@ -4087,14 +4301,14 @@ function drawOrder(){
 function pick(i){
   if(L.phase!=='answer') return;
   const q = L.q;
-  if(q.t==='mc'||q.t==='tf'){
-    if(i>=L.opts.length) return;
+  if(q.t==='mc'||q.t==='tf'||q.t==='img'){
+    if(i>=L.opts.length || L.opts[i].gone) return;
     if(L.mode==='blitz'){ blitzAnswer(i); return; }
     L.sel = i;
     document.querySelectorAll('.opt').forEach((b,j)=>b.classList.toggle('sel', j===i));
     $('#check').disabled = false;
   } else if(q.t==='fill'){
-    if(i>=L.opts.length) return;
+    if(i>=L.opts.length || L.opts[i].gone) return;
     L.sel = i;
     document.querySelectorAll('[data-fill]').forEach((b,j)=>b.classList.toggle('sel', j===i));
     const bl = $('#blank'); bl.textContent = L.opts[i].t; bl.classList.add('filled');
@@ -4113,7 +4327,7 @@ function blitzAnswer(i){
 }
 function check(){
   const q = L.q; let ok = false, sol = '';
-  if(q.t==='mc'||q.t==='tf'){ ok = L.opts[L.sel].ok; sol = L.opts.find(o=>o.ok).t;
+  if(q.t==='mc'||q.t==='tf'||q.t==='img'){ ok = L.opts[L.sel].ok; sol = L.opts.find(o=>o.ok).t;
     document.querySelectorAll('.opt').forEach((b,j)=>{ b.disabled = true; if(L.opts[j].ok) b.classList.add('right'); else if(j===L.sel) b.classList.add('wrong'); }); }
   else if(q.t==='fill'){ ok = L.opts[L.sel].ok; sol = q.q.replace('___', q.o[0]); document.querySelectorAll('[data-fill]').forEach(b=>b.disabled = true); }
   else if(q.t==='order'){ ok = L.ans.map(i=>L.pool[i]).join('|')===q.o.join('|'); sol = q.o.join(' → '); document.querySelectorAll('#qarea .chip').forEach(b=>b.disabled = true); }
@@ -4125,7 +4339,7 @@ function check(){
 function feedback(ok, sol){
   const q = L.q, own = L.mode!=='beamer';   /* Klassen-Modus zählt nicht für den eigenen Fortschritt */
   L.phase = 'feedback'; L.answered++;
-  const extra = L.mode==='estimate' || L.mode==='myth';   /* Zusatzrunden: nicht in Fehlerliste/Wiederholung */
+  const extra = L.mode==='estimate' || L.mode==='myth' || L.mode==='pics';   /* Zusatzrunden: nicht in Fehlerliste/Wiederholung */
   if(own){ S.answered++; if(ok) S.correct++; if(!extra){ statAnswer(q, ok); if(!L.retry[q.id]) srsMark(q, ok, L.mode==='review'); } }
   if(ok){ L.done++; L.combo++; L.maxCombo = Math.max(L.maxCombo, L.combo); sOk();
     if(L.mode==='missed') S.missed = S.missed.filter(id=>id!==q.id);
@@ -4144,7 +4358,7 @@ function feedback(ok, sol){
     ${q.t==='est' ? `<div class="sol">${sol}</div>` : ok?'':`<div class="sol">${T('right_answer',{s:sol})}</div>`}
     <div class="fact"><b>${T('did_you_know')}</b> ${q.x}</div>
     <button class="btn block" id="cont">${T('next')}</button>
-    <button class="report" data-act="report">${icon('chat')}${T('report_btn')}</button>`;
+    ${!/^pic/.test(q.id||'') ? `<button class="report" data-act="report">${icon('chat')}${T('report_btn')}</button>` : ''}`;
   $('#sheet').className = 'sheet show '+(ok?'ok':'bad');
   $('#cont').focus();
 }
@@ -4156,7 +4370,7 @@ function cont(){
 function quitLesson(){
   modal(`${mascot('sad')}<h2>${T('quit_t')}</h2><p>${T('quit_d')}</p><button class="btn block" data-act="close">${T('keep_learning')}</button><button class="btn plain block" data-act="endLesson">${T('quit_end')}</button>`);
 }
-function endLesson(){ clearInterval(blitzTimer); L = null; $('#lesson').classList.remove('retry','beamer'); closeModal(); $('#lesson').hidden = true; document.body.style.overflow = ''; render(true); }
+function endLesson(){ stopSpeak(); clearInterval(blitzTimer); L = null; $('#lesson').classList.remove('retry','beamer'); closeModal(); $('#lesson').hidden = true; document.body.style.overflow = ''; render(true); }
 function finish(){
   const m = L.mode; clearInterval(blitzTimer);
   let xp, title, sub;
@@ -4226,7 +4440,8 @@ document.addEventListener('click', e=>{
     const [u,n] = t.dataset.info.split('|').map(Number), inf = u<0 ? INFOS_AG[n] : INFOS[u][n], k = n*2, st = nodeState(u,k);
     const next = st==='locked' ? '' : `<button class="btn block" data-act="start" data-u="${u}" data-k="${k}" data-read="${u}-${n}">${T('info_next',{l:lessonName(u,k)})}</button>`;
     $('#mbox').classList.add('infobox');
-    modal(`<div class="top">${mascot('happy')}<div><div class="eb">${u<0?T('special_eb'):T('unit_n',{n:u+1})} · ${unitOf(u).t}</div><h2>${inf.t}</h2></div></div><p>${inf.l}</p>
+    spkInfo = inf.t + '. ' + inf.l + ' ' + inf.p.join(' ');
+    modal(`<div class="top">${mascot('happy')}<div><div class="eb">${u<0?T('special_eb'):T('unit_n',{n:u+1})} · ${unitOf(u).t}</div><h2>${inf.t}</h2></div></div>${spkBtn('speakInfo')}<p>${inf.l}</p>
       <ul>${inf.p.map(x=>`<li>${x}</li>`).join('')}</ul>
       ${next}<button class="btn ${next?'plain':''} block" data-act="close" data-read="${u}-${n}">${next?T('later'):T('understood')}</button>`);
     return;
@@ -4241,6 +4456,13 @@ document.addEventListener('click', e=>{
   if(a==='missed') return startLesson({mode:'missed'});
   if(a==='close') return closeModal();
   if(a==='lexikon') return showLexikon();
+  if(a==='speakQ') return speakQ();
+  if(a==='speakInfo') return speak(spkInfo);
+  if(a==='hint') return useHint();
+  if(a==='pics') return startLesson({mode:'pics'});
+  if(a==='privacy') return showPrivacy();
+  if(a==='suggest') return showSuggest();
+  if(t.id==='easy'){ S.easy = !S.easy; save(); t.setAttribute('aria-checked', S.easy); return; }
   if(a==='estimate') return startLesson({mode:'estimate'});
   if(a==='myth') return startLesson({mode:'myth'});
   if(t.dataset.check!==undefined) return showCheck(+t.dataset.check);
@@ -4363,6 +4585,51 @@ function copyText(ta){
   const fallback = ()=>{ ta.focus(); ta.select(); try{ if(document.execCommand('copy')) done(); }catch(e){} };
   try{ if(navigator.clipboard && window.isSecureContext){ navigator.clipboard.writeText(ta.value).then(done, fallback); } else fallback(); }catch(e){ fallback(); }
 }
+let spkInfo = '';
+/* Datenschutz & Impressum (rechtlicher Text bewusst auf Deutsch) */
+function showPrivacy(){
+  const L_ = LEGAL, miss = '<i>(wird noch ergänzt)</i>';
+  modal(`<div class="legal"><h2>Datenschutz &amp; Impressum</h2>
+    <h3>Kurz gesagt</h3>
+    <p>GGAF Quizzes! braucht <b>kein Konto</b>, zeigt <b>keine Werbung</b> und nutzt <b>keine Tracking- oder Analyse-Dienste</b>. Dein Name, deine XP und dein Fortschritt werden nur <b>auf deinem Gerät</b> gespeichert (im Browser-Speicher bzw. in der App) und nicht an uns gesendet.</p>
+    <h3>Web-Version</h3>
+    <p>Die Web-Version liegt bei GitHub Pages (GitHub Inc., USA). Beim Aufrufen verarbeitet GitHub technisch notwendige Daten wie deine IP-Adresse, um die Seite auszuliefern (siehe Datenschutzerklärung von GitHub). Schriften und alle Bilder werden direkt von dort geladen – es werden keine Google-Dienste eingebunden.</p>
+    <h3>Android-App</h3>
+    <p>Die App braucht nur die Internet-Berechtigung für Links und das Teilen im WLAN. Beim Teilen per QR-Code läuft kurz ein kleiner Server nur in deinem WLAN; er wird beim Schließen beendet. Vorlesen nutzt die Sprachausgabe deines Handys.</p>
+    <h3>Feedback und Fragen einreichen</h3>
+    <p>Das Feedback-Formular liegt auf einer externen Jimdo-Seite. Dort gilt deren Datenschutzerklärung. Was du dort einträgst, schickst du freiwillig – gib bitte keinen vollen Namen an, wenn du das nicht möchtest.</p>
+    <h3>Daten löschen</h3>
+    <p>Profil → Einstellungen → „Fortschritt zurücksetzen“ löscht alles. Oder App deinstallieren bzw. Website-Daten im Browser löschen.</p>
+    <h3>Impressum</h3>
+    <p>${L_.name?esc(L_.name):'AG „Going green und fair“ am MMG'}<br>${L_.person?'Verantwortlich: '+esc(L_.person):'Verantwortlich: '+miss}<br>${L_.address?esc(L_.address):'Anschrift: '+miss}<br>${L_.email?'E-Mail: '+esc(L_.email):'E-Mail: '+miss}</p>
+    <p>Kontakt auch über das <a href="${FEEDBACK_URL}" target="_blank" rel="noopener">Feedback-Formular</a>. Schriften: Baloo 2 und Nunito (SIL Open Font License).</p></div>
+    <button class="btn block" data-act="close">${T('close')}</button>`);
+}
+/* Frage vorschlagen: Text zusammenstellen, kopieren und das Feedback-Formular öffnen */
+function showSuggest(){
+  const units = UNITS.map((u,i)=>`<option>${esc(T('unit_n_t',{n:i+1, t:u.t}))}</option>`).join('') + `<option>${esc(AG.t)}</option><option>${T('sg_other')}</option>`;
+  modal(`<h2>${T('suggest')}</h2><p>${T('suggest_d')}</p><div class="sgform">
+    <label>${T('sg_unit')}<select id="sgU">${units}</select></label>
+    <label>${T('sg_q')}<textarea id="sgQ" rows="2" maxlength="300"></textarea></label>
+    <label>${T('sg_right')}<input id="sgR" maxlength="150"></label>
+    <label>${T('sg_wrong')}<textarea id="sgW" rows="3" maxlength="400"></textarea></label>
+    <label>${T('sg_src')}<input id="sgS" maxlength="200"></label>
+    <label>${T('sg_name')}<input id="sgN" maxlength="60"></label></div>
+    <p class="cardtxt" id="sgMsg">${T('sg_hint')}</p>
+    <textarea id="sgOut" readonly aria-hidden="true" tabindex="-1" style="position:absolute;left:-9999px;height:1px"></textarea>
+    <a class="btn block" id="sgGo" href="${FEEDBACK_URL}" target="_blank" rel="noopener">${T('sg_copy')}</a>
+    <button class="btn plain block" data-act="close">${T('cancel')}</button>`);
+}
+document.addEventListener('click', e=>{
+  const a = e.target.closest('#sgGo'); if(!a) return;
+  const v = id => ($('#'+id).value||'').trim();
+  if(!v('sgQ') || !v('sgR')){ e.preventDefault(); const m = $('#sgMsg'); m.textContent = T('sg_missing'); m.style.color = 'var(--red)'; return; }
+  const txt = `FRAGEN-VORSCHLAG (GGAF Quizzes!)\nThema: ${v('sgU')}\nFrage: ${v('sgQ')}\nRichtig: ${v('sgR')}\nFalsch: ${v('sgW').split('\n').map(s=>s.trim()).filter(Boolean).join(' | ')}\nQuelle: ${v('sgS')}\nVon: ${v('sgN')}`;
+  const ta = $('#sgOut'); ta.value = txt;
+  try{ ta.select(); document.execCommand('copy'); }catch(err){}
+  try{ if(navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(txt); }catch(err){}
+  $('#sgMsg').textContent = T('sg_copied');
+});
 /* Wochenrückblick: am ersten App-Start einer neuen Woche die Vorwoche zeigen */
 function weeklyRecap(){
   const ws = weekStart(); if(S.recapWeek===ws) return;

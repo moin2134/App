@@ -1,0 +1,11 @@
+Schriften in dieser App (offline mitgeliefert, Quelle: Google Fonts)
+
+Baloo 2   – Copyright The Baloo Project Authors (https://github.com/EkType/Baloo2)
+Nunito    – Copyright The Nunito Project Authors (https://github.com/googlefonts/nunito)
+
+Beide Schriften stehen unter der SIL Open Font License, Version 1.1:
+https://openfontlicense.org
+
+QR-Code-Bibliothek „qrcode-generator“ (qrcode.min.js)
+Copyright (c) 2009 Kazuhiko Arase – MIT-Lizenz
+https://github.com/kazuhikoarase/qrcode-generator

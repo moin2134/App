@@ -49,6 +49,14 @@ Die Lern-App der **AG „Going green und fair“ am MMG**. Mit kurzen Quiz-Lekti
 | **Schätzrunde** | 8 Schätzfragen mit Schieberegler – je näher, desto mehr XP (bis 3 pro Frage) |
 | **Wahr oder Mythos?** | 10 schnelle Aussagen zu verbreiteten Umwelt-Irrtümern |
 | **Klima-Check** | 6 Alltagsfragen mit persönlichen Tipps (grobe Einschätzung, keine genaue CO₂-Rechnung) |
+| **Bilderrätsel** | 10 Bilderfragen (Mülltrennung, Windrad, Solaranlage, Biene). Alle Bilder sind selbst gezeichnet (SVG), ohne fremde Fotos oder Marken-Logos |
+
+### Barrierearm lernen
+- **Vorlesen:** Ein Lautsprecher-Button liest Frage und Antworten bzw. Infotexte in der gewählten Sprache vor. Im Browser über die Sprachausgabe des Geräts, in der Android-App über die Handy-Sprachausgabe (Latein mit italienischer Stimme, Bairisch mit deutscher, Schweizerdeutsch mit Schweizer Stimme, falls vorhanden).
+- **Einfacher Modus (Unterstufe):** Unter Profil → Einstellungen. Dann gibt es nur 3 statt 4 Antworten und einen **Tipp-Button**, der eine falsche Antwort durchstreicht. Die Fragen selbst bleiben gleich – es ist keine „Leichte Sprache“ im engen Sinn.
+
+### Arbeitsblätter
+Im Ordner `Arbeitsblaetter/` liegt für jede Einheit und das MMG-Special ein **PDF zum Ausdrucken** (z. B. für Vertretungsstunden): Infotexte, alle 18 Aufgaben (Ankreuzen, Lückentext mit Wortliste, Nummerieren, Zuordnen) und eine **Lösungsseite** für die Lehrkraft. Neu erzeugen: `jwebserver` im Ordner `web/` starten, `android/arbeitsblatt-vorlage.html` nach `web/` kopieren und `blatt.html?u=0` … `?u=14` (MMG-Special: `?u=-1`) mit Edge als PDF drucken.
 
 ### Sprachen
 Die komplette App gibt es in **9 Sprachen**: Fragen, Infotexte, Lexikon, Tipps, Einführung und alle Bedienelemente.
@@ -74,6 +82,12 @@ Die komplette App gibt es in **9 Sprachen**: Fragen, Infotexte, Lexikon, Tipps, 
 ### Feedback
 - **Frage melden:** Unter jeder Rückmeldung steht „Frage falsch oder unklar? Melden“. Die App zeigt die Angaben zur Frage zum Kopieren an und öffnet das Feedback-Formular der AG.
 - **Feedback geben:** Im Profil führt ein Button direkt zum Formular.
+- **Frage vorschlagen:** Unter Üben und im Profil. Schüler*innen tragen Thema, Frage, richtige und falsche Antworten, Quelle und (freiwillig) Name/Klasse ein. Die App kopiert alles und öffnet das Feedback-Formular. Gute Vorschläge kann die AG mit Namen in die App aufnehmen.
+
+### Datenschutz
+- Kein Konto, keine Werbung, kein Tracking. Alle Daten bleiben auf dem Gerät.
+- Die Web-Version lädt **keine Google-Schriften** mehr: Baloo 2 und Nunito liegen im Ordner `web/fonts/`.
+- **Profil → Einstellungen → Datenschutz & Impressum** zeigt die Hinweise. Die Kontaktdaten fürs Impressum stehen in `index.html` in der Konstante `LEGAL` (Name, verantwortliche Person, Anschrift, E-Mail) und müssen noch eingetragen werden.
 
 ### Motivation
 - **XP** für jede Lektion (Lektion 10 XP, Einheitstest 20 XP, +5 bei fehlerfreien Runden)
@@ -239,6 +253,7 @@ powershell -File android/build.ps1
 Das Skript erzeugt:
 - `GGAF-Quizzes.apk` (signiert, installierbar)
 - `web/index.html` (für GitHub)
+- `web/fonts/` mit den Schriften (einmalig mit auf GitHub hochladen, als Ordner `fonts`)
 
 Vor einer neuen Version:
 - In `android/AndroidManifest.xml` den `versionCode` um 1 erhöhen und `versionName` anpassen.
