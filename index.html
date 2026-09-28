@@ -2669,6 +2669,10 @@ const EXTRA_TR = {"ui":{
 ]
 }};
 Object.keys(EXTRA_TR.ui).forEach(l=>{ UI_EXTRA[l] = EXTRA_TR.ui[l]; });
+[['count_note',{de:'Die Web-App zählt nur, wie oft sie benutzt wird – nur diese eine Zahl, sonst nichts. Kein Name, keine Kennung.', en:'The web app only counts how often it is used – just this one number, nothing else. No name, no ID.', fr:'L’appli web compte seulement combien de fois elle est utilisée – juste ce nombre, rien d’autre. Ni nom, ni identifiant.', pl:'Aplikacja internetowa liczy tylko, jak często jest używana – tylko tę jedną liczbę, nic więcej. Bez imienia, bez identyfikatora.', cs:'Webová aplikace počítá jen, jak často se používá – jen toto jedno číslo, nic jiného. Žádné jméno, žádný identifikátor.', uk:'Вебзастосунок рахує лише, як часто ним користуються, – тільки це одне число, більше нічого. Без імені, без ідентифікатора.', la:'Applicatio interretialis solum numerat, quotiens adhibeatur – hunc unum numerum, nihil aliud. Nullum nomen, nullum signum.', bar:'De Web-App zählt nur, wia oft s’ bnutzt wird – nur de oane Zahl, sonst nix. Koa Nam, koa Kennung.', gsw:'D Web-App zellt nur, wie mängisch si bruucht wird – nur die ei Zaal, susch nüüt. Kei Name, kei Kännig.'}],
+ ['web_count',{de:'Web-App insgesamt {n}× genutzt', en:'Web app used {n}× in total', fr:'Appli web utilisée {n}× au total', pl:'Aplikacja internetowa użyta łącznie {n}×', cs:'Webová aplikace použita celkem {n}×', uk:'Вебзастосунок використано загалом {n}×', la:'Applicatio interretialis {n}× omnino adhibita', bar:'Web-App insgsamt {n}× gnutzt', gsw:'Web-App insgesamt {n}× bruucht'}]
+].forEach(([k,m])=>Object.keys(m).forEach(l=>{ (UI_EXTRA[l] = UI_EXTRA[l]||{})[k] = m[l]; }));
+Object.entries({de:'App {n}× geöffnet (nur auf diesem Gerät gezählt)', en:'App opened {n}× (counted on this device only)', fr:'Appli ouverte {n}× (comptée seulement sur cet appareil)', pl:'Aplikacja otwarta {n}× (liczone tylko na tym urządzeniu)', cs:'Aplikace otevřena {n}× (počítáno jen v tomto zařízení)', uk:'Застосунок відкрито {n}× (рахується лише на цьому пристрої)', la:'Applicatio {n}× aperta (in hoc tantum instrumento numeratur)', bar:'App {n}× aufgmacht (nur auf dem Gerät zählt)', gsw:'App {n}× uufgmacht (nur uf däm Grät zellt)'}).forEach(([l,s])=>{ (UI_EXTRA[l] = UI_EXTRA[l]||{}).opens = s; });
 Object.keys(UI_EXTRA).forEach(l=>{ if(I18N[l]) Object.assign(I18N[l], UI_EXTRA[l]); });
 /* Impressum: bitte ausfüllen (erscheint unter Profil → Datenschutz & Impressum) */
 const LEGAL = {
@@ -3758,9 +3762,20 @@ const PRAISE = ['Super!','Richtig!','Klasse!','Stark!','Genau!','Sehr gut!','Gr�
 /* ================= Zustand ================= */
 const KEY = 'ggaf-quizzes-v1';
 const HEART_MS = 30*60*1000, MAX_H = 5;
-const defaults = () => ({name:'', xp:0, hearts:MAX_H, heartsTs:Date.now(), streak:0, lastDay:null, goal:30, log:{}, done:{}, badges:{}, lessons:0, perfect:0, answered:0, correct:0, blitzBest:0, missed:[], sound:true, tab:'learn', read:{}, spent:0, owned:[], outfit:'', freeze:0, boost:false, froze:0, introDone:false, srs:{}, dstat:{}, bg:'', recapWeek:'', unitOrder:2, theme:'auto', lang:'de', easy:false});
+const defaults = () => ({name:'', xp:0, hearts:MAX_H, heartsTs:Date.now(), streak:0, lastDay:null, goal:30, log:{}, done:{}, badges:{}, lessons:0, perfect:0, answered:0, correct:0, blitzBest:0, missed:[], sound:true, tab:'learn', read:{}, spent:0, owned:[], outfit:'', freeze:0, boost:false, froze:0, introDone:false, srs:{}, dstat:{}, bg:'', recapWeek:'', unitOrder:2, theme:'auto', lang:'de', easy:false, opens:0});
 const balance = () => S.xp - S.spent;   /* ausgebbare XP; S.xp bleibt die Gesamtsumme für Abzeichen */
 let S = load();
+S.opens++; save();   /* nur ein Zähler auf diesem Gerät – ohne IP, ohne Server */
+/* Gesamtzähler der Web-Version (vom Nutzer gewünscht, in Einführung und Datenschutz erklärt):
+   nur auf *.github.io, einmal pro Browser-Sitzung +1 – kein Name, keine Kennung, keine Cookies.
+   Dienst: Abacus (abacus.jasoncameron.dev), dort wird nur die Zahl gespeichert. */
+let webCount = 0;
+(function(){
+  if(window.GGAFApp || !/\.github\.io$/.test(location.hostname) || !window.fetch) return;
+  let first = true; try{ first = !sessionStorage.getItem('ggaf-counted'); sessionStorage.setItem('ggaf-counted','1'); }catch(e){}
+  fetch('https://abacus.jasoncameron.dev/' + (first?'hit':'get') + '/ggaf-quizzes-mmg/web', {credentials:'omit', referrerPolicy:'no-referrer', cache:'no-store'})
+    .then(r=>r.json()).then(d=>{ if(d && typeof d.value==='number'){ webCount = d.value; const a = document.getElementById('webCount'); if(a) a.textContent = T('web_count',{n:fmtNum(webCount)}); } }).catch(()=>{});
+})();
 LANG = S.lang;   /* Sprache aus dem Speicherstand (gilt bis zum nächsten Neuladen) */
 function load(){ try{ const s = JSON.parse(localStorage.getItem(KEY)); if(s) return sanitize(s); }catch(e){} return defaults(); }
 /* Speicherstand absichern: falsche Typen aus alten/kaputten Ständen (oder Sicherungscodes) durch Standardwerte ersetzen */
@@ -4123,7 +4138,7 @@ function renderProfile(){
     <button class="btn block" data-act="backup">${T('backup_create')}</button>
     <button class="btn ghost block" data-act="restore">${T('backup_paste')}</button>
   </div>
-  <p class="about"><b>GGAF Quizzes!</b> – ${T('about')}<br>${T('fact_stand',{d:factStand()})}${window.GGAFApp && GGAFApp.version ? T('app_version',{v:esc(GGAFApp.version())}) : ''}</p>`;
+  <p class="about"><b>GGAF Quizzes!</b> – ${T('about')}<br>${T('opens',{n:S.opens})}${window.GGAFApp ? '' : `<br><span id="webCount">${webCount ? T('web_count',{n:fmtNum(webCount)}) : ''}</span>`}<br>${T('fact_stand',{d:factStand()})}${window.GGAFApp && GGAFApp.version ? T('app_version',{v:esc(GGAFApp.version())}) : ''}</p>`;
 }
 /* Faktenstand-Datum („September 2026“) mit Monatsnamen in der aktuellen Sprache */
 function factStand(){
@@ -4591,9 +4606,11 @@ function showPrivacy(){
   const L_ = LEGAL, miss = '<i>(wird noch ergänzt)</i>';
   modal(`<div class="legal"><h2>Datenschutz &amp; Impressum</h2>
     <h3>Kurz gesagt</h3>
-    <p>GGAF Quizzes! braucht <b>kein Konto</b>, zeigt <b>keine Werbung</b> und nutzt <b>keine Tracking- oder Analyse-Dienste</b>. Dein Name, deine XP und dein Fortschritt werden nur <b>auf deinem Gerät</b> gespeichert (im Browser-Speicher bzw. in der App) und nicht an uns gesendet.</p>
+    <p>GGAF Quizzes! braucht <b>kein Konto</b>, zeigt <b>keine Werbung</b> und nutzt <b>keine Tracking- oder Analyse-Dienste</b> (die Web-Version zählt nur anonym die Zahl der Besuche, siehe unten). Dein Name, deine XP und dein Fortschritt werden nur <b>auf deinem Gerät</b> gespeichert (im Browser-Speicher bzw. in der App) und nicht an uns gesendet.</p>
     <h3>Web-Version</h3>
     <p>Die Web-Version liegt bei GitHub Pages (GitHub Inc., USA). Beim Aufrufen verarbeitet GitHub technisch notwendige Daten wie deine IP-Adresse, um die Seite auszuliefern (siehe Datenschutzerklärung von GitHub). Schriften und alle Bilder werden direkt von dort geladen – es werden keine Google-Dienste eingebunden.</p>
+    <h3>Nutzungszähler (nur Web-Version)</h3>
+    <p>Die Web-App zählt, wie oft sie insgesamt benutzt wird: einmal pro Besuch +1. Dafür ruft sie den Zähldienst Abacus (abacus.jasoncameron.dev) auf. Dort wird <b>nur diese eine Zahl</b> gespeichert – kein Name, keine Kennung, keine Cookies. Wie bei jedem Aufruf einer Website sieht der Dienst dabei technisch kurz deine IP-Adresse. Die Android-App zählt nicht mit.</p>
     <h3>Android-App</h3>
     <p>Die App braucht nur die Internet-Berechtigung für Links und das Teilen im WLAN. Beim Teilen per QR-Code läuft kurz ein kleiner Server nur in deinem WLAN; er wird beim Schließen beendet. Vorlesen nutzt die Sprachausgabe deines Handys.</p>
     <h3>Feedback und Fragen einreichen</h3>
@@ -4716,7 +4733,7 @@ function showIntro(i){
       <label class="field" for="introName">${T('intro_name')}<input id="introName" maxlength="24" placeholder="${T('intro_name_ph')}" value="${esc(S.name)}"></label>
       <div class="field">${T('your_goal')}<div class="seg">${[[10,T('g_easy')],[20,T('g_normal')],[30,T('g_serious')],[50,T('g_intense')]].map(([g,l])=>`<button data-igoal="${g}" aria-pressed="${S.goal===g}">${g} XP<small>${l}</small></button>`).join('')}</div></div></div>` : '';
   $('#introIn').innerHTML = `${last?'':`<button class="skip" data-act="introDone">${T('skip')}</button>`}
-    <div class="stage">${mascot(s.mood)}<div class="eb">${s.e}</div><h1>${s.t}</h1><p>${s.p}</p>${introStep===0 ? `<div class="langpick"><div class="eb">Sprache · Language · Langue</div><div class="seg langs">${LANGS.map(([v,l])=>`<button data-lang-set="${v}" lang="${v}" aria-pressed="${LANG===v}">${l}</button>`).join('')}</div></div>` : ''}${s.demo?`<div class="demo">${s.demo()}</div>`:''}${form}</div>
+    <div class="stage">${mascot(s.mood)}<div class="eb">${s.e}</div><h1>${s.t}</h1><p>${s.p}</p>${introStep===0 ? `<div class="langpick"><div class="eb">Sprache · Language · Langue</div><div class="seg langs">${LANGS.map(([v,l])=>`<button data-lang-set="${v}" lang="${v}" aria-pressed="${LANG===v}">${l}</button>`).join('')}</div>${window.GGAFApp ? '' : `<p style="font-size:13px">${T('count_note')}</p>`}</div>` : ''}${s.demo?`<div class="demo">${s.demo()}</div>`:''}${form}</div>
     <div class="dots" aria-label="${T('intro_step',{i:introStep+1, n:INTRO.length})}">${INTRO.map((_,j)=>`<i class="${j===introStep?'on':''}"></i>`).join('')}</div>
     <div class="nav">${introStep>0?`<button class="btn ghost" data-act="introBack">${T('back')}</button>`:''}<button class="btn" data-act="${last?'introDone':'introNext'}">${last?T('lets_go'):T('intro_next')}</button></div>`;
   $('#intro').hidden = false; $('#intro').scrollTop = 0; document.body.style.overflow = 'hidden';
