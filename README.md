@@ -51,7 +51,22 @@ Die Lern-App der **AG „Going green und fair“ am MMG**. Mit kurzen Quiz-Lekti
 | **Klima-Check** | 6 Alltagsfragen mit persönlichen Tipps (grobe Einschätzung, keine genaue CO₂-Rechnung) |
 
 ### Sprachen
-Die komplette App gibt es auf **Deutsch, Englisch und Französisch**: Fragen, Infotexte, Lexikon, Tipps, Einführung und alle Bedienelemente. Die Sprache wählt man unter **Profil → Sprache**. Der Fortschritt bleibt beim Wechsel erhalten.
+Die komplette App gibt es in **9 Sprachen**: Fragen, Infotexte, Lexikon, Tipps, Einführung und alle Bedienelemente.
+
+| Sprache | Code | Hinweis |
+|---|---|---|
+| Deutsch | `de` | Original |
+| English | `en` | britisches Englisch |
+| Français | `fr` | |
+| Polski | `pl` | |
+| Čeština | `cs` | |
+| Українська | `uk` | kyrillische Schrift |
+| Latina | `la` | Schullatein, moderne Begriffe teils in Anführungszeichen |
+| Boarisch | `bar` | gemäßigtes Oberbairisch |
+| Schwiizerdütsch | `gsw` | Zürichdeutsch als Basis |
+
+- **Auswahl:** Die Sprache wählt man gleich im **ersten Schritt der Einführung** oder später unter **Profil → Sprache**. Der Fortschritt bleibt beim Wechsel erhalten.
+- **Mehrzahlformen:** Polnisch, Tschechisch und Ukrainisch nutzen die richtigen drei Mehrzahlformen (z. B. 1 den / 2 dny / 5 dní).
 
 - **Übersetzungen:** Sie stecken in `index.html` in `CONTENT_PACKS` (Inhalte) und `I18N` (Bedienelemente).
 - **Neue deutsche Fragen:** Werden deutsche Fragen geändert oder ergänzt, müssen die Übersetzungen nachgezogen werden. Fehlt eine Übersetzung, zeigt die App automatisch den deutschen Text.
