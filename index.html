@@ -231,6 +231,9 @@ svg.m{display:block;width:100%;height:auto}
 .opts.tf .opt{flex-direction:column;justify-content:center;text-align:center;padding:22px 12px;font-family:var(--display);font-size:22px}
 .opts.tf .opt .big{width:44px;height:44px}
 .opt.sel{border-color:var(--leaf);background:var(--selBg);color:var(--selInk)}
+.garden{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-gap:4px;gap:4px;margin-top:10px;background:var(--surface2);border-radius:14px;padding:8px}
+.garden svg{width:100%;height:auto}
+.stat.gear{color:var(--ink2)}.stat.gear.on{color:var(--leafText);background:var(--selBg)}
 .qtrow{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}
 .spk{display:inline-flex;align-items:center;gap:6px;border:2px solid var(--line);border-bottom-width:3px;border-radius:12px;background:var(--surface);color:var(--leafText);font-weight:800;font-size:13px;padding:6px 10px;cursor:pointer}
 .spk svg{width:18px;height:18px}
@@ -468,6 +471,7 @@ svg.m{display:block;width:100%;height:auto}
       <button class="stat streak" id="stStreak" aria-label="Serie"></button>
       <button class="stat xp" id="stXp" aria-label="XP"></button>
       <button class="stat hearts" id="stHearts" aria-label="Herzen"></button>
+      <button class="stat gear" id="stSet" aria-label="Einstellungen"></button>
     </div>
   </header>
   <main id="view"></main>
@@ -2560,6 +2564,17 @@ const UI_EXTRA = {de:{
  sg_copy:'Kopieren & Formular öffnen', sg_hint:'Dein Vorschlag wird kopiert. Füge ihn im Feedback-Formular der AG ein.', sg_missing:'Bitte gib mindestens die Frage und die richtige Antwort ein.', sg_copied:'Kopiert! Jetzt im Formular einfügen.',
  privacy:'Datenschutz & Impressum'
 }};
+/* Texte ab Version 3.3 (Einstellungen, Garten, Abschlussprüfung, Hinweise) – Übersetzungen in EXTRA_TR2 */
+const UI_33 = {
+ settings_lead:'Sprache, Design und alles rund um die App.', options:'Optionen', app_info:'App & Daten',
+ garden:'Dein Garten', garden_d:'Für jede gemeisterte Einheit blüht eine Blume.', garden_n:'{n} von {m} Blumen',
+ exam:'Abschlussprüfung', exam_d:'30 Fragen aus allen Einheiten – ohne Herzen, mit Note und Urkunde.', exam_best:'Beste Note: {g}',
+ exam_title:'Note {g}', exam_sub:'{r} von {n} richtig ({p} %).', exam_pass:'Bestanden – deine Urkunde wartet im Profil!', exam_fail:'Noch nicht bestanden – ab Note 4 gibt es die Urkunde. Versuch es nochmal!',
+ cert_exam_t:'Abschlussprüfung', cert_exam1:'hat die Abschlussprüfung mit der Note {g} bestanden', cert_exam2:'({p} % richtig in 30 Fragen aus allen Einheiten).',
+ offline_t:'Du bist offline', offline:'Kein Problem – die App funktioniert trotzdem.', update_t:'Neue Version geladen', update_d:'Lade neu, um sie zu nutzen.', reload:'Neu laden',
+ pics_d:'10 Bilderfragen: Mülltrennung, Energie, Wasser und mehr.'
+};
+Object.assign(UI_EXTRA.de, UI_33);
 const EXTRA_TR = {"ui":{
 "en":{"speak":"Read aloud","speak_stop":"Stop reading","easy_mode":"Easy mode","easy_mode_s":"3 instead of 4 answers and a hint button – good for younger pupils","hint":"Hint","hint_used":"One wrong answer is now crossed out.","pics":"Picture puzzle","pics_d":"10 picture questions: Where does the rubbish go? Which energy is this?","ty_img":"What’s in the picture?","suggest":"Suggest a question","suggest_d":"Got a good idea for a question? Send it to the club – maybe it will appear in the app with your name!","sg_unit":"Topic","sg_other":"Other topic","sg_q":"Your question","sg_right":"Correct answer","sg_wrong":"Wrong answers (one per line)","sg_src":"Source (e.g. website or book)","sg_name":"Your name and class (optional)","sg_copy":"Copy & open form","sg_hint":"Your suggestion will be copied. Paste it into the club’s feedback form.","sg_missing":"Please enter at least the question and the correct answer.","sg_copied":"Copied! Now paste it into the form.","privacy":"Privacy & legal notice"},
 "fr":{"speak":"Lire à voix haute","speak_stop":"Arrêter la lecture","easy_mode":"Mode facile","easy_mode_s":"3 réponses au lieu de 4 et un bouton d’indice – idéal pour les plus jeunes","hint":"Indice","hint_used":"Une mauvaise réponse est maintenant barrée.","pics":"Devinettes en images","pics_d":"10 questions en images : où vont les déchets ? Quelle énergie est-ce ?","ty_img":"Qu’y a-t-il sur l’image ?","suggest":"Proposer une question","suggest_d":"Tu as une bonne idée de question ? Envoie-la au groupe – elle apparaîtra peut-être dans l’appli avec ton nom !","sg_unit":"Thème","sg_other":"Autre thème","sg_q":"Ta question","sg_right":"Bonne réponse","sg_wrong":"Mauvaises réponses (une par ligne)","sg_src":"Source (p. ex. site web ou livre)","sg_name":"Ton nom et ta classe (facultatif)","sg_copy":"Copier et ouvrir le formulaire","sg_hint":"Ta proposition sera copiée. Colle-la dans le formulaire de retour du groupe.","sg_missing":"Indique au moins la question et la bonne réponse.","sg_copied":"Copié ! Colle-le maintenant dans le formulaire.","privacy":"Confidentialité et mentions légales"},
@@ -2673,6 +2688,99 @@ Object.keys(EXTRA_TR.ui).forEach(l=>{ UI_EXTRA[l] = EXTRA_TR.ui[l]; });
  ['web_count',{de:'Web-App insgesamt {n}× genutzt', en:'Web app used {n}× in total', fr:'Appli web utilisée {n}× au total', pl:'Aplikacja internetowa użyta łącznie {n}×', cs:'Webová aplikace použita celkem {n}×', uk:'Вебзастосунок використано загалом {n}×', la:'Applicatio interretialis {n}× omnino adhibita', bar:'Web-App insgsamt {n}× gnutzt', gsw:'Web-App insgesamt {n}× bruucht'}]
 ].forEach(([k,m])=>Object.keys(m).forEach(l=>{ (UI_EXTRA[l] = UI_EXTRA[l]||{})[k] = m[l]; }));
 Object.entries({de:'App {n}× geöffnet (nur auf diesem Gerät gezählt)', en:'App opened {n}× (counted on this device only)', fr:'Appli ouverte {n}× (comptée seulement sur cet appareil)', pl:'Aplikacja otwarta {n}× (liczone tylko na tym urządzeniu)', cs:'Aplikace otevřena {n}× (počítáno jen v tomto zařízení)', uk:'Застосунок відкрито {n}× (рахується лише на цьому пристрої)', la:'Applicatio {n}× aperta (in hoc tantum instrumento numeratur)', bar:'App {n}× aufgmacht (nur auf dem Gerät zählt)', gsw:'App {n}× uufgmacht (nur uf däm Grät zellt)'}).forEach(([l,s])=>{ (UI_EXTRA[l] = UI_EXTRA[l]||{}).opens = s; });
+const EXTRA_TR2 = {"ui":{
+"en":{"settings_lead":"Language, design and everything about the app.","options":"Options","app_info":"App & data","garden":"Your garden","garden_d":"A flower blooms for every unit you master.","garden_n":"{n} of {m} flowers","exam":"Final exam","exam_d":"30 questions from all units – no hearts, with a grade and a certificate.","exam_best":"Best grade: {g}","exam_title":"Grade {g}","exam_sub":"{r} of {n} correct ({p}%).","exam_pass":"Passed – your certificate is waiting in your profile!","exam_fail":"Not passed yet – you get the certificate from grade 4 upwards. Try again!","cert_exam_t":"Final exam","cert_exam1":"has passed the final exam with grade {g} (German school grade)","cert_exam2":"({p}% correct in 30 questions from all units).","offline_t":"You’re offline","offline":"No problem – the app still works.","update_t":"New version loaded","update_d":"Reload to use it.","reload":"Reload","pics_d":"10 picture questions: sorting rubbish, energy, water and more."},
+"fr":{"settings_lead":"Langue, design et tout ce qui concerne l’appli.","options":"Options","app_info":"Appli et données","garden":"Ton jardin","garden_d":"Une fleur éclot pour chaque unité maîtrisée.","garden_n":"{n} fleurs sur {m}","exam":"Examen final","exam_d":"30 questions de toutes les unités – sans cœurs, avec une note et un diplôme.","exam_best":"Meilleure note : {g}","exam_title":"Note {g}","exam_sub":"{r} sur {n} correctes ({p} %).","exam_pass":"Réussi – ton diplôme t’attend dans ton profil !","exam_fail":"Pas encore réussi – le diplôme s’obtient à partir de la note 4. Réessaie !","cert_exam_t":"Examen final","cert_exam1":"a réussi l’examen final avec la note {g} (note scolaire allemande)","cert_exam2":"({p} % de bonnes réponses sur 30 questions de toutes les unités).","offline_t":"Tu es hors ligne","offline":"Pas de problème – l’appli fonctionne quand même.","update_t":"Nouvelle version chargée","update_d":"Recharge pour l’utiliser.","reload":"Recharger","pics_d":"10 questions en images : tri des déchets, énergie, eau et plus."},
+"pl":{"settings_lead":"Język, wygląd i wszystko o aplikacji.","options":"Opcje","app_info":"Aplikacja i dane","garden":"Twój ogród","garden_d":"Za każdą opanowaną jednostkę zakwita kwiat.","garden_n":"{n} z {m} kwiatów","exam":"Egzamin końcowy","exam_d":"30 pytań ze wszystkich jednostek – bez serc, z oceną i dyplomem.","exam_best":"Najlepsza ocena: {g}","exam_title":"Ocena {g}","exam_sub":"{r} z {n} poprawnie ({p}%).","exam_pass":"Zdane – twój dyplom czeka w profilu!","exam_fail":"Jeszcze nie zdane – dyplom dostajesz od oceny 4. Spróbuj jeszcze raz!","cert_exam_t":"Egzamin końcowy","cert_exam1":"zdał(a) egzamin końcowy z oceną {g} (niemiecka ocena szkolna)","cert_exam2":"({p}% poprawnych odpowiedzi na 30 pytań ze wszystkich jednostek).","offline_t":"Jesteś offline","offline":"Nie szkodzi – aplikacja i tak działa.","update_t":"Załadowano nową wersję","update_d":"Odśwież, aby jej używać.","reload":"Odśwież","pics_d":"10 pytań z obrazkami: segregacja śmieci, energia, woda i więcej."},
+"cs":{"settings_lead":"Jazyk, vzhled a vše kolem aplikace.","options":"Možnosti","app_info":"Aplikace a data","garden":"Tvoje zahrada","garden_d":"Za každou zvládnutou lekci vykvete květina.","garden_n":"{n} z {m} květin","exam":"Závěrečná zkouška","exam_d":"30 otázek ze všech lekcí – bez srdíček, se známkou a diplomem.","exam_best":"Nejlepší známka: {g}","exam_title":"Známka {g}","exam_sub":"{r} z {n} správně ({p} %).","exam_pass":"Splněno – tvůj diplom čeká v profilu!","exam_fail":"Zatím nesplněno – diplom dostaneš od známky 4. Zkus to znovu!","cert_exam_t":"Závěrečná zkouška","cert_exam1":"složil(a) závěrečnou zkoušku se známkou {g} (německá školní známka)","cert_exam2":"({p} % správně ve 30 otázkách ze všech lekcí).","offline_t":"Jsi offline","offline":"Nevadí – aplikace funguje i tak.","update_t":"Nová verze načtena","update_d":"Načti znovu, abys ji mohl(a) používat.","reload":"Načíst znovu","pics_d":"10 otázek s obrázky: třídění odpadu, energie, voda a další."},
+"uk":{"settings_lead":"Мова, дизайн і все про застосунок.","options":"Налаштування","app_info":"Застосунок і дані","garden":"Твій сад","garden_d":"За кожен опанований розділ розквітає квітка.","garden_n":"{n} з {m} квітів","exam":"Підсумковий іспит","exam_d":"30 питань з усіх розділів – без сердець, з оцінкою і грамотою.","exam_best":"Найкраща оцінка: {g}","exam_title":"Оцінка {g}","exam_sub":"{r} з {n} правильно ({p} %).","exam_pass":"Складено – твоя грамота чекає в профілі!","exam_fail":"Ще не складено – грамоту отримуєш від оцінки 4. Спробуй ще раз!","cert_exam_t":"Підсумковий іспит","cert_exam1":"склав(ла) підсумковий іспит з оцінкою {g} (німецька шкільна оцінка)","cert_exam2":"({p} % правильних відповідей у 30 питаннях з усіх розділів).","offline_t":"Ти офлайн","offline":"Не страшно – застосунок усе одно працює.","update_t":"Завантажено нову версію","update_d":"Перезавантаж, щоб нею користуватися.","reload":"Перезавантажити","pics_d":"10 питань із картинками: сортування сміття, енергія, вода та інше."},
+"la":{"settings_lead":"Lingua, species et omnia de applicatione.","options":"Optiones","app_info":"Applicatio et data","garden":"Hortus tuus","garden_d":"Pro quaque unitate perdidicta flos floret.","garden_n":"{n} ex {m} floribus","exam":"Examen finale","exam_d":"XXX quaestiones ex omnibus unitatibus – sine cordibus, cum nota et diplomate.","exam_best":"Optima nota: {g}","exam_title":"Nota {g}","exam_sub":"{r} ex {n} recte ({p} %).","exam_pass":"Probatum – diploma tuum in profilo te exspectat!","exam_fail":"Nondum probatum – diploma a nota 4 datur. Iterum tempta!","cert_exam_t":"Examen finale","cert_exam1":"examen finale nota {g} (nota scholae Germanicae) superavit","cert_exam2":"({p} % recte in XXX quaestionibus ex omnibus unitatibus).","offline_t":"Sine conexu es","offline":"Nihil refert – applicatio tamen functionat.","update_t":"Nova versio onerata","update_d":"Renova ut ea utaris.","reload":"Renova","pics_d":"X quaestiones imaginum: purgamenta separanda, energia, aqua et alia."},
+"bar":{"settings_lead":"Sprach, Design und ois rund um d’App.","options":"Optionen","app_info":"App & Datn","garden":"Dei Gartn","garden_d":"Für jede gschaffte Einheit blüht a Bleame.","garden_n":"{n} vo {m} Bleame","exam":"Abschlussprüfung","exam_d":"30 Fragn aus olle Einheitn – ohne Herzl, mit Note und Urkund.","exam_best":"Beste Note: {g}","exam_title":"Note {g}","exam_sub":"{r} vo {n} richtig ({p} %).","exam_pass":"Bstandn – dei Urkund wart im Profil auf di!","exam_fail":"No ned bstandn – ab Note 4 gibt’s d’Urkund. Probier’s no amoi!","cert_exam_t":"Abschlussprüfung","cert_exam1":"hod d’Abschlussprüfung mit da Note {g} bstandn","cert_exam2":"({p} % richtig bei 30 Fragn aus olle Einheitn).","offline_t":"Du bist offline","offline":"Macht nix – d’App geht trotzdem.","update_t":"Neie Version glodn","update_d":"Lad nei, dass’d as nutzn kannst.","reload":"Nei lodn","pics_d":"10 Buidlfragn: Müll trenna, Energie, Wasser und no mehr."},
+"gsw":{"settings_lead":"Sprach, Design und alles rund um d App.","options":"Optione","app_info":"App & Date","garden":"Din Garte","garden_d":"Für jedi gmeisterti Einheit blüeht e Bluem.","garden_n":"{n} vo {m} Blueme","exam":"Schlussprüefig","exam_d":"30 Froge us allne Einheite – ohni Herzli, mit Note und Urkund.","exam_best":"Bescht Note: {g}","exam_title":"Note {g}","exam_sub":"{r} vo {n} richtig ({p} %).","exam_pass":"Bestande – dini Urkund wartet im Profil!","exam_fail":"Nonig bestande – ab Note 4 gits d Urkund. Probiers nomol!","cert_exam_t":"Schlussprüefig","cert_exam1":"het d Schlussprüefig mit dr Note {g} bestande","cert_exam2":"({p} % richtig bi 30 Froge us allne Einheite).","offline_t":"Du bisch offline","offline":"Kei Problem – d App funktioniert trotzdem.","update_t":"Neui Version glade","update_d":"Lad neu, zum si z bruuche.","reload":"Neu lade","pics_d":"10 Bilderfroge: Abfall trenne, Energie, Wasser und meh."}
+},
+"pics":{
+"en":[
+{"q":"Which class on this energy label is the most efficient?","o":["A (dark green)","D (yellow)","G (red)","They all use the same amount"],"x":"Since 2021 the A to G scale has applied again. A class A appliance uses much less electricity than a class G one – that saves money and CO₂.","alt":"An energy label with coloured bars from A (green) to G (red)"},
+{"q":"What is the process called in which water rises from the sea into the clouds?","o":["Evaporation","Seepage","Freezing","Run-off"],"x":"The sun warms the water, it evaporates and forms clouds. It comes back as rain – that is the water cycle.","alt":"Sun, sea, arrows to a cloud and rain"},
+{"q":"This LED bulb replaces an old incandescent bulb. Roughly how much electricity does it save?","o":["About 80–90%","About 10%","None at all","It uses more electricity"],"x":"An old incandescent bulb turns most of its electricity into heat instead of light. For the same brightness, LEDs need only about a tenth to a fifth of the electricity and last much longer.","alt":"A glowing LED bulb"},
+{"q":"The tap is dripping. What is true?","o":["A dripping tap can waste over 1,000 litres of water a year","A few drops don’t matter","Dripping actually saves water","Only hot water counts"],"x":"Even a slowly dripping tap loses over a thousand litres a year – often a new washer costing a few cents is enough to fix it.","alt":"A dripping tap with a puddle"},
+{"q":"Roughly how much water goes into making a cotton T-shirt?","o":["About 2,700 litres","About 3 litres","About 30 litres","About 300,000 litres"],"x":"Growing cotton in particular needs a lot of water: around 2,700 litres for one T-shirt – as much drinking water as a person needs over several years.","alt":"A green T-shirt with a drop of water"},
+{"q":"How much CO₂ does this bicycle emit while riding?","o":["None – it runs on muscle power","As much as a car","Half as much as a car","As much as a plane"],"x":"Riding produces no CO₂. Only making the bike causes some – and compared with a car, that is saved again after a few hundred kilometres.","alt":"A green bicycle"},
+{"q":"What does this bog store particularly well?","o":["Carbon (CO₂)","Crude oil","Plastic","Salt"],"x":"Bogs cover only about 3% of the Earth’s land surface but store around twice as much carbon as all forests put together. If they are drained, the CO₂ escapes.","alt":"A wet bog with bulrushes and layers of peat"},
+{"q":"Why is the plastic bag in the sea dangerous for the turtle?","o":["It thinks the bag is a jellyfish and eats it","The bag is too warm","Turtles are allergic to paint","It isn’t dangerous at all"],"x":"Sea turtles eat jellyfish – a floating bag looks similar. Plastic in the stomach can kill them. So: use a cloth bag instead of a plastic bag.","alt":"A sea turtle swimming towards a plastic bag"}
+],
+"fr":[
+{"q":"Quelle classe de cette étiquette énergie est la plus économe ?","o":["A (vert foncé)","D (jaune)","G (rouge)","Tous consomment autant"],"x":"Depuis 2021, l’échelle de A à G s’applique de nouveau. Un appareil de classe A consomme bien moins d’électricité qu’un appareil de classe G – cela économise de l’argent et du CO₂.","alt":"Une étiquette énergie avec des barres colorées de A (vert) à G (rouge)"},
+{"q":"Comment s’appelle le processus par lequel l’eau monte de la mer vers les nuages ?","o":["L’évaporation","L’infiltration","La congélation","Le ruissellement"],"x":"Le soleil chauffe l’eau, elle s’évapore et forme des nuages. Elle revient sous forme de pluie – c’est le cycle de l’eau.","alt":"Soleil, mer, flèches vers un nuage et pluie"},
+{"q":"Cette lampe LED remplace une vieille ampoule à incandescence. Combien d’électricité économise-t-elle environ ?","o":["Environ 80–90 %","Environ 10 %","Rien du tout","Elle consomme plus d’électricité"],"x":"Une vieille ampoule transforme la plus grande partie de l’électricité en chaleur plutôt qu’en lumière. Pour la même luminosité, les LED n’ont besoin que d’un dixième à un cinquième de l’électricité et durent bien plus longtemps.","alt":"Une lampe LED allumée"},
+{"q":"Le robinet goutte. Qu’est-ce qui est vrai ?","o":["Un robinet qui goutte peut gaspiller plus de 1 000 litres d’eau par an","Quelques gouttes, ça ne compte pas","Goutter permet même d’économiser de l’eau","Seule l’eau chaude compte"],"x":"Même un robinet qui goutte lentement perd plus de mille litres par an – souvent, un nouveau joint à quelques centimes suffit.","alt":"Un robinet qui goutte avec une flaque"},
+{"q":"Combien d’eau faut-il environ pour fabriquer un T-shirt en coton ?","o":["Environ 2 700 litres","Environ 3 litres","Environ 30 litres","Environ 300 000 litres"],"x":"C’est surtout la culture du coton qui demande beaucoup d’eau : environ 2 700 litres pour un T-shirt – autant d’eau potable qu’une personne en boit en plusieurs années.","alt":"Un T-shirt vert avec une goutte d’eau"},
+{"q":"Combien de CO₂ ce vélo émet-il quand on roule ?","o":["Aucun – il roule à la force des muscles","Autant qu’une voiture","Moitié moins qu’une voiture","Autant qu’un avion"],"x":"Rouler ne produit pas de CO₂. Seule la fabrication en émet un peu – et par rapport à la voiture, c’est compensé après quelques centaines de kilomètres.","alt":"Un vélo vert"},
+{"q":"Qu’est-ce que cette tourbière stocke particulièrement bien ?","o":["Le carbone (CO₂)","Le pétrole","Le plastique","Le sel"],"x":"Les tourbières ne couvrent qu’environ 3 % des terres émergées, mais stockent environ deux fois plus de carbone que toutes les forêts réunies. Si on les assèche, le CO₂ s’échappe.","alt":"Une tourbière humide avec des massettes et des couches de tourbe"},
+{"q":"Pourquoi le sac plastique dans la mer est-il dangereux pour la tortue ?","o":["Elle prend le sac pour une méduse et le mange","Le sac est trop chaud","Les tortues sont allergiques à la peinture","Il n’est pas du tout dangereux"],"x":"Les tortues marines mangent des méduses – un sac qui flotte leur ressemble. Le plastique dans l’estomac peut les tuer. Donc : un sac en tissu plutôt qu’un sac plastique.","alt":"Une tortue marine nage vers un sac plastique"}
+],
+"pl":[
+{"q":"Która klasa na tej etykiecie energetycznej jest najbardziej oszczędna?","o":["A (ciemnozielona)","D (żółta)","G (czerwona)","Wszystkie zużywają tyle samo"],"x":"Od 2021 roku znów obowiązuje skala od A do G. Urządzenie klasy A zużywa znacznie mniej prądu niż urządzenie klasy G – to oszczędza pieniądze i CO₂.","alt":"Etykieta energetyczna z kolorowymi paskami od A (zielony) do G (czerwony)"},
+{"q":"Jak nazywa się proces, w którym woda z morza unosi się do chmur?","o":["Parowanie","Wsiąkanie","Zamarzanie","Spływ"],"x":"Słońce ogrzewa wodę, ta paruje i tworzy chmury. Wraca jako deszcz – to jest obieg wody.","alt":"Słońce, morze, strzałki do chmury i deszcz"},
+{"q":"Ta żarówka LED zastępuje starą żarówkę tradycyjną. Ile mniej więcej prądu oszczędza?","o":["Około 80–90%","Około 10%","Nic","Zużywa więcej prądu"],"x":"Stara żarówka zamienia większość prądu w ciepło zamiast w światło. Żarówki LED przy tej samej jasności potrzebują tylko około jednej dziesiątej do jednej piątej prądu i działają znacznie dłużej.","alt":"Świecąca żarówka LED"},
+{"q":"Kran kapie. Co jest prawdą?","o":["Kapiący kran może zmarnować ponad 1000 litrów wody rocznie","Kilka kropel nie ma znaczenia","Kapanie nawet oszczędza wodę","Liczy się tylko ciepła woda"],"x":"Nawet powoli kapiący kran traci w ciągu roku ponad tysiąc litrów – często wystarczy nowa uszczelka za kilka groszy.","alt":"Kapiący kran z kałużą"},
+{"q":"Ile mniej więcej wody potrzeba do wyprodukowania bawełnianej koszulki?","o":["Około 2700 litrów","Około 3 litrów","Około 30 litrów","Około 300 000 litrów"],"x":"Przede wszystkim uprawa bawełny wymaga dużo wody: na jedną koszulkę około 2700 litrów – tyle wody pitnej człowiek potrzebuje przez kilka lat.","alt":"Zielona koszulka z kroplą wody"},
+{"q":"Ile CO₂ wydziela ten rower podczas jazdy?","o":["Wcale – jeździ dzięki sile mięśni","Tyle co samochód","Połowę tego co samochód","Tyle co samolot"],"x":"Podczas jazdy nie powstaje CO₂. Trochę powstaje tylko przy produkcji – w porównaniu z samochodem zwraca się to po kilkuset kilometrach.","alt":"Zielony rower"},
+{"q":"Co to torfowisko szczególnie dobrze magazynuje?","o":["Węgiel (CO₂)","Ropę naftową","Plastik","Sól"],"x":"Torfowiska zajmują tylko około 3% powierzchni lądów Ziemi, ale magazynują mniej więcej dwa razy więcej węgla niż wszystkie lasy razem. Gdy się je osusza, CO₂ uchodzi do atmosfery.","alt":"Mokre torfowisko z pałką wodną i warstwami torfu"},
+{"q":"Dlaczego plastikowa torba w morzu jest niebezpieczna dla żółwia?","o":["Myśli, że torba to meduza, i ją zjada","Torba jest za ciepła","Żółwie są uczulone na farbę","Wcale nie jest niebezpieczna"],"x":"Żółwie morskie jedzą meduzy – dryfująca torba wygląda podobnie. Plastik w żołądku może je zabić. Dlatego: torba z materiału zamiast foliówki.","alt":"Żółw morski płynie w stronę plastikowej torby"}
+],
+"cs":[
+{"q":"Která třída na tomto energetickém štítku je nejúspornější?","o":["A (tmavě zelená)","D (žlutá)","G (červená)","Všechny spotřebují stejně"],"x":"Od roku 2021 opět platí stupnice od A do G. Spotřebič třídy A spotřebuje mnohem méně elektřiny než spotřebič třídy G – to šetří peníze i CO₂.","alt":"Energetický štítek s barevnými pruhy od A (zelená) po G (červená)"},
+{"q":"Jak se jmenuje proces, při kterém voda stoupá z moře do mraků?","o":["Vypařování","Vsakování","Mrznutí","Odtok"],"x":"Slunce ohřeje vodu, ta se vypaří a vytvoří mraky. Vrací se zpět jako déšť – to je koloběh vody.","alt":"Slunce, moře, šipky k mraku a déšť"},
+{"q":"Tato LED žárovka nahrazuje starou klasickou žárovku. Kolik elektřiny zhruba ušetří?","o":["Asi 80–90 %","Asi 10 %","Vůbec nic","Spotřebuje víc elektřiny"],"x":"Stará žárovka mění většinu elektřiny na teplo místo na světlo. LED potřebují pro stejný jas jen asi desetinu až pětinu elektřiny a vydrží mnohem déle.","alt":"Svítící LED žárovka"},
+{"q":"Z kohoutku kape voda. Co platí?","o":["Kapající kohoutek může za rok promrhat přes 1 000 litrů vody","Pár kapek nehraje roli","Kapání vodu dokonce šetří","Počítá se jen teplá voda"],"x":"I pomalu kapající kohoutek ztratí za rok přes tisíc litrů – často stačí nové těsnění za pár korun.","alt":"Kapající kohoutek s louží"},
+{"q":"Kolik vody zhruba spotřebuje výroba bavlněného trička?","o":["Asi 2 700 litrů","Asi 3 litry","Asi 30 litrů","Asi 300 000 litrů"],"x":"Hlavně pěstování bavlny potřebuje hodně vody: na jedno tričko asi 2 700 litrů – tolik pitné vody vypije člověk za několik let.","alt":"Zelené tričko s kapkou vody"},
+{"q":"Kolik CO₂ vypouští toto kolo při jízdě?","o":["Žádné – jezdí na sílu svalů","Tolik jako auto","Polovinu toho co auto","Tolik jako letadlo"],"x":"Při jízdě CO₂ nevzniká. Trochu vznikne jen při výrobě – oproti autu se to ušetří už po několika stech kilometrech.","alt":"Zelené kolo"},
+{"q":"Co toto rašeliniště obzvlášť dobře ukládá?","o":["Uhlík (CO₂)","Ropu","Plast","Sůl"],"x":"Rašeliniště pokrývají jen asi 3 % pevniny Země, ale ukládají zhruba dvakrát víc uhlíku než všechny lesy dohromady. Když se odvodní, CO₂ uniká.","alt":"Mokré rašeliniště s orobincem a vrstvami rašeliny"},
+{"q":"Proč je igelitová taška v moři pro želvu nebezpečná?","o":["Považuje tašku za medúzu a sní ji","Taška je moc teplá","Želvy jsou alergické na barvu","Vůbec není nebezpečná"],"x":"Mořské želvy jedí medúzy – plovoucí taška vypadá podobně. Plast v žaludku je může zabít. Proto: látková taška místo igelitky.","alt":"Mořská želva plave k igelitové tašce"}
+],
+"uk":[
+{"q":"Який клас на цьому енергетичному маркуванні найекономніший?","o":["A (темно-зелений)","D (жовтий)","G (червоний)","Усі споживають однаково"],"x":"З 2021 року знову діє шкала від A до G. Прилад класу A споживає значно менше електроенергії, ніж прилад класу G – це заощаджує гроші й CO₂.","alt":"Енергетичне маркування з кольоровими смугами від A (зелений) до G (червоний)"},
+{"q":"Як називається процес, під час якого вода з моря піднімається в хмари?","o":["Випаровування","Просочування","Замерзання","Стікання"],"x":"Сонце нагріває воду, вона випаровується й утворює хмари. Назад вона повертається дощем – це кругообіг води.","alt":"Сонце, море, стрілки до хмари й дощ"},
+{"q":"Ця LED-лампа замінює стару лампу розжарювання. Скільки приблизно електроенергії вона заощаджує?","o":["Приблизно 80–90 %","Приблизно 10 %","Зовсім нічого","Вона споживає більше електроенергії"],"x":"Стара лампа розжарювання перетворює більшу частину електроенергії на тепло, а не на світло. LED-лампам для тієї ж яскравості потрібно лише від десятої до п’ятої частини електроенергії, і служать вони набагато довше.","alt":"Увімкнена LED-лампа"},
+{"q":"Кран капає. Що правильно?","o":["Кран, що капає, може змарнувати понад 1000 літрів води на рік","Кілька крапель нічого не важать","Капання навіть заощаджує воду","Рахується лише гаряча вода"],"x":"Навіть повільно капаючий кран втрачає за рік понад тисячу літрів – часто досить нової прокладки за кілька копійок.","alt":"Кран, що капає, і калюжа"},
+{"q":"Скільки приблизно води йде на виготовлення бавовняної футболки?","o":["Приблизно 2700 літрів","Приблизно 3 літри","Приблизно 30 літрів","Приблизно 300 000 літрів"],"x":"Насамперед вирощування бавовни потребує багато води: на одну футболку близько 2700 літрів – стільки питної води людина випиває за кілька років.","alt":"Зелена футболка з краплею води"},
+{"q":"Скільки CO₂ викидає цей велосипед під час їзди?","o":["Нуль – він їде завдяки силі м’язів","Стільки ж, як автомобіль","Удвічі менше, ніж автомобіль","Стільки ж, як літак"],"x":"Під час їзди CO₂ не утворюється. Трохи з’являється лише під час виготовлення – порівняно з автомобілем це окупається вже після кількох сотень кілометрів.","alt":"Зелений велосипед"},
+{"q":"Що це болото особливо добре зберігає?","o":["Вуглець (CO₂)","Нафту","Пластик","Сіль"],"x":"Болота вкривають лише близько 3 % суходолу Землі, але зберігають приблизно вдвічі більше вуглецю, ніж усі ліси разом. Якщо їх осушити, CO₂ виходить назовні.","alt":"Мокре болото з рогозом і шарами торфу"},
+{"q":"Чому пластиковий пакет у морі небезпечний для черепахи?","o":["Вона приймає пакет за медузу й з’їдає його","Пакет занадто теплий","Черепахи мають алергію на фарбу","Він зовсім не небезпечний"],"x":"Морські черепахи їдять медуз – пакет, що плаває, схожий на них. Пластик у шлунку може їх убити. Тому: тканинна торба замість пластикового пакета.","alt":"Морська черепаха пливе до пластикового пакета"}
+],
+"la":[
+{"q":"Quae classis in hoc titulo energiae parcissima est?","o":["A (viridis obscura)","D (flava)","G (rubra)","Omnes aeque consumunt"],"x":"Ab anno 2021 scala ab A ad G iterum valet. Instrumentum classis A multo minus electricitatis consumit quam classis G – hoc pecuniam et CO₂ servat.","alt":"Titulus energiae cum virgis coloratis ab A (viridi) ad G (rubrum)"},
+{"q":"Quomodo appellatur processus, quo aqua e mari in nubes ascendit?","o":["Evaporatio","Infiltratio","Congelatio","Defluxus"],"x":"Sol aquam calefacit, quae evaporat et nubes format. Ut pluvia redit – hic est circulus aquae.","alt":"Sol, mare, sagittae ad nubem et pluviam"},
+{"q":"Haec lampas LED veterem lampadem candentem substituit. Quantum electricitatis fere servat?","o":["Circiter 80–90 %","Circiter 10 %","Nihil omnino","Plus electricitatis consumit"],"x":"Vetus lampas candens plurimam electricitatem in calorem, non in lucem convertit. LED ad eandem claritatem tantum decimam fere ad quintam partem electricitatis requirunt et multo diutius durant.","alt":"Lampas LED lucens"},
+{"q":"Epitonium stillat. Quid verum est?","o":["Epitonium stillans plus quam 1000 litra aquae per annum perdere potest","Paucae guttae nihil valent","Stillare aquam etiam servat","Sola aqua calida numeratur"],"x":"Etiam epitonium lente stillans per annum plus quam mille litra amittit – saepe nova obturatio paucorum centesimorum sufficit.","alt":"Epitonium stillans cum lacuna"},
+{"q":"Quantum aquae fere in tunica gossypina conficienda inest?","o":["Circiter 2700 litra","Circiter 3 litra","Circiter 30 litra","Circiter 300 000 litra"],"x":"Praesertim cultura gossypii multam aquam requirit: pro una tunica circiter 2700 litra – tantum aquae potabilis homo pluribus annis bibit.","alt":"Tunica viridis cum gutta aquae"},
+{"q":"Quantum CO₂ haec birota in vehendo emittit?","o":["Nihil – vi musculorum movetur","Tantum quantum autocinetum","Dimidium autocineti","Tantum quantum aeroplanum"],"x":"In vehendo nullum CO₂ oritur. Aliquid tantum in fabricando – quod paucis centenis chiliometris confectis prae autocineto iterum servatur.","alt":"Birota viridis"},
+{"q":"Quid haec palus praecipue bene servat?","o":["Carbonium (CO₂)","Petroleum","Plasticum","Salem"],"x":"Paludes tantum circiter 3 % terrae tegunt, sed fere duplum carbonii servant quam omnes silvae simul. Si siccantur, CO₂ effugit.","alt":"Palus umida cum typhis et stratis turfae"},
+{"q":"Cur sacculus plasticus in mari testudini periculosus est?","o":["Sacculum pro medusa habet et devorat","Sacculus nimis calidus est","Testudines pigmento allergicae sunt","Omnino non periculosus est"],"x":"Testudines marinae medusas edunt – sacculus fluitans similis videtur. Plasticum in ventre eas necare potest. Ergo: sacculus textilis pro sacculo plastico.","alt":"Testudo marina ad sacculum plasticum natat"}
+],
+"bar":[
+{"q":"Wos für a Klass auf dem Energielabel is de sparsamste?","o":["A (dunkelgrea)","D (gelb)","G (rot)","Olle braucha gleich vui"],"x":"Seit 2021 gilt wieda de Skala vo A bis G. A Gerät vo da Klass A braucht vui weniger Strom ois oans vo da Klass G – des spart Geld und CO₂.","alt":"A Energielabel mit bunte Balkn vo A (grea) bis G (rot)"},
+{"q":"Wia hoaßt des, wenn Wasser vom Meer in d’Wolkn aufsteigt?","o":["Verdunstung","Versickerung","Gfriern","Abfluss"],"x":"D’Sonn wärmt des Wasser, es verdunst und macht Wolkn. Ois Regn kimmt’s wieda zruck – des is da Wasserkreislauf.","alt":"Sonn, Meer, Pfeil zu a Wolkn und Regn"},
+{"q":"De LED-Lampn ersetzt a oide Glühbirn. Wia vui Strom spart de ungefähr?","o":["So um de 80–90 %","Ungefähr 10 %","Gar nix","De braucht mehr Strom"],"x":"A oide Glühbirn macht aus’m meistn Strom Wärme statt Liacht. LEDs braucha für de gleiche Helligkeit nur a Zehntl bis a Fünftl vom Strom und hoitn vui länger.","alt":"A leuchtende LED-Lampn"},
+{"q":"Da Wasserhahn tropft. Wos stimmt?","o":["A tropfada Hahn ko über 1.000 Liter Wasser im Johr vergeidn","A paar Tropfn san wurscht","Tropfn spart sogar Wasser","Nur warms Wasser zählt"],"x":"Scho a langsam tropfada Hahn valiert übers Johr über tausnd Liter – oft langt a neie Dichtung für a paar Cent.","alt":"A tropfada Wasserhahn mit a Lackn"},
+{"q":"Wia vui Wasser steckt ungefähr in da Herstellung vo am Baumwoll-T-Shirt?","o":["Ungefähr 2.700 Liter","Ungefähr 3 Liter","Ungefähr 30 Liter","Ungefähr 300.000 Liter"],"x":"Vor oim da Anbau vo Baumwoi braucht vui Wasser: für a T-Shirt rund 2.700 Liter – so vui Trinkwasser braucht a Mensch in a paar Johr.","alt":"A greans T-Shirt mit am Wassertropfn"},
+{"q":"Wia vui CO₂ stoßt des Radl beim Fahrn aus?","o":["Koans – des foahrt mit Muskelkraft","So vui wia a Auto","Hoib so vui wia a Auto","So vui wia a Fliaga"],"x":"Beim Fahrn entsteht koa CO₂. Nur bei da Herstellung foit a bissl o – des is nach a paar hundert Kilometer gegnüber’m Auto wieda eigspart.","alt":"A greans Radl"},
+{"q":"Wos speichert des Moos bsonders guad?","o":["Kohlnstoff (CO₂)","Erdöl","Plastik","Soiz"],"x":"Moore deckn nur so um de 3 % vo da Landfläch vo da Erd, speichern aber rund doppelt so vui Kohlnstoff wia olle Wälder zamm. Wenn’s trockngleckt wern, entweicht des CO₂.","alt":"A nasses Moos mit Rohrkoibn und Torfschichtn"},
+{"q":"Warum is de Plastiktütn im Meer für d’Schildkrötn gfährlich?","o":["De hoit d’Tütn für a Qualln und frisst’s","D’Tütn is z’warm","Schildkrötn san allergisch gegn Farb","De is gar ned gfährlich"],"x":"Meeresschildkrötn fressn Qualln – a treibade Tütn schaut ähnlich aus. Plastik im Mogn ko’s umbringa. Drum: Stoffbeitl statt Plastiktütn.","alt":"A Meeresschildkrötn schwimmt auf a Plastiktütn zua"}
+],
+"gsw":[
+{"q":"Weli Klass uf dem Energielabel isch di sparsamst?","o":["A (dunkelgrüen)","D (gääl)","G (rot)","Alli bruuche gliich viel"],"x":"Sit 2021 gilt wieder d Skala vo A bis G. Es Grät vo dr Klass A bruucht vill weniger Strom als eis vo dr Klass G – das spart Gäld und CO₂.","alt":"Es Energielabel mit farbige Balke vo A (grüen) bis G (rot)"},
+{"q":"Wie heisst dr Vorgang, wo s Wasser vom Meer i d Wolke ufstiigt?","o":["Verdunschtig","Versickerig","Gfriere","Abfluss"],"x":"D Sunne wärmt s Wasser, es verdunschtet und bildet Wolke. Als Rääge chunnts zrugg – das isch dr Wasserchreislauf.","alt":"Sunne, Meer, Pfiil zu ere Wolke und Rääge"},
+{"q":"Die LED-Lampe ersetzt e alti Glüehbirne. Wie viel Strom spart si öppe?","o":["Öppe 80–90 %","Öppe 10 %","Gar nüt","Si bruucht meh Strom"],"x":"E alti Glüehbirne macht us em meischte Strom Wärmi statt Liecht. LEDs bruuche für di gliich Helligkeit nume öppe es Zähntel bis es Füftel vom Strom und halte vill länger.","alt":"E lüüchtendi LED-Lampe"},
+{"q":"Dr Wasserhahn tropft. Was stimmt?","o":["En tropfende Hahn cha über 1000 Liter Wasser im Johr verschwände","Es paar Tropfe spiled kei Rolle","Tropfe spart sogar Wasser","Nume warms Wasser zellt"],"x":"Scho en langsam tropfende Hahn verlüürt übers Johr über tuusig Liter – oft längt e neui Dichtig für es paar Rappe.","alt":"En tropfende Wasserhahn mit ere Glungge"},
+{"q":"Wie viel Wasser steckt öppe i dr Herstellig vo emne Baumwull-T-Shirt?","o":["Öppe 2700 Liter","Öppe 3 Liter","Öppe 30 Liter","Öppe 300 000 Liter"],"x":"Vor allem dr Aabau vo Baumwulle bruucht vill Wasser: für es T-Shirt rund 2700 Liter – so viel Trinkwasser bruucht e Mönsch i mehrere Johr.","alt":"Es grüens T-Shirt mit emne Wassertropfe"},
+{"q":"Wie viel CO₂ stosst das Velo bim Fahre us?","o":["Keis – es fahrt mit Muskelchraft","So viel wie es Auto","Halb so viel wie es Auto","So viel wie es Flugzüüg"],"x":"Bim Fahre entstoht kei CO₂. Nume bi dr Herstellig fallt öppis aa – das isch nach es paar hundert Kilometer gegenüber em Auto wieder iigspart.","alt":"Es grüens Velo"},
+{"q":"Was speicheret das Moor bsunders guet?","o":["Kohlestoff (CO₂)","Erdöl","Plastik","Salz"],"x":"Moor decke nume öppe 3 % vo dr Landflächi vo dr Ärde, speichere aber rund doppelt so viel Kohlestoff wie alli Wälder zäme. Wenn mer si trochelegt, entwiicht s CO₂.","alt":"Es nasses Moor mit Rohrcholbe und Torfschichte"},
+{"q":"Wieso isch dr Plastiksack im Meer für d Schildchrott gföhrlich?","o":["Si meint, dr Sack sig e Qualle, und frisst en","Dr Sack isch z warm","Schildchrotte sind allergisch gege Farb","Er isch gar nid gföhrlich"],"x":"Meeresschildchrotte frässe Qualle – e tribende Sack gseht ähnlich us. Plastik im Mage cha si töte. Drum: Stoffsack statt Plastiksack.","alt":"E Meeresschildchrott schwümmt uf e Plastiksack zue"}
+]
+}};
+Object.keys(EXTRA_TR2.ui).forEach(l=>{ UI_EXTRA[l] = Object.assign(UI_EXTRA[l]||{}, EXTRA_TR2.ui[l]); });
 Object.keys(UI_EXTRA).forEach(l=>{ if(I18N[l]) Object.assign(I18N[l], UI_EXTRA[l]); });
 /* Impressum: bitte ausfüllen (erscheint unter Profil → Datenschutz & Impressum) */
 const LEGAL = {
@@ -2731,12 +2839,14 @@ const ICONS = {
   chat:{f:'M4 4.5h16a1 1 0 0 1 1 1V16a1 1 0 0 1-1 1h-9l-5 4v-4H4a1 1 0 0 1-1-1V5.5a1 1 0 0 1 1-1z'},
   speaker:{f:'M3.5 9h4l5-4.5v15l-5-4.5h-4z',s:'M16 8.5a5 5 0 0 1 0 7M18.8 5.8a9 9 0 0 1 0 12.4'},
   image:{s:'M4 4.5h16a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-13a1 1 0 0 1 1-1zM3.5 16l5-5 4 4 3-3 5 5',f:'M15.5 7a1.8 1.8 0 1 1 0 3.6 1.8 1.8 0 0 1 0-3.6z'},
-  pen:{f:'M15.5 4.5l4 4L8.5 19.5 3.5 20.5l1-5z'}
+  pen:{f:'M15.5 4.5l4 4L8.5 19.5 3.5 20.5l1-5z'},
+  gear:{f:(()=>{ let d = ''; for(let i=0;i<16;i++){ const a = i*Math.PI/8 - Math.PI/16, r = i%2 ? 7.6 : 10.2, b = a + Math.PI/8; d += (i?'L':'M') + (12+r*Math.cos(a)).toFixed(2)+' '+(12+r*Math.sin(a)).toFixed(2) + 'L' + (12+r*Math.cos(b)).toFixed(2)+' '+(12+r*Math.sin(b)).toFixed(2); } return d + 'ZM12 8.6a3.4 3.4 0 1 0 0 6.8 3.4 3.4 0 0 0 0-6.8z'; })(), fr:1},
+  cap:{f:'M12 4 1.5 9 12 14l8.5-4v6h2V9zM6 13.2v3.6c1.6 1.4 3.7 2.2 6 2.2s4.4-.8 6-2.2v-3.6L12 16z'}
 };
 function icon(n, cls=''){
   const d = ICONS[n]; if(!d) return '';
   let s = `<svg class="ic ${cls}" viewBox="0 0 24 24" aria-hidden="true">`;
-  if(d.f) s += `<path d="${d.f}" fill="currentColor"/>`;
+  if(d.f) s += `<path d="${d.f}" fill="currentColor"${d.fr?' fill-rule="evenodd"':''}/>`;
   if(d.s) s += `<path d="${d.s}" fill="none" stroke="${d.sc||'currentColor'}" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>`;
   return s + '</svg>';
 }
@@ -2757,7 +2867,7 @@ const MOTION = !(window.matchMedia && matchMedia('(prefers-reduced-motion: reduc
 const GROW = [{xp:0,t:'Keimling',k:.82},{xp:100,t:'Sprössling',k:1},{xp:300,t:'Jungpflanze',k:1.12},{xp:700,t:'Starke Pflanze',k:1.2},{xp:1500,t:'Blühender Sprossi',k:1.26}];
 function growStage(xp){ let n = 0; GROW.forEach((g,i)=>{ if(xp>=g.xp) n = i; }); return {n, k:GROW[n].k, t:GROW[n].t, next:GROW[n+1]}; }
 function mascot(mood='happy', outfit, still){
-  const gs = growStage((typeof S!=='undefined' && S) ? S.xp : 100);
+  const gs = {n:1, k:1};   /* Sprossi bleibt gleich groß (Wachstum durch den Garten im Profil ersetzt) */
   const wear = WEAR[outfit===undefined ? S.outfit : outfit] || '';
   const face = mood==='wave' ? 'cheer' : mood;
   const mouth = {
@@ -3762,7 +3872,7 @@ const PRAISE = ['Super!','Richtig!','Klasse!','Stark!','Genau!','Sehr gut!','Gr�
 /* ================= Zustand ================= */
 const KEY = 'ggaf-quizzes-v1';
 const HEART_MS = 30*60*1000, MAX_H = 5;
-const defaults = () => ({name:'', xp:0, hearts:MAX_H, heartsTs:Date.now(), streak:0, lastDay:null, goal:30, log:{}, done:{}, badges:{}, lessons:0, perfect:0, answered:0, correct:0, blitzBest:0, missed:[], sound:true, tab:'learn', read:{}, spent:0, owned:[], outfit:'', freeze:0, boost:false, froze:0, introDone:false, srs:{}, dstat:{}, bg:'', recapWeek:'', unitOrder:2, theme:'auto', lang:'de', easy:false, opens:0});
+const defaults = () => ({name:'', xp:0, hearts:MAX_H, heartsTs:Date.now(), streak:0, lastDay:null, goal:30, log:{}, done:{}, badges:{}, lessons:0, perfect:0, answered:0, correct:0, blitzBest:0, missed:[], sound:true, tab:'learn', read:{}, spent:0, owned:[], outfit:'', freeze:0, boost:false, froze:0, introDone:false, srs:{}, dstat:{}, bg:'', recapWeek:'', unitOrder:2, theme:'auto', lang:'de', easy:false, opens:0, exam:{}});
 const balance = () => S.xp - S.spent;   /* ausgebbare XP; S.xp bleibt die Gesamtsumme für Abzeichen */
 let S = load();
 S.opens++; save();   /* nur ein Zähler auf diesem Gerät – ohne IP, ohne Server */
@@ -3795,7 +3905,7 @@ function sanitize(s){
   const d = defaults(), r = Object.assign(defaults(), s);
   r.unitOrder = 2;
   Object.keys(d).forEach(k=>{ const def = d[k]; if(Array.isArray(def) ? !Array.isArray(r[k]) : (def!==null && (r[k]===null || typeof r[k]!==typeof def))) r[k] = def; });
-  if(!['learn','practice','shop','badges','profile'].includes(r.tab)) r.tab = 'learn';
+  if(!['learn','practice','shop','badges','profile','settings'].includes(r.tab)) r.tab = 'learn';
   if(LANG_CODES.indexOf(r.lang)<0) r.lang = 'de';
   return r;
 }
@@ -4009,6 +4119,7 @@ function renderTop(){
   $('#stXp').innerHTML = icon('leaf')+balance();
   $('#stXp').setAttribute('aria-label', T('xp_spend',{n:balance()}));
   $('#stHearts').innerHTML = icon('heart')+S.hearts;
+  $('#stSet').innerHTML = icon('gear'); $('#stSet').setAttribute('aria-label', T('settings')); $('#stSet').classList.toggle('on', S.tab==='settings');
   $('#stHearts').setAttribute('aria-label', TP('hearts_n', S.hearts));
   bumpStat('#stStreak', st); bumpStat('#stXp', balance()); bumpStat('#stHearts', S.hearts);
 }
@@ -4017,7 +4128,7 @@ function renderTabs(){
 }
 function render(scrollToCurrent){
   renderTop(); renderTabs();
-  ({learn:renderLearn, practice:renderPractice, shop:renderShop, badges:renderBadges, profile:renderProfile})[S.tab]();
+  ({learn:renderLearn, practice:renderPractice, shop:renderShop, badges:renderBadges, profile:renderProfile, settings:renderSettings})[S.tab]();
   const vw = $('#view'); vw.classList.remove('viewin'); void vw.offsetWidth; vw.classList.add('viewin');
   if(scrollToCurrent && S.tab==='learn'){ const cs = document.querySelectorAll('.nwrap.current'), c = cs[cs.length-1]; if(c && currentG()>0) c.scrollIntoView({block:'center'}); else window.scrollTo(0,0); }
   else window.scrollTo(0,0);
@@ -4068,6 +4179,7 @@ function renderPractice(){
     <div class="card pcard"><div class="badge" style="background:var(--red);color:#fff">${icon('bulb')}</div><div><h3>${T('myth_t')}</h3><p>${T('myth_d')}</p></div><button class="btn go" data-act="myth">${T('go')}</button></div>
     <div class="card pcard"><div class="badge" style="background:var(--sprout);color:var(--forestShade)">${icon('leaf')}</div><div><h3>${T('check_title')}</h3><p>${T('check_d')}</p></div><button class="btn go" data-check="0">${T('start')}</button></div>
     <div class="card pcard"><div class="badge" style="background:var(--forest);color:var(--lime)">${icon('book')}</div><div><h3>${T('lex_title')}</h3><p>${T('lex_d',{n:LEXIKON.length})}</p></div><button class="btn go" data-act="lexikon">${T('open')}</button></div>
+    <div class="card pcard"><div class="badge" style="background:var(--forest);color:var(--lime)">${icon('cap')}</div><div><h3>${T('exam')}</h3><p>${T('exam_d')}${S.exam.g ? ' '+T('exam_best',{g:S.exam.g}) : ''}</p></div><button class="btn go" data-act="exam">${T('start')}</button></div>
     <div class="card pcard"><div class="badge" style="background:#3B82F6;color:#fff">${icon('image')}</div><div><h3>${T('pics')}</h3><p>${T('pics_d')}</p></div><button class="btn go" data-act="pics">${T('go')}</button></div>
     <div class="card pcard"><div class="badge" style="background:var(--lime);color:var(--forest)">${icon('pen')}</div><div><h3>${T('suggest')}</h3><p>${T('suggest_d')}</p></div><button class="btn go" data-act="suggest">${T('open')}</button></div>
   </div>`;
@@ -4102,26 +4214,14 @@ function renderProfile(){
   <div class="card">${recapHTML(recap(0))}<p class="recapnote">${T('recap_note')}</p></div>
   <h2 class="sec">${T('daily_goal')}</h2>
   <div class="seg">${[[10,T('g_easy')],[20,T('g_normal')],[30,T('g_serious')],[50,T('g_intense')]].map(([g,l])=>`<button data-goal="${g}" aria-pressed="${S.goal===g}">${g} XP<small>${l}</small></button>`).join('')}</div>
-  <h2 class="sec">${T('grow_title')}</h2>
-  ${(()=>{ const g = growStage(S.xp); return `<div class="card pcard grow">${mascot('happy')}<div><h3>${T('grow_stage',{n:g.n+1, m:GROW.length, t:g.t})}</h3><p>${g.next ? T('grow_next',{n:g.next.xp - S.xp, t:g.next.t}) : T('grow_max')}</p><div class="bar"><i style="width:${g.next ? Math.round((S.xp-GROW[g.n].xp)/(g.next.xp-GROW[g.n].xp)*100) : 100}%"></i></div></div></div>`; })()}
+  <h2 class="sec">${T('garden')}</h2>
+  ${gardenHTML()}
   <h2 class="sec">${T('certs')}</h2>
   ${(()=>{ const allN = UNITS.filter((_,u)=>S.done[nodeId(u,3)]).length, agN = [0,1,2].filter(k=>S.done[nodeId(-1,k)]).length;
     const row = (title, n, m, act) => `<div class="card pcard"><div class="badge" style="background:${n>=m?'var(--lime)':'var(--lock)'};color:${n>=m?'var(--forest)':'var(--lockInk)'}">${icon('medal')}</div><div><h3>${title}</h3><p>${n>=m ? T('cert_ready') : T('n_of_m_done',{n, m})}</p></div><button class="btn go" data-act="${act}" ${n>=m?'':'disabled'}>${T('view')}</button></div>`;
-    return `<div class="stack">${row(T('cert_all_t'), allN, UNITS.length, 'certAll')}${row(T('cert_ag_t',{ag:AG.t}), agN, 3, 'certAg')}</div>`; })()}
+    return `<div class="stack">${row(T('cert_all_t'), allN, UNITS.length, 'certAll')}${row(T('cert_ag_t',{ag:AG.t}), agN, 3, 'certAg')}${row(T('cert_exam_t') + (S.exam.g ? ' · '+T('exam_best',{g:S.exam.g}) : ''), S.exam.g && S.exam.g<=4 ? 1 : 0, 1, 'certExam')}</div>`; })()}
   <h2 class="sec">${T('feedback')}</h2>
   <div class="card stack"><p class="cardtxt">${T('feedback_text')}</p><a class="btn block" href="${FEEDBACK_URL}" target="_blank" rel="noopener">${icon('chat')}${T('feedback_give')}</a><button class="btn ghost block" data-act="suggest">${icon('pen')}${T('suggest')}</button></div>
-  <h2 class="sec">${T('language')}</h2>
-  <div class="seg langs">${LANGS.map(([v,l])=>`<button data-lang-set="${v}" lang="${v}" aria-pressed="${LANG===v}">${l}</button>`).join('')}</div>
-  <h2 class="sec">${T('design')}</h2>
-  <div class="seg">${[['auto',T('th_auto'),T('th_auto_s')],['light',T('th_light'),T('th_light_s')],['dark',T('th_dark'),T('th_dark_s')]].map(([v,l,s])=>`<button data-theme-set="${v}" aria-pressed="${S.theme===v}">${l}<small>${s}</small></button>`).join('')}</div>
-  <h2 class="sec">${T('settings')}</h2>
-  <div class="card stack">
-    <div class="row"><b>${T('sound')}</b><button class="switch" role="switch" id="snd" aria-checked="${S.sound}" aria-label="${T('sound')}"></button></div>
-    <div class="row"><div><b>${T('easy_mode')}</b><br><small>${T('easy_mode_s')}</small></div><button class="switch" role="switch" id="easy" aria-checked="${S.easy}" aria-label="${T('easy_mode')}"></button></div>
-    <div class="row"><b>${T('privacy')}</b><button class="btn ghost" data-act="privacy" style="padding:10px 14px;font-size:13px">${T('view')}</button></div>
-    <div class="row"><b>${T('intro')}</b><button class="btn ghost" data-act="intro" style="padding:10px 14px;font-size:13px">${T('view')}</button></div>
-    <div class="row"><b>${T('reset_progress')}</b><button class="btn ghost" data-act="reset" style="padding:10px 14px;font-size:13px">${T('reset')}</button></div>
-  </div>
   <h2 class="sec">${T('invite')}</h2>
   <div class="card stack">${window.GGAFApp ? `
     <p class="cardtxt">${T('invite_app_text')}</p>
@@ -4132,13 +4232,51 @@ function renderProfile(){
     <p class="cardtxt">${T('share_link')} <b class="qrurl" style="font-size:13px">${WEB_URL}</b></p>
     <p class="cardtxt">${T('apk_hint')}</p>`}
   </div>
+  <p class="about"><b>GGAF Quizzes!</b> – ${T('about')}</p>`;
+}
+/* Garten: für jede Einheit ein Beet – Erdhügel (nicht begonnen), Keimling (begonnen), Blume in Einheitsfarbe (Test bestanden) */
+function gardenHTML(){
+  const beds = UNITS.map((u,i)=>({u:unitOf(i), st: S.done[nodeId(i,3)] ? 2 : [0,1,2].some(k=>S.done[nodeId(i,k)]) ? 1 : 0, t:u.t}))
+    .concat([{u:unitOf(-1), st: S.done[nodeId(-1,2)] ? 2 : [0,1].some(k=>S.done[nodeId(-1,k)]) ? 1 : 0, t:AG.t}]);
+  const plant = b => {
+    const soil = '<ellipse cx="30" cy="54" rx="22" ry="6" fill="#8B6B2E"/><ellipse cx="30" cy="52" rx="18" ry="4" fill="#A9844A"/>';
+    if(b.st===0) return soil + '<circle cx="30" cy="49" r="2" fill="#6B4F1F"/>';
+    if(b.st===1) return soil + '<path d="M30 51V38" stroke="#2E6417" stroke-width="3" stroke-linecap="round"/><path d="M30 42c-8-1-10-7-9-9 6 0 9 4 9 9zM30 40c7-1 10-6 9-9-6 0-9 4-9 9z" fill="#7ED957"/>';
+    const c = b.u.c;
+    return soil + `<path d="M30 51V26" stroke="#2E6417" stroke-width="3" stroke-linecap="round"/><path d="M30 42c-9-1-12-7-11-10 7 0 11 4 11 10z" fill="#00BF63"/><path d="M30 36c8-1 11-6 10-9-6 0-10 3-10 9z" fill="#7ED957"/>`
+      + [0,72,144,216,288].map(a=>`<ellipse cx="30" cy="15" rx="5.5" ry="8" fill="${c}" stroke="#1E440E" stroke-width="1" transform="rotate(${a} 30 23)"/>`).join('') + '<circle cx="30" cy="23" r="5" fill="#FFD84A" stroke="#1E440E" stroke-width="1"/>';
+  };
+  const n = beds.filter(b=>b.st===2).length;
+  return `<div class="card"><p class="cardtxt">${T('garden_d')} <b>${T('garden_n',{n, m:beds.length})}</b></p>
+    <div class="garden">${beds.map(b=>`<svg viewBox="0 0 60 60" role="img" aria-label="${esc(b.t)}"><title>${esc(b.t)}</title>${plant(b)}</svg>`).join('')}</div></div>`;
+}
+/* Abschlussprüfung: Note nach Prozent (wie in der Schule üblich) */
+const examGrade = p => p>=92 ? 1 : p>=81 ? 2 : p>=67 ? 3 : p>=50 ? 4 : p>=30 ? 5 : 6;
+/* Einstellungen (Zahnrad oben rechts): Sprache, Design, Optionen, Datenschutz, App-Infos */
+function renderSettings(){
+  $('#view').innerHTML = `<h1 class="h1">${T('settings')}</h1><p class="lead">${T('settings_lead')}</p>
+  <h2 class="sec">${T('language')}</h2>
+  <div class="seg langs">${LANGS.map(([v,l])=>`<button data-lang-set="${v}" lang="${v}" aria-pressed="${LANG===v}">${l}</button>`).join('')}</div>
+  <h2 class="sec">${T('design')}</h2>
+  <div class="seg">${[['auto',T('th_auto'),T('th_auto_s')],['light',T('th_light'),T('th_light_s')],['dark',T('th_dark'),T('th_dark_s')]].map(([v,l,s])=>`<button data-theme-set="${v}" aria-pressed="${S.theme===v}">${l}<small>${s}</small></button>`).join('')}</div>
+  <h2 class="sec">${T('options')}</h2>
+  <div class="card stack">
+    <div class="row"><b>${T('sound')}</b><button class="switch" role="switch" id="snd" aria-checked="${S.sound}" aria-label="${T('sound')}"></button></div>
+    <div class="row"><div><b>${T('easy_mode')}</b><br><small>${T('easy_mode_s')}</small></div><button class="switch" role="switch" id="easy" aria-checked="${S.easy}" aria-label="${T('easy_mode')}"></button></div>
+    <div class="row"><b>${T('intro')}</b><button class="btn ghost" data-act="intro" style="padding:10px 14px;font-size:13px">${T('view')}</button></div>
+  </div>
   <h2 class="sec">${T('backup_sec')}</h2>
   <div class="card stack">
     <p class="cardtxt">${T('backup_text')}</p>
     <button class="btn block" data-act="backup">${T('backup_create')}</button>
     <button class="btn ghost block" data-act="restore">${T('backup_paste')}</button>
   </div>
-  <p class="about"><b>GGAF Quizzes!</b> – ${T('about')}<br>${T('opens',{n:S.opens})}${window.GGAFApp ? '' : `<br><span id="webCount">${webCount ? T('web_count',{n:fmtNum(webCount)}) : ''}</span>`}<br>${T('fact_stand',{d:factStand()})}${window.GGAFApp && GGAFApp.version ? T('app_version',{v:esc(GGAFApp.version())}) : ''}</p>`;
+  <h2 class="sec">${T('app_info')}</h2>
+  <div class="card stack">
+    <div class="row"><b>${T('privacy')}</b><button class="btn ghost" data-act="privacy" style="padding:10px 14px;font-size:13px">${T('view')}</button></div>
+    <div class="row"><b>${T('reset_progress')}</b><button class="btn ghost" data-act="reset" style="padding:10px 14px;font-size:13px">${T('reset')}</button></div>
+  </div>
+  <p class="about">${T('opens',{n:S.opens})}${window.GGAFApp ? '' : `<br><span id="webCount">${webCount ? T('web_count',{n:fmtNum(webCount)}) : ''}</span>`}<br>${T('fact_stand',{d:factStand()})}${window.GGAFApp && GGAFApp.version ? T('app_version',{v:esc(GGAFApp.version())}) : ''}</p>`;
 }
 /* Faktenstand-Datum („September 2026“) mit Monatsnamen in der aktuellen Sprache */
 function factStand(){
@@ -4175,7 +4313,8 @@ function startLesson(opts){
   else if(opts.mode==='review'){ queue = shuffle(srsDue().map(byId)).slice(0,10); if(!queue.length){ render(); return; } }
   else if(opts.mode==='beamer') queue = unitOf(opts.u).qs.slice();
   else if(opts.mode==='estimate') queue = shuffle(ESTIMATES).slice(0,8);
-  else if(opts.mode==='pics') queue = shuffle(PICQ);
+  else if(opts.mode==='pics') queue = shuffle(PICQ).slice(0,10);
+  else if(opts.mode==='exam') queue = shuffle(UNITS.flatMap(u=>u.qs)).slice(0,30);
   else if(opts.mode==='myth') queue = shuffle(MYTHS).slice(0,10);   /* Klassen-Modus: alle 18 Aufgaben der Einheit in Reihenfolge */
   L = Object.assign({queue, total:queue.length, done:0, mistakes:0, answered:0, combo:0, maxCombo:0, t0:Date.now(), phase:'answer', retry:{}, pts:0}, opts);
   $('#lesson').hidden = false; document.body.style.overflow = 'hidden';
@@ -4194,7 +4333,7 @@ function startLesson(opts){
 function updLStat(){
   if(L.mode==='blitz'){ $('#lstat').className = 'lstat score'; $('#lstat').innerHTML = icon('bolt')+L.score; return; }
   $('#lstat').className = 'lstat';
-  $('#lstat').innerHTML = (L.mode==='lesson'||L.mode==='test') ? icon('heart')+S.hearts : L.mode==='beamer' ? T('task_n',{i:Math.min(L.done+1,L.total), n:L.total}) : icon(L.mode==='review'?'clock':'dumbbell');
+  $('#lstat').innerHTML = (L.mode==='lesson'||L.mode==='test') ? icon('heart')+S.hearts : (L.mode==='beamer'||L.mode==='exam') ? T('task_n',{i:Math.min(L.done+1,L.total), n:L.total}) : icon(L.mode==='review'?'clock':'dumbbell');
   $('#prog i').style.width = (L.done/L.total*100)+'%';
 }
 const TYPE_LABEL = {mc:['ty_mc','bulb'], tf:['ty_tf','chat'], fill:['ty_fill','chat'], order:['ty_order','shuffle'], match:['ty_match','shuffle'], est:['ty_est','target'], img:['ty_img','image']};   /* Text über T() */
@@ -4210,6 +4349,14 @@ const PIC_SVG = {
   receipt:`<svg viewBox="0 0 200 140"><path d="M66 12h68v112l-8-6-9 6-8-6-9 6-9-6-8 6-9-6-8 6z" fill="#fff" ${SK}/><path d="M78 30h44M78 44h30M78 54h36M78 64h26M78 74h34" stroke="#8A9A8A" stroke-width="3" stroke-linecap="round"/><path d="M78 92h44" stroke="#2E6417" stroke-width="4" stroke-linecap="round"/><path d="M78 104h20M110 104h12" stroke="#2E6417" stroke-width="3" stroke-linecap="round"/></svg>`,
   wind:`<svg viewBox="0 0 200 140"><path d="M60 132c20-10 60-10 80 0z" fill="#7ED957"/><path d="M97 48h6l4 84H93z" fill="#fff" ${SK}/><path d="M100 46 96 6c10 2 12 22 4 40zM100 46l38 18c-6 8-26 4-38-18zM100 46l-34 22c-4-10 16-22 34-22z" fill="#fff" ${SK}/><circle cx="100" cy="46" r="6" fill="#C1FF72" ${SK}/><path d="M146 24h20M150 34h22M28 30h22" stroke="#9FB6C8" stroke-width="3" stroke-linecap="round"/></svg>`,
   solar:`<svg viewBox="0 0 200 140"><circle cx="164" cy="26" r="14" fill="#FFD84A"/><path d="M164 4v6M164 42v6M142 26h6M180 26h6M149 11l4 4M175 37l4 4M179 11l-4 4M153 37l-4 4" stroke="#FFB020" stroke-width="3" stroke-linecap="round"/><path d="M40 60h110l-16 50H24z" fill="#2B5DAB" ${SK}/><path d="M76 60l-14 50M112 60l-14 50M33 85h108" stroke="#9CC3FF" stroke-width="3"/><path d="M84 110v18M70 128h28" ${SK}/></svg>`,
+  label:`<svg viewBox="0 0 200 140"><rect x="50" y="6" width="100" height="128" rx="6" fill="#fff" ${SK}/>${['#00A651','#50B848','#BFD730','#FFF200','#FDB913','#F37021','#ED1C24'].map((c,i)=>`<path d="M60 ${16+i*15}h${34+i*8}l7 6-7 6H60z" fill="${c}"/><text x="64" y="${26+i*15}" font-family="Arial" font-weight="900" font-size="11" fill="#fff">${'ABCDEFG'[i]}</text>`).join('')}<path d="M140 22h-14l-7 6 7 6h14z" fill="#1B3A0D"/><text x="126" y="32" font-family="Arial" font-weight="900" font-size="11" fill="#fff">A</text></svg>`,
+  water:`<svg viewBox="0 0 200 140"><circle cx="30" cy="26" r="14" fill="#FFD84A"/><path d="M0 104c20-8 40 8 60 0s40 8 60 0 40 8 60 0 20 4 20 4v32H0z" fill="#3B82F6"/><path d="M120 34a14 14 0 0 1 26-6 12 12 0 0 1 20 10 10 10 0 0 1-4 20h-40a12 12 0 0 1-2-24z" fill="#fff" ${SK}/><path d="M50 92c4-18 14-40 40-52M70 96c6-16 16-32 36-42" fill="none" stroke="#2E6417" stroke-width="3" stroke-dasharray="5 5"/><path d="M84 36l8 3-4 8M102 50l7 3-3 7" fill="none" ${SK}/><path d="M136 66l-4 10M150 66l-4 10M164 66l-4 10" stroke="#3B82F6" stroke-width="4" stroke-linecap="round"/></svg>`,
+  led:`<svg viewBox="0 0 200 140"><path d="M100 14a34 34 0 0 1 20 62c-4 3-6 8-6 12v4H86v-4c0-4-2-9-6-12a34 34 0 0 1 20-62z" fill="#FFF7C2" ${SK}/><path d="M88 58h24M92 50v26M100 50v26M108 50v26" stroke="#FFB020" stroke-width="3" stroke-linecap="round"/><rect x="86" y="92" width="28" height="22" rx="3" fill="#C9D1D9" ${SK}/><path d="M86 100h28M86 107h28" stroke="#2E6417" stroke-width="2"/><path d="M94 114h12l-2 8h-8z" fill="#3B3F46"/><path d="M52 40l-12-6M148 40l12-6M46 64H32M154 64h14" stroke="#FFB020" stroke-width="4" stroke-linecap="round"/><text x="100" y="42" text-anchor="middle" font-family="Arial" font-weight="900" font-size="12" fill="#2E6417">LED</text></svg>`,
+  tap:`<svg viewBox="0 0 200 140"><rect x="30" y="20" width="16" height="44" rx="3" fill="#C9D1D9" ${SK}/><path d="M46 34h56a14 14 0 0 1 14 14v8h-16v-6H46z" fill="#C9D1D9" ${SK}/><rect x="64" y="20" width="22" height="10" rx="4" fill="#3B82F6" ${SK}/><path d="M108 70c0 0-7 9-7 13a7 7 0 0 0 14 0c0-4-7-13-7-13z" fill="#6FB6FF" ${SK}/><path d="M108 98c0 0-5 7-5 10a5 5 0 0 0 10 0c0-3-5-10-5-10z" fill="#6FB6FF" stroke="#2E6417" stroke-width="2.5"/><ellipse cx="108" cy="130" rx="30" ry="5" fill="#6FB6FF" opacity=".6"/></svg>`,
+  shirt:`<svg viewBox="0 0 200 140"><path d="M74 16l-34 20 12 22 14-7v76h68V51l14 7 12-22-34-20c-4 10-14 14-26 14s-22-4-26-14z" fill="#7ED957" ${SK}/><path d="M86 16c2 8 8 12 14 12s12-4 14-12" fill="none" ${SK}/><circle cx="100" cy="80" r="16" fill="#fff" stroke="#2E6417" stroke-width="3"/><path d="M100 70c-5 6-7 10-7 13a7 7 0 0 0 14 0c0-3-2-7-7-13z" fill="#3B82F6"/></svg>`,
+  bike:`<svg viewBox="0 0 200 140"><circle cx="54" cy="94" r="28" fill="none" ${SK}/><circle cx="146" cy="94" r="28" fill="none" ${SK}/><circle cx="54" cy="94" r="3" fill="#2E6417"/><circle cx="146" cy="94" r="3" fill="#2E6417"/><path d="M54 94l30-44h46l16 44M84 50l14 44 32-44M98 94H54M76 40h20M124 34l6 16M118 34h14" fill="none" stroke="#00BF63" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="98" cy="94" r="6" fill="#fff" ${SK}/></svg>`,
+  moor:`<svg viewBox="0 0 200 140"><rect x="0" y="0" width="200" height="140" fill="#E3F4FF"/><path d="M0 84c30-6 60 4 100 0s70-6 100 0v56H0z" fill="#6B8E3A"/><path d="M20 100c30-4 50 6 80 2s50-6 80 0" fill="none" stroke="#3B82F6" stroke-width="6" stroke-linecap="round" opacity=".6"/><path d="M0 116h200v24H0z" fill="#5A3E22"/><path d="M0 124h200M0 132h200" stroke="#3E2A16" stroke-width="3"/>${[30,44,150,164,178].map(x=>`<path d="M${x} 96V56" stroke="#2E6417" stroke-width="3"/><rect x="${x-4}" y="50" width="8" height="18" rx="4" fill="#8B5A2B"/>`).join('')}<path d="M80 92c4-10 8-10 12 0M100 90c4-12 10-12 14 0" stroke="#C1FF72" stroke-width="3" fill="none"/></svg>`,
+  turtle:`<svg viewBox="0 0 200 140"><rect x="0" y="0" width="200" height="140" fill="#CFE8FF"/><ellipse cx="86" cy="76" rx="42" ry="28" fill="#2F9E44" ${SK}/><path d="M60 70h52M72 56l-6 36M100 56l6 36" stroke="#1E6B2E" stroke-width="3"/><ellipse cx="136" cy="70" rx="14" ry="11" fill="#7ED957" ${SK}/><circle cx="140" cy="66" r="2.5" fill="#1B3A0D"/><path d="M56 96l-16 12M110 98l12 14M58 54 42 42M104 52l10-12" stroke="#7ED957" stroke-width="10" stroke-linecap="round"/><path d="M160 60c10-4 22 0 24 10 2 12-8 20-6 30M168 62c0 10 8 16 4 28M176 64c4 8 6 18 0 26" fill="none" stroke="#fff" stroke-width="3" opacity=".95"/><path d="M156 50h28l-2 16h-24z" fill="#fff" stroke="#9FB6C8" stroke-width="2" opacity=".9"/></svg>`,
   bee:`<svg viewBox="0 0 200 140"><path d="M60 136c0-20 4-40 0-60" stroke="#2E6417" stroke-width="5" fill="none"/><path d="M60 110c-16-4-24-14-24-22 12 0 22 8 24 22z" fill="#7ED957" ${SK}/><g fill="#F7B6C8" ${SK}><circle cx="60" cy="50" r="14"/><circle cx="80" cy="66" r="14"/><circle cx="60" cy="82" r="14"/><circle cx="40" cy="66" r="14"/></g><circle cx="60" cy="66" r="10" fill="#FFD84A" ${SK}/><ellipse cx="136" cy="42" rx="16" ry="20" fill="#D6ECFF" stroke="#2E6417" stroke-width="3" opacity=".9"/><ellipse cx="146" cy="70" rx="30" ry="20" fill="#FFD84A" ${SK}/><path d="M138 52v36M152 51v38" stroke="#2E6417" stroke-width="6"/><circle cx="120" cy="66" r="12" fill="#3B3F46" ${SK}/><circle cx="116" cy="63" r="2.5" fill="#fff"/><path d="M110 58l-16 4" ${SK}/><path d="M92 58l-6 4M90 70l-8 2" stroke="#FFB020" stroke-width="3" stroke-linecap="round" stroke-dasharray="1 6"/></svg>`
 };
 /* q = Frage, o = Antworten (erste = richtig), x = Erklärung, alt = Bildbeschreibung für Screenreader */
@@ -4223,8 +4370,17 @@ const PICQ = [
   {img:'receipt', q:'Wohin gehört der Kassenbon?', o:['In den Restmüll','In die Papiertonne','In die Gelbe Tonne','In die Biotonne'], x:'Die meisten Kassenbons sind aus Thermopapier mit einer Spezialbeschichtung. Die stört das Papierrecycling. Tipp: Bon nur mitnehmen, wenn du ihn wirklich brauchst.', alt:'Ein langer Kassenbon mit Zeilen'},
   {img:'wind', q:'Welche Energie wird hier gewonnen?', o:['Windenergie','Wasserkraft','Sonnenenergie','Energie aus Kohle'], x:'Windräder sind in Deutschland die wichtigste Quelle für Ökostrom: Sie liefern etwa ein Drittel des gesamten Stroms.', alt:'Ein Windrad auf einer grünen Wiese'},
   {img:'solar', q:'Was siehst du auf dem Bild?', o:['Eine Solaranlage (Photovoltaik)','Ein Windrad','Einen Wärmetauscher','Ein Kohlekraftwerk'], x:'Solarmodule wandeln Sonnenlicht direkt in Strom um. Viele stehen auf Dächern – auch Schulen können so eigenen Strom erzeugen.', alt:'Ein blaues Solarmodul in der Sonne'},
-  {img:'bee', q:'Warum ist das, was die Biene hier macht, so wichtig?', o:['Sie bestäubt die Blüte – so wachsen Obst und Gemüse','Sie macht die Blüte kaputt','Sie düngt die Pflanze mit Honig','Sie verscheucht Schädlinge'], x:'Etwa drei Viertel der wichtigsten Nutzpflanzen der Welt profitieren von Bestäubern wie Bienen, Hummeln und Schmetterlingen. Blühstreifen und Wildblumen helfen ihnen.', alt:'Eine Biene fliegt zu einer rosa Blüte'}
+  {img:'bee', q:'Warum ist das, was die Biene hier macht, so wichtig?', o:['Sie bestäubt die Blüte – so wachsen Obst und Gemüse','Sie macht die Blüte kaputt','Sie düngt die Pflanze mit Honig','Sie verscheucht Schädlinge'], x:'Etwa drei Viertel der wichtigsten Nutzpflanzen der Welt profitieren von Bestäubern wie Bienen, Hummeln und Schmetterlingen. Blühstreifen und Wildblumen helfen ihnen.', alt:'Eine Biene fliegt zu einer rosa Blüte'},
+  {img:'label', q:'Welche Klasse auf diesem Energielabel ist die sparsamste?', o:['A (dunkelgrün)','D (gelb)','G (rot)','Alle verbrauchen gleich viel'], x:'Seit 2021 gilt wieder die Skala von A bis G. Ein Gerät der Klasse A braucht deutlich weniger Strom als eines der Klasse G – das spart Geld und CO₂.', alt:'Ein Energielabel mit farbigen Balken von A (grün) bis G (rot)'},
+  {img:'water', q:'Wie heißt der Vorgang, bei dem Wasser vom Meer in die Wolken aufsteigt?', o:['Verdunstung','Versickerung','Gefrieren','Abfluss'], x:'Die Sonne erwärmt das Wasser, es verdunstet und bildet Wolken. Als Regen kommt es zurück – das ist der Wasserkreislauf.', alt:'Sonne, Meer, Pfeile zu einer Wolke und Regen'},
+  {img:'led', q:'Diese LED-Lampe ersetzt eine alte Glühbirne. Wie viel Strom spart sie ungefähr?', o:['Rund 80–90 %','Etwa 10 %','Gar nichts','Sie braucht mehr Strom'], x:'Eine alte Glühbirne macht aus dem meisten Strom Wärme statt Licht. LEDs brauchen für die gleiche Helligkeit nur etwa ein Zehntel bis ein Fünftel des Stroms und halten viel länger.', alt:'Eine leuchtende LED-Lampe'},
+  {img:'tap', q:'Der Wasserhahn tropft. Was stimmt?', o:['Ein tropfender Hahn kann über 1.000 Liter Wasser im Jahr verschwenden','Ein paar Tropfen fallen nicht ins Gewicht','Tropfen spart sogar Wasser','Nur warmes Wasser zählt'], x:'Schon ein langsam tropfender Hahn verliert übers Jahr über tausend Liter – oft reicht eine neue Dichtung für wenige Cent.', alt:'Ein tropfender Wasserhahn mit einer Pfütze'},
+  {img:'shirt', q:'Wie viel Wasser steckt ungefähr in der Herstellung eines Baumwoll-T-Shirts?', o:['Etwa 2.700 Liter','Etwa 3 Liter','Etwa 30 Liter','Etwa 300.000 Liter'], x:'Vor allem der Anbau von Baumwolle braucht viel Wasser: für ein T-Shirt rund 2.700 Liter – so viel Trinkwasser braucht ein Mensch in mehreren Jahren.', alt:'Ein grünes T-Shirt mit einem Wassertropfen'},
+  {img:'bike', q:'Wie viel CO₂ stößt dieses Fahrrad beim Fahren aus?', o:['Keins – es fährt mit Muskelkraft','So viel wie ein Auto','Halb so viel wie ein Auto','So viel wie ein Flugzeug'], x:'Beim Fahren entsteht kein CO₂. Nur bei der Herstellung fällt etwas an – das ist nach wenigen hundert Kilometern gegenüber dem Auto wieder eingespart.', alt:'Ein grünes Fahrrad'},
+  {img:'moor', q:'Was speichert dieses Moor besonders gut?', o:['Kohlenstoff (CO₂)','Erdöl','Plastik','Salz'], x:'Moore bedecken nur etwa 3 % der Landfläche der Erde, speichern aber rund doppelt so viel Kohlenstoff wie alle Wälder zusammen. Werden sie trockengelegt, entweicht das CO₂.', alt:'Ein nasses Moor mit Rohrkolben und Torfschichten'},
+  {img:'turtle', q:'Warum ist die Plastiktüte im Meer für die Schildkröte gefährlich?', o:['Sie hält die Tüte für eine Qualle und frisst sie','Die Tüte ist zu warm','Schildkröten sind allergisch gegen Farbe','Sie ist gar nicht gefährlich'], x:'Meeresschildkröten fressen Quallen – eine treibende Tüte sieht ähnlich aus. Plastik im Magen kann sie töten. Deshalb: Stoffbeutel statt Plastiktüte.', alt:'Eine Meeresschildkröte schwimmt auf eine Plastiktüte zu'}
 ].map((q,i)=>Object.assign({t:'img', id:'pic.'+i}, q));
+(EXTRA_TR2.pics[LANG]||[]).forEach((tr,i)=>{ const q = PICQ[10+i]; if(q && tr && tr.o && tr.o.length===q.o.length) Object.assign(q, {q:tr.q, o:tr.o, x:tr.x, alt:tr.alt}); });
 (EXTRA_TR.pics[LANG]||[]).forEach((tr,i)=>{ if(PICQ[i] && tr && tr.o && tr.o.length===PICQ[i].o.length) Object.assign(PICQ[i], {q:tr.q, o:tr.o, x:tr.x, alt:tr.alt}); });
 /* ================= Vorlesen (Web: speechSynthesis, Android-App: TextToSpeech über GGAFApp) ================= */
 const TTS_LANG = {de:'de-DE', en:'en-GB', fr:'fr-FR', pl:'pl-PL', cs:'cs-CZ', uk:'uk-UA', la:'it-IT', bar:'de-DE', gsw:'de-CH'};   /* Latein: italienische Stimme kommt der Schulaussprache am nächsten */
@@ -4360,7 +4516,7 @@ function feedback(ok, sol){
     if(L.mode==='missed') S.missed = S.missed.filter(id=>id!==q.id);
   } else { L.mistakes++; L.combo = 0; sBad();
     if(own && !extra && !S.missed.includes(q.id)) S.missed.push(q.id);
-    if(L.mode==='beamer'){ L.done++; }   /* im Klassen-Modus einfach weiter – Auflösung steht im Feedback */
+    if(L.mode==='beamer' || L.mode==='exam'){ L.done++; }   /* im Klassen-Modus einfach weiter – Auflösung steht im Feedback */
     else {
       L.retry[q.id] = true;
       if(L.mode==='lesson'||L.mode==='test'){ L.queue.push(q); if(S.hearts>=MAX_H) S.heartsTs = Date.now(); S.hearts = Math.max(0,S.hearts-1); setTimeout(()=>{ const ls = $('#lstat'); ls.classList.remove('hit'); void ls.offsetWidth; ls.classList.add('hit'); }, 0); }
@@ -4390,6 +4546,9 @@ function finish(){
   const m = L.mode; clearInterval(blitzTimer);
   let xp, title, sub;
   if(m==='blitz'){ xp = L.score; const rec = L.score>S.blitzBest; if(rec) S.blitzBest = L.score; title = rec&&L.score?T('new_record'):T('time_up'); sub = TP('blitz_sub', L.score); }
+  else if(m==='exam'){ const right = L.answered-L.mistakes, p = Math.round(right/L.total*100), g = examGrade(p); xp = right;
+    if(!S.exam.g || g<S.exam.g){ S.exam = {g, p, d:dayKey()}; }
+    title = T('exam_title',{g}); sub = T('exam_sub',{r:right, n:L.total, p}) + ' ' + (g<=4 ? T('exam_pass') : T('exam_fail')); }
   else if(m==='beamer'){ xp = 0; const right = L.answered-L.mistakes;
     title = T('beamer_done'); sub = T('beamer_sub',{u:unitOf(L.u).t, r:right, n:L.total}); }
   else {
@@ -4419,7 +4578,6 @@ function finish(){
    ${boosted?`<div class="streakline">${icon('bolt')}${T('boost_used')}</div>`:''}
    ${streakUp?`<div class="streakline">${icon('flame')}${TP('streak_days', S.streak)}${LANG==='fr'?' !':'!'}</div>`:''}
    ${goalHit?`<div class="streakline" style="color:var(--leafText)">${icon('target')}${T('goal_hit',{n:S.goal})}</div>`:''}
-   ${growStage(S.xp).n>growBefore?`<div class="streakline" style="color:var(--leafText)">${icon('leaf')}${T('grew',{t:growStage(S.xp).t})}</div>`:''}
    ${nb.map(b=>`<div class="newb"><div class="medal">${icon(b.ic)}</div><div>${T('new_badge',{t:b.t})}<small>${b.d}</small></div></div>`).join('')}
    <button class="btn" id="resDone">${T('next')}</button>`;
   $('#lesson').hidden = true; $('#lesson').classList.remove('retry','beamer'); $('#result').hidden = false; L = null;
@@ -4475,6 +4633,8 @@ document.addEventListener('click', e=>{
   if(a==='speakInfo') return speak(spkInfo);
   if(a==='hint') return useHint();
   if(a==='pics') return startLesson({mode:'pics'});
+  if(a==='exam') return startLesson({mode:'exam'});
+  if(a==='certExam') return showCert('exam');
   if(a==='privacy') return showPrivacy();
   if(a==='suggest') return showSuggest();
   if(t.id==='easy'){ S.easy = !S.easy; save(); t.setAttribute('aria-checked', S.easy); return; }
@@ -4493,6 +4653,7 @@ document.addEventListener('click', e=>{
   if(a==='certAll') return showCert('all');
   if(a==='certAg') return showCert('ag');
   if(a==='certShare'){ try{ GGAFApp.shareImage($('#certImg').src); }catch(err){} return; }
+  if(a==='reloadApp'){ location.reload(); return; }
   if(a==='toastClose'){ $('#toast').hidden = true; return; }
   if(a==='toastBackup'){ $('#toast').hidden = true; return showBackup(); }
   if(a==='review') return startLesson({mode:'review'});
@@ -4522,6 +4683,7 @@ document.addEventListener('click', e=>{
   if(a==='endLesson') return endLesson();
   if(a==='reset') return modal(`${mascot('sad')}<h2>${T('reset_t')}</h2><p>${T('reset_d')}</p><button class="btn red block" data-act="doReset">${T('reset_yes')}</button><button class="btn plain block" data-act="close">${T('cancel')}</button>`);
   if(a==='doReset'){ S = defaults(); S.tab = 'learn'; S.lang = LANG; save(); closeModal(); applyBg(); applyTheme(); $('#logoMark').innerHTML = mascot('happy',undefined,true); render(); showIntro(0); return; }
+  if(t.id==='stSet'){ S.tab = S.tab==='settings' ? 'learn' : 'settings'; save(); render(S.tab==='learn'); return; }
   if(t.id==='stHearts') return heartsModal(false);
   if(t.id==='stStreak') return modal(`${mascot(streakNow()?'cheer':'wow')}<h2>${TP('streak_days', streakNow())}</h2><p>${S.lastDay===dayKey()?T('streak_safe'):(streakNow()?T('streak_extend'):T('streak_start'))}</p><button class="btn block" data-act="close">${T('next')}</button>`);
   if(t.id==='stXp') return modal(`${mascot('happy')}<h2>${T('xp_spend',{n:balance()})}</h2><p>${T('xp_info',{xp:S.xp, t:todayXp(), g:S.goal})}</p><button class="btn block" data-tab="shop">${T('to_shop')}</button><button class="btn plain block" data-act="close">${T('close')}</button>`);
@@ -4681,8 +4843,8 @@ function showCert(type){
     x.fillStyle = '#00934C'; x.font = '800 96px "Baloo 2", "Nunito", sans-serif'; x.fillText(name, W/2, 570);
     x.strokeStyle = '#7ED957'; x.lineWidth = 4; x.beginPath(); x.moveTo(W/2-380,600); x.lineTo(W/2+380,600); x.stroke();
     x.fillStyle = '#1B3A0D'; x.font = '700 38px "Nunito", sans-serif';
-    const l1 = ag ? T('cert_ag1') : T('cert_all1',{n:UNITS.length});
-    const l2 = ag ? T('cert_ag2') : T('cert_all2');
+    const ex = type==='exam', l1 = ex ? T('cert_exam1',{g:S.exam.g}) : ag ? T('cert_ag1') : T('cert_all1',{n:UNITS.length});
+    const l2 = ex ? T('cert_exam2',{p:S.exam.p}) : ag ? T('cert_ag2') : T('cert_all2');
     x.fillText(l1, W/2, 680); x.fillText(l2, W/2, 730);
     x.fillStyle = '#557248'; x.font = '700 32px "Nunito", sans-serif';
     x.fillText(T('cert_stats',{xp:S.xp, b:Object.keys(S.badges).length}), W/2, 800);
@@ -9462,6 +9624,22 @@ function applyStaticI18n(){
   $('#intro').setAttribute('aria-label', T('aria_intro'));
 }
 if(LANG!=='de' && CONTENT_PACKS[LANG]) applyContentPack(CONTENT_PACKS[LANG]);
+/* Ab 3.3 liegt „Fortschritt sichern“ in den Einstellungen (Zahnrad) – Einführungsschritt 7 entsprechend */
+(function(){
+  const P = {
+    de:'Alles wird automatisch auf diesem Gerät gespeichert. Aber: Beim Löschen der Browserdaten, im Inkognito-Modus oder auf einem neuen Handy ist er weg. Erstelle deshalb ab und zu unter Einstellungen (Zahnrad oben rechts) → „Fortschritt sichern“ einen Sicherungscode und bewahre ihn auf.',
+    en:'Everything is saved automatically on this device. But if you clear your browser data, use incognito mode or get a new phone, it’s gone. So now and then, create a backup code under Settings (cog at the top right) → “Back up progress” and keep it safe.',
+    fr:'Tout est enregistré automatiquement sur cet appareil. Mais si tu effaces les données du navigateur, utilises le mode privé ou changes de téléphone, tout est perdu. Crée donc de temps en temps un code de sauvegarde dans Réglages (roue dentée en haut à droite) → « Sauvegarder la progression » et garde-le bien.',
+    pl:'Wszystko zapisuje się automatycznie na tym urządzeniu. Ale po usunięciu danych przeglądarki, w trybie incognito albo na nowym telefonie postęp znika. Dlatego co jakiś czas utwórz kod kopii w Ustawieniach (koło zębate w prawym górnym rogu) → „Zapisz postępy” i zachowaj go.',
+    cs:'Vše se automaticky ukládá v tomto zařízení. Ale po smazání dat prohlížeče, v anonymním režimu nebo na novém mobilu je pokrok pryč. Proto si občas vytvoř záložní kód v Nastavení (ozubené kolo vpravo nahoře) → „Zálohovat postup“ a uschovej si ho.',
+    uk:'Усе автоматично зберігається на цьому пристрої. Але після очищення даних браузера, в режимі інкогніто або на новому телефоні прогрес зникне. Тому час від часу створюй резервний код у Налаштуваннях (шестерня вгорі праворуч) → «Зберегти прогрес» і зберігай його.',
+    la:'Omnia in hoc instrumento sponte servantur. Sed si data navigatri deles, modo occulto uteris aut novum telephonum habes, progressus perit. Itaque interdum in Optionibus (rota dentata dextra superne) → „Progressum servare“ signum salutis crea et serva.',
+    bar:'Ois werd automatisch auf dem Gerät gspeichert. Aber: Wennst de Browserdaten löschst, im Inkognito-Modus bist oder a neis Handy hast, is weg. Drum mach ab und zua unter Eistellunga (Zahnradl obn rechts) → „Fortschritt sichern“ an Sicherungscode und hebn guad auf.',
+    gsw:'Alles wird automatisch uf däm Grät gspeicheret. Aber: Wänn du d Browserdate löschsch, im Inkognito-Modus bisch oder es neus Handy häsch, isch alles wäg. Mach drum ab und zue under Iistellige (Zahnrad obe rächts) → «Fortschritt sichere» en Sicherigscode und bhalt en guet uf.'
+  };
+  if(INTRO[6] && P[LANG]) INTRO[6].p = P[LANG];
+  if(INTRO[6]) INTRO[6].demo = ()=>`<span class="chipx">${icon('gear')}${T('settings')}</span><span class="big" style="color:var(--ink2);font-size:18px">→</span><span class="chipx">${icon('shield')}${T('backup_create')}</span><span class="chipx">${icon('redo')}${T('d_code_paste')}</span>`;
+})();
 applyStaticI18n();
 S.missed = S.missed.filter(byId);   /* veraltete Fragen-IDs aus alten Speicherständen entfernen */
 applyFreeze();
@@ -9472,7 +9650,23 @@ if(!storageTest()) setTimeout(storageWarn, 1200);   /* nach dem Start kurz Besch
 /* Speicher als „dauerhaft“ anfragen, damit Browser (v. a. Safari) ihn nicht so schnell löschen */
 try{ if(navigator.storage && navigator.storage.persist) navigator.storage.persist().catch(()=>{}); }catch(e){}
 /* Web-App (GitHub Pages): Offline-Speicher anmelden – nicht in der Android-App und nicht auf file:// */
-if('serviceWorker' in navigator && location.protocol==='https:' && !window.GGAFApp){ try{ navigator.serviceWorker.register('sw.js').catch(()=>{}); }catch(e){} }
+/* Hinweise: offline und neue Version (nur Web-Version) */
+function infoToast(ic, title, text, btn){
+  const t = $('#toast'); if(!t) return;
+  t.innerHTML = `<span class="ti">${icon(ic)}</span><div><b>${title}</b><span>${text}</span></div>
+    <div class="tb">${btn||''}<button class="btn plain" data-act="toastClose">${T('ok')}</button></div>`;
+  t.hidden = false;
+}
+window.addEventListener('offline', ()=>infoToast('globe', T('offline_t'), T('offline')));
+window.addEventListener('online', ()=>{ const t = $('#toast'); if(t && t.textContent.indexOf(T('offline_t'))>=0) t.hidden = true; });
+if(!window.GGAFApp && navigator.onLine===false) setTimeout(()=>infoToast('globe', T('offline_t'), T('offline')), 800);
+if('serviceWorker' in navigator && location.protocol==='https:' && !window.GGAFApp){
+  const hadCtrl = !!navigator.serviceWorker.controller;   /* beim allerersten Besuch keine Update-Meldung */
+  let shown = false;
+  navigator.serviceWorker.addEventListener('controllerchange', ()=>{ if(hadCtrl && !shown){ shown = true;
+    infoToast('redo', T('update_t'), T('update_d'), `<button class="btn" data-act="reloadApp">${T('reload')}</button>`); } });
+  try{ navigator.serviceWorker.register('sw.js').then(r=>{ try{ r.update(); }catch(e){} }).catch(()=>{}); }catch(e){}
+}
 if(!S.introDone) showIntro(0);   /* Einführung beim ersten Start */
 else weeklyRecap();              /* sonst ggf. Rückblick auf die Vorwoche */
 </script>
