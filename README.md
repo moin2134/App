@@ -14,6 +14,7 @@ Die Lern-App der **AG „Going green und fair“ am MMG**. Mit kurzen Quiz-Lekti
 ## Inhalt
 
 - [Funktionen](#funktionen)
+- [Versteckte Überraschungen](#versteckte-überraschungen-easter-eggs)
 - [Lerninhalte](#lerninhalte)
 - [Installation](#installation)
 - [Daten und Fortschritt sichern](#daten-und-fortschritt-sichern)
@@ -49,11 +50,12 @@ Die Lern-App der **AG „Going green und fair“ am MMG**. Mit kurzen Quiz-Lekti
 | **Schätzrunde** | 8 Schätzfragen mit Schieberegler – je näher, desto mehr XP (bis 3 pro Frage) |
 | **Wahr oder Mythos?** | 10 schnelle Aussagen zu verbreiteten Umwelt-Irrtümern |
 | **Klima-Check** | 6 Alltagsfragen mit persönlichen Tipps (grobe Einschätzung, keine genaue CO₂-Rechnung) |
-| **Bilderrätsel** | 10 Bilderfragen (Mülltrennung, Windrad, Solaranlage, Biene). Alle Bilder sind selbst gezeichnet (SVG), ohne fremde Fotos oder Marken-Logos |
+| **Bilderrätsel** | 10 zufällige aus 18 Bilderfragen (Mülltrennung, Windrad, Solaranlage, Biene, Energielabel, Wasserkreislauf, LED, tropfender Hahn, T-Shirt, Fahrrad, Moor, Schildkröte). Alle Bilder sind selbst gezeichnet (SVG), ohne fremde Fotos oder Marken-Logos |
+| **Abschlussprüfung** | 30 zufällige Fragen aus allen Einheiten, ohne Herzen und ohne Wiederholung. Ergebnis als Schulnote (1 ab 92 %, 2 ab 81 %, 3 ab 67 %, 4 ab 50 %, 5 ab 30 %). Ab Note 4 gibt es eine eigene Urkunde im Profil; die beste Note wird gespeichert |
 
 ### Barrierearm lernen
 - **Vorlesen:** Ein Lautsprecher-Button liest Frage und Antworten bzw. Infotexte in der gewählten Sprache vor. Im Browser über die Sprachausgabe des Geräts, in der Android-App über die Handy-Sprachausgabe (Latein mit italienischer Stimme, Bairisch mit deutscher, Schweizerdeutsch mit Schweizer Stimme, falls vorhanden).
-- **Einfacher Modus (Unterstufe):** Unter Profil → Einstellungen. Dann gibt es nur 3 statt 4 Antworten und einen **Tipp-Button**, der eine falsche Antwort durchstreicht. Die Fragen selbst bleiben gleich – es ist keine „Leichte Sprache“ im engen Sinn.
+- **Einfacher Modus (Unterstufe):** Unter **Einstellungen** (Zahnrad oben rechts). Dann gibt es nur 3 statt 4 Antworten und einen **Tipp-Button**, der eine falsche Antwort durchstreicht. Die Fragen selbst bleiben gleich – es ist keine „Leichte Sprache“ im engen Sinn.
 
 ### Arbeitsblätter
 Im Ordner `Arbeitsblaetter/` liegt für jede Einheit und das MMG-Special ein **PDF zum Ausdrucken** (z. B. für Vertretungsstunden): Infotexte, alle 18 Aufgaben (Ankreuzen, Lückentext mit Wortliste, Nummerieren, Zuordnen) und eine **Lösungsseite** für die Lehrkraft. Neu erzeugen: `jwebserver` im Ordner `web/` starten, `android/arbeitsblatt-vorlage.html` nach `web/` kopieren und `blatt.html?u=0` … `?u=14` (MMG-Special: `?u=-1`) mit Edge als PDF drucken.
@@ -73,7 +75,7 @@ Die komplette App gibt es in **9 Sprachen**: Fragen, Infotexte, Lexikon, Tipps, 
 | Boarisch | `bar` | gemäßigtes Oberbairisch |
 | Schwiizerdütsch | `gsw` | Zürichdeutsch als Basis |
 
-- **Auswahl:** Die Sprache wählt man gleich im **ersten Schritt der Einführung** oder später unter **Profil → Sprache**. Der Fortschritt bleibt beim Wechsel erhalten.
+- **Auswahl:** Die Sprache wählt man gleich im **ersten Schritt der Einführung** oder später unter **Einstellungen** (Zahnrad oben rechts). Der Fortschritt bleibt beim Wechsel erhalten.
 - **Mehrzahlformen:** Polnisch, Tschechisch und Ukrainisch nutzen die richtigen drei Mehrzahlformen (z. B. 1 den / 2 dny / 5 dní).
 
 - **Übersetzungen:** Sie stecken in `index.html` in `CONTENT_PACKS` (Inhalte) und `I18N` (Bedienelemente).
@@ -87,7 +89,7 @@ Die komplette App gibt es in **9 Sprachen**: Fragen, Infotexte, Lexikon, Tipps, 
 ### Datenschutz
 - Kein Konto, keine Werbung, kein Tracking. Alle Daten bleiben auf dem Gerät.
 - Die Web-Version lädt **keine Google-Schriften** mehr: Baloo 2 und Nunito liegen im Ordner `web/fonts/`.
-- **Profil → Einstellungen → Datenschutz & Impressum** zeigt die Hinweise. Die Kontaktdaten fürs Impressum stehen in `index.html` in der Konstante `LEGAL` (Name, verantwortliche Person, Anschrift, E-Mail) und müssen noch eingetragen werden.
+- **Einstellungen → App & Daten → Datenschutz & Impressum** zeigt die Hinweise. Die Kontaktdaten fürs Impressum stehen in `index.html` in der Konstante `LEGAL` (Name, verantwortliche Person, Anschrift, E-Mail) und müssen noch eingetragen werden.
 
 ### Motivation
 - **XP** für jede Lektion (Lektion 10 XP, Einheitstest 20 XP, +5 bei fehlerfreien Runden)
@@ -96,7 +98,7 @@ Die komplette App gibt es in **9 Sprachen**: Fragen, Infotexte, Lexikon, Tipps, 
 - **Herzen:** Jeder Fehler in einer Lektion kostet ein Herz. Alle 30 Minuten kommt eins zurück.
 - **14 Abzeichen**, z. B. „Erster Spross“, „Wochenfeuer“, „Fair-Profi“, „AG-Profi“, „Going green and Fair“
 - **Wochenrückblick:** XP, Lektionen, aktive Tage, stärkstes Thema und „Übe mehr“, im Profil und zu Beginn jeder Woche
-- **Sprossi wächst mit:** 5 Stufen je nach XP: Keimling (0) → Sprössling (100) → Jungpflanze (300) → Starke Pflanze (700, drittes Blatt) → Blühender Sprossi (1500, mit Blüte)
+- **Garten:** Im Profil hat jede Einheit (und das MMG-Special) ein Beet. Erdhügel = noch nicht begonnen, Keimling = begonnen, Blume in der Farbe der Einheit = Einheitstest bestanden. Sprossi selbst bleibt immer gleich groß.
 - **Urkunden:** für alle Einheiten und für das MMG-Special, als Bild mit Namen, Datum und XP. In der Web-App herunterladen, in der Android-App teilen oder speichern.
 
 ### Shop
@@ -110,10 +112,33 @@ Verdiente XP lassen sich ausgeben. Abzeichen zählen trotzdem alle jemals verdie
 
 ### Gestaltung
 - Farbschema der AG: Dunkelgrün `#2E6417`, Grün `#00BF63`, Hellgrün `#7ED957`, Limette `#C1FF72`, Mint `#D9F2CA`
-- **Heller und dunkler Modus:** unter Profil → Design wählbar: Automatisch (wie das Gerät), Hell oder Dunkel
+- **Einstellungen (Zahnrad oben rechts):** Sprache, Design, Soundeffekte, einfacher Modus, Einführung, Fortschritt sichern, Datenschutz, Zurücksetzen und App-Infos an einem Ort.
+- **Heller und dunkler Modus:** unter Einstellungen → Design wählbar: Automatisch (wie das Gerät), Hell oder Dunkel
 - **Link-Vorschau:** Beim Teilen des Links (WhatsApp, Signal …) erscheint ein Vorschaubild mit Sprossi
 - **Animationen:** Sprossi winkt, blinzelt und wiegt seine Blätter, richtige Antworten „ploppen“, Zahlen hüpfen. Bei „Bewegung reduzieren“ in den Systemeinstellungen sind die Animationen aus.
+- **Hinweise:** Ohne Internet erscheint „Du bist offline – die App funktioniert trotzdem“. Liegt eine neue Version auf GitHub, zeigt die Web-App „Neue Version geladen – Neu laden“.
 - Unten rechts: **MMG · GGAF Quizzes! App · Going green and Fair**
+
+---
+
+## Versteckte Überraschungen (Easter Eggs)
+
+> Spoiler! Nicht an alle verraten 😉. Alle Überraschungen funktionieren offline und speichern keine zusätzlichen Daten (nur, ob man sie schon gefunden hat).
+
+| # | Überraschung | So findet man sie |
+|---|---|---|
+| 1 | **Sprossi kitzeln** | 7-mal schnell hintereinander auf das kleine Sprossi-Logo oben links tippen. Sprossi dreht sich, kichert und sagt einen Spruch. |
+| 2 | **Geheime Namen** | Im Profil (oder in der Einführung) als Namen **„Sprossi“** eingeben → Sprossi wundert sich über seinen Doppelgänger. Name **„MMG“** → Konfetti in den AG-Farben. Das Feld muss danach verlassen werden (woanders hintippen). |
+| 3 | **Konami-Code** | Auf einer Tastatur (PC) **↑ ↑ ↓ ↓ ← → ← → B A** drücken → Blätterregen. |
+| 4 | **Nachteule 🦉** | Eine Lektion zwischen Mitternacht und 5 Uhr beenden → geheimes Abzeichen. |
+| 5 | **Besondere Tage** | **22. April (Earth Day):** Sprossi hält eine kleine Weltkugel. **24.–26. Dezember:** Sprossi trägt eine rote Mütze. **31. Dezember und 1. Januar:** Konfetti beim Start. Jeweils mit Gruß; das Outfit erscheint nur, wenn Sprossi gerade nichts anderes trägt. |
+| 6 | **Blitzableiter ⚡** | In der Blitzrunde 25 oder mehr richtige Antworten → geheimes Abzeichen. |
+| 7 | **Schmetterlinge** | Wenn im Garten (Profil) alle 16 Blumen blühen, fliegen Schmetterlinge darüber. |
+| 8 | **Spaßfrage** | Ganz selten (etwa jede 200. Lektion, Training oder Wiederholung) taucht eine Spaßfrage über Sprossi auf. Richtig beantwortet: +5 Bonus-XP. Falsch kostet kein Herz. |
+| 9 | **Rückwärts-Sprossi** | In der Einführung lange (knapp 1 Sekunde) auf Sprossi drücken → er steht kurz auf dem Kopf: „Huch!“ |
+| 10 | **Geheimes Outfit** | Wer **„fair“** irgendwo im Namen hat (z. B. „Fairy“), bekommt das **Fair-Stirnband** gratis. Es erscheint danach im Shop unter Outfits. Ohne echtes Fairtrade-Logo. |
+
+Geheime Abzeichen stehen erst nach dem Freischalten in der Liste; oben steht nur „🔒 2 × ???“ – so viele sind noch versteckt. Im Code steht alles im Abschnitt `Easter Eggs` sowie in `EGG_DE` (Texte) und `EGG_TR` (Übersetzungen).
 
 ---
 
@@ -176,7 +201,7 @@ Der Fortschritt wird **automatisch auf dem Gerät** gespeichert: XP, Serie, Lekt
 - im privaten bzw. Inkognito-Modus gelernt wird,
 - man ein neues Gerät oder einen anderen Browser nutzt.
 
-**Absichern:** Unter **Profil → Fortschritt sichern → Sicherungscode erstellen** den Code kopieren und aufbewahren. Mit **„Sicherungscode einfügen“** kommt alles zurück, auch zwischen Web-App und Android-App.
+**Absichern:** Unter **Einstellungen (Zahnrad) → Fortschritt sichern → Sicherungscode erstellen** den Code kopieren und aufbewahren. Mit **„Sicherungscode einfügen“** kommt alles zurück, auch zwischen Web-App und Android-App.
 
 Kann ein Gerät nicht speichern, zeigt die App automatisch einen Hinweis mit Button zum Sicherungscode.
 

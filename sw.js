@@ -1,5 +1,5 @@
 /* Offline-Speicher für GGAF Quizzes! (Web-App / „Zum Home-Bildschirm“) */
-const CACHE = 'ggaf-v13';   /* bei jeder neuen Version hochzählen, damit Handys aktualisieren */
+const CACHE = 'ggaf-v14';   /* bei jeder neuen Version hochzählen, damit Handys aktualisieren */
 const FILES = ['./', './index.html', './manifest.json', './icon-192.png', './icon-512.png', './apple-touch-icon.png'];
 
 self.addEventListener('install', e => {

@@ -233,6 +233,21 @@ svg.m{display:block;width:100%;height:auto}
 .opt.sel{border-color:var(--leaf);background:var(--selBg);color:var(--selInk)}
 .garden{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-gap:4px;gap:4px;margin-top:10px;background:var(--surface2);border-radius:14px;padding:8px}
 .garden svg{width:100%;height:auto}
+.garden{position:relative;overflow:hidden}
+.garden .bfly{position:absolute;width:26px;height:22px;animation:flutter 9s ease-in-out infinite}
+.garden .b0{left:10%;top:15%}.garden .b1{left:55%;top:40%;animation-delay:-3s}.garden .b2{left:30%;top:70%;animation-delay:-6s}
+@keyframes flutter{0%,100%{transform:translate(0,0) scaleX(1)}25%{transform:translate(60px,-20px) scaleX(.6)}50%{transform:translate(120px,10px) scaleX(1)}75%{transform:translate(40px,30px) scaleX(.6)}}
+/* Easter Eggs */
+#logoMark.spin svg{animation:spin360 .9s ease}
+@keyframes spin360{to{transform:rotate(360deg)}}
+.leafrain{position:fixed;inset:0;top:0;left:0;right:0;bottom:0;pointer-events:none;z-index:80;overflow:hidden}
+.leafrain span{position:absolute;top:-40px;animation:leaffall linear forwards}
+.leafrain .ic{width:1em;height:1em}
+@keyframes leaffall{to{transform:translate(40px,110vh) rotate(540deg)}}
+.intro .stage > svg.m{transition:transform .35s;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none;touch-action:manipulation}
+.intro .stage > svg.m.flip{transform:rotate(180deg)}
+.huch{font-family:var(--display);font-weight:800;font-size:22px;color:var(--orange);margin-top:-8px}
+.funtag{background:linear-gradient(90deg,#00BF63,#C1FF72);color:#1B3A0D}
 .stat.gear{color:var(--ink2)}.stat.gear.on{color:var(--leafText);background:var(--selBg)}
 .qtrow{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap}
 .spk{display:inline-flex;align-items:center;gap:6px;border:2px solid var(--line);border-bottom-width:3px;border-radius:12px;background:var(--surface);color:var(--leafText);font-weight:800;font-size:13px;padding:6px 10px;cursor:pointer}
@@ -2575,6 +2590,146 @@ const UI_33 = {
  pics_d:'10 Bilderfragen: Mülltrennung, Energie, Wasser und mehr.'
 };
 Object.assign(UI_EXTRA.de, UI_33);
+/* Easter-Egg-Texte (Deutsch); Übersetzungen in EGG_TR, EGG() liefert die aktuelle Sprache */
+const EGG_DE = {
+ tickle:['Hihi, das kitzelt!','Hör auf, ich bin kitzlig! 😆','Noch einmal und ich werfe Blätter!','Du hast mich gefunden! 🌱'],
+ name_sprossi_t:'Hey, das ist ja mein Name!', name_sprossi_d:'Zwei Sprossis – jetzt wachsen wir doppelt so schnell. 🌱',
+ fair_gift_t:'Geheimes Outfit freigeschaltet!', fair_gift_d:'Weil „fair“ in deinem Namen steckt, schenkt dir Sprossi das Fair-Stirnband. Du findest es im Shop.',
+ konami:'Blätterregen! 🍃 Du kennst den Geheimcode.', huch:'Huch!', newyear:'Frohes neues Jahr! 🎆',
+ earth:'Happy Earth Day! 🌍', xmas:'Frohe Weihnachten! 🎄',
+ owl_t:'Nachteule 🦉', owl_d:'Lerne zwischen Mitternacht und 5 Uhr. (Aber schlaf auch genug!)',
+ blitz25_t:'Blitzableiter ⚡', blitz25_d:'Schaffe 25 richtige Antworten in einer Blitzrunde.',
+ secret_left:'Noch versteckt: {n} × geheim …', band:'Fair-Stirnband',
+ fun_eb:'Spaßfrage – Bonus!', fun_bonus:'+5 Bonus-XP', garden_full:'Alle Blumen blühen – die Schmetterlinge sind da! 🦋',
+ funq:[
+  {q:'Was ist Sprossis Lieblingsessen?', o:['Sonnenlicht, Wasser und CO₂','Pizza mit Extra-Käse','Plastiktüten','Nichts – Sprossi macht Diät'], x:'Pflanzen machen ihr Essen selbst: Aus Sonnenlicht, Wasser und CO₂ stellen sie Zucker her. Das heißt Fotosynthese.'},
+  {q:'Welches Lied singt Sprossi unter der Dusche?', o:['„Regen, Regen, komm herbei!“','Gar keins – Sprossi duscht nie','Die Nationalhymne','Heavy Metal'], x:'Regen ist die beste Dusche für Pflanzen. In Deutschland fallen im Jahr im Schnitt etwa 800 Liter Regen pro Quadratmeter.'},
+  {q:'Wie viele Blätter hat Sprossi?', o:['Zwei','Keins','Siebzehn','Das ist geheim'], x:'Sprossi hat zwei Blätter – wie viele Keimlinge am Anfang. Diese ersten Blätter heißen Keimblätter.'}
+ ]
+};
+const EGG_TR = {
+"en":{
+"tickle":["Hee hee, that tickles!","Stop it, I’m ticklish! 😆","Once more and I’ll throw leaves!","You found me! 🌱"],
+"name_sprossi_t":"Hey, that’s my name!","name_sprossi_d":"Two Sprossis – now we’ll grow twice as fast. 🌱",
+"fair_gift_t":"Secret outfit unlocked!","fair_gift_d":"Because “fair” is in your name, Sprossi gives you the Fair headband. You’ll find it in the shop.",
+"konami":"Leaf shower! 🍃 You know the secret code.","huch":"Whoops!","newyear":"Happy New Year! 🎆",
+"earth":"Happy Earth Day! 🌍","xmas":"Merry Christmas! 🎄",
+"owl_t":"Night owl 🦉","owl_d":"Study between midnight and 5 am. (But get enough sleep too!)",
+"blitz25_t":"Lightning rod ⚡","blitz25_d":"Get 25 correct answers in one lightning round.",
+"secret_left":"{n} secret badges are still hidden …","band":"Fair headband",
+"fun_eb":"Fun question – bonus!","fun_bonus":"+5 bonus XP","garden_full":"All the flowers are blooming – the butterflies have arrived! 🦋",
+"funq":[
+{"q":"What is Sprossi’s favourite food?","o":["Sunlight, water and CO₂","Pizza with extra cheese","Plastic bags","Nothing – Sprossi is on a diet"],"x":"Plants make their own food: from sunlight, water and CO₂ they produce sugar. This is called photosynthesis."},
+{"q":"Which song does Sprossi sing in the shower?","o":["“Rain, rain, come to me!”","None – Sprossi never showers","The national anthem","Heavy metal"],"x":"Rain is the best shower for plants. In Germany, an average of about 800 litres of rain falls per square metre each year."},
+{"q":"How many leaves does Sprossi have?","o":["Two","None","Seventeen","That’s a secret"],"x":"Sprossi has two leaves – like many seedlings at the start. These first leaves are called seed leaves (cotyledons)."}
+]},
+"fr":{
+"tickle":["Hihi, ça chatouille !","Arrête, je suis chatouilleux ! 😆","Encore une fois et je lance des feuilles !","Tu m’as trouvé ! 🌱"],
+"name_sprossi_t":"Hé, c’est mon nom !","name_sprossi_d":"Deux Sprossi – maintenant on pousse deux fois plus vite. 🌱",
+"fair_gift_t":"Tenue secrète débloquée !","fair_gift_d":"Comme « fair » se cache dans ton nom, Sprossi t’offre le bandeau Fair. Tu le trouveras dans la boutique.",
+"konami":"Pluie de feuilles ! 🍃 Tu connais le code secret.","huch":"Oups !","newyear":"Bonne année ! 🎆",
+"earth":"Joyeux Jour de la Terre ! 🌍","xmas":"Joyeux Noël ! 🎄",
+"owl_t":"Oiseau de nuit 🦉","owl_d":"Apprends entre minuit et 5 h. (Mais dors assez aussi !)",
+"blitz25_t":"Paratonnerre ⚡","blitz25_d":"Donne 25 bonnes réponses en une manche éclair.",
+"secret_left":"{n} badges secrets sont encore cachés …","band":"Bandeau Fair",
+"fun_eb":"Question rigolote – bonus !","fun_bonus":"+5 XP bonus","garden_full":"Toutes les fleurs sont écloses – les papillons sont là ! 🦋",
+"funq":[
+{"q":"Quel est le plat préféré de Sprossi ?","o":["Lumière du soleil, eau et CO₂","Pizza avec supplément fromage","Des sacs plastique","Rien – Sprossi est au régime"],"x":"Les plantes fabriquent elles-mêmes leur nourriture : avec la lumière du soleil, l’eau et le CO₂, elles produisent du sucre. C’est la photosynthèse."},
+{"q":"Quelle chanson Sprossi chante-t-il sous la douche ?","o":["« Pluie, pluie, viens vite ! »","Aucune – Sprossi ne se douche jamais","L’hymne national","Du heavy metal"],"x":"La pluie est la meilleure douche pour les plantes. En Allemagne, il tombe en moyenne environ 800 litres de pluie par mètre carré et par an."},
+{"q":"Combien de feuilles a Sprossi ?","o":["Deux","Aucune","Dix-sept","C’est un secret"],"x":"Sprossi a deux feuilles – comme beaucoup de jeunes pousses au début. Ces premières feuilles s’appellent des cotylédons."}
+]},
+"pl":{
+"tickle":["Hihi, to łaskocze!","Przestań, mam łaskotki! 😆","Jeszcze raz, a rzucę liśćmi!","Znalazłeś mnie! 🌱"],
+"name_sprossi_t":"Hej, to przecież moje imię!","name_sprossi_d":"Dwa Sprossie – teraz rośniemy dwa razy szybciej. 🌱",
+"fair_gift_t":"Odblokowano tajny strój!","fair_gift_d":"Ponieważ w twoim imieniu kryje się „fair”, Sprossi daje ci opaskę Fair. Znajdziesz ją w sklepie.",
+"konami":"Deszcz liści! 🍃 Znasz tajny kod.","huch":"Ups!","newyear":"Szczęśliwego Nowego Roku! 🎆",
+"earth":"Wesołego Dnia Ziemi! 🌍","xmas":"Wesołych Świąt! 🎄",
+"owl_t":"Nocny marek 🦉","owl_d":"Ucz się między północą a 5 rano. (Ale też się wysypiaj!)",
+"blitz25_t":"Piorunochron ⚡","blitz25_d":"Zdobądź 25 poprawnych odpowiedzi w jednej rundzie błyskawicznej.",
+"secret_left":"{n} tajnych odznak wciąż jest ukrytych …","band":"Opaska Fair",
+"fun_eb":"Pytanie na wesoło – bonus!","fun_bonus":"+5 bonusowych XP","garden_full":"Wszystkie kwiaty kwitną – przyleciały motyle! 🦋",
+"funq":[
+{"q":"Jakie jest ulubione jedzenie Sprossiego?","o":["Światło słoneczne, woda i CO₂","Pizza z podwójnym serem","Plastikowe torebki","Nic – Sprossi jest na diecie"],"x":"Rośliny same wytwarzają pożywienie: ze światła słonecznego, wody i CO₂ produkują cukier. To się nazywa fotosynteza."},
+{"q":"Jaką piosenkę Sprossi śpiewa pod prysznicem?","o":["„Deszczyku, deszczyku, przyjdź!”","Żadnej – Sprossi nigdy się nie myje","Hymn narodowy","Heavy metal"],"x":"Deszcz to najlepszy prysznic dla roślin. W Niemczech spada średnio około 800 litrów deszczu na metr kwadratowy rocznie."},
+{"q":"Ile liści ma Sprossi?","o":["Dwa","Żadnego","Siedemnaście","To tajemnica"],"x":"Sprossi ma dwa liście – jak wiele siewek na początku. Te pierwsze liście nazywają się liścieniami."}
+]},
+"cs":{
+"tickle":["Hihi, to lechtá!","Přestaň, jsem lechtivý! 😆","Ještě jednou a hodím po tobě listí!","Našel jsi mě! 🌱"],
+"name_sprossi_t":"Hej, to je přece moje jméno!","name_sprossi_d":"Dva Sprossiové – teď porosteme dvakrát rychleji. 🌱",
+"fair_gift_t":"Tajný outfit odemčen!","fair_gift_d":"Protože se v tvém jménu skrývá „fair“, daruje ti Sprossi čelenku Fair. Najdeš ji v obchodě.",
+"konami":"Listový déšť! 🍃 Znáš tajný kód.","huch":"Jejda!","newyear":"Šťastný nový rok! 🎆",
+"earth":"Šťastný Den Země! 🌍","xmas":"Veselé Vánoce! 🎄",
+"owl_t":"Noční sova 🦉","owl_d":"Uč se mezi půlnocí a 5. hodinou ranní. (Ale taky se dost vyspi!)",
+"blitz25_t":"Hromosvod ⚡","blitz25_d":"Dej 25 správných odpovědí v jednom bleskovém kole.",
+"secret_left":"Ještě je ukryto {n} tajných odznaků …","band":"Čelenka Fair",
+"fun_eb":"Zábavná otázka – bonus!","fun_bonus":"+5 bonusových XP","garden_full":"Všechny květiny kvetou – přiletěli motýli! 🦋",
+"funq":[
+{"q":"Jaké je Sprossiho oblíbené jídlo?","o":["Sluneční světlo, voda a CO₂","Pizza s extra sýrem","Igelitové tašky","Nic – Sprossi drží dietu"],"x":"Rostliny si vyrábějí potravu samy: ze slunečního světla, vody a CO₂ vytvářejí cukr. Tomu se říká fotosyntéza."},
+{"q":"Jakou písničku zpívá Sprossi ve sprše?","o":["„Prší, prší, jen se leje!“","Žádnou – Sprossi se nikdy nesprchuje","Státní hymnu","Heavy metal"],"x":"Déšť je pro rostliny nejlepší sprcha. V Německu spadne ročně v průměru asi 800 litrů deště na metr čtvereční."},
+{"q":"Kolik listů má Sprossi?","o":["Dva","Žádný","Sedmnáct","To je tajemství"],"x":"Sprossi má dva lístky – jako mnoho klíčících rostlinek na začátku. Těmto prvním lístkům se říká děložní lístky."}
+]},
+"uk":{
+"tickle":["Хі-хі, лоскотно!","Перестань, я боюся лоскоту! 😆","Ще раз – і я кидатимуся листям!","Ти мене знайшов! 🌱"],
+"name_sprossi_t":"Гей, це ж моє ім’я!","name_sprossi_d":"Два Спроссі – тепер ми ростемо вдвічі швидше. 🌱",
+"fair_gift_t":"Відкрито таємне вбрання!","fair_gift_d":"Оскільки у твоєму імені є «fair», Спроссі дарує тобі пов’язку Fair. Ти знайдеш її в магазині.",
+"konami":"Листопад! 🍃 Ти знаєш таємний код.","huch":"Ой!","newyear":"З Новим роком! 🎆",
+"earth":"З Днем Землі! 🌍","xmas":"Веселого Різдва! 🎄",
+"owl_t":"Нічна сова 🦉","owl_d":"Навчайся між північчю та 5 ранку. (Але й висипайся!)",
+"blitz25_t":"Громовідвід ⚡","blitz25_d":"Дай 25 правильних відповідей в одному бліц-раунді.",
+"secret_left":"Ще сховано таємних значків: {n} …","band":"Пов’язка Fair",
+"fun_eb":"Жартівливе питання – бонус!","fun_bonus":"+5 бонусних XP","garden_full":"Усі квіти цвітуть – прилетіли метелики! 🦋",
+"funq":[
+{"q":"Яка улюблена їжа Спроссі?","o":["Сонячне світло, вода і CO₂","Піца з подвійним сиром","Пластикові пакети","Нічого – Спроссі на дієті"],"x":"Рослини самі виготовляють собі їжу: із сонячного світла, води та CO₂ вони утворюють цукор. Це називається фотосинтез."},
+{"q":"Яку пісню Спроссі співає в душі?","o":["«Дощику, дощику, припусти!»","Жодної – Спроссі ніколи не приймає душ","Державний гімн","Хеві-метал"],"x":"Дощ – найкращий душ для рослин. У Німеччині за рік випадає в середньому близько 800 літрів дощу на квадратний метр."},
+{"q":"Скільки листочків у Спроссі?","o":["Два","Жодного","Сімнадцять","Це таємниця"],"x":"У Спроссі два листочки – як і в багатьох паростків на початку. Ці перші листочки називаються сім’ядолями."}
+]},
+"la":{
+"tickle":["Hihi, titillat!","Desine, titillationem timeo! 😆","Iterum, et folia iaciam!","Me invenisti! 🌱"],
+"name_sprossi_t":"Eia, id nomen meum est!","name_sprossi_d":"Duo Sprossi – nunc bis celerius crescimus. 🌱",
+"fair_gift_t":"Vestis secreta patefacta!","fair_gift_d":"Quia „fair“ in nomine tuo latet, Sprossi tibi vittam Fair donat. In taberna eam invenies.",
+"konami":"Imber foliorum! 🍃 Signum secretum nosti.","huch":"Vah!","newyear":"Felicem annum novum! 🎆",
+"earth":"Felicem Diem Terrae! 🌍","xmas":"Felicem Natalem Christi! 🎄",
+"owl_t":"Noctua 🦉","owl_d":"Disce inter mediam noctem et horam quintam. (Sed satis quoque dormi!)",
+"blitz25_t":"Fulminis custos ⚡","blitz25_d":"XXV responsa recta in uno certamine fulmineo da.",
+"secret_left":"{n} insignia secreta adhuc latent …","band":"Vitta Fair",
+"fun_eb":"Quaestio iocosa – praemium!","fun_bonus":"+5 XP praemii","garden_full":"Omnes flores florent – papiliones adsunt! 🦋",
+"funq":[
+{"q":"Quis est cibus Sprossi dilectissimus?","o":["Lux solis, aqua et CO₂","Placenta cum caseo abundanti","Sacculi plastici","Nihil – Sprossi ieiunat"],"x":"Plantae cibum ipsae faciunt: e luce solis, aqua et CO₂ saccharum gignunt. Hoc photosynthesis appellatur."},
+{"q":"Quod carmen Sprossi sub imbre lavans canit?","o":["„Pluvia, pluvia, veni!“","Nullum – Sprossi numquam lavatur","Hymnum patrium","Metallum grave"],"x":"Pluvia plantis optimus imber est. In Germania quotannis circiter DCCC litrae pluviae in singula metra quadrata cadunt."},
+{"q":"Quot folia Sprossi habet?","o":["Duo","Nullum","Septendecim","Id secretum est"],"x":"Sprossi duo folia habet – ut multae plantulae initio. Haec prima folia cotyledones vocantur."}
+]},
+"bar":{
+"tickle":["Hihi, des kitzlt!","Hör auf, i bin kitzlig! 😆","No amoi und i schmeiß Blattl!","Du hast mi gfundn! 🌱"],
+"name_sprossi_t":"Heh, des is ja mei Nama!","name_sprossi_d":"Zwoa Sprossis – jetz wachs ma doppelt so schnell. 🌱",
+"fair_gift_t":"Geheims Gwand freigschaltet!","fair_gift_d":"Weil „fair“ in deim Nama drinsteckt, schenkt da da Sprossi des Fair-Stirnband. Des findst im Lodn.",
+"konami":"Blattlregn! 🍃 Du kennst an Geheimcode.","huch":"Hoppala!","newyear":"A guads neis Johr! 🎆",
+"earth":"Happy Earth Day! 🌍","xmas":"Frohe Weihnachtn! 🎄",
+"owl_t":"Nachteil 🦉","owl_d":"Lern zwischn Mitternacht und 5 in da Friah. (Aber schlaf a gnua!)",
+"blitz25_t":"Blitzableiter ⚡","blitz25_d":"Schaff 25 richtige Antwortn in oana Blitzrundn.",
+"secret_left":"{n} geheime Abzeichn san no versteckt …","band":"Fair-Stirnband",
+"fun_eb":"Gaudi-Frog – Bonus!","fun_bonus":"+5 Bonus-XP","garden_full":"Olle Bleame bliahn – d’Schmetterling san do! 🦋",
+"funq":[
+{"q":"Wos is am Sprossi sei Liablingsessn?","o":["Sunnaliacht, Wossa und CO₂","Pizza mit extra Kas","Plastiktütn","Nix – da Sprossi mocht Diät"],"x":"Pflanzn mochan eana Essn söiba: Aus Sunnaliacht, Wossa und CO₂ mochans Zucker. Des hoaßt Fotosynthese."},
+{"q":"Wos für a Liad singt da Sprossi unter da Duschn?","o":["„Regn, Regn, kimm daher!“","Goa koans – da Sprossi duscht nia","D’Nationalhymne","Heavy Metal"],"x":"Da Regn is de beste Duschn für Pflanzn. In Deitschland foin im Johr im Schnitt ungefähr 800 Liter Regn pro Quadratmeter."},
+{"q":"Wia vui Blattl hot da Sprossi?","o":["Zwoa","Koans","Siebzehn","Des is geheim"],"x":"Da Sprossi hot zwoa Blattl – wia vui Keimling am Anfang. De erstn Blattl hoaßn Keimblätter."}
+]},
+"gsw":{
+"tickle":["Hihi, das chützelet!","Hör uf, ich bi chützelig! 😆","No einisch und ich rüer Bletter!","Du hesch mi gfunde! 🌱"],
+"name_sprossi_t":"Hey, das isch jo min Name!","name_sprossi_d":"Zwöi Sprossis – jetzt wachsed mir doppelt so schnäll. 🌱",
+"fair_gift_t":"Gheims Outfit freigschaltet!","fair_gift_d":"Wil „fair“ i dim Name drinsteckt, schänkt dir de Sprossi s Fair-Stirnband. Du findsch es im Lade.",
+"konami":"Blätterräge! 🍃 Du kennsch de Gheimcode.","huch":"Hoppla!","newyear":"Es guets Neus! 🎆",
+"earth":"Happy Earth Day! 🌍","xmas":"Schöni Wiehnachte! 🎄",
+"owl_t":"Nachtüüle 🦉","owl_d":"Lern zwüsche Mitternacht und 5i am Morge. (Aber schlaf au gnueg!)",
+"blitz25_t":"Blitzableiter ⚡","blitz25_d":"Schaff 25 richtigi Antworte i einere Blitzrundi.",
+"secret_left":"{n} gheimi Abzeiche sind no versteckt …","band":"Fair-Stirnband",
+"fun_eb":"Spassfrog – Bonus!","fun_bonus":"+5 Bonus-XP","garden_full":"Alli Blueme blüehed – d Schmetterling sind do! 🦋",
+"funq":[
+{"q":"Was isch em Sprossi sis Lieblingsässe?","o":["Sunneliecht, Wasser und CO₂","Pizza mit extra Chäs","Plastiksäckli","Nüt – de Sprossi macht Diät"],"x":"Pflanze mached ihres Ässe sälber: Us Sunneliecht, Wasser und CO₂ stelled si Zucker her. Das heisst Fotosynthese."},
+{"q":"Weles Lied singt de Sprossi under de Dusche?","o":["„Räge, Räge, chumm doch här!“","Gar keis – de Sprossi duscht nie","D Nationalhymne","Heavy Metal"],"x":"Räge isch di bescht Dusche für Pflanze. In Dütschland falled im Johr im Schnitt öppe 800 Liter Räge pro Quadratmeter."},
+{"q":"Wie vill Bletter het de Sprossi?","o":["Zwöi","Keis","Sibzäh","Das isch gheim"],"x":"De Sprossi het zwöi Bletter – wie vill Keimling am Afang. Die erschte Bletter heissed Keimbletter."}
+]}
+};
+function EGG(){ const t = (typeof EGG_TR!=='undefined' && EGG_TR[LANG]) || {}; return Object.assign({}, EGG_DE, t); }
 const EXTRA_TR = {"ui":{
 "en":{"speak":"Read aloud","speak_stop":"Stop reading","easy_mode":"Easy mode","easy_mode_s":"3 instead of 4 answers and a hint button – good for younger pupils","hint":"Hint","hint_used":"One wrong answer is now crossed out.","pics":"Picture puzzle","pics_d":"10 picture questions: Where does the rubbish go? Which energy is this?","ty_img":"What’s in the picture?","suggest":"Suggest a question","suggest_d":"Got a good idea for a question? Send it to the club – maybe it will appear in the app with your name!","sg_unit":"Topic","sg_other":"Other topic","sg_q":"Your question","sg_right":"Correct answer","sg_wrong":"Wrong answers (one per line)","sg_src":"Source (e.g. website or book)","sg_name":"Your name and class (optional)","sg_copy":"Copy & open form","sg_hint":"Your suggestion will be copied. Paste it into the club’s feedback form.","sg_missing":"Please enter at least the question and the correct answer.","sg_copied":"Copied! Now paste it into the form.","privacy":"Privacy & legal notice"},
 "fr":{"speak":"Lire à voix haute","speak_stop":"Arrêter la lecture","easy_mode":"Mode facile","easy_mode_s":"3 réponses au lieu de 4 et un bouton d’indice – idéal pour les plus jeunes","hint":"Indice","hint_used":"Une mauvaise réponse est maintenant barrée.","pics":"Devinettes en images","pics_d":"10 questions en images : où vont les déchets ? Quelle énergie est-ce ?","ty_img":"Qu’y a-t-il sur l’image ?","suggest":"Proposer une question","suggest_d":"Tu as une bonne idée de question ? Envoie-la au groupe – elle apparaîtra peut-être dans l’appli avec ton nom !","sg_unit":"Thème","sg_other":"Autre thème","sg_q":"Ta question","sg_right":"Bonne réponse","sg_wrong":"Mauvaises réponses (une par ligne)","sg_src":"Source (p. ex. site web ou livre)","sg_name":"Ton nom et ta classe (facultatif)","sg_copy":"Copier et ouvrir le formulaire","sg_hint":"Ta proposition sera copiée. Colle-la dans le formulaire de retour du groupe.","sg_missing":"Indique au moins la question et la bonne réponse.","sg_copied":"Copié ! Colle-le maintenant dans le formulaire.","privacy":"Confidentialité et mentions légales"},
@@ -2693,8 +2848,8 @@ const EXTRA_TR2 = {"ui":{
 "fr":{"settings_lead":"Langue, design et tout ce qui concerne l’appli.","options":"Options","app_info":"Appli et données","garden":"Ton jardin","garden_d":"Une fleur éclot pour chaque unité maîtrisée.","garden_n":"{n} fleurs sur {m}","exam":"Examen final","exam_d":"30 questions de toutes les unités – sans cœurs, avec une note et un diplôme.","exam_best":"Meilleure note : {g}","exam_title":"Note {g}","exam_sub":"{r} sur {n} correctes ({p} %).","exam_pass":"Réussi – ton diplôme t’attend dans ton profil !","exam_fail":"Pas encore réussi – le diplôme s’obtient à partir de la note 4. Réessaie !","cert_exam_t":"Examen final","cert_exam1":"a réussi l’examen final avec la note {g} (note scolaire allemande)","cert_exam2":"({p} % de bonnes réponses sur 30 questions de toutes les unités).","offline_t":"Tu es hors ligne","offline":"Pas de problème – l’appli fonctionne quand même.","update_t":"Nouvelle version chargée","update_d":"Recharge pour l’utiliser.","reload":"Recharger","pics_d":"10 questions en images : tri des déchets, énergie, eau et plus."},
 "pl":{"settings_lead":"Język, wygląd i wszystko o aplikacji.","options":"Opcje","app_info":"Aplikacja i dane","garden":"Twój ogród","garden_d":"Za każdą opanowaną jednostkę zakwita kwiat.","garden_n":"{n} z {m} kwiatów","exam":"Egzamin końcowy","exam_d":"30 pytań ze wszystkich jednostek – bez serc, z oceną i dyplomem.","exam_best":"Najlepsza ocena: {g}","exam_title":"Ocena {g}","exam_sub":"{r} z {n} poprawnie ({p}%).","exam_pass":"Zdane – twój dyplom czeka w profilu!","exam_fail":"Jeszcze nie zdane – dyplom dostajesz od oceny 4. Spróbuj jeszcze raz!","cert_exam_t":"Egzamin końcowy","cert_exam1":"zdał(a) egzamin końcowy z oceną {g} (niemiecka ocena szkolna)","cert_exam2":"({p}% poprawnych odpowiedzi na 30 pytań ze wszystkich jednostek).","offline_t":"Jesteś offline","offline":"Nie szkodzi – aplikacja i tak działa.","update_t":"Załadowano nową wersję","update_d":"Odśwież, aby jej używać.","reload":"Odśwież","pics_d":"10 pytań z obrazkami: segregacja śmieci, energia, woda i więcej."},
 "cs":{"settings_lead":"Jazyk, vzhled a vše kolem aplikace.","options":"Možnosti","app_info":"Aplikace a data","garden":"Tvoje zahrada","garden_d":"Za každou zvládnutou lekci vykvete květina.","garden_n":"{n} z {m} květin","exam":"Závěrečná zkouška","exam_d":"30 otázek ze všech lekcí – bez srdíček, se známkou a diplomem.","exam_best":"Nejlepší známka: {g}","exam_title":"Známka {g}","exam_sub":"{r} z {n} správně ({p} %).","exam_pass":"Splněno – tvůj diplom čeká v profilu!","exam_fail":"Zatím nesplněno – diplom dostaneš od známky 4. Zkus to znovu!","cert_exam_t":"Závěrečná zkouška","cert_exam1":"složil(a) závěrečnou zkoušku se známkou {g} (německá školní známka)","cert_exam2":"({p} % správně ve 30 otázkách ze všech lekcí).","offline_t":"Jsi offline","offline":"Nevadí – aplikace funguje i tak.","update_t":"Nová verze načtena","update_d":"Načti znovu, abys ji mohl(a) používat.","reload":"Načíst znovu","pics_d":"10 otázek s obrázky: třídění odpadu, energie, voda a další."},
-"uk":{"settings_lead":"Мова, дизайн і все про застосунок.","options":"Налаштування","app_info":"Застосунок і дані","garden":"Твій сад","garden_d":"За кожен опанований розділ розквітає квітка.","garden_n":"{n} з {m} квітів","exam":"Підсумковий іспит","exam_d":"30 питань з усіх розділів – без сердець, з оцінкою і грамотою.","exam_best":"Найкраща оцінка: {g}","exam_title":"Оцінка {g}","exam_sub":"{r} з {n} правильно ({p} %).","exam_pass":"Складено – твоя грамота чекає в профілі!","exam_fail":"Ще не складено – грамоту отримуєш від оцінки 4. Спробуй ще раз!","cert_exam_t":"Підсумковий іспит","cert_exam1":"склав(ла) підсумковий іспит з оцінкою {g} (німецька шкільна оцінка)","cert_exam2":"({p} % правильних відповідей у 30 питаннях з усіх розділів).","offline_t":"Ти офлайн","offline":"Не страшно – застосунок усе одно працює.","update_t":"Завантажено нову версію","update_d":"Перезавантаж, щоб нею користуватися.","reload":"Перезавантажити","pics_d":"10 питань із картинками: сортування сміття, енергія, вода та інше."},
-"la":{"settings_lead":"Lingua, species et omnia de applicatione.","options":"Optiones","app_info":"Applicatio et data","garden":"Hortus tuus","garden_d":"Pro quaque unitate perdidicta flos floret.","garden_n":"{n} ex {m} floribus","exam":"Examen finale","exam_d":"XXX quaestiones ex omnibus unitatibus – sine cordibus, cum nota et diplomate.","exam_best":"Optima nota: {g}","exam_title":"Nota {g}","exam_sub":"{r} ex {n} recte ({p} %).","exam_pass":"Probatum – diploma tuum in profilo te exspectat!","exam_fail":"Nondum probatum – diploma a nota 4 datur. Iterum tempta!","cert_exam_t":"Examen finale","cert_exam1":"examen finale nota {g} (nota scholae Germanicae) superavit","cert_exam2":"({p} % recte in XXX quaestionibus ex omnibus unitatibus).","offline_t":"Sine conexu es","offline":"Nihil refert – applicatio tamen functionat.","update_t":"Nova versio onerata","update_d":"Renova ut ea utaris.","reload":"Renova","pics_d":"X quaestiones imaginum: purgamenta separanda, energia, aqua et alia."},
+"uk":{"settings_lead":"Мова, дизайн і все про застосунок.","options":"Параметри","app_info":"Застосунок і дані","garden":"Твій сад","garden_d":"За кожен опанований розділ розквітає квітка.","garden_n":"{n} з {m} квітів","exam":"Підсумковий іспит","exam_d":"30 питань з усіх розділів – без сердець, з оцінкою і грамотою.","exam_best":"Найкраща оцінка: {g}","exam_title":"Оцінка {g}","exam_sub":"{r} з {n} правильно ({p} %).","exam_pass":"Складено – твоя грамота чекає в профілі!","exam_fail":"Ще не складено – грамоту отримуєш від оцінки 4. Спробуй ще раз!","cert_exam_t":"Підсумковий іспит","cert_exam1":"склав(ла) підсумковий іспит з оцінкою {g} (німецька шкільна оцінка)","cert_exam2":"({p} % правильних відповідей у 30 питаннях з усіх розділів).","offline_t":"Ти офлайн","offline":"Не страшно – застосунок усе одно працює.","update_t":"Завантажено нову версію","update_d":"Перезавантаж, щоб нею користуватися.","reload":"Перезавантажити","pics_d":"10 питань із картинками: сортування сміття, енергія, вода та інше."},
+"la":{"settings_lead":"Lingua, species et omnia de applicatione.","options":"Electiones","app_info":"Applicatio et data","garden":"Hortus tuus","garden_d":"Pro quaque unitate perdidicta flos floret.","garden_n":"{n} ex {m} floribus","exam":"Examen finale","exam_d":"XXX quaestiones ex omnibus unitatibus – sine cordibus, cum nota et diplomate.","exam_best":"Optima nota: {g}","exam_title":"Nota {g}","exam_sub":"{r} ex {n} recte ({p} %).","exam_pass":"Probatum – diploma tuum in profilo te exspectat!","exam_fail":"Nondum probatum – diploma a nota 4 datur. Iterum tempta!","cert_exam_t":"Examen finale","cert_exam1":"examen finale nota {g} (nota scholae Germanicae) superavit","cert_exam2":"({p} % recte in XXX quaestionibus ex omnibus unitatibus).","offline_t":"Sine conexu es","offline":"Nihil refert – applicatio tamen functionat.","update_t":"Nova versio onerata","update_d":"Renova ut ea utaris.","reload":"Renova","pics_d":"X quaestiones imaginum: purgamenta separanda, energia, aqua et alia."},
 "bar":{"settings_lead":"Sprach, Design und ois rund um d’App.","options":"Optionen","app_info":"App & Datn","garden":"Dei Gartn","garden_d":"Für jede gschaffte Einheit blüht a Bleame.","garden_n":"{n} vo {m} Bleame","exam":"Abschlussprüfung","exam_d":"30 Fragn aus olle Einheitn – ohne Herzl, mit Note und Urkund.","exam_best":"Beste Note: {g}","exam_title":"Note {g}","exam_sub":"{r} vo {n} richtig ({p} %).","exam_pass":"Bstandn – dei Urkund wart im Profil auf di!","exam_fail":"No ned bstandn – ab Note 4 gibt’s d’Urkund. Probier’s no amoi!","cert_exam_t":"Abschlussprüfung","cert_exam1":"hod d’Abschlussprüfung mit da Note {g} bstandn","cert_exam2":"({p} % richtig bei 30 Fragn aus olle Einheitn).","offline_t":"Du bist offline","offline":"Macht nix – d’App geht trotzdem.","update_t":"Neie Version glodn","update_d":"Lad nei, dass’d as nutzn kannst.","reload":"Nei lodn","pics_d":"10 Buidlfragn: Müll trenna, Energie, Wasser und no mehr."},
 "gsw":{"settings_lead":"Sprach, Design und alles rund um d App.","options":"Optione","app_info":"App & Date","garden":"Din Garte","garden_d":"Für jedi gmeisterti Einheit blüeht e Bluem.","garden_n":"{n} vo {m} Blueme","exam":"Schlussprüefig","exam_d":"30 Froge us allne Einheite – ohni Herzli, mit Note und Urkund.","exam_best":"Bescht Note: {g}","exam_title":"Note {g}","exam_sub":"{r} vo {n} richtig ({p} %).","exam_pass":"Bestande – dini Urkund wartet im Profil!","exam_fail":"Nonig bestande – ab Note 4 gits d Urkund. Probiers nomol!","cert_exam_t":"Schlussprüefig","cert_exam1":"het d Schlussprüefig mit dr Note {g} bestande","cert_exam2":"({p} % richtig bi 30 Froge us allne Einheite).","offline_t":"Du bisch offline","offline":"Kei Problem – d App funktioniert trotzdem.","update_t":"Neui Version glade","update_d":"Lad neu, zum si z bruuche.","reload":"Neu lade","pics_d":"10 Bilderfroge: Abfall trenne, Energie, Wasser und meh."}
 },
@@ -2861,6 +3016,14 @@ const WEAR = {
   mmgcap:'<path d="M27 43 C27 22 73 22 73 43 Z" fill="#2E6417"/><path d="M62 41 C74 39 86 40 91 44 C82 47 70 46 60 45 Z" fill="#1E440E"/><circle cx="50" cy="24" r="2.5" fill="#1E440E"/><text x="48" y="38" font-family="Arial,Helvetica,sans-serif" font-weight="900" font-size="9.5" text-anchor="middle" fill="#C1FF72">MMG</text>',
   krone:'<path d="M35 36 L35 19 L42.5 27 L50 15 L57.5 27 L65 19 L65 36 Z" fill="#FFC21A" stroke="#C78A00" stroke-width="1.6" stroke-linejoin="round"/><circle cx="50" cy="29" r="3" fill="#EE4B4F"/><circle cx="41" cy="31" r="2" fill="#00BF63"/><circle cx="59" cy="31" r="2" fill="#00BF63"/>'
 };
+/* Geheime/saisonale Outfits: Fair-Stirnband (ohne echtes Siegel-Logo), Weltkugel zum Earth Day */
+WEAR.band = '<path d="M25 42 C30 34 70 34 75 42 L75 49 C70 42 30 42 25 49 Z" fill="#00BF63" stroke="#1E440E" stroke-width="1.4"/><path d="M36 40 L40 44 L47 37" fill="none" stroke="#C1FF72" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><text x="60" y="44" font-family="Arial,Helvetica,sans-serif" font-weight="900" font-size="7" text-anchor="middle" fill="#fff">FAIR</text>';
+WEAR.globus = '<circle cx="78" cy="30" r="10" fill="#3B82F6" stroke="#1E440E" stroke-width="1.4"/><path d="M72 25c3 0 4 3 7 2s2 4 5 4M71 34c2-2 5-1 6 1s3 1 4 3" fill="none" stroke="#00BF63" stroke-width="3" stroke-linecap="round"/>';
+/* 5 · Besondere Tage: nur wenn Sprossi gerade kein eigenes Outfit trägt */
+function seasonWear(){ const d = new Date(), m = d.getMonth()+1, t = d.getDate();
+  if(m===4 && t===22) return 'globus';
+  if(m===12 && t>=24 && t<=26) return 'muetze';
+  return ''; }
 /* Sprossi mit sanften SVG-Animationen (SMIL – läuft auch auf alten Android-WebViews); mood 'wave' = winkt */
 const MOTION = !(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches);
 /* Sprossi wächst mit den gesammelten XP: 5 Stufen */
@@ -2868,7 +3031,7 @@ const GROW = [{xp:0,t:'Keimling',k:.82},{xp:100,t:'Sprössling',k:1},{xp:300,t:'
 function growStage(xp){ let n = 0; GROW.forEach((g,i)=>{ if(xp>=g.xp) n = i; }); return {n, k:GROW[n].k, t:GROW[n].t, next:GROW[n+1]}; }
 function mascot(mood='happy', outfit, still){
   const gs = {n:1, k:1};   /* Sprossi bleibt gleich groß (Wachstum durch den Garten im Profil ersetzt) */
-  const wear = WEAR[outfit===undefined ? S.outfit : outfit] || '';
+  const wear = WEAR[outfit===undefined ? (S.outfit || seasonWear()) : outfit] || '';
   const face = mood==='wave' ? 'cheer' : mood;
   const mouth = {
     happy:'<path d="M41 67 Q50 76 59 67" fill="none" stroke="#1E440E" stroke-width="3.4" stroke-linecap="round"/>',
@@ -3872,7 +4035,7 @@ const PRAISE = ['Super!','Richtig!','Klasse!','Stark!','Genau!','Sehr gut!','Gr�
 /* ================= Zustand ================= */
 const KEY = 'ggaf-quizzes-v1';
 const HEART_MS = 30*60*1000, MAX_H = 5;
-const defaults = () => ({name:'', xp:0, hearts:MAX_H, heartsTs:Date.now(), streak:0, lastDay:null, goal:30, log:{}, done:{}, badges:{}, lessons:0, perfect:0, answered:0, correct:0, blitzBest:0, missed:[], sound:true, tab:'learn', read:{}, spent:0, owned:[], outfit:'', freeze:0, boost:false, froze:0, introDone:false, srs:{}, dstat:{}, bg:'', recapWeek:'', unitOrder:2, theme:'auto', lang:'de', easy:false, opens:0, exam:{}});
+const defaults = () => ({name:'', xp:0, hearts:MAX_H, heartsTs:Date.now(), streak:0, lastDay:null, goal:30, log:{}, done:{}, badges:{}, lessons:0, perfect:0, answered:0, correct:0, blitzBest:0, missed:[], sound:true, tab:'learn', read:{}, spent:0, owned:[], outfit:'', freeze:0, boost:false, froze:0, introDone:false, srs:{}, dstat:{}, bg:'', recapWeek:'', unitOrder:2, theme:'auto', lang:'de', easy:false, opens:0, exam:{}, owl:false});
 const balance = () => S.xp - S.spent;   /* ausgebbare XP; S.xp bleibt die Gesamtsumme für Abzeichen */
 let S = load();
 S.opens++; save();   /* nur ein Zähler auf diesem Gerät – ohne IP, ohne Server */
@@ -4027,7 +4190,9 @@ const BADGES = [
  {id:'all', t:'Going green and Fair', d:'Schließe alle Einheiten des Lernpfads ab.', ic:'globe', p:s=>[UNITS.filter((_,u)=>s.done[nodeId(u,3)]).length,UNITS.length]},
  {id:'ag', t:'AG-Profi', d:'Schließe alle drei Lektionen der AG „Going green und fair“ ab.', ic:'book', p:s=>[[0,1,2].filter(k=>s.done[nodeId(-1,k)]).length,3]},
  {id:'shop', t:'Erster Einkauf', d:'Kaufe etwas im Shop.', ic:'bag', p:s=>[s.spent>0?1:0,1]},
- {id:'style', t:'Sprossi-Stylist', d:'Kaufe ein Outfit oder einen Hintergrund im Shop.', ic:'star', p:s=>[s.owned.length,1]}
+ {id:'style', t:'Sprossi-Stylist', d:'Kaufe ein Outfit oder einen Hintergrund im Shop.', ic:'star', p:s=>[s.owned.length,1]},
+ {id:'owl', secret:true, get t(){ return EGG().owl_t; }, get d(){ return EGG().owl_d; }, ic:'clock', p:s=>[s.owl?1:0,1]},
+ {id:'blitz25', secret:true, get t(){ return EGG().blitz25_t; }, get d(){ return EGG().blitz25_d; }, ic:'bolt', p:s=>[s.blitzBest,25]}
 ];
 function checkBadges(){ const nw = []; BADGES.forEach(b=>{ const [v,m] = b.p(S); if(v>=m && !S.badges[b.id]){ S.badges[b.id] = dayKey(); nw.push(b); } }); return nw; }
 
@@ -4048,7 +4213,8 @@ const OUTFITS = [
  {id:'kopfhoerer', t:'Kopfhörer', price:90},
  {id:'sonnenhut', t:'Sonnenhut', price:70},
  {id:'mmgcap', t:'MMG-Cap', price:120},
- {id:'krone', t:'Krone', price:200}
+ {id:'krone', t:'Krone', price:200},
+ {id:'band', get t(){ return EGG().band; }, price:0, secret:true}   /* geheim: gratis, wenn „fair“ im Namen steckt */
 ];
 const BGS = [
  {id:'dots', t:'Tupfen', price:40},
@@ -4077,7 +4243,7 @@ function renderShop(){
   <div class="stack">${SHOP.map(it=>{ const why = shopState(it), extra = it.id==='freeze' ? T('shop_owned',{n:S.freeze}) : '';
     return `<div class="card pcard"><div class="badge" style="background:${it.col};color:#fff">${icon(it.ic)}</div><div><h3>${it.t}</h3><p>${it.d}${extra}</p>${why?`<p class="why">${why}</p>`:''}</div><button class="btn go price" data-buy="${it.id}" ${why||b<it.price?'disabled':''}>${icon('leaf')}${it.price}</button></div>`; }).join('')}</div>
   <h2 class="sec">${T('shop_outfits')}</h2>
-  <div class="bgrid ogrid">${OUTFITS.map(o=>{ const own = S.owned.includes(o.id), on = S.outfit===o.id;
+  <div class="bgrid ogrid">${OUTFITS.filter(o=>!o.secret || S.owned.includes(o.id)).map(o=>{ const own = S.owned.includes(o.id), on = S.outfit===o.id;
     return `<div class="bdg outfit ${on?'on':''}">${mascot('happy', o.id)}<h3>${o.t}</h3>${own
       ? `<button class="btn ${on?'ghost':''} block" data-wear="${o.id}">${on?T('take_off'):T('put_on')}</button>`
       : `<button class="btn block price" data-buy="${o.id}" ${b<o.price?'disabled':''}>${icon('leaf')}${o.price}</button>`}</div>`; }).join('')}</div>
@@ -4185,9 +4351,9 @@ function renderPractice(){
   </div>`;
 }
 function renderBadges(){
-  const n = Object.keys(S.badges).length;
-  $('#view').innerHTML = `<h1 class="h1">${T('tab_badges')}</h1><p class="lead">${T('badges_lead',{n, m:BADGES.length})}</p><div class="bgrid">${
-    BADGES.map(b=>{ const [v,m] = b.p(S), got = !!S.badges[b.id];
+  const vis = BADGES.filter(b=>!b.secret || S.badges[b.id]), hid = BADGES.length - vis.length, n = vis.filter(b=>S.badges[b.id]).length;   /* geheime Abzeichen erst nach dem Freischalten zeigen */
+  $('#view').innerHTML = `<h1 class="h1">${T('tab_badges')}</h1><p class="lead">${T('badges_lead',{n, m:vis.length})}${hid ? ' · 🔒 ' + hid + ' × ???' : ''}</p><div class="bgrid">${
+    vis.map(b=>{ const [v,m] = b.p(S), got = !!S.badges[b.id];
       return `<div class="bdg ${got?'':'off'}"><div class="medal">${icon(b.ic)}</div><h3>${b.t}</h3><p>${b.d}</p>${got?`<p style="color:var(--leafText)">${T('received')}</p>`:`<div class="bar" aria-label="${T('n_of_m',{n:Math.min(v,m), m})}"><i style="width:${Math.min(100,v/m*100)}%"></i></div><p>${Math.min(v,m)} / ${m}</p>`}</div>`; }).join('')
   }</div>`;
 }
@@ -4248,7 +4414,9 @@ function gardenHTML(){
   };
   const n = beds.filter(b=>b.st===2).length;
   return `<div class="card"><p class="cardtxt">${T('garden_d')} <b>${T('garden_n',{n, m:beds.length})}</b></p>
-    <div class="garden">${beds.map(b=>`<svg viewBox="0 0 60 60" role="img" aria-label="${esc(b.t)}"><title>${esc(b.t)}</title>${plant(b)}</svg>`).join('')}</div></div>`;
+    <div class="garden">${beds.map(b=>`<svg viewBox="0 0 60 60" role="img" aria-label="${esc(b.t)}"><title>${esc(b.t)}</title>${plant(b)}</svg>`).join('')}
+    ${n===beds.length ? ['#FF9600','#C1FF72','#F7B6C8'].map((c,i)=>`<svg class="bfly b${i}" viewBox="0 0 24 20" aria-hidden="true"><path d="M12 10C8 0 1 2 2 8s8 3 10 2zM12 10c4-10 11-8 10-2s-8 3-10 2zM12 10c-4 2-8 8-4 9s4-6 4-9zM12 10c4 2 8 8 4 9s-4-6-4-9z" fill="${c}" stroke="#1E440E" stroke-width=".8"/><path d="M12 5v12" stroke="#1E440E" stroke-width="1.6" stroke-linecap="round"/></svg>`).join('') : ''}</div>
+    ${n===beds.length ? `<p class="cardtxt" style="margin-top:8px;color:var(--leafText)">${EGG().garden_full}</p>` : ''}</div>`;
 }
 /* Abschlussprüfung: Note nach Prozent (wie in der Schule üblich) */
 const examGrade = p => p>=92 ? 1 : p>=81 ? 2 : p>=67 ? 3 : p>=50 ? 4 : p>=30 ? 5 : 6;
@@ -4316,6 +4484,12 @@ function startLesson(opts){
   else if(opts.mode==='pics') queue = shuffle(PICQ).slice(0,10);
   else if(opts.mode==='exam') queue = shuffle(UNITS.flatMap(u=>u.qs)).slice(0,30);
   else if(opts.mode==='myth') queue = shuffle(MYTHS).slice(0,10);   /* Klassen-Modus: alle 18 Aufgaben der Einheit in Reihenfolge */
+  /* 8 · sehr seltene Spaßfrage (ca. 1 von 200 Runden) */
+  if((opts.mode==='lesson'||opts.mode==='mix'||opts.mode==='review') && queue.length && Math.random()<1/200){ const F = EGG().funq, i = Math.floor(Math.random()*F.length);
+    queue.splice(1+Math.floor(Math.random()*queue.length), 0, Object.assign({t:'mc', id:'fun.'+i}, F[i])); }
+  /* 8 · sehr seltene Spaßfrage (ca. 1 von 200 Runden) */
+  if((opts.mode==='lesson'||opts.mode==='mix'||opts.mode==='review') && queue.length && Math.random()<1/200){ const F = EGG().funq, i = Math.floor(Math.random()*F.length);
+    queue.splice(1+Math.floor(Math.random()*queue.length), 0, Object.assign({t:'mc', id:'fun.'+i}, F[i])); }
   L = Object.assign({queue, total:queue.length, done:0, mistakes:0, answered:0, combo:0, maxCombo:0, t0:Date.now(), phase:'answer', retry:{}, pts:0}, opts);
   $('#lesson').hidden = false; document.body.style.overflow = 'hidden';
   $('#lesson').classList.toggle('beamer', L.mode==='beamer');
@@ -4436,6 +4610,7 @@ function nextQ(){
   const combo = L.combo>=3 ? T('combo',{n:L.combo}) : '';
   let h = isRetry ? `<div class="retrytag">${icon('redo')}${T('retry_tag')} – ${L.mode==='missed'?T('retry_missed'):T('retry_earlier')}</div>` : `<div class="combo">${combo}</div>`;
   const hintBtn = easyOn() && (q.t==='mc'||q.t==='img'||q.t==='fill') ? `<button class="spk" data-act="hint">${icon('bulb')}${T('hint')}</button>` : '';
+  if(/^fun\./.test(q.id)) h += `<div class="retrytag funtag">${icon('star')}${EGG().fun_eb}</div>`;
   h += `<div class="qtrow"><div class="qtype">${icon(ic)}${T(lab)}</div><div>${hintBtn} ${L.mode==='blitz' ? '' : spkBtn('speakQ')}</div></div>`;
   if(q.t==='mc'||q.t==='tf'||q.t==='img'){
     L.opts = q.t==='tf' ? (L.mode==='myth' ? [{t:T('myth_true'),ok:q.a===true,ic:'check'},{t:T('myth_false'),ok:q.a===false,ic:'x'}] : [{t:T('tf_true'),ok:q.a===true,ic:'check'},{t:T('tf_false'),ok:q.a===false,ic:'x'}]) : easyOpts(q);
@@ -4510,13 +4685,14 @@ function check(){
 function feedback(ok, sol){
   const q = L.q, own = L.mode!=='beamer';   /* Klassen-Modus zählt nicht für den eigenen Fortschritt */
   L.phase = 'feedback'; L.answered++;
-  const extra = L.mode==='estimate' || L.mode==='myth' || L.mode==='pics';   /* Zusatzrunden: nicht in Fehlerliste/Wiederholung */
+  const extra = L.mode==='estimate' || L.mode==='myth' || L.mode==='pics' || /^fun./.test(q.id);   /* Zusatzrunden: nicht in Fehlerliste/Wiederholung */
   if(own){ S.answered++; if(ok) S.correct++; if(!extra){ statAnswer(q, ok); if(!L.retry[q.id]) srsMark(q, ok, L.mode==='review'); } }
   if(ok){ L.done++; L.combo++; L.maxCombo = Math.max(L.maxCombo, L.combo); sOk();
+    if(/^fun\./.test(q.id)) L.bonus = (L.bonus||0) + 5;
     if(L.mode==='missed') S.missed = S.missed.filter(id=>id!==q.id);
   } else { L.mistakes++; L.combo = 0; sBad();
     if(own && !extra && !S.missed.includes(q.id)) S.missed.push(q.id);
-    if(L.mode==='beamer' || L.mode==='exam'){ L.done++; }   /* im Klassen-Modus einfach weiter – Auflösung steht im Feedback */
+    if(L.mode==='beamer' || L.mode==='exam' || /^fun./.test(q.id)){ L.done++; }   /* im Klassen-Modus einfach weiter – Auflösung steht im Feedback */
     else {
       L.retry[q.id] = true;
       if(L.mode==='lesson'||L.mode==='test'){ L.queue.push(q); if(S.hearts>=MAX_H) S.heartsTs = Date.now(); S.hearts = Math.max(0,S.hearts-1); setTimeout(()=>{ const ls = $('#lstat'); ls.classList.remove('hit'); void ls.offsetWidth; ls.classList.add('hit'); }, 0); }
@@ -4527,9 +4703,10 @@ function feedback(ok, sol){
   const praise = PRAISE[Math.floor(Math.random()*PRAISE.length)];
   $('#sheetIn').innerHTML = `<div class="t"><span class="dot">${icon(ok?'check':'x')}</span>${ok?praise:T('not_quite')}</div>
     ${q.t==='est' ? `<div class="sol">${sol}</div>` : ok?'':`<div class="sol">${T('right_answer',{s:sol})}</div>`}
+    ${ok && /^fun\./.test(q.id) ? `<div class="sol">${icon('star')} ${EGG().fun_bonus}</div>` : ''}
     <div class="fact"><b>${T('did_you_know')}</b> ${q.x}</div>
     <button class="btn block" id="cont">${T('next')}</button>
-    ${!/^pic/.test(q.id||'') ? `<button class="report" data-act="report">${icon('chat')}${T('report_btn')}</button>` : ''}`;
+    ${!/^(pic|fun)/.test(q.id||'') ? `<button class="report" data-act="report">${icon('chat')}${T('report_btn')}</button>` : ''}`;
   $('#sheet').className = 'sheet show '+(ok?'ok':'bad');
   $('#cont').focus();
 }
@@ -4561,6 +4738,8 @@ function finish(){
     title = m==='test' ? T('unit_mastered') : perfect ? T('flawless') : T('lesson_done');
     sub = m==='test' ? T('test_sub',{u:UNITS[L.u].t}) : m==='lesson' ? `${unitOf(L.u).t} · ${lessonName(L.u,L.k)}` : m==='estimate' ? T('est_sub',{p:L.pts, m:L.total*3}) : m==='myth' ? T('myth_sub',{r:L.answered-L.mistakes, n:L.total}) : m==='review' ? T('review_sub',{n:srsDue().length}) : T('train_sub');
   }
+  if(L.bonus && m!=='blitz' && m!=='beamer') xp += L.bonus;   /* Bonus aus Spaßfragen */
+  if(new Date().getHours()<5) S.owl = true;   /* geheimes Abzeichen „Nachteule“ */
   const boosted = S.boost && xp>0;
   if(boosted){ xp *= 2; S.boost = false; }
   const before = todayXp(), growBefore = growStage(S.xp).n;
@@ -9644,6 +9823,56 @@ applyStaticI18n();
 S.missed = S.missed.filter(byId);   /* veraltete Fragen-IDs aus alten Speicherständen entfernen */
 applyFreeze();
 $('#logoMark').innerHTML = mascot('happy',undefined,true);
+/* ================= Easter Eggs (siehe README „Versteckte Überraschungen“) ================= */
+/* 1 · Sprossi kitzeln: 7× schnell auf das Logo tippen */
+let tickleN = 0, tickleT = 0;
+document.addEventListener('click', e=>{
+  if(!e.target.closest('#logoMark')) return;
+  const now = Date.now(); tickleN = now-tickleT<700 ? tickleN+1 : 1; tickleT = now;
+  if(tickleN<7) return; tickleN = 0;
+  const lm = $('#logoMark'); lm.classList.remove('spin'); void lm.offsetWidth; lm.classList.add('spin');
+  const lines = EGG().tickle; tone([880,1175,1480],'triangle',.07);
+  modal(`${mascot('cheer')}<h2>${lines[Math.floor(Math.random()*lines.length)]}</h2><button class="btn block" data-act="close">${T('super')}</button>`);
+});
+/* 2 · Geheime Namen (beim Verlassen des Namensfelds) */
+document.addEventListener('change', e=>{
+  if(e.target.id!=='name' && e.target.id!=='introName') return;
+  const n = e.target.value.trim().toLowerCase(), E = EGG();
+  if(n==='sprossi') modal(`${mascot('wow')}<h2>${E.name_sprossi_t}</h2><p>${E.name_sprossi_d}</p><button class="btn block" data-act="close">${T('super')}</button>`);
+  else if(n==='mmg'){ confetti(); tone([660,880,1100],'triangle',.09); }
+  if(n.indexOf('fair')>=0 && !S.owned.includes('band')){ S.owned.push('band'); save();
+    modal(`${mascot('cheer','band')}<h2>${E.fair_gift_t}</h2><p>${E.fair_gift_d}</p><button class="btn block" data-act="close">${T('super')}</button>`); }
+});
+/* 3 · Konami-Code: ↑↑↓↓←→←→ B A → Blätterregen */
+const KONAMI = ['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];
+let konamiI = 0;
+document.addEventListener('keydown', e=>{
+  const k = e.key.length===1 ? e.key.toLowerCase() : e.key;
+  konamiI = k===KONAMI[konamiI] ? konamiI+1 : (k===KONAMI[0] ? 1 : 0);
+  if(konamiI===KONAMI.length){ konamiI = 0; leafRain(); }
+});
+function leafRain(){
+  const box = document.createElement('div'); box.className = 'leafrain'; box.setAttribute('aria-hidden','true');
+  const cols = ['#2E6417','#00BF63','#7ED957','#C1FF72'];
+  for(let i=0;i<40;i++){ const s = document.createElement('span'); s.innerHTML = icon('leaf');
+    s.style.cssText = `left:${Math.random()*100}%;color:${cols[i%4]};animation-delay:${(Math.random()*2).toFixed(2)}s;animation-duration:${(2.5+Math.random()*2).toFixed(2)}s;font-size:${18+Math.round(Math.random()*18)}px`;
+    box.appendChild(s); }
+  document.body.appendChild(box); setTimeout(()=>box.remove(), 5500);
+  const t = $('#toast'); if(t){ t.innerHTML = `<span class="ti" style="color:var(--leaf)">${icon('leaf')}</span><div><b>${EGG().konami}</b></div><div class="tb"><button class="btn plain" data-act="toastClose">${T('ok')}</button></div>`; t.hidden = false; setTimeout(()=>{ t.hidden = true; }, 4000); }
+}
+/* 5 · Besondere Tage: Silvester/Neujahr Konfetti beim Start (Earth Day & Weihnachten: siehe seasonWear) */
+(function(){ const d = new Date(), md = (d.getMonth()+1)*100 + d.getDate();
+  const msg = md===1231 || md===101 ? EGG().newyear : md===422 ? EGG().earth : md>=1224 && md<=1226 ? EGG().xmas : '';
+  if(msg) setTimeout(()=>{ if(md===1231 || md===101) confetti(); const t = $('#toast'); if(t && t.hidden){ t.innerHTML = `<span class="ti" style="color:var(--orange)">${icon('star')}</span><div><b>${msg}</b></div><div class="tb"><button class="btn plain" data-act="toastClose">${T('ok')}</button></div>`; t.hidden = false; } }, 900);
+})();
+/* 9 · Rückwärts-Sprossi: lange auf Sprossi in der Einführung drücken */
+let flipTimer = null;
+document.addEventListener('pointerdown', e=>{
+  const m = e.target.closest('.intro .stage > svg.m'); if(!m) return;
+  flipTimer = setTimeout(()=>{ m.classList.add('flip'); const b = document.createElement('div'); b.className = 'huch'; b.textContent = EGG().huch; m.after(b);
+    tone([400,300],'sine',.08); setTimeout(()=>{ m.classList.remove('flip'); b.remove(); }, 1600); }, 700);
+});
+['pointerup','pointerleave','pointercancel'].forEach(ev=>document.addEventListener(ev, ()=>clearTimeout(flipTimer)));
 render(true);
 applyBg(); applyTheme();
 if(!storageTest()) setTimeout(storageWarn, 1200);   /* nach dem Start kurz Bescheid geben, wenn Speichern nicht geht */
