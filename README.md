@@ -102,6 +102,7 @@ Die komplette App gibt es in **15 Sprachen**: Fragen, Infotexte, Lexikon, Tipps,
 
 ### Datenschutz
 - Kein Konto, keine Werbung, kein Tracking. Alle Daten bleiben auf dem Gerät.
+- **Browserdaten löschen:** Einstellungen → App & Daten → „Browserdaten löschen“ entfernt nach einer Rückfrage alles, was die App im Browser gespeichert hat (Fortschritt, Einstellungen, Sitzungsdaten, Offline-Speicher und Service Worker) und startet die App neu wie beim ersten Mal. „Fortschritt zurücksetzen“ setzt dagegen nur den Spielstand zurück.
 - Die Web-Version lädt **keine Google-Schriften** mehr: Baloo 2 und Nunito liegen im Ordner `web/fonts/`.
 - **Einstellungen → App & Daten → Datenschutz & Impressum** zeigt die Hinweise. Die Kontaktdaten fürs Impressum stehen in `index.html` in der Konstante `LEGAL` (Name, verantwortliche Person, Anschrift, E-Mail) und müssen noch eingetragen werden.
 

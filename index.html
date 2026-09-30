@@ -2661,6 +2661,24 @@ const UI_36 = {
  gsw:{sec_train:'Trainiere', sec_know:'Wüsse & Spass', sec_class:'Prüefig & Klass', sec_join:'Mitmache', quiz_t:'Schätze & Mythe', quiz_d:'4 Schätzfroge mit Schieberegler und 6 Uussage: wohr oder Mythos?', quiz_sub:'Schätze: {p} vo {m} Pünkt · Mythe: {r} vo {n} richtig.'},
  la:{sec_train:'Exerceri', sec_know:'Scientia & ludus', sec_class:'Examen & classis', sec_join:'Participa', quiz_t:'Aestimationes & fabulae', quiz_d:'IV quaestiones aestimandi cum regula mobili et VI sententiae: verum an fabula?', quiz_sub:'Aestimationes: {p} ex {m} punctis · Fabulae: {r} ex {n} rectae.'}
 };
+/* Browserdaten löschen (Version 3.6) */
+const UI_37 = {
+ de:{clear_data:'Browserdaten löschen', clear_btn:'Löschen', clear_t:'Alle App-Daten löschen?', clear_d:'Löscht deinen Fortschritt, alle Einstellungen und den Offline-Speicher dieser App in diesem Browser. Danach startet die App wie beim ersten Mal. Tipp: Erstelle vorher einen Sicherungscode!', clear_yes:'Ja, alles löschen'},
+ en:{clear_data:'Clear browser data', clear_btn:'Clear', clear_t:'Delete all app data?', clear_d:'Deletes your progress, all settings and this app’s offline storage in this browser. The app then starts like the first time. Tip: create a backup code first!', clear_yes:'Yes, delete everything'},
+ fr:{clear_data:'Effacer les données du navigateur', clear_btn:'Effacer', clear_t:'Supprimer toutes les données ?', clear_d:'Supprime ta progression, tous les réglages et le stockage hors ligne de l’appli dans ce navigateur. L’appli redémarre comme la première fois. Astuce : crée d’abord un code de sauvegarde !', clear_yes:'Oui, tout supprimer'},
+ es:{clear_data:'Borrar datos del navegador', clear_btn:'Borrar', clear_t:'¿Borrar todos los datos?', clear_d:'Borra tu progreso, todos los ajustes y el almacenamiento sin conexión de la app en este navegador. Después, la app empieza como la primera vez. Consejo: ¡crea antes un código de copia!', clear_yes:'Sí, borrar todo'},
+ it:{clear_data:'Cancella dati del browser', clear_btn:'Cancella', clear_t:'Cancellare tutti i dati?', clear_d:'Cancella i tuoi progressi, tutte le impostazioni e la memoria offline dell’app in questo browser. Poi l’app riparte come la prima volta. Consiglio: crea prima un codice di backup!', clear_yes:'Sì, cancella tutto'},
+ pl:{clear_data:'Usuń dane przeglądarki', clear_btn:'Usuń', clear_t:'Usunąć wszystkie dane?', clear_d:'Usuwa twoje postępy, wszystkie ustawienia i pamięć offline aplikacji w tej przeglądarce. Potem aplikacja startuje jak za pierwszym razem. Wskazówka: najpierw utwórz kod kopii!', clear_yes:'Tak, usuń wszystko'},
+ ru:{clear_data:'Удалить данные браузера', clear_btn:'Удалить', clear_t:'Удалить все данные?', clear_d:'Удаляет твой прогресс, все настройки и офлайн-хранилище приложения в этом браузере. Потом приложение начнётся как в первый раз. Совет: сначала создай код резервной копии!', clear_yes:'Да, удалить всё'},
+ uk:{clear_data:'Видалити дані браузера', clear_btn:'Видалити', clear_t:'Видалити всі дані?', clear_d:'Видаляє твій прогрес, усі налаштування й офлайн-сховище застосунку в цьому браузері. Потім застосунок почнеться як уперше. Порада: спершу створи резервний код!', clear_yes:'Так, видалити все'},
+ pt:{clear_data:'Apagar dados do navegador', clear_btn:'Apagar', clear_t:'Apagar todos os dados?', clear_d:'Apaga o teu progresso, todas as definições e o armazenamento offline da app neste navegador. Depois, a app começa como da primeira vez. Dica: cria antes um código de cópia!', clear_yes:'Sim, apagar tudo'},
+ nl:{clear_data:'Browsergegevens wissen', clear_btn:'Wissen', clear_t:'Alle app-gegevens wissen?', clear_d:'Wist je voortgang, alle instellingen en de offline opslag van de app in deze browser. Daarna start de app zoals de eerste keer. Tip: maak eerst een back-upcode!', clear_yes:'Ja, alles wissen'},
+ cs:{clear_data:'Smazat data prohlížeče', clear_btn:'Smazat', clear_t:'Smazat všechna data?', clear_d:'Smaže tvůj pokrok, všechna nastavení a offline úložiště aplikace v tomto prohlížeči. Pak aplikace začne jako poprvé. Tip: nejdřív si vytvoř záložní kód!', clear_yes:'Ano, smazat vše'},
+ bar:{clear_data:'Browserdaten löschn', clear_btn:'Löschn', clear_t:'Olle App-Daten löschn?', clear_d:'Löscht dein Fortschritt, olle Eistellunga und an Offline-Speicher vo da App in dem Browser. Danach fangt d’App o wia beim erstn Moi. Tipp: Mach vorher an Sicherungscode!', clear_yes:'Jo, ois löschn'},
+ gsw:{clear_data:'Browserdate lösche', clear_btn:'Lösche', clear_t:'Alli App-Date lösche?', clear_d:'Löscht din Fortschritt, alli Iistellige und de Offline-Spiicher vo de App i däm Browser. Nachher startet d App wie s erscht Mal. Tipp: Mach vorher en Sicherigscode!', clear_yes:'Ja, alles lösche'},
+ la:{clear_data:'Data navigatri delere', clear_btn:'Delere', clear_t:'Omnia data delere?', clear_d:'Progressum tuum, omnes optiones et memoriam offline applicationis in hoc navigatro delet. Deinde applicatio ut primum incipit. Consilium: prius signum salutis crea!', clear_yes:'Ita, omnia dele'}
+};
+Object.keys(UI_37).forEach(l=>Object.assign(UI_36[l], UI_37[l]));
 Object.assign(UI_EXTRA.de, UI_36.de);
 const UI_35 = {
  de:{layout:'Ansicht', lay_auto:'Automatisch', lay_auto_s:'passt sich an', lay_phone:'Handy', lay_phone_s:'schmal', lay_wide:'PC & Tafel', lay_wide_s:'breit, große Schrift'},
@@ -4583,6 +4601,7 @@ function renderSettings(){
   <div class="card stack">
     <div class="row"><b>${T('privacy')}</b><button class="btn ghost" data-act="privacy" style="padding:10px 14px;font-size:13px">${T('view')}</button></div>
     <div class="row"><b>${T('reset_progress')}</b><button class="btn ghost" data-act="reset" style="padding:10px 14px;font-size:13px">${T('reset')}</button></div>
+    <div class="row"><b>${T('clear_data')}</b><button class="btn ghost" data-act="clearData" style="padding:10px 14px;font-size:13px">${T('clear_btn')}</button></div>
   </div>
   <p class="about">${T('opens',{n:S.opens})}${window.GGAFApp ? '' : `<br><span id="webCount">${webCount ? T('web_count',{n:fmtNum(webCount)}) : ''}</span>`}<br>${T('fact_stand',{d:factStand()})}${window.GGAFApp && GGAFApp.version ? T('app_version',{v:esc(GGAFApp.version())}) : ''}</p>`;
 }
@@ -4961,6 +4980,8 @@ document.addEventListener('click', e=>{
   if(a==='hint') return useHint();
   if(a==='pics') return startLesson({mode:'pics'});
   if(a==='quiz') return startLesson({mode:'quiz'});
+  if(a==='clearData') return modal(`${mascot('sad')}<h2>${T('clear_t')}</h2><p>${T('clear_d')}</p><button class="btn red block" data-act="doClearData">${T('clear_yes')}</button><button class="btn plain block" data-act="close">${T('cancel')}</button>`);
+  if(a==='doClearData'){ clearAllData(); return; }
   if(a==='exam') return startLesson({mode:'exam'});
   if(a==='certExam') return showCert('exam');
   if(a==='privacy') return showPrivacy();
@@ -10089,6 +10110,17 @@ if(!storageTest()) setTimeout(storageWarn, 1200);   /* nach dem Start kurz Besch
 /* Speicher als „dauerhaft“ anfragen, damit Browser (v. a. Safari) ihn nicht so schnell löschen */
 try{ if(navigator.storage && navigator.storage.persist) navigator.storage.persist().catch(()=>{}); }catch(e){}
 /* Web-App (GitHub Pages): Offline-Speicher anmelden – nicht in der Android-App und nicht auf file:// */
+/* Browserdaten löschen: Speicherstand, Sitzungsdaten, Offline-Speicher (Cache) und Service Worker – danach neu laden */
+function clearAllData(){
+  const done = () => { try{ location.replace(location.pathname); }catch(e){ location.reload(); } };
+  save = () => {};   /* nichts mehr zurückschreiben */
+  try{ localStorage.clear(); }catch(e){}
+  try{ sessionStorage.clear(); }catch(e){}
+  const jobs = [];
+  try{ if(window.caches) jobs.push(caches.keys().then(ks=>Promise.all(ks.map(k=>caches.delete(k))))); }catch(e){}
+  try{ if(navigator.serviceWorker) jobs.push(navigator.serviceWorker.getRegistrations().then(rs=>Promise.all(rs.map(r=>r.unregister())))); }catch(e){}
+  Promise.all(jobs).then(done, done); setTimeout(done, 2500);
+}
 /* Hinweise: offline und neue Version (nur Web-Version) */
 function infoToast(ic, title, text, btn){
   const t = $('#toast'); if(!t) return;
