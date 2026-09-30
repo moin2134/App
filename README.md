@@ -35,23 +35,30 @@ Die Lern-App der **AG „Going green und fair“ am MMG**. Mit kurzen Quiz-Lekti
 - **Fünf Aufgabentypen:** Antwort wählen, Stimmt/Stimmt nicht, Lücke füllen, Reihenfolge sortieren, Paare finden.
 - **„Wusstest du?“:** Nach jeder Antwort gibt es eine kurze Erklärung mit einem zusätzlichen Fakt.
 - **Wiederholung:** Falsche Aufgaben kommen am Ende der Lektion im **rot-orangen Wiederholungs-Look** zurück.
-- **Einführung:** Beim ersten Start erklären 8 Schritte die App. Sie lässt sich unter Profil erneut ansehen.
+- **Einführung:** Beim ersten Start erklären 8 Schritte die App. Sie lässt sich unter Einstellungen (Zahnrad) erneut ansehen.
 
 ### Üben
-| Modus | Beschreibung |
-|---|---|
-| **Blitzrunde** | 60 Sekunden, so viele richtige Antworten wie möglich, mit Rekord |
-| **Wiederholen mit Abstand** | Gelernte Fragen kommen nach 1, 3, 7, 14 und 30 Tagen wieder |
-| **Gemischtes Training** | 8 Fragen aus den freigeschalteten Einheiten, bringt +1 Herz |
-| **Fehler wiederholen** | Alle bisher falsch beantworteten Fragen |
-| **Klassen-Modus (Beamer)** | Eine ganze Einheit gemeinsam am Beamer: große Schrift, ohne Herzen, zählt nicht für den eigenen Fortschritt |
-| **Tipp des Tages** | Ein Alltagstipp für mehr Nachhaltigkeit |
-| **Lexikon** | 45 Fachbegriffe von „Agenda 2030“ bis „Zero Waste“, mit Suche |
-| **Schätzrunde** | 8 Schätzfragen mit Schieberegler – je näher, desto mehr XP (bis 3 pro Frage) |
-| **Wahr oder Mythos?** | 10 schnelle Aussagen zu verbreiteten Umwelt-Irrtümern |
-| **Klima-Check** | 6 Alltagsfragen mit persönlichen Tipps (grobe Einschätzung, keine genaue CO₂-Rechnung) |
-| **Bilderrätsel** | 10 zufällige aus 18 Bilderfragen (Mülltrennung, Windrad, Solaranlage, Biene, Energielabel, Wasserkreislauf, LED, tropfender Hahn, T-Shirt, Fahrrad, Moor, Schildkröte). Alle Bilder sind selbst gezeichnet (SVG), ohne fremde Fotos oder Marken-Logos |
-| **Abschlussprüfung** | 30 zufällige Fragen aus allen Einheiten, ohne Herzen und ohne Wiederholung. Ergebnis als Schulnote (1 ab 92 %, 2 ab 81 %, 3 ab 67 %, 4 ab 50 %, 5 ab 30 %). Ab Note 4 gibt es eine eigene Urkunde im Profil; die beste Note wird gespeichert |
+Ganz oben steht der **Tipp des Tages** (ein Alltagstipp für mehr Nachhaltigkeit). Darunter ist „Üben“ in vier Bereiche sortiert:
+
+| Bereich | Modus | Beschreibung |
+|---|---|---|
+| **Trainieren** | **Gemischtes Training** | 8 Fragen aus den freigeschalteten Einheiten, bringt +1 Herz |
+| | **Wiederholen mit Abstand** | Gelernte Fragen kommen nach 1, 3, 7, 14 und 30 Tagen wieder |
+| | **Fehler wiederholen** | Alle bisher falsch beantworteten Fragen |
+| | **Blitzrunde** | 60 Sekunden, so viele richtige Antworten wie möglich, mit Rekord |
+| **Wissen & Spaß** | **Schätzen & Mythen** | 4 Schätzfragen mit Schieberegler (je näher, desto mehr XP, bis 3 pro Frage) und 6 Aussagen „Wahr oder Mythos?“ zu verbreiteten Umwelt-Irrtümern, gemischt |
+| | **Klima-Check** | 6 Alltagsfragen mit persönlichen Tipps (grobe Einschätzung, keine genaue CO₂-Rechnung) |
+| | **Lexikon** | 45 Fachbegriffe von „Agenda 2030“ bis „Zero Waste“, mit Suche |
+| **Prüfung & Klasse** | **Abschlussprüfung** | 30 zufällige Fragen aus allen Einheiten, ohne Herzen und ohne Wiederholung. Ergebnis als Schulnote (1 ab 92 %, 2 ab 81 %, 3 ab 67 %, 4 ab 50 %, 5 ab 30 %). Ab Note 4 gibt es eine eigene Urkunde im Profil; die beste Note wird gespeichert |
+| | **Klassen-Modus (Beamer)** | Eine ganze Einheit gemeinsam am Beamer: große Schrift, ohne Herzen, zählt nicht für den eigenen Fortschritt |
+| **Mitmachen** | **Frage vorschlagen** | siehe „Feedback“ |
+
+### Bilderrätsel in den Einheiten
+18 selbst gezeichnete Bilderfragen (SVG, ohne fremde Fotos oder Marken-Logos) stecken direkt in den passenden Einheiten – höchstens 2 pro Lektion, der Rest im Einheitstest:
+- **Klima & Energie:** Windrad, Solaranlage, LED-Lampe
+- **Müll & Recycling:** Joghurtbecher, Zeitung, Bananenschale, Batterie, Glasflasche, kaputte Tasse, Kassenbon
+- **Wasser & Ozeane:** Wasserkreislauf, tropfender Hahn, Schildkröte mit Plastiktüte
+- **Artenvielfalt:** Biene · **Mode & Konsum:** Energielabel, Baumwoll-T-Shirt · **Mobilität:** Fahrrad · **Wald & Moore:** Moor
 
 ### Barrierearm lernen
 - **Vorlesen:** Ein Lautsprecher-Button liest Frage und Antworten bzw. Infotexte in der gewählten Sprache vor. Im Browser über die Sprachausgabe des Geräts, in der Android-App über die Handy-Sprachausgabe (Latein mit italienischer Stimme, Bairisch mit deutscher, Schweizerdeutsch mit Schweizer Stimme, falls vorhanden).
@@ -61,22 +68,29 @@ Die Lern-App der **AG „Going green und fair“ am MMG**. Mit kurzen Quiz-Lekti
 Im Ordner `Arbeitsblaetter/` liegt für jede Einheit und das MMG-Special ein **PDF zum Ausdrucken** (z. B. für Vertretungsstunden): Infotexte, alle 18 Aufgaben (Ankreuzen, Lückentext mit Wortliste, Nummerieren, Zuordnen) und eine **Lösungsseite** für die Lehrkraft. Neu erzeugen: `jwebserver` im Ordner `web/` starten, `android/arbeitsblatt-vorlage.html` nach `web/` kopieren und `blatt.html?u=0` … `?u=14` (MMG-Special: `?u=-1`) mit Edge als PDF drucken.
 
 ### Sprachen
-Die komplette App gibt es in **9 Sprachen**: Fragen, Infotexte, Lexikon, Tipps, Einführung und alle Bedienelemente.
+Die komplette App gibt es in **15 Sprachen**: Fragen, Infotexte, Lexikon, Tipps, Einführung und alle Bedienelemente. In der Auswahl stehen die wichtigsten Sprachen oben, Dialekte, Latein und Keilschrift unten.
 
 | Sprache | Code | Hinweis |
 |---|---|---|
 | Deutsch | `de` | Original |
 | English | `en` | britisches Englisch |
 | Français | `fr` | |
+| Español | `es` | Spanisch (Spanien) |
+| Italiano | `it` | |
 | Polski | `pl` | |
-| Čeština | `cs` | |
+| Русский | `ru` | kyrillische Schrift |
 | Українська | `uk` | kyrillische Schrift |
-| Latina | `la` | Schullatein, moderne Begriffe teils in Anführungszeichen |
+| Português | `pt` | europäisches Portugiesisch |
+| Nederlands | `nl` | |
+| Čeština | `cs` | |
 | Boarisch | `bar` | gemäßigtes Oberbairisch |
 | Schwiizerdütsch | `gsw` | Zürichdeutsch als Basis |
+| Latina | `la` | Schullatein, moderne Begriffe teils in Anführungszeichen |
+| Keilschrift | `cun` | Spaß-Sprache: der deutsche Text wird Buchstabe für Buchstabe ins **ugaritische Keilschrift-Alphabet** (um 1400 v. Chr.) umgeschrieben – keine echte Übersetzung ins Sumerische/Akkadische. Schrift: Noto Sans Ugaritic. Vorlesen ist hier aus. |
 
 - **Auswahl:** Die Sprache wählt man gleich im **ersten Schritt der Einführung** oder später unter **Einstellungen** (Zahnrad oben rechts). Der Fortschritt bleibt beim Wechsel erhalten.
-- **Mehrzahlformen:** Polnisch, Tschechisch und Ukrainisch nutzen die richtigen drei Mehrzahlformen (z. B. 1 den / 2 dny / 5 dní).
+- **Ansicht (PC & Tafel):** Im ersten Schritt der Einführung (unter der Sprache) und in den Einstellungen: **Automatisch** (ab 1000 Pixel Breite breites Layout), **Handy** (immer schmal) oder **PC & Tafel** (immer breit: bis 1100 Pixel, größere Schrift, Karten zweispaltig, Antworten nebeneinander – gut für Beamer und digitale Tafeln).
+- **Mehrzahlformen:** Polnisch, Tschechisch, Russisch und Ukrainisch nutzen die richtigen drei Mehrzahlformen (z. B. 1 den / 2 dny / 5 dní).
 
 - **Übersetzungen:** Sie stecken in `index.html` in `CONTENT_PACKS` (Inhalte) und `I18N` (Bedienelemente).
 - **Neue deutsche Fragen:** Werden deutsche Fragen geändert oder ergänzt, müssen die Übersetzungen nachgezogen werden. Fehlt eine Übersetzung, zeigt die App automatisch den deutschen Text.
@@ -137,6 +151,8 @@ Verdiente XP lassen sich ausgeben. Abzeichen zählen trotzdem alle jemals verdie
 | 8 | **Spaßfrage** | Ganz selten (etwa jede 200. Lektion, Training oder Wiederholung) taucht eine Spaßfrage über Sprossi auf. Richtig beantwortet: +5 Bonus-XP. Falsch kostet kein Herz. |
 | 9 | **Rückwärts-Sprossi** | In der Einführung lange (knapp 1 Sekunde) auf Sprossi drücken → er steht kurz auf dem Kopf: „Huch!“ |
 | 10 | **Geheimes Outfit** | Wer **„fair“** irgendwo im Namen hat (z. B. „Fairy“), bekommt das **Fair-Stirnband** gratis. Es erscheint danach im Shop unter Outfits. Ohne echtes Fairtrade-Logo. |
+| 11 | **Herzen-Trick** | Unter „Erfolge“ 3-mal schnell auf das Abzeichen **„Sprossi-Stylist“** tippen → alle 5 Herzen sind wieder voll. Einmal pro Tag. |
+| 12 | **XP-Trick** | Unter „Erfolge“ 3-mal schnell auf das Abzeichen **„Erster Einkauf“** tippen → +100 XP. Einmal pro Tag. |
 
 Geheime Abzeichen stehen erst nach dem Freischalten in der Liste; oben steht nur „🔒 2 × ???“ – so viele sind noch versteckt. Im Code steht alles im Abschnitt `Easter Eggs` sowie in `EGG_DE` (Texte) und `EGG_TR` (Übersetzungen).
 
