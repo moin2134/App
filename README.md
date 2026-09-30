@@ -198,6 +198,7 @@ Es gibt drei Wege, GGAF Quizzes! zu nutzen. Alle drei sind **kostenlos**, brauch
 |---|---|---|
 | Android-Handy/-Tablet (ab Android 7) | [A) Android-App (APK)](#a-android-app-apk-installieren) | ca. 2 Minuten |
 | iPhone / iPad | [B) Web-App auf den Home-Bildschirm](#b-iphone-und-ipad-web-app) | ca. 1 Minute |
+| Windows-PC / -Laptop (Windows 10/11) | [E) Windows-App](#e-windows-app) oder Browser | ca. 1 Minute |
 | PC, Laptop, Chromebook, digitale Tafel | [C) Im Browser öffnen oder installieren](#c-pc-laptop-und-digitale-tafel) | sofort |
 
 > **Tipp für alle:** Vor einem Gerätewechsel unter **Einstellungen (Zahnrad) → Fortschritt sichern** einen Sicherungscode erstellen. Damit zieht der Fortschritt aufs neue Gerät um – auch zwischen Android-App und Web-App.
@@ -251,6 +252,25 @@ Für iPhone und iPad gibt es keine App-Datei: Eine echte iOS-App bräuchte einen
 3. **Für Beamer und digitale Tafeln:** unter **Einstellungen → Ansicht → „PC & Tafel“** wählen (große Schrift, Antworten nebeneinander). Mit **F11** wird der Browser zum Vollbild. Für eine gemeinsame Runde mit der Klasse: **Üben → Klassen-Modus (Beamer)**.
 4. **Schul-PCs mit gemeinsamen Konten:** Der Fortschritt hängt am Browser-Profil. Wird das Profil beim Abmelden gelöscht, ist der Fortschritt weg – dann am Stundenende einen Sicherungscode erstellen oder am Handy weiterlernen.
 
+### E) Windows-App
+
+Für Windows 10 und 11 (64 Bit) gibt es eine eigene App mit Fenster, Sprossi-Symbol und ohne Browserleiste. Sie funktioniert komplett **offline**.
+
+1. **GGAF-Quizzes-Windows.zip** herunterladen: **https://github.com/moin2134/App/raw/main/GGAF-Quizzes-Windows.zip**
+2. Die ZIP-Datei mit Rechtsklick → **„Alle extrahieren …“** entpacken, z. B. nach *Dokumente* oder *Programme*. (Nicht direkt aus der ZIP starten – dann fehlen die anderen Dateien.)
+3. Im entpackten Ordner **GGAF-Quizzes** die Datei **GGAF-Quizzes.exe** doppelklicken.
+4. Windows zeigt eventuell **„Der Computer wurde durch Windows geschützt“** (SmartScreen), weil die App nicht bei Microsoft signiert ist: auf **„Weitere Informationen“ → „Trotzdem ausführen“** klicken. Das ist nur beim ersten Start nötig.
+5. **Verknüpfung anlegen:** Rechtsklick auf *GGAF-Quizzes.exe* → **„Weitere Optionen anzeigen“ → „Senden an“ → „Desktop (Verknüpfung erstellen)“**. Oder die gestartete App in der Taskleiste mit Rechtsklick **„An Taskleiste anheften“**.
+
+**Gut zu wissen:**
+- **F11** schaltet Vollbild an und aus – ideal für Beamer und digitale Tafeln (dazu *Einstellungen → Ansicht → „PC & Tafel“*).
+- Links (Feedback-Formular, GitHub) öffnen sich im normalen Browser.
+- Der Fortschritt liegt unter `%LOCALAPPDATA%\GGAF-Quizzes` und bleibt bei Updates erhalten. Er ist getrennt von der Web-App im Browser – zum Umziehen einen **Sicherungscode** nutzen.
+- **Update:** neue ZIP herunterladen, entpacken und den alten Ordner ersetzen.
+- **Deinstallieren:** den Ordner löschen; wer auch den Fortschritt löschen will, zusätzlich `%LOCALAPPDATA%\GGAF-Quizzes`.
+- Benötigt die **Microsoft Edge WebView2 Runtime**. Die ist bei Windows 10/11 normalerweise schon installiert. Falls nicht, bietet die App beim Start die Download-Seite von Microsoft an.
+- **Neu bauen:** erst `android/build.ps1`, dann `powershell -ExecutionPolicy Bypass -File windows/build.ps1`. Das nutzt den in Windows eingebauten C#-Compiler (.NET Framework 4) und die WebView2-Dateien in `windows/lib`.
+
 ### D) Probleme und Lösungen
 
 | Problem | Lösung |
@@ -263,6 +283,8 @@ Für iPhone und iPad gibt es keine App-Datei: Eine echte iOS-App bräuchte einen
 | Kein Ton | **Einstellungen → Soundeffekte** einschalten und das Gerät nicht auf lautlos stellen (iPhone: Stummschalter). |
 | Vorlesen geht nicht oder klingt falsch | Das Gerät braucht eine Stimme für die Sprache: Android unter *Einstellungen → Bedienungshilfen → Text-in-Sprache*, iPhone unter *Einstellungen → Bedienungshilfen → Gesprochene Inhalte → Stimmen*. |
 | Schrift sehr klein oder abgeschnitten | **Einstellungen → Ansicht** prüfen („Handy“ am Handy, „PC & Tafel“ am großen Bildschirm). Eine sehr große Systemschrift am Handy etwas verkleinern. |
+| Windows: „Der Computer wurde durch Windows geschützt“ | „Weitere Informationen“ → „Trotzdem ausführen“ (die App ist nicht bei Microsoft signiert). |
+| Windows: App startet nicht / Meldung zu WebView2 | Die angebotene Microsoft-Seite öffnen und die „Evergreen Bootstrapper“-Version der WebView2 Runtime installieren. Außerdem prüfen, ob die ZIP wirklich entpackt wurde. |
 | Hebräisch, Altgriechisch, Hieroglyphen oder Keilschrift als Kästchen | Die Seite einmal mit Internet neu laden, damit die Schriften geladen werden. Für die Web-Version muss der Ordner `fonts` auf GitHub liegen. |
 
 ---
