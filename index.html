@@ -10127,6 +10127,10 @@ function clearAllData(){
   try{ if(navigator.serviceWorker) jobs.push(navigator.serviceWorker.getRegistrations().then(rs=>Promise.all(rs.map(r=>r.unregister())))); }catch(e){}
   Promise.all(jobs).then(done, done); setTimeout(done, 2500);
 }
+/* Versionsnummer – wird von android\build.ps1 aus AndroidManifest.xml (versionName) eingesetzt; die Windows-App vergleicht sie für Auto-Updates */
+const APP_VERSION = '3.8';
+/* Windows-App: meldet, dass eine neue Version heruntergeladen wurde */
+window.ggafUpdateReady = () => infoToast('redo', T('update_t'), T('update_d'), `<button class="btn" data-act="reloadApp">${T('reload')}</button>`);
 /* Hinweise: offline und neue Version (nur Web-Version) */
 function infoToast(ic, title, text, btn){
   const t = $('#toast'); if(!t) return;
