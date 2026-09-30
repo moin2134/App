@@ -45,6 +45,8 @@
 html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 /* nie seitlich verschiebbar – sonst wandern auf Handys die festen Leisten mit */
 html,body{max-width:100%;overflow-x:hidden}
+/* clip statt hidden: macht html/body nicht zum Scroll-Container – sonst hängt die untere Leiste bei Samsung Internet & Co. zu hoch und wird abgeschnitten */
+@supports (overflow-x:clip){html,body{overflow-x:clip}}
 /* Große Systemschrift: Raster-Elemente dürfen schmaler werden als ihr längstes Wort, lange Wörter werden getrennt */
 .stack,.lexlist,.slots,.orderpool,.mcol{grid-template-columns:minmax(0,1fr)}
 .stack > *,.bgrid > *,.tiles > *,.mbox > *,.mgrid > *,.seg > *,.rt > *{min-width:0}
@@ -53,7 +55,7 @@ html,body{max-width:100%;overflow-x:hidden}
 .pcard{flex-wrap:wrap}
 .pcard > div{flex:1 1 140px}
 .pcard .go{margin-left:auto}
-html,body{height:100%}
+html{height:100%}body{min-height:100%}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.45;-webkit-tap-highlight-color:transparent}
 button{font:inherit;color:inherit;cursor:pointer;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
 button,input{outline:none}
@@ -342,7 +344,7 @@ html.wide .btn{font-size:18px}
 .streakline{display:flex;align-items:center;gap:6px;font-weight:900;color:var(--orange)}
 .streakline .ic{width:24px;height:24px}
 .result .btn{width:100%;margin-top:6px}
-.toast{position:fixed;left:12px;right:12px;bottom:calc(96px + env(safe-area-inset-bottom,0px));z-index:30;max-width:560px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:flex-start;gap:10px;padding:12px 14px;border-radius:16px;background:var(--surface);border:2px solid var(--orange);box-shadow:0 8px 24px rgba(0,0,0,.18);animation:rise .3s ease}
+.toast{position:fixed;left:12px;right:12px;bottom:calc(96px + env(safe-area-inset-bottom,0px));z-index:58;max-width:560px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:flex-start;gap:10px;padding:12px 14px;border-radius:16px;background:var(--surface);border:2px solid var(--orange);box-shadow:0 8px 24px rgba(0,0,0,.18);animation:rise .3s ease}
 .toast .ti{color:var(--orange);flex:none}.toast .ti .ic{width:26px;height:26px}
 .toast > div:not(.tb){flex:1;min-width:0}
 .toast b{display:block;font-size:15px}.toast span{display:block;font-size:13px;color:var(--ink2);font-weight:700}
@@ -421,7 +423,8 @@ html.wide .btn{font-size:18px}
 .mbox ol{text-align:left;margin:0;padding-left:22px;color:var(--ink2);font-weight:700;display:grid;grid-gap:6px;gap:6px}
 /* Sprachauswahl (9 Sprachen) im Profil und in der Einführung */
 .seg.langs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-gap:8px;gap:8px}
-.seg.langs button{padding:10px 4px;font-size:14px}
+.seg.langs button{padding:10px 4px;font-size:14px;overflow-wrap:normal;word-break:keep-all;-webkit-hyphens:none;hyphens:none}
+@media (max-width:420px){.seg.langs button{font-size:12.5px;letter-spacing:-.01em}}
 .langpick{width:100%;display:flex;flex-direction:column;gap:8px}
 .nogap .langpick > * + *{margin-top:8px}
 /* Schätzfragen und Klima-Check */
@@ -5003,7 +5006,7 @@ document.addEventListener('click', e=>{
   if(a==='certAll') return showCert('all');
   if(a==='certAg') return showCert('ag');
   if(a==='certShare'){ try{ GGAFApp.shareImage($('#certImg').src); }catch(err){} return; }
-  if(a==='reloadApp'){ location.reload(); return; }
+  if(a==='reloadApp'){ if(window.GGAFApp && GGAFApp.reload) GGAFApp.reload(); else location.reload(); return; }
   if(a==='toastClose'){ $('#toast').hidden = true; return; }
   if(a==='toastBackup'){ $('#toast').hidden = true; return showBackup(); }
   if(a==='review') return startLesson({mode:'review'});
@@ -10128,7 +10131,7 @@ function clearAllData(){
   Promise.all(jobs).then(done, done); setTimeout(done, 2500);
 }
 /* Versionsnummer – wird von android\build.ps1 aus AndroidManifest.xml (versionName) eingesetzt; die Windows-App vergleicht sie für Auto-Updates */
-const APP_VERSION = '3.8';
+const APP_VERSION = '3.9';
 /* Windows-App: meldet, dass eine neue Version heruntergeladen wurde */
 window.ggafUpdateReady = () => infoToast('redo', T('update_t'), T('update_d'), `<button class="btn" data-act="reloadApp">${T('reload')}</button>`);
 /* Hinweise: offline und neue Version (nur Web-Version) */

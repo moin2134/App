@@ -223,7 +223,7 @@ Es gibt drei Wege, GGAF Quizzes! zu nutzen. Alle drei sind **kostenlos**, brauch
 
 **5. Starten:** Auf **„Öffnen“** tippen oder das grüne Sprossi-Symbol auf dem Startbildschirm suchen. Beim ersten Start führt die Einführung durch Sprache, Ansicht, Name und Tagesziel.
 
-**Update auf eine neue Version:** Die neue APK genauso herunterladen und installieren – **über die alte drüber**, nicht vorher deinstallieren. Der Fortschritt bleibt erhalten. Welche Version installiert ist, steht unter **Einstellungen → ganz unten**.
+**Updates kommen automatisch:** Ab Version 3.9 schaut die App bei jedem Start im Hintergrund auf https://moin2134.github.io/App/, ob es neue Inhalte gibt (Versionsnummer `APP_VERSION`). Wenn ja, lädt sie die neue Version (und fehlende Schriften) in den App-Speicher und zeigt „Neue Version geladen – Neu laden“; spätestens beim nächsten Start ist sie aktiv. Ohne Internet läuft die zuletzt geladene Version weiter, der Fortschritt bleibt erhalten. Für die AG heißt das: `web/index.html` auf GitHub hochladen genügt. Eine **neue APK** ist nur nötig, wenn sich der Java-Teil der App ändert (z. B. Teilen, Vorlesen, Update-Funktion) – dann die neue APK genauso herunterladen und **über die alte drüber** installieren, nicht vorher deinstallieren. Die Version des App-Rahmens steht unter **Einstellungen → ganz unten**.
 
 **Deinstallieren:** Sprossi-Symbol lange drücken → **„Deinstallieren“**. Dabei wird auch der Fortschritt gelöscht – vorher einen Sicherungscode erstellen!
 
