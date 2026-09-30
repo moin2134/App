@@ -3,8 +3,9 @@ Schriften in dieser App (offline mitgeliefert, Quelle: Google Fonts)
 Baloo 2   – Copyright The Baloo Project Authors (https://github.com/EkType/Baloo2)
 Nunito    – Copyright The Nunito Project Authors (https://github.com/googlefonts/nunito)
 Noto Sans Ugaritic – Copyright Google LLC (https://github.com/notofonts/ugaritic), für „Keilschrift“
+Noto Sans Egyptian Hieroglyphs – Copyright Google LLC (https://github.com/notofonts/egyptian-hieroglyphs), für „Hieroglyphen“ (nur die benötigten Zeichen)
 
-Alle drei Schriften stehen unter der SIL Open Font License, Version 1.1:
+Alle Schriften stehen unter der SIL Open Font License, Version 1.1:
 https://openfontlicense.org
 
 QR-Code-Bibliothek „qrcode-generator“ (qrcode.min.js)

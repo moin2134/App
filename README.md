@@ -69,7 +69,7 @@ Ganz oben steht der **Tipp des Tages** (ein Alltagstipp für mehr Nachhaltigkeit
 Im Ordner `Arbeitsblaetter/` liegt für jede Einheit und das MMG-Special ein **PDF zum Ausdrucken** (z. B. für Vertretungsstunden): Infotexte, alle 18 Aufgaben (Ankreuzen, Lückentext mit Wortliste, Nummerieren, Zuordnen) und eine **Lösungsseite** für die Lehrkraft. Neu erzeugen: `jwebserver` im Ordner `web/` starten, `android/arbeitsblatt-vorlage.html` nach `web/` kopieren und `blatt.html?u=0` … `?u=14` (MMG-Special: `?u=-1`) mit Edge als PDF drucken.
 
 ### Sprachen
-Die komplette App gibt es in **15 Sprachen**: Fragen, Infotexte, Lexikon, Tipps, Einführung und alle Bedienelemente. In der Auswahl stehen die wichtigsten Sprachen oben, Dialekte, Latein und Keilschrift unten.
+Die komplette App gibt es in **18 Sprachen**: Fragen, Infotexte, Lexikon, Tipps, Einführung und alle Bedienelemente. In der Auswahl stehen die wichtigsten Sprachen oben, Dialekte, alte Sprachen und Schriften unten.
 
 | Sprache | Code | Hinweis |
 |---|---|---|
@@ -84,9 +84,12 @@ Die komplette App gibt es in **15 Sprachen**: Fragen, Infotexte, Lexikon, Tipps,
 | Português | `pt` | europäisches Portugiesisch |
 | Nederlands | `nl` | |
 | Čeština | `cs` | |
+| עברית (Hebräisch) | `he` | wird von rechts nach links angezeigt |
 | Boarisch | `bar` | gemäßigtes Oberbairisch |
 | Schwiizerdütsch | `gsw` | Zürichdeutsch als Basis |
 | Latina | `la` | Schullatein, moderne Begriffe teils in Anführungszeichen |
+| Ἑλληνική (Altgriechisch) | `grc` | Schul-Altgriechisch mit Akzenten; moderne Begriffe umschrieben, Zahlen als normale Ziffern |
+| Hieroglyphen | `egy` | Spaß-Sprache wie die Keilschrift: der deutsche Text wird mit den ägyptischen **Einkonsonantenzeichen** („Hieroglyphen-Alphabet“) umgeschrieben – keine Übersetzung ins Altägyptische. Schrift: Noto Sans Egyptian Hieroglyphs (nur die 23 benötigten Zeichen, 10 KB). Vorlesen ist hier aus. |
 | Keilschrift | `cun` | Spaß-Sprache: der deutsche Text wird Buchstabe für Buchstabe ins **ugaritische Keilschrift-Alphabet** (um 1400 v. Chr.) umgeschrieben – keine echte Übersetzung ins Sumerische/Akkadische. Schrift: Noto Sans Ugaritic. Vorlesen ist hier aus. |
 
 - **Auswahl:** Die Sprache wählt man gleich im **ersten Schritt der Einführung** oder später unter **Einstellungen** (Zahnrad oben rechts). Der Fortschritt bleibt beim Wechsel erhalten.
@@ -189,24 +192,78 @@ Alle Fakten wurden mit Quellen geprüft, u. a. Umweltbundesamt, Destatis, Bundes
 
 ## Installation
 
-### Android (App-Datei)
-1. Die APK aufs Handy laden: über **https://github.com/moin2134/App/raw/main/GGAF-Quizzes.apk**, per Messenger oder per QR-Code aus der App.
-2. Datei antippen.
-3. Falls gefragt: **„Installation aus unbekannten Quellen“** erlauben.
-4. **Installieren** antippen.
+Es gibt drei Wege, GGAF Quizzes! zu nutzen. Alle drei sind **kostenlos**, brauchen **kein Konto** und funktionieren nach dem ersten Laden auch **ohne Internet**.
 
-Die App läuft ab **Android 7** und komplett **offline**. Neue Versionen installieren sich über die alte, der Fortschritt bleibt erhalten.
+| Gerät | Empfohlener Weg | Dauer |
+|---|---|---|
+| Android-Handy/-Tablet (ab Android 7) | [A) Android-App (APK)](#a-android-app-apk-installieren) | ca. 2 Minuten |
+| iPhone / iPad | [B) Web-App auf den Home-Bildschirm](#b-iphone-und-ipad-web-app) | ca. 1 Minute |
+| PC, Laptop, Chromebook, digitale Tafel | [C) Im Browser öffnen oder installieren](#c-pc-laptop-und-digitale-tafel) | sofort |
 
-### iPhone und iPad (Web-App)
-Eine echte iPhone-App (`.ipa`) erfordert einen Mac und ein Apple-Entwicklerkonto. Stattdessen:
-1. https://moin2134.github.io/App/ in **Safari** öffnen.
-2. Auf **Teilen** (Quadrat mit Pfeil) tippen.
-3. **„Zum Home-Bildschirm“** wählen.
+> **Tipp für alle:** Vor einem Gerätewechsel unter **Einstellungen (Zahnrad) → Fortschritt sichern** einen Sicherungscode erstellen. Damit zieht der Fortschritt aufs neue Gerät um – auch zwischen Android-App und Web-App.
 
-Danach startet GGAF Quizzes! mit Sprossi-Symbol im Vollbild, auch offline.
+### A) Android-App (APK) installieren
 
-### Android oder PC im Browser
-Einfach https://moin2134.github.io/App/ öffnen. Im Browser-Menü lässt sich die Seite mit „App installieren“ ebenfalls wie eine App einrichten.
+**Was du brauchst:** ein Android-Handy oder -Tablet ab Android 7 (2016), gut 2 MB freien Speicher und einmal Internet zum Herunterladen.
+
+**1. App-Datei herunterladen** – eine der drei Möglichkeiten:
+- **Direkt:** Auf dem Handy diesen Link öffnen: **https://github.com/moin2134/App/raw/main/GGAF-Quizzes.apk**. Chrome zeigt eventuell „Datei kann schädlich sein“ – das kommt bei allen App-Dateien außerhalb des Play Stores; auf **„Trotzdem herunterladen“** tippen.
+- **Von Freund*innen:** Wer die App schon hat, tippt unter **Profil → Freunde einladen → App teilen** und schickt die Datei per WhatsApp, Signal, Bluetooth, E-Mail …
+- **Per QR-Code im selben WLAN:** Wer die App hat, tippt auf **„QR-Code im selben WLAN“**. Du scannst den Code mit der Kamera und lädst die Datei direkt vom anderen Handy – ganz ohne Internet.
+
+**2. Datei öffnen:** Nach dem Download oben die Benachrichtigung antippen – oder die App **„Dateien“ / „Eigene Dateien“** öffnen → **Downloads** → **GGAF-Quizzes.apk** antippen.
+
+**3. Installation erlauben (nur beim ersten Mal):** Android fragt, ob die App, mit der du die Datei öffnest (z. B. Chrome, WhatsApp oder „Dateien“), Apps installieren darf.
+- Auf **„Einstellungen“** tippen → Schalter **„Von dieser Quelle zulassen“** einschalten → zurück.
+- **Android 7:** unter **Einstellungen → Sicherheit → „Unbekannte Herkunft“** einschalten.
+- **Samsung:** Einstellungen → Biometrie und Sicherheit → Unbekannte Apps installieren. **Xiaomi:** Einstellungen → Datenschutz → Spezielle Berechtigungen → Unbekannte Apps installieren.
+
+**4. Installieren:** Auf **„Installieren“** tippen. Falls **Google Play Protect** warnt („App nicht bekannt“): **„Details“ → „Trotzdem installieren“**. Die App ist nicht im Play Store, deshalb kennt Google sie nicht. Sie hat keinen Zugriff auf Kontakte, Fotos, Standort oder Kamera – nur Internet für Links und das Teilen im WLAN.
+
+**5. Starten:** Auf **„Öffnen“** tippen oder das grüne Sprossi-Symbol auf dem Startbildschirm suchen. Beim ersten Start führt die Einführung durch Sprache, Ansicht, Name und Tagesziel.
+
+**Update auf eine neue Version:** Die neue APK genauso herunterladen und installieren – **über die alte drüber**, nicht vorher deinstallieren. Der Fortschritt bleibt erhalten. Welche Version installiert ist, steht unter **Einstellungen → ganz unten**.
+
+**Deinstallieren:** Sprossi-Symbol lange drücken → **„Deinstallieren“**. Dabei wird auch der Fortschritt gelöscht – vorher einen Sicherungscode erstellen!
+
+### B) iPhone und iPad (Web-App)
+
+Für iPhone und iPad gibt es keine App-Datei: Eine echte iOS-App bräuchte einen Mac, ein kostenpflichtiges Apple-Entwicklerkonto und den App Store. Die **Web-App** fühlt sich aber genauso an – eigenes Symbol, Vollbild, offline nutzbar.
+
+1. **Safari** öffnen (wichtig: Safari – andere Browser können das unter iOS erst ab iOS 16.4 und nicht zuverlässig).
+2. **https://moin2134.github.io/App/** eingeben und warten, bis die App geladen ist.
+3. Unten (iPhone) bzw. oben rechts (iPad) auf **Teilen** tippen – das Quadrat mit dem Pfeil nach oben.
+4. In der Liste nach unten wischen und **„Zum Home-Bildschirm“** wählen. Fehlt der Eintrag: ganz unten **„Aktionen bearbeiten“** → „Zum Home-Bildschirm“ hinzufügen.
+5. Den Namen „GGAF Quizzes!“ lassen und oben rechts **„Hinzufügen“** tippen.
+6. Ab jetzt die App immer über das neue **Sprossi-Symbol** starten – nicht über Safari. Nur so bleibt der Fortschritt zuverlässig gespeichert.
+
+**Wichtig bei iPhones:** Safari löscht Daten von Webseiten, die mehrere Wochen nicht geöffnet wurden. Am sichersten: die App regelmäßig öffnen und ab und zu einen **Sicherungscode** erstellen. Im **privaten Modus** speichert Safari gar nichts – die App zeigt dann einen Hinweis.
+
+**Updates** passieren automatisch: Liegt eine neue Version auf GitHub, erscheint beim nächsten Öffnen „Neue Version geladen – Neu laden“.
+
+### C) PC, Laptop und digitale Tafel
+
+1. Im Browser (Chrome, Edge, Firefox, Safari) **https://moin2134.github.io/App/** öffnen – fertig.
+2. **Optional als App installieren** (eigenes Fenster, Symbol im Startmenü bzw. Dock, offline):
+   - **Chrome / Edge:** rechts in der Adressleiste auf das Symbol **„App installieren“** (Bildschirm mit Pfeil) klicken – oder im Menü ⋮ unter **„Streamen, speichern und teilen“ → „Seite als App installieren“** (Edge: **Apps → „Diese Website als App installieren“**).
+   - **Safari (Mac, ab macOS 14):** Menü **Ablage → „Zum Dock hinzufügen“**.
+   - **Firefox:** kann Web-Apps nicht installieren – einfach als Lesezeichen speichern.
+3. **Für Beamer und digitale Tafeln:** unter **Einstellungen → Ansicht → „PC & Tafel“** wählen (große Schrift, Antworten nebeneinander). Mit **F11** wird der Browser zum Vollbild. Für eine gemeinsame Runde mit der Klasse: **Üben → Klassen-Modus (Beamer)**.
+4. **Schul-PCs mit gemeinsamen Konten:** Der Fortschritt hängt am Browser-Profil. Wird das Profil beim Abmelden gelöscht, ist der Fortschritt weg – dann am Stundenende einen Sicherungscode erstellen oder am Handy weiterlernen.
+
+### D) Probleme und Lösungen
+
+| Problem | Lösung |
+|---|---|
+| „App nicht installiert“ (Android) | Meist ist eine ältere Version mit anderer Signatur installiert oder der Speicher ist voll. Sicherungscode erstellen, alte Version deinstallieren, neu installieren. Oder der Download ist unvollständig – erneut laden. |
+| „Parse-Fehler“ / „Paket ungültig“ | Android-Version zu alt (unter 7) oder Download abgebrochen. Datei erneut herunterladen. |
+| Knopf „Installieren“ reagiert nicht | Ein Bildschirmfilter (Blaulichtfilter, Chat-Bubbles) liegt darüber – kurz ausschalten. |
+| Leere weiße Seite in der Web-App | Seite neu laden. Hilft das nicht: **Einstellungen → App & Daten → „Browserdaten löschen“** (vorher Sicherungscode!) oder im Browser die Website-Daten löschen. |
+| Fortschritt ist weg | Im privaten Modus gespielt oder Browserdaten gelöscht? Mit einem Sicherungscode unter **Einstellungen → Fortschritt sichern → „Sicherungscode einfügen“** zurückholen. |
+| Kein Ton | **Einstellungen → Soundeffekte** einschalten und das Gerät nicht auf lautlos stellen (iPhone: Stummschalter). |
+| Vorlesen geht nicht oder klingt falsch | Das Gerät braucht eine Stimme für die Sprache: Android unter *Einstellungen → Bedienungshilfen → Text-in-Sprache*, iPhone unter *Einstellungen → Bedienungshilfen → Gesprochene Inhalte → Stimmen*. |
+| Schrift sehr klein oder abgeschnitten | **Einstellungen → Ansicht** prüfen („Handy“ am Handy, „PC & Tafel“ am großen Bildschirm). Eine sehr große Systemschrift am Handy etwas verkleinern. |
+| Hebräisch, Altgriechisch, Hieroglyphen oder Keilschrift als Kästchen | Die Seite einmal mit Internet neu laden, damit die Schriften geladen werden. Für die Web-Version muss der Ordner `fonts` auf GitHub liegen. |
 
 ---
 
