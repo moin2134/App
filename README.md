@@ -31,7 +31,7 @@ Die Lern-App der **AG „Going green und fair“ am MMG**. Mit kurzen Quiz-Lekti
 ## Funktionen
 
 ### Lernen
-- **Lernpfad:** 15 Einheiten mit je 3 Lektionen und einem Einheitstest, dazu das **MMG-Special** zur AG. Die Stationen werden nacheinander freigeschaltet.
+- **Lernpfad:** 18 Einheiten mit je 3 Lektionen und einem Einheitstest, dazu das **MMG-Special** zur AG. Die Stationen werden nacheinander freigeschaltet.
 - **Infotexte:** Vor jeweils zwei Lektionen steht ein Infotext mit allem, was man für die nächsten Aufgaben wissen muss. Gelesene Texte bekommen einen Haken.
 - **Fünf Aufgabentypen:** Antwort wählen, Stimmt/Stimmt nicht, Lücke füllen, Reihenfolge sortieren, Paare finden.
 - **„Wusstest du?“:** Nach jeder Antwort gibt es eine kurze Erklärung mit einem zusätzlichen Fakt.
@@ -50,6 +50,7 @@ Ganz oben steht der **Tipp des Tages** (ein Alltagstipp für mehr Nachhaltigkeit
 | **Wissen & Spaß** | **Schätzen & Mythen** | 4 Schätzfragen mit Schieberegler (je näher, desto mehr XP, bis 3 pro Frage) und 6 Aussagen „Wahr oder Mythos?“ zu verbreiteten Umwelt-Irrtümern, gemischt |
 | | **Klima-Check** | 6 Alltagsfragen mit persönlichen Tipps (grobe Einschätzung, keine genaue CO₂-Rechnung) |
 | | **Lexikon** | 45 Fachbegriffe von „Agenda 2030“ bis „Zero Waste“, mit Suche |
+| | **Karteikarten** | Alle Lexikon-Begriffe als Karten zum Umdrehen (Begriff → Erklärung), gemischt, mit Zähler „x von 45 angesehen“. Auch über einen Knopf im Lexikon erreichbar |
 | **Prüfung & Klasse** | **Abschlussprüfung** | 30 zufällige Fragen aus allen Einheiten, ohne Herzen und ohne Wiederholung. Ergebnis als Schulnote (1 ab 92 %, 2 ab 81 %, 3 ab 67 %, 4 ab 50 %, 5 ab 30 %). Ab Note 4 gibt es eine eigene Urkunde im Profil; die beste Note wird gespeichert |
 | | **Klassen-Modus (Beamer)** | Eine ganze Einheit gemeinsam am Beamer: große Schrift, ohne Herzen, zählt nicht für den eigenen Fortschritt |
 | **Mitmachen** | **Frage vorschlagen** | siehe „Feedback“ |
@@ -69,7 +70,7 @@ Ganz oben steht der **Tipp des Tages** (ein Alltagstipp für mehr Nachhaltigkeit
 Im Ordner `Arbeitsblaetter/` liegt für jede Einheit und das MMG-Special ein **PDF zum Ausdrucken** (z. B. für Vertretungsstunden): Infotexte, alle 18 Aufgaben (Ankreuzen, Lückentext mit Wortliste, Nummerieren, Zuordnen) und eine **Lösungsseite** für die Lehrkraft. Neu erzeugen: `jwebserver` im Ordner `web/` starten, `android/arbeitsblatt-vorlage.html` nach `web/` kopieren und `blatt.html?u=0` … `?u=14` (MMG-Special: `?u=-1`) mit Edge als PDF drucken.
 
 ### Sprachen
-Die komplette App gibt es in **18 Sprachen**: Fragen, Infotexte, Lexikon, Tipps, Einführung und alle Bedienelemente. In der Auswahl stehen die wichtigsten Sprachen oben, Dialekte, alte Sprachen und Schriften unten.
+Die komplette App gibt es in **21 Sprachen**: Fragen, Infotexte, Lexikon, Tipps, Einführung und alle Bedienelemente. In der Auswahl stehen die wichtigsten Sprachen oben, Dialekte, alte Sprachen und Schriften unten.
 
 | Sprache | Code | Hinweis |
 |---|---|---|
@@ -81,6 +82,8 @@ Die komplette App gibt es in **18 Sprachen**: Fragen, Infotexte, Lexikon, Tipps,
 | Polski | `pl` | |
 | Русский | `ru` | kyrillische Schrift |
 | Українська | `uk` | kyrillische Schrift |
+| 中文 (Chinesisch) | `zh` | vereinfachtes Chinesisch; Zahlen im internationalen Format (1,000 · 1.5) |
+| 日本語 (Japanisch) | `ja` | freundliche Höflichkeitsform; Zahlen im internationalen Format |
 | Português | `pt` | europäisches Portugiesisch |
 | Nederlands | `nl` | |
 | Čeština | `cs` | |
@@ -89,10 +92,11 @@ Die komplette App gibt es in **18 Sprachen**: Fragen, Infotexte, Lexikon, Tipps,
 | Schwiizerdütsch | `gsw` | Zürichdeutsch als Basis |
 | Latina | `la` | Schullatein, moderne Begriffe teils in Anführungszeichen |
 | Ἑλληνική (Altgriechisch) | `grc` | Schul-Altgriechisch mit Akzenten; moderne Begriffe umschrieben, Zahlen als normale Ziffern |
+| Cäsar-Code | `cae` | Spaß-Sprache: der deutsche Text mit der Cäsar-Verschlüsselung – jeder Buchstabe um 3 verschoben (a→d, b→e … x→a). Zum Entschlüsseln jeden Buchstaben 3 zurück. Vorlesen ist hier aus. |
 | Hieroglyphen | `egy` | Spaß-Sprache wie die Keilschrift: der deutsche Text wird mit den ägyptischen **Einkonsonantenzeichen** („Hieroglyphen-Alphabet“) umgeschrieben – keine Übersetzung ins Altägyptische. Schrift: Noto Sans Egyptian Hieroglyphs (nur die 23 benötigten Zeichen, 10 KB). Vorlesen ist hier aus. |
 | Keilschrift | `cun` | Spaß-Sprache: der deutsche Text wird Buchstabe für Buchstabe ins **ugaritische Keilschrift-Alphabet** (um 1400 v. Chr.) umgeschrieben – keine echte Übersetzung ins Sumerische/Akkadische. Schrift: Noto Sans Ugaritic. Vorlesen ist hier aus. |
 
-- **Auswahl:** Die Sprache wählt man gleich im **ersten Schritt der Einführung** oder später unter **Einstellungen** (Zahnrad oben rechts). Der Fortschritt bleibt beim Wechsel erhalten.
+- **Auswahl:** Die Sprache wählt man gleich im **ersten Schritt der Einführung** oder später unter **Einstellungen** (Zahnrad oben rechts). Der Fortschritt bleibt beim Wechsel erhalten. Der Knopf „Weiter“ bleibt in der Einführung immer unten sichtbar – man muss nicht scrollen.
 - **Ansicht (PC & Tafel):** Im ersten Schritt der Einführung (unter der Sprache) und in den Einstellungen: **Automatisch** (ab 1000 Pixel Breite breites Layout), **Handy** (immer schmal) oder **PC & Tafel** (immer breit: bis 1100 Pixel, größere Schrift, Karten zweispaltig, Antworten nebeneinander – gut für Beamer und digitale Tafeln).
 - **Mehrzahlformen:** Polnisch, Tschechisch, Russisch und Ukrainisch nutzen die richtigen drei Mehrzahlformen (z. B. 1 den / 2 dny / 5 dní).
 
@@ -115,7 +119,7 @@ Die komplette App gibt es in **18 Sprachen**: Fragen, Infotexte, Lexikon, Tipps,
 - **Tagesziel** (10, 20, 30 oder 50 XP) mit Fortschrittsbalken in Sprossis Sprechblase
 - **Serie:** Wer jeden Tag lernt, baut seine Serie aus, die Flamme flackert.
 - **Herzen:** Jeder Fehler in einer Lektion kostet ein Herz. Alle 30 Minuten kommt eins zurück.
-- **14 Abzeichen**, z. B. „Erster Spross“, „Wochenfeuer“, „Fair-Profi“, „AG-Profi“, „Going green and Fair“
+- **23 Abzeichen in 5 Bereichen** (unter „Erfolge“ mit Sprungleiste): **Lernen** (Erster Spross, Fehlerfrei, Einheit gemeistert, Fünf auf einen Streich, Fair-Profi, AG-Profi, Going green and Fair, Glatte Eins), **Serie & XP** (Glühende Serie, Wochenfeuer, Monatsfeuer, Blattsammler, Waldhüter*in, Klimaheld*in), **Wissen** (Wissensdurst, Blitzmerker, Karteikarten-Profi, Sprachtalent), **Shop** (Erster Einkauf, Sprossi-Stylist, Modebewusst) und **Geheim** (erscheinen erst nach dem Freischalten).
 - **Wochenrückblick:** XP, Lektionen, aktive Tage, stärkstes Thema und „Übe mehr“, im Profil und zu Beginn jeder Woche
 - **Garten:** Im Profil hat jede Einheit (und das MMG-Special) ein Beet. Erdhügel = noch nicht begonnen, Keimling = begonnen, Blume in der Farbe der Einheit = Einheitstest bestanden. Sprossi selbst bleibt immer gleich groß.
 - **Urkunden:** für alle Einheiten und für das MMG-Special, als Bild mit Namen, Datum und XP. In der Web-App herunterladen, in der Android-App teilen oder speichern.
@@ -126,12 +130,13 @@ Verdiente XP lassen sich ausgeben. Abzeichen zählen trotzdem alle jemals verdie
 | Kategorie | Artikel |
 |---|---|
 | Hilfen | Ein Herz (10 XP), Herzen auffüllen (30 XP), Serienschutz (50 XP, max. 2), Doppel-XP (40 XP) |
-| Outfits für Sprossi | Fliege (50), Sonnenbrille (60), Sonnenhut (70), Wollmütze (80), Kopfhörer (90), Blumenkranz (100), MMG-Cap (120), Krone (200) |
+| Outfits für Sprossi | Fliege (50), Sonnenbrille (60), Sonnenhut (70), Schal (70), Wollmütze (80), Kopfhörer (90), Blume (90), Blumenkranz (100), MMG-Cap (120), Zylinder (150), Krone (200) – plus ein geheimes Outfit |
 | Hintergründe | Tupfen (40), Streifen (50), Blätterregen (70) |
 
 ### Gestaltung
 - Farbschema der AG: Dunkelgrün `#2E6417`, Grün `#00BF63`, Hellgrün `#7ED957`, Limette `#C1FF72`, Mint `#D9F2CA`
 - **Einstellungen (Zahnrad oben rechts):** Sprache, Design, Soundeffekte, einfacher Modus, Einführung, Fortschritt sichern, Datenschutz, Zurücksetzen und App-Infos an einem Ort.
+- **Besser zurechtfinden:** Oben auf den Seiten Üben, Shop, Erfolge, Profil und Einstellungen gibt es eine **Sprungleiste** zu den Abschnitten. Das Profil ist in drei Bereiche gegliedert (Über dich · Garten & Urkunden · Mitmachen & teilen). Auf dem Lernpfad öffnet **„Alle Einheiten“** eine Übersicht mit dem Fortschritt jeder Einheit – antippen springt direkt dorthin.
 - **Heller und dunkler Modus:** unter Einstellungen → Design wählbar: Automatisch (wie das Gerät), Hell oder Dunkel
 - **Link-Vorschau:** Beim Teilen des Links (WhatsApp, Signal …) erscheint ein Vorschaubild mit Sprossi
 - **Animationen:** Sprossi winkt, blinzelt und wiegt seine Blätter, richtige Antworten „ploppen“, Zahlen hüpfen. Bei „Bewegung reduzieren“ in den Systemeinstellungen sind die Animationen aus.
@@ -165,7 +170,7 @@ Geheime Abzeichen stehen erst nach dem Freischalten in der Liste; oben steht nur
 
 ## Lerninhalte
 
-**288 Fragen** in 16 Bereichen. Jede Einheit hat 18 Fragen: 6 pro Lektion, der Test mischt aus allen.
+**342 Fragen** in 19 Bereichen (plus 18 Bilderrätsel). Jede Einheit hat 18 Fragen: 6 pro Lektion, der Test mischt aus allen.
 
 | # | Einheit | Thema |
 |---|---|---|
@@ -185,6 +190,9 @@ Geheime Abzeichen stehen erst nach dem Freischalten in der Liste; oben steht nur
 | 13 | Kinderrechte | Deine Rechte – in der Schule, online und weltweit |
 | 14 | Wald & Moore in Bayern | Wälder im Klimawandel und Moore als Klimaschützer |
 | 15 | Deutschland: Energie & Klima in Zahlen | Emissionen, Ökostrom und Bayerns Solarboom |
+| 16 | Energie sparen zu Hause & in der Schule | Strom, Heizung, Wasser – Energiedetektive und fifty/fifty *(neu in 4.0)* |
+| 17 | Plastik im Alltag | Mikroplastik, Meere, Pfand, Mehrweg und die „R“s gegen Müll *(neu in 4.0)* |
+| 18 | Klimawandel weltweit | Folgen, Klimagerechtigkeit, Weltklimakonferenzen und IPCC *(neu in 4.0)* |
 
 Alle Fakten wurden mit Quellen geprüft, u. a. Umweltbundesamt, Destatis, Bundesregierung, ILO/UNICEF, IPBES, Weltbank, Fraunhofer ISE. Die politischen Einheiten sind **neutral** formuliert und fragen Fakten ab, keine Meinungen. **Faktenstand: September 2026.**
 
@@ -824,6 +832,75 @@ Alle Fragen der App auf Deutsch mit der richtigen Antwort (Faktenstand: Septembe
 | 16 | Auswahl | Was besagte die bayerische „10H-Regel“ für Windräder? | Ein Windrad muss mindestens das Zehnfache seiner Höhe von Wohnhäusern entfernt stehen |
 | 17 | Reihenfolge | Bringe die Geschichte der 10H-Regel in Bayern in die richtige Reihenfolge. | Die 10H-Regel wird eingeführt → Der Landtag beschließt eine Lockerung → Die Lockerung tritt in Kraft |
 | 18 | Paare | Welche Zahl gehört zu welchem Bayern-Fakt? | rund 35 Gigawatt – Solarleistung in Bayern Ende 2025; rund 4,5 Gigawatt – Solar-Zubau in Bayern 2025; 2014 – Einführung der 10H-Regel; 1.000 Meter – Mindestabstand nach der Lockerung, z. B. in Wäldern und an Autobahnen |
+
+### Einheit 16: Energie sparen zu Hause & in der Schule
+
+| # | Art | Frage | Richtige Antwort |
+|---|---|---|---|
+| 1 | Auswahl | Wofür wird in einem durchschnittlichen Haushalt in Deutschland die meiste Energie verbraucht? | Fürs Heizen |
+| 2 | Stimmt? | Ein Ladegerät, das ohne Handy in der Steckdose steckt, verbraucht überhaupt keinen Strom. | stimmt nicht |
+| 3 | Lücke | Das ___ zeigt beim Kauf, wie sparsam ein Elektrogerät ist. | Energielabel |
+| 4 | Auswahl | Wofür steht die Einheit kWh auf der Stromrechnung? | Kilowattstunde |
+| 5 | Reihenfolge | Sortiere nach Leistung, also nach Stromverbrauch pro Stunde – vom geringsten zum höchsten. | LED-Lampe (ca. 8 Watt) → Laptop (ca. 50 Watt) → Fernseher (ca. 100 Watt) → Wasserkocher (ca. 2.000 Watt) |
+| 6 | Stimmt? | Beim Kochen mit Deckel auf dem Topf braucht man deutlich weniger Energie als ohne. | stimmt |
+| 7 | Auswahl | Welche Raumtemperatur empfiehlt das Umweltbundesamt ungefähr für Wohnräume? | etwa 20 °C |
+| 8 | Auswahl | Warum sollte man Heizkörper nicht mit Möbeln oder langen Vorhängen zustellen? | Die warme Luft kann sich dann schlecht im Raum verteilen |
+| 9 | Stimmt? | Wenn niemand zu Hause ist oder nachts kann man die Heizung etwas herunterdrehen. | stimmt |
+| 10 | Paare | Welcher Spartipp gehört zu welcher Wirkung? | Fenster abdichten – Weniger Zugluft und Wärmeverlust; Thermostat auf 3 statt auf 5 – Der Raum wird nicht überheizt; Rollläden nachts schließen – Weniger Wärme geht durchs Fenster verloren; Duschen statt Baden – Weniger warmes Wasser |
+| 11 | Auswahl | Wie viel warmes Wasser braucht ein Vollbad ungefähr im Vergleich zu fünf Minuten Duschen? | etwa zwei- bis dreimal so viel |
+| 12 | Lücke | Stufe 3 am Thermostat-Ventil eines Heizkörpers entspricht ungefähr ___ °C. | 20 |
+| 13 | Auswahl | Was machen Schüler*innen bei einem „Energiedetektive“-Projekt an der Schule? | Sie suchen Stellen, an denen Energie verschwendet wird |
+| 14 | Stimmt? | Wenn in den Pausen das Licht in leeren Klassenräumen ausgeschaltet wird, spart das über ein Schuljahr spürbar Strom. | stimmt |
+| 15 | Reihenfolge | Bringe die Schritte eines Energiespar-Projekts in eine sinnvolle Reihenfolge. | Verbrauch messen → Ideen zum Sparen sammeln → Maßnahmen umsetzen → Erneut messen und vergleichen |
+| 16 | Auswahl | Was zeigt ein Stromzähler an? | Wie viele Kilowattstunden verbraucht wurden |
+| 17 | Auswahl | Wie funktionieren „fifty/fifty“-Projekte, bei denen viele Schulen mitmachen? | Die Schule bekommt einen Teil der eingesparten Energiekosten |
+| 18 | Paare | Welcher Spartipp passt zu welchem Gerät? | Computer – Nach dem Unterricht ganz ausschalten; Kühlschrank – Tür schnell wieder schließen; Beamer – Nicht unnötig laufen lassen; Wasserkocher – Nur so viel Wasser wie nötig erhitzen |
+
+### Einheit 17: Plastik im Alltag
+
+| # | Art | Frage | Richtige Antwort |
+|---|---|---|---|
+| 1 | Auswahl | Woraus wird herkömmliches Plastik meistens hergestellt? | Aus Erdöl |
+| 2 | Stimmt? | Plastik zerfällt in der Natur innerhalb weniger Wochen vollständig. | stimmt nicht |
+| 3 | Lücke | Kunststoffteilchen, die kleiner als 5 Millimeter sind, nennt man ___. | Mikroplastik |
+| 4 | Auswahl | Wie lange braucht eine Plastikflasche ungefähr, um sich im Meer zu zersetzen? | Mehrere hundert Jahre |
+| 5 | Paare | Welche Alternative passt zu welchem Plastikprodukt? | Plastiktüte – Stoffbeutel oder Rucksack; Einwegflasche – Trinkflasche zum Nachfüllen; Frischhaltefolie – Dose oder Bienenwachstuch; Plastikstrohhalm – Kein Halm oder ein Glashalm |
+| 6 | Stimmt? | In der EU sind seit 2021 bestimmte Einwegprodukte aus Plastik verboten, zum Beispiel Trinkhalme und Wattestäbchen. | stimmt |
+| 7 | Auswahl | Warum ist Plastik im Meer für Tiere gefährlich? | Sie verwechseln es mit Futter oder verfangen sich darin |
+| 8 | Auswahl | Wie heißt die bekannte riesige Ansammlung von Plastikmüll im Pazifik? | Great Pacific Garbage Patch |
+| 9 | Stimmt? | Mikroplastik wurde schon in Tieren, Lebensmitteln und sogar im menschlichen Körper nachgewiesen. | stimmt |
+| 10 | Auswahl | Was ist in Deutschland eine der größten Quellen für Mikroplastik in der Umwelt? | Der Abrieb von Autoreifen |
+| 11 | Reihenfolge | Bringe den möglichen Weg einer weggeworfenen Plastikflasche in die richtige Reihenfolge. | Die Flasche wird achtlos weggeworfen → Regen spült sie in einen Bach → Ein Fluss trägt sie ins Meer → Sie zerfällt langsam in Mikroplastik |
+| 12 | Stimmt? | Beim Waschen von Kleidung aus Polyester können sich winzige Kunststofffasern lösen. | stimmt |
+| 13 | Auswahl | Was bedeutet das Pfand auf Einwegflaschen in Deutschland? | Man bekommt 25 Cent zurück, wenn man sie zurückgibt |
+| 14 | Lücke | Eine Mehrweg-Glasflasche kann bis zu ___-mal wiederbefüllt werden. | 50 |
+| 15 | Stimmt? | In Deutschland wird ein großer Teil der Kunststoffabfälle verbrannt statt zu neuem Kunststoff recycelt. | stimmt |
+| 16 | Auswahl | Was ist ein Unverpackt-Laden? | Ein Laden, in dem man Lebensmittel in mitgebrachte Behälter füllt |
+| 17 | Paare | Was bedeuten die englischen „R“s gegen Müll? | Refuse – Unnötiges ablehnen; Reduce – Weniger verbrauchen; Reuse – Wiederverwenden; Recycle – Rohstoffe wiederverwerten |
+| 18 | Stimmt? | Bioplastik ist immer biologisch abbaubar und gehört in die Biotonne. | stimmt nicht |
+
+### Einheit 18: Klimawandel weltweit
+
+| # | Art | Frage | Richtige Antwort |
+|---|---|---|---|
+| 1 | Auswahl | Um wie viel hat sich die Erde seit Beginn der Industrialisierung ungefähr erwärmt? | Um rund 1,3 bis 1,5 °C |
+| 2 | Stimmt? | Der Meeresspiegel steigt unter anderem, weil Gletscher und Eisschilde schmelzen. | stimmt |
+| 3 | Lücke | Wenn sich Wasser erwärmt, dehnt es sich aus – auch das lässt den ___ steigen. | Meeresspiegel |
+| 4 | Auswahl | Welche Folge des Klimawandels trifft viele Länder im globalen Süden besonders hart? | Dürren und Ernteausfälle |
+| 5 | Paare | Welche Region ist von welcher Folge besonders betroffen? | Pazifische Inselstaaten – Steigender Meeresspiegel; Alpen – Schmelzende Gletscher; Sahelzone – Dürren; Great Barrier Reef – Korallenbleiche |
+| 6 | Stimmt? | Hitzewellen werden durch den Klimawandel häufiger und stärker. | stimmt |
+| 7 | Auswahl | Welches Land hat seit 1850 insgesamt am meisten CO₂ ausgestoßen? | Die USA |
+| 8 | Stimmt? | Heute stößt China pro Jahr mehr CO₂ aus als jedes andere Land. | stimmt |
+| 9 | Auswahl | Was bedeutet „Klimagerechtigkeit“? | Wer viel zum Klimawandel beigetragen hat, soll mehr Verantwortung übernehmen und Betroffene unterstützen |
+| 10 | Auswahl | Worauf einigten sich die Staaten 2022 bei der Weltklimakonferenz in Ägypten? | Auf einen Fonds für Klimaschäden in besonders betroffenen Ländern |
+| 11 | Reihenfolge | Bringe diese Ereignisse der internationalen Klimapolitik in die zeitliche Reihenfolge. | Kyoto-Protokoll → Pariser Klimaabkommen → Klimakonferenz in Ägypten → Klimakonferenz in Brasilien |
+| 12 | Stimmt? | Menschen in reichen Ländern verursachen im Durchschnitt deutlich mehr CO₂ als Menschen in armen Ländern. | stimmt |
+| 13 | Auswahl | Wie heißen die jährlichen Weltklimakonferenzen der Vereinten Nationen? | COP |
+| 14 | Lücke | Im Pariser Abkommen wollen die Staaten die Erwärmung möglichst auf ___ °C begrenzen. | 1,5 |
+| 15 | Stimmt? | Die Weltklimakonferenz 2025 (COP30) fand in Brasilien statt. | stimmt |
+| 16 | Auswahl | Was ist der IPCC, auch „Weltklimarat“ genannt? | Ein Gremium, das den Stand der Forschung zum Klimawandel zusammenfasst |
+| 17 | Paare | Welcher Begriff passt zu welcher Erklärung? | Anpassung – Sich auf Folgen einstellen, z. B. Deiche bauen; Klimaschutz – Treibhausgase vermeiden; Kipppunkt – Schwelle, ab der sich etwas kaum noch umkehren lässt; Klimamigration – Menschen verlassen wegen Klimafolgen ihre Heimat |
+| 18 | Stimmt? | Die USA sind aus dem Pariser Klimaabkommen ausgetreten. | stimmt |
 
 ### MMG-Special: AG „Going green und fair“
 
