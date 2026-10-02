@@ -137,10 +137,10 @@ Verdiente XP lassen sich ausgeben. Abzeichen zählen trotzdem alle jemals verdie
 ### Gestaltung
 - Farbschema der AG: Dunkelgrün `#2E6417`, Grün `#00BF63`, Hellgrün `#7ED957`, Limette `#C1FF72`, Mint `#D9F2CA`
 - **Einstellungen (Zahnrad oben rechts):** Sprache, Design, Soundeffekte, einfacher Modus, Einführung, Fortschritt sichern, Datenschutz, Zurücksetzen und App-Infos an einem Ort.
-- **Besser zurechtfinden:** Oben auf den Seiten Üben, Shop, Erfolge, Profil und Einstellungen gibt es eine **Sprungleiste** zu den Abschnitten. Das Profil ist in drei Bereiche gegliedert (Über dich · Garten & Urkunden · Mitmachen & teilen). Auf dem Lernpfad öffnet **„Alle Einheiten“** eine Übersicht mit dem Fortschritt jeder Einheit – antippen springt direkt dorthin.
+- **Besser zurechtfinden:** Oben auf den Seiten Üben, Shop, Erfolge, Profil und Einstellungen gibt es eine **Sprungleiste** zu den Abschnitten. Das Profil ist in drei Bereiche gegliedert (Über dich · Garten & Urkunden · Mitmachen & teilen).
 - **Heller und dunkler Modus:** unter Einstellungen → Design wählbar: Automatisch (wie das Gerät), Hell oder Dunkel
 - **Link-Vorschau:** Beim Teilen des Links (WhatsApp, Signal …) erscheint ein Vorschaubild mit Sprossi
-- **Animationen:** Sprossi winkt, blinzelt und wiegt seine Blätter, richtige Antworten „ploppen“, Zahlen hüpfen. Bei „Bewegung reduzieren“ in den Systemeinstellungen sind die Animationen aus.
+- **Animationen:** Sprossi winkt, blinzelt und wiegt seine Blätter, richtige Antworten „ploppen“. Seit 4.2 noch flüssiger: Seiten gleiten beim Tab-Wechsel in die passende Richtung, Karten erscheinen nacheinander, Stationen auf dem Lernpfad ploppen beim Scrollen auf, die nächste Station pulsiert, eine gerade geschaffte Station hüpft, Knöpfe federn, Fenster springen auf, XP zählen hoch und der Fortschrittsbalken leuchtet bei richtigen Antworten. Bei „Bewegung reduzieren“ in den Systemeinstellungen sind die Animationen aus.
 - **Hinweise:** Ohne Internet erscheint „Du bist offline – die App funktioniert trotzdem“. Liegt eine neue Version auf GitHub, zeigt die Web-App „Neue Version geladen – Neu laden“.
 - Unten rechts: **MMG · GGAF Quizzes! App · Going green and Fair**
 
