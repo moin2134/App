@@ -33,7 +33,7 @@ Die Lern-App der **AG „Going green und fair“ am MMG**. Mit kurzen Quiz-Lekti
 ### Lernen
 - **Lernpfad:** 18 Einheiten mit je 3 Lektionen und einem Einheitstest, dazu das **MMG-Special** zur AG. Die Stationen werden nacheinander freigeschaltet.
 - **Infotexte:** Vor jeweils zwei Lektionen steht ein Infotext mit allem, was man für die nächsten Aufgaben wissen muss. Gelesene Texte bekommen einen Haken.
-- **Fünf Aufgabentypen:** Antwort wählen, Stimmt/Stimmt nicht, Lücke füllen, Reihenfolge sortieren, Paare finden.
+- **Sieben Aufgabentypen:** Antwort wählen, Stimmt/Stimmt nicht, Lücke füllen, Reihenfolge sortieren, Paare finden, Bilderrätsel und **in Gruppen sortieren** (neu in 4.1: Begriff antippen, dann die passende Gruppe – z. B. Müll in die richtige Tonne, erneuerbar oder fossil, Mehrweg oder Einweg, Klimaschutz oder Anpassung). Die 8 Sortieraufgaben stecken in den passenden Einheiten.
 - **„Wusstest du?“:** Nach jeder Antwort gibt es eine kurze Erklärung mit einem zusätzlichen Fakt.
 - **Wiederholung:** Falsche Aufgaben kommen am Ende der Lektion im **rot-orangen Wiederholungs-Look** zurück.
 - **Einführung:** Beim ersten Start erklären 8 Schritte die App. Sie lässt sich unter Einstellungen (Zahnrad) erneut ansehen.
@@ -48,7 +48,7 @@ Ganz oben steht der **Tipp des Tages** (ein Alltagstipp für mehr Nachhaltigkeit
 | | **Fehler wiederholen** | Alle bisher falsch beantworteten Fragen |
 | | **Blitzrunde** | 60 Sekunden, so viele richtige Antworten wie möglich, mit Rekord |
 | **Wissen & Spaß** | **Schätzen & Mythen** | 4 Schätzfragen mit Schieberegler (je näher, desto mehr XP, bis 3 pro Frage) und 6 Aussagen „Wahr oder Mythos?“ zu verbreiteten Umwelt-Irrtümern, gemischt |
-| | **Klima-Check** | 6 Alltagsfragen mit persönlichen Tipps (grobe Einschätzung, keine genaue CO₂-Rechnung) |
+| | **Klima-Check** | 11 Alltagsfragen (Schulweg, Essen, Lebensmittel, Saison, Duschen, Heizen, Handy, Strom, Kleidung, Müll, Reisen). Jede Antwort hat ihren **eigenen Tipp**; die Bereiche sind nach ihrer Wirkung aufs Klima gewichtet. Ergebnis: eine **Anzeige mit Zeiger auf einem Rot-Grün-Verlauf** (0–100), die **3 wirksamsten Schritte**, weitere Tipps zum Aufklappen und „Das machst du schon super“. Grobe Einschätzung, keine genaue CO₂-Rechnung |
 | | **Lexikon** | 45 Fachbegriffe von „Agenda 2030“ bis „Zero Waste“, mit Suche |
 | | **Karteikarten** | Alle Lexikon-Begriffe als Karten zum Umdrehen (Begriff → Erklärung), gemischt, mit Zähler „x von 45 angesehen“. Auch über einen Knopf im Lexikon erreichbar |
 | **Prüfung & Klasse** | **Abschlussprüfung** | 30 zufällige Fragen aus allen Einheiten, ohne Herzen und ohne Wiederholung. Ergebnis als Schulnote (1 ab 92 %, 2 ab 81 %, 3 ab 67 %, 4 ab 50 %, 5 ab 30 %). Ab Note 4 gibt es eine eigene Urkunde im Profil; die beste Note wird gespeichert |
@@ -122,6 +122,7 @@ Die komplette App gibt es in **21 Sprachen**: Fragen, Infotexte, Lexikon, Tipps,
 - **23 Abzeichen in 5 Bereichen** (unter „Erfolge“ mit Sprungleiste): **Lernen** (Erster Spross, Fehlerfrei, Einheit gemeistert, Fünf auf einen Streich, Fair-Profi, AG-Profi, Going green and Fair, Glatte Eins), **Serie & XP** (Glühende Serie, Wochenfeuer, Monatsfeuer, Blattsammler, Waldhüter*in, Klimaheld*in), **Wissen** (Wissensdurst, Blitzmerker, Karteikarten-Profi, Sprachtalent), **Shop** (Erster Einkauf, Sprossi-Stylist, Modebewusst) und **Geheim** (erscheinen erst nach dem Freischalten).
 - **Wochenrückblick:** XP, Lektionen, aktive Tage, stärkstes Thema und „Übe mehr“, im Profil und zu Beginn jeder Woche
 - **Garten:** Im Profil hat jede Einheit (und das MMG-Special) ein Beet. Erdhügel = noch nicht begonnen, Keimling = begonnen, Blume in der Farbe der Einheit = Einheitstest bestanden. Sprossi selbst bleibt immer gleich groß.
+- **Freunde (ohne Server):** Im Profil wählt man einen **Avatar** (12 zur Auswahl). Unter „Freunde“ zeigt „Mein Freundes-Code“ einen **QR-Code und Link**. Wer ihn scannt oder öffnet, hat einen automatisch in seiner **Freundesliste**; man kann den Code auch einfügen. Die Liste ist eine Rangliste nach XP mit Avatar, Name, XP, Serie, Abzeichen, gemeisterten Einheiten, bester Prüfungsnote und Datum des Stands. Zum Aktualisieren den Code einfach neu schicken. Gespeichert wird alles nur auf dem eigenen Gerät.
 - **Urkunden:** für alle Einheiten und für das MMG-Special, als Bild mit Namen, Datum und XP. In der Web-App herunterladen, in der Android-App teilen oder speichern.
 
 ### Shop
@@ -163,6 +164,10 @@ Verdiente XP lassen sich ausgeben. Abzeichen zählen trotzdem alle jemals verdie
 | 10 | **Geheimes Outfit** | Wer **„fair“** irgendwo im Namen hat (z. B. „Fairy“), bekommt das **Fair-Stirnband** gratis. Es erscheint danach im Shop unter Outfits. Ohne echtes Fairtrade-Logo. |
 | 11 | **Herzen-Trick** | Unter „Erfolge“ 3-mal schnell auf das Abzeichen **„Sprossi-Stylist“** tippen → alle 5 Herzen sind wieder voll. Einmal pro Tag. |
 | 12 | **XP-Trick** | Unter „Erfolge“ 3-mal schnell auf das Abzeichen **„Erster Einkauf“** tippen → +100 XP. Einmal pro Tag. |
+| 13 | **Goldener Lorbeerkranz** | Ab dem 100. Öffnen der App gibt es gratis ein geheimes goldenes Outfit. |
+| 14 | **„42“** | Als Namen **42** eingeben → die Antwort auf alles (und die nächste Frage). |
+| 15 | **MMG gefunden** | 5-mal schnell auf die Zeile „MMG · GGAF Quizzes! App“ unten tippen → Blätterregen und eine Einladung in die AG. |
+| 16 | **Müder Sprossi** | Zwischen 22 und 5 Uhr gähnt Sprossi auf dem Lernpfad. |
 
 Geheime Abzeichen stehen erst nach dem Freischalten in der Liste; oben steht nur „🔒 2 × ???“ – so viele sind noch versteckt. Im Code steht alles im Abschnitt `Easter Eggs` sowie in `EGG_DE` (Texte) und `EGG_TR` (Übersetzungen).
 
@@ -458,13 +463,14 @@ Alle Fragen der App auf Deutsch mit der richtigen Antwort (Faktenstand: Septembe
 | 17 | Auswahl | Welches Land stößt derzeit insgesamt am meisten CO₂ aus? | China |
 | 18 | Reihenfolge | Sortiere nach CO₂ pro Kilowattstunde Strom – von wenig nach viel. | Windkraft → Erdgas → Braunkohle |
 
-**Bilderrätsel in dieser Einheit:**
+**Bilderrätsel und Sortieraufgaben in dieser Einheit:**
 
 | # | Art | Frage | Richtige Antwort |
 |---|---|---|---|
 | 1 | Bild | Welche Energie wird hier gewonnen? | Windenergie |
 | 2 | Bild | Was siehst du auf dem Bild? | Eine Solaranlage (Photovoltaik) |
 | 3 | Bild | Diese LED-Lampe ersetzt eine alte Glühbirne. Wie viel Strom spart sie ungefähr? | Rund 80–90 % |
+| 4 | Sortieren | Erneuerbar oder fossil? Ordne die Energiequellen zu. | Erneuerbar: Wind, Sonne, Wasserkraft, Erdwärme · Fossil: Kohle, Erdöl, Erdgas |
 
 ### Einheit 2: Fairer Handel
 
@@ -512,7 +518,7 @@ Alle Fragen der App auf Deutsch mit der richtigen Antwort (Faktenstand: Septembe
 | 17 | Auswahl | In welchen Altglascontainer gehört eine blaue Glasflasche? | Grünglas |
 | 18 | Stimmt? | Recyceln ist immer besser als Wiederverwenden. | stimmt nicht |
 
-**Bilderrätsel in dieser Einheit:**
+**Bilderrätsel und Sortieraufgaben in dieser Einheit:**
 
 | # | Art | Frage | Richtige Antwort |
 |---|---|---|---|
@@ -523,6 +529,7 @@ Alle Fragen der App auf Deutsch mit der richtigen Antwort (Faktenstand: Septembe
 | 5 | Bild | Wohin gehört die grüne Einweg-Glasflasche ohne Pfand? | In den Grünglas-Container |
 | 6 | Bild | Die Keramiktasse ist kaputt. Wohin damit? | In den Restmüll |
 | 7 | Bild | Wohin gehört der Kassenbon? | In den Restmüll |
+| 8 | Sortieren | Sortiere den Müll in die richtige Tonne. | Gelbe Tonne: Joghurtbecher, Konservendose · Papier: Eierkarton aus Pappe, Zeitung · Bio: Kartoffelschalen, Kaffeesatz · Restmüll: Windel, Staubsaugerbeutel |
 
 ### Einheit 4: Umweltpolitik in Deutschland
 
@@ -593,13 +600,14 @@ Alle Fragen der App auf Deutsch mit der richtigen Antwort (Faktenstand: Septembe
 | 17 | Paare | Welches Meerestier ist wodurch bedroht? | Meeresschildkröte – Verwechselt Plastiktüten mit Quallen; Kabeljau – Überfischung; Wal – Schiffslärm und Kollisionen; Korallenriff – Meereserwärmung |
 | 18 | Stimmt? | In Deutschland ist es besonders wirksam, warmes Wasser zu sparen – wegen der Energie zum Erhitzen. | stimmt |
 
-**Bilderrätsel in dieser Einheit:**
+**Bilderrätsel und Sortieraufgaben in dieser Einheit:**
 
 | # | Art | Frage | Richtige Antwort |
 |---|---|---|---|
 | 1 | Bild | Wie heißt der Vorgang, bei dem Wasser vom Meer in die Wolken aufsteigt? | Verdunstung |
 | 2 | Bild | Der Wasserhahn tropft. Was stimmt? | Ein tropfender Hahn kann über 1.000 Liter Wasser im Jahr verschwenden |
 | 3 | Bild | Warum ist die Plastiktüte im Meer für die Schildkröte gefährlich? | Sie hält die Tüte für eine Qualle und frisst sie |
+| 4 | Sortieren | Steckt viel oder wenig virtuelles Wasser darin? | Viel Wasser: 1 kg Rindfleisch, Ein Baumwoll-T-Shirt, 1 kg Kaffeebohnen · Wenig Wasser: 1 kg Tomaten, 1 kg Kartoffeln |
 
 ### Einheit 7: Essen & Klima
 
@@ -624,6 +632,12 @@ Alle Fragen der App auf Deutsch mit der richtigen Antwort (Faktenstand: Septembe
 | 17 | Auswahl | Wofür wird der größte Teil der weltweit angebauten Sojabohnen verwendet? | Als Tierfutter |
 | 18 | Reihenfolge | Sortiere nach CO₂ pro Tonne Fracht und Kilometer – von wenig nach viel. | Güterzug → Lkw → Flugzeug |
 
+**Bilderrätsel und Sortieraufgaben in dieser Einheit:**
+
+| # | Art | Frage | Richtige Antwort |
+|---|---|---|---|
+| 1 | Sortieren | Eher klimafreundlich oder eher klimaschädlich? Gemeint ist der Fußabdruck pro Kilogramm. | Eher klimafreundlich: Linsen, Kartoffeln, Äpfel aus der Region · Eher klimaschädlich: Rindfleisch, Butter, Käse |
+
 ### Einheit 8: Artenvielfalt
 
 | # | Art | Frage | Richtige Antwort |
@@ -647,7 +661,7 @@ Alle Fragen der App auf Deutsch mit der richtigen Antwort (Faktenstand: Septembe
 | 17 | Auswahl | Welcher Greifvogel war in Deutschland fast verschwunden und brütet heute wieder in vielen Regionen? | Seeadler |
 | 18 | Stimmt? | Helle Beleuchtung in der Nacht schadet Insekten. | stimmt |
 
-**Bilderrätsel in dieser Einheit:**
+**Bilderrätsel und Sortieraufgaben in dieser Einheit:**
 
 | # | Art | Frage | Richtige Antwort |
 |---|---|---|---|
@@ -676,7 +690,7 @@ Alle Fragen der App auf Deutsch mit der richtigen Antwort (Faktenstand: Septembe
 | 17 | Auswahl | Der Reißverschluss deiner Lieblingsjacke ist kaputt. Was ist am nachhaltigsten? | Reparieren lassen |
 | 18 | Stimmt? | Online bestellte Kleidung wird häufig zurückgeschickt – das verursacht zusätzliche Transporte. | stimmt |
 
-**Bilderrätsel in dieser Einheit:**
+**Bilderrätsel und Sortieraufgaben in dieser Einheit:**
 
 | # | Art | Frage | Richtige Antwort |
 |---|---|---|---|
@@ -729,11 +743,12 @@ Alle Fragen der App auf Deutsch mit der richtigen Antwort (Faktenstand: Septembe
 | 17 | Reihenfolge | Das Prinzip der Verkehrswende: Was hat Vorrang? Sortiere von der ersten zur letzten Stufe. | Verkehr vermeiden → Verkehr verlagern (z. B. auf Bahn und Rad) → Verkehr verbessern (z. B. saubere Antriebe) |
 | 18 | Auswahl | Bis zu welcher Geschwindigkeit unterstützt der Motor eines normalen Pedelecs beim Treten? | 25 km/h |
 
-**Bilderrätsel in dieser Einheit:**
+**Bilderrätsel und Sortieraufgaben in dieser Einheit:**
 
 | # | Art | Frage | Richtige Antwort |
 |---|---|---|---|
 | 1 | Bild | Wie viel CO₂ stößt dieses Fahrrad beim Fahren aus? | Keins – es fährt mit Muskelkraft |
+| 2 | Sortieren | Klimafreundlich oder klimaschädlich – pro Person und Kilometer? | Klimafreundlich: Fahrrad, Zu Fuß, Fernzug, Linienbus · Klimaschädlich: Auto, allein, Inlandsflug, Kreuzfahrtschiff |
 
 ### Einheit 12: Digitales & Klima
 
@@ -804,7 +819,7 @@ Alle Fragen der App auf Deutsch mit der richtigen Antwort (Faktenstand: Septembe
 | 17 | Reihenfolge | Wie entsteht ein Hochmoor aus einem See? Bringe die Stufen in die richtige Reihenfolge. | Flacher See → Verlandung mit Schilf und Seggen → Niedermoor → Hochmoor |
 | 18 | Auswahl | Wie viel der Moorflächen in Bayern sind entwässert? | rund 95 % |
 
-**Bilderrätsel in dieser Einheit:**
+**Bilderrätsel und Sortieraufgaben in dieser Einheit:**
 
 | # | Art | Frage | Richtige Antwort |
 |---|---|---|---|
@@ -856,6 +871,12 @@ Alle Fragen der App auf Deutsch mit der richtigen Antwort (Faktenstand: Septembe
 | 17 | Auswahl | Wie funktionieren „fifty/fifty“-Projekte, bei denen viele Schulen mitmachen? | Die Schule bekommt einen Teil der eingesparten Energiekosten |
 | 18 | Paare | Welcher Spartipp passt zu welchem Gerät? | Computer – Nach dem Unterricht ganz ausschalten; Kühlschrank – Tür schnell wieder schließen; Beamer – Nicht unnötig laufen lassen; Wasserkocher – Nur so viel Wasser wie nötig erhitzen |
 
+**Bilderrätsel und Sortieraufgaben in dieser Einheit:**
+
+| # | Art | Frage | Richtige Antwort |
+|---|---|---|---|
+| 1 | Sortieren | Spart das Energie oder verschwendet es Energie? | Spart Energie: Stoßlüften, Deckel auf dem Topf, LED-Lampe · Verschwendet Energie: Dauernd gekipptes Fenster, Standby über Nacht, Zugestellter Heizkörper |
+
 ### Einheit 17: Plastik im Alltag
 
 | # | Art | Frage | Richtige Antwort |
@@ -879,6 +900,12 @@ Alle Fragen der App auf Deutsch mit der richtigen Antwort (Faktenstand: Septembe
 | 17 | Paare | Was bedeuten die englischen „R“s gegen Müll? | Refuse – Unnötiges ablehnen; Reduce – Weniger verbrauchen; Reuse – Wiederverwenden; Recycle – Rohstoffe wiederverwerten |
 | 18 | Stimmt? | Bioplastik ist immer biologisch abbaubar und gehört in die Biotonne. | stimmt nicht |
 
+**Bilderrätsel und Sortieraufgaben in dieser Einheit:**
+
+| # | Art | Frage | Richtige Antwort |
+|---|---|---|---|
+| 1 | Sortieren | Mehrweg oder Einweg? | Mehrweg: Pfand-Glasflasche (Mehrweg), Stoffbeutel, Brotdose · Einweg: Plastiktüte, Coffee-to-go-Becher, Getränkedose |
+
 ### Einheit 18: Klimawandel weltweit
 
 | # | Art | Frage | Richtige Antwort |
@@ -901,6 +928,12 @@ Alle Fragen der App auf Deutsch mit der richtigen Antwort (Faktenstand: Septembe
 | 16 | Auswahl | Was ist der IPCC, auch „Weltklimarat“ genannt? | Ein Gremium, das den Stand der Forschung zum Klimawandel zusammenfasst |
 | 17 | Paare | Welcher Begriff passt zu welcher Erklärung? | Anpassung – Sich auf Folgen einstellen, z. B. Deiche bauen; Klimaschutz – Treibhausgase vermeiden; Kipppunkt – Schwelle, ab der sich etwas kaum noch umkehren lässt; Klimamigration – Menschen verlassen wegen Klimafolgen ihre Heimat |
 | 18 | Stimmt? | Die USA sind aus dem Pariser Klimaabkommen ausgetreten. | stimmt |
+
+**Bilderrätsel und Sortieraufgaben in dieser Einheit:**
+
+| # | Art | Frage | Richtige Antwort |
+|---|---|---|---|
+| 1 | Sortieren | Klimaschutz oder Anpassung an die Folgen? | Klimaschutz: Solaranlage bauen, Weniger fliegen, Moore wiedervernässen · Anpassung: Deiche erhöhen, Hitzeschutzplan für die Stadt, Dürrefeste Pflanzen anbauen |
 
 ### MMG-Special: AG „Going green und fair“
 
