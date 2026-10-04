@@ -35,7 +35,8 @@ Die Lern-App der **AG „Going green und fair“ am MMG**. Mit kurzen Quiz-Lekti
 - **Infotexte:** Vor jeweils zwei Lektionen steht ein Infotext mit allem, was man für die nächsten Aufgaben wissen muss. Gelesene Texte bekommen einen Haken.
 - **Sieben Aufgabentypen:** Antwort wählen, Stimmt/Stimmt nicht, Lücke füllen, Reihenfolge sortieren, Paare finden, Bilderrätsel und **in Gruppen sortieren** (neu in 4.1: Begriff antippen, dann die passende Gruppe – z. B. Müll in die richtige Tonne, erneuerbar oder fossil, Mehrweg oder Einweg, Klimaschutz oder Anpassung). Die 8 Sortieraufgaben stecken in den passenden Einheiten.
 - **„Wusstest du?“:** Nach jeder Antwort gibt es eine kurze Erklärung mit einem zusätzlichen Fakt.
-- **Wiederholung:** Falsche Aufgaben kommen am Ende der Lektion im **rot-orangen Wiederholungs-Look** zurück.
+- **Wiederholung:** Falsche Aufgaben kommen am Ende der Lektion zurück – erkennbar am rot-orangen Fortschrittsbalken und Hinweis oben; Antworten und Knöpfe bleiben grün.
+- **Ziehen & Ablegen:** Bei „Sortieren“ und „Reihenfolge“ kann man die Begriffe antippen oder direkt in die Gruppe bzw. in die Reihenfolge ziehen.
 - **Einführung:** Beim ersten Start erklären 8 Schritte die App. Sie lässt sich unter Einstellungen (Zahnrad) erneut ansehen.
 
 ### Üben
@@ -64,6 +65,7 @@ Ganz oben steht der **Tipp des Tages** (ein Alltagstipp für mehr Nachhaltigkeit
 
 ### Barrierearm lernen
 - **Vorlesen:** Ein Lautsprecher-Button liest Frage und Antworten bzw. Infotexte in der gewählten Sprache vor. Im Browser über die Sprachausgabe des Geräts, in der Android-App über die Handy-Sprachausgabe (Latein mit italienischer Stimme, Bairisch mit deutscher, Schweizerdeutsch mit Schweizer Stimme, falls vorhanden).
+- **Kontrastmodus:** Unter Einstellungen → Optionen. Schwarz-Weiß mit kräftigem Grün, dicken Rahmen und fetter Schrift – besser lesbar, z. B. bei Sonne oder Sehschwäche.
 - **Einfacher Modus (Unterstufe):** Unter **Einstellungen** (Zahnrad oben rechts). Dann gibt es nur 3 statt 4 Antworten und einen **Tipp-Button**, der eine falsche Antwort durchstreicht. Die Fragen selbst bleiben gleich – es ist keine „Leichte Sprache“ im engen Sinn.
 
 ### Arbeitsblätter
