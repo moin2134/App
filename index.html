@@ -2897,6 +2897,28 @@ const UI_43 = {
  la:{hc_mode:'Discrimen magnum', hc_mode_s:'Nigrum et album cum coloribus fortibus – facilius legitur'},
  grc:{hc_mode:'Μεγάλη ἀντίθεσις', hc_mode_s:'Μέλαν καὶ λευκόν, ἰσχυρὰ χρώματα – εὐανάγνωστον'}
 };
+/* Version 4.5: Gerätezähler */
+const UI_45 = {
+ de:{web_devices:'auf {d} Geräten', count_note:'Die Web-App zählt nur, wie oft sie benutzt wird und auf wie vielen Geräten – nur diese Zahlen, sonst nichts. Kein Name, keine Kennung.'},
+ en:{web_devices:'on {d} devices', count_note:'The web app only counts how often it is used and on how many devices – just these numbers, nothing else. No name, no ID.'},
+ fr:{web_devices:'sur {d} appareils', count_note:'L’appli web compte seulement combien de fois elle est utilisée et sur combien d’appareils – rien d’autre. Ni nom, ni identifiant.'},
+ es:{web_devices:'en {d} dispositivos', count_note:'La web app solo cuenta cuántas veces se usa y en cuántos dispositivos: solo esos números. Sin nombre ni identificador.'},
+ it:{web_devices:'su {d} dispositivi', count_note:'La web app conta solo quante volte viene usata e su quanti dispositivi – solo questi numeri. Nessun nome, nessun identificativo.'},
+ pl:{web_devices:'na {d} urządzeniach', count_note:'Aplikacja liczy tylko, jak często jest używana i na ilu urządzeniach – tylko te liczby. Bez imienia, bez identyfikatora.'},
+ ru:{web_devices:'на {d} устройствах', count_note:'Веб-приложение считает только, как часто им пользуются и на скольких устройствах – только эти числа. Без имени и идентификатора.'},
+ uk:{web_devices:'на {d} пристроях', count_note:'Вебзастосунок рахує лише, як часто ним користуються і на скількох пристроях – тільки ці числа. Без імені й ідентифікатора.'},
+ zh:{web_devices:'共{d}台设备', count_note:'网页版只统计使用次数和设备数量——只有这些数字，没有姓名或标识。'},
+ ja:{web_devices:'{d}台の端末', count_note:'Web版が数えるのは使われた回数と端末の数だけです。名前やIDは一切ありません。'},
+ pt:{web_devices:'em {d} dispositivos', count_note:'A web app só conta quantas vezes é usada e em quantos dispositivos – só esses números. Sem nome, sem identificação.'},
+ nl:{web_devices:'op {d} apparaten', count_note:'De web-app telt alleen hoe vaak hij wordt gebruikt en op hoeveel apparaten – alleen die getallen. Geen naam, geen ID.'},
+ cs:{web_devices:'na {d} zařízeních', count_note:'Webová aplikace počítá jen, jak často se používá a na kolika zařízeních – jen tato čísla. Žádné jméno, žádný identifikátor.'},
+ he:{web_devices:'ב־{d} מכשירים', count_note:'אפליקציית הרשת סופרת רק כמה פעמים משתמשים בה ובכמה מכשירים – רק המספרים האלה. בלי שם ובלי מזהה.'},
+ bar:{web_devices:'auf {d} Geräte', count_note:'De Web-App zählt nur, wia oft s’ bnutzt wird und auf wia vui Geräte – nur de Zahln, sonst nix.'},
+ gsw:{web_devices:'uf {d} Grät', count_note:'D Web-App zellt nur, wie mängisch si bruucht wird und uf wie vile Grät – nur die Zaale, susch nüüt.'},
+ la:{web_devices:'in {d} instrumentis', count_note:'Applicatio solum numerat, quotiens adhibeatur et in quot instrumentis – nihil aliud.'},
+ grc:{web_devices:'ἐν {d} σκεύεσιν', count_note:'Ἡ ἐφαρμογὴ μόνον ἀριθμεῖ ποσάκις χρῆται καὶ ἐν πόσοις σκεύεσιν – οὐδὲν ἄλλο.'}
+};
+Object.keys(UI_45).forEach(l=>{ if(UI_36[l]) Object.assign(UI_36[l], UI_45[l]); else UI_36[l] = UI_45[l]; });
 Object.keys(UI_43).forEach(l=>{ if(UI_36[l]) Object.assign(UI_36[l], UI_43[l]); else UI_36[l] = UI_43[l]; });
 Object.assign(UI_EXTRA.de, UI_36.de);
 const UI_35 = {
@@ -4574,12 +4596,18 @@ S.opens++; save(); try{ applyLayout(); }catch(e){}   /* nur ein Zähler auf dies
 /* Gesamtzähler der Web-Version (vom Nutzer gewünscht, in Einführung und Datenschutz erklärt):
    nur auf *.github.io, einmal pro Browser-Sitzung +1 – kein Name, keine Kennung, keine Cookies.
    Dienst: Abacus (abacus.jasoncameron.dev), dort wird nur die Zahl gespeichert. */
-let webCount = 0;
+/* Version 4.5: zusätzlich Geräte zählen – beim allerersten Start auf einem Gerät +1 (Merker nur im Browser-Speicher) */
+let webCount = 0, webDevices = 0;
+function webCountText(){ return T('web_count',{n:fmtNum(webCount)}) + (webDevices ? ' · ' + T('web_devices',{d:fmtNum(webDevices)}) : ''); }
+function showWebCount(){ const a = document.getElementById('webCount'); if(a) a.textContent = webCountText(); }
 (function(){
   if(window.GGAFApp || !/\.github\.io$/.test(location.hostname) || !window.fetch) return;
+  const ask = (mode, key, cb) => fetch('https://abacus.jasoncameron.dev/' + mode + '/ggaf-quizzes-mmg/' + key, {credentials:'omit', referrerPolicy:'no-referrer', cache:'no-store'})
+    .then(r=>r.json()).then(d=>{ if(d && typeof d.value==='number'){ cb(d.value); showWebCount(); } }).catch(()=>{});
   let first = true; try{ first = !sessionStorage.getItem('ggaf-counted'); sessionStorage.setItem('ggaf-counted','1'); }catch(e){}
-  fetch('https://abacus.jasoncameron.dev/' + (first?'hit':'get') + '/ggaf-quizzes-mmg/web', {credentials:'omit', referrerPolicy:'no-referrer', cache:'no-store'})
-    .then(r=>r.json()).then(d=>{ if(d && typeof d.value==='number'){ webCount = d.value; const a = document.getElementById('webCount'); if(a) a.textContent = T('web_count',{n:fmtNum(webCount)}); } }).catch(()=>{});
+  let newDev = false; try{ newDev = !localStorage.getItem('ggaf-device-counted'); if(newDev) localStorage.setItem('ggaf-device-counted','1'); }catch(e){ newDev = false; }
+  ask(first?'hit':'get', 'web', v=>{ webCount = v; });
+  ask(newDev?'hit':'get', 'devices', v=>{ webDevices = v; });
 })();
 LANG = S.lang;   /* Sprache aus dem Speicherstand (gilt bis zum nächsten Neuladen) */
 function load(){ try{ const s = JSON.parse(localStorage.getItem(KEY)); if(s) return sanitize(s); }catch(e){} return defaults(); }
@@ -5163,7 +5191,7 @@ function renderSettings(){
     <div class="row"><b>${T('reset_progress')}</b><button class="btn ghost" data-act="reset" style="padding:10px 14px;font-size:13px">${T('reset')}</button></div>
     <div class="row"><b>${T('clear_data')}</b><button class="btn ghost" data-act="clearData" style="padding:10px 14px;font-size:13px">${T('clear_btn')}</button></div>
   </div>
-  <p class="about">${T('opens',{n:S.opens})}${window.GGAFApp ? '' : `<br><span id="webCount">${webCount ? T('web_count',{n:fmtNum(webCount)}) : ''}</span>`}<br>${T('fact_stand',{d:factStand()})}${window.GGAFApp && GGAFApp.version ? T('app_version',{v:esc(GGAFApp.version())}) : ''}</p>`;
+  <p class="about">${T('opens',{n:S.opens})}${window.GGAFApp ? '' : `<br><span id="webCount">${webCount ? webCountText() : ''}</span>`}<br>${T('fact_stand',{d:factStand()})}${window.GGAFApp && GGAFApp.version ? T('app_version',{v:esc(GGAFApp.version())}) : ''}</p>`;
 }
 /* Faktenstand-Datum („September 2026“) mit Monatsnamen in der aktuellen Sprache */
 function factStand(){
@@ -5768,7 +5796,7 @@ function showPrivacy(){
     <h3>Web-Version</h3>
     <p>Die Web-Version liegt bei GitHub Pages (GitHub Inc., USA). Beim Aufrufen verarbeitet GitHub technisch notwendige Daten wie deine IP-Adresse, um die Seite auszuliefern (siehe Datenschutzerklärung von GitHub). Schriften und alle Bilder werden direkt von dort geladen – es werden keine Google-Dienste eingebunden.</p>
     <h3>Nutzungszähler (nur Web-Version)</h3>
-    <p>Die Web-App zählt, wie oft sie insgesamt benutzt wird: einmal pro Besuch +1. Dafür ruft sie den Zähldienst Abacus (abacus.jasoncameron.dev) auf. Dort wird <b>nur diese eine Zahl</b> gespeichert – kein Name, keine Kennung, keine Cookies. Wie bei jedem Aufruf einer Website sieht der Dienst dabei technisch kurz deine IP-Adresse. Die Android-App zählt nicht mit.</p>
+    <p>Die Web-App zählt, wie oft sie insgesamt benutzt wird: einmal pro Besuch +1. Außerdem zählt sie die Geräte: Beim allerersten Start auf einem Gerät kommt +1 auf einen zweiten Zähler (der Merker dafür liegt nur in deinem Browser). Dafür ruft sie den Zähldienst Abacus (abacus.jasoncameron.dev) auf. Dort wird <b>nur diese eine Zahl</b> gespeichert – kein Name, keine Kennung, keine Cookies. Wie bei jedem Aufruf einer Website sieht der Dienst dabei technisch kurz deine IP-Adresse. Die Android-App zählt nicht mit.</p>
     <h3>Android-App</h3>
     <p>Die App braucht nur die Internet-Berechtigung für Links und das Teilen im WLAN. Beim Teilen per QR-Code läuft kurz ein kleiner Server nur in deinem WLAN; er wird beim Schließen beendet. Vorlesen nutzt die Sprachausgabe deines Handys.</p>
     <h3>Freunde</h3>
@@ -10849,7 +10877,7 @@ try{ if(navigator.storage && navigator.storage.persist) navigator.storage.persis
 function clearAllData(){
   const done = () => { try{ location.replace(location.pathname); }catch(e){ location.reload(); } };
   save = () => {};   /* nichts mehr zurückschreiben */
-  try{ localStorage.clear(); }catch(e){}
+  try{ const dev = localStorage.getItem('ggaf-device-counted'); localStorage.clear(); if(dev) localStorage.setItem('ggaf-device-counted', dev); }catch(e){}   /* Gerät nicht doppelt zählen */
   try{ sessionStorage.clear(); }catch(e){}
   const jobs = [];
   try{ if(window.caches) jobs.push(caches.keys().then(ks=>Promise.all(ks.map(k=>caches.delete(k))))); }catch(e){}
@@ -10857,7 +10885,7 @@ function clearAllData(){
   Promise.all(jobs).then(done, done); setTimeout(done, 2500);
 }
 /* Versionsnummer – wird von android\build.ps1 aus AndroidManifest.xml (versionName) eingesetzt; die Windows-App vergleicht sie für Auto-Updates */
-const APP_VERSION = '4.4';
+const APP_VERSION = '4.5';
 /* Windows-App: meldet, dass eine neue Version heruntergeladen wurde */
 window.ggafUpdateReady = () => infoToast('redo', T('update_t'), T('update_d'), `<button class="btn" data-act="reloadApp">${T('reload')}</button>`);
 /* Hinweise: offline und neue Version (nur Web-Version) */
