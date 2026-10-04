@@ -576,6 +576,7 @@ html.wide .btn{font-size:18px}
   .newb{padding:8px 12px}.newb .medal{width:36px;height:36px}
 }
 /* Ziehen & Ablegen (Sortieren, Reihenfolge) */
+.qcode{margin-left:8px;padding:1px 7px;border-radius:8px;background:var(--surface2);color:var(--ink2);font-size:11px;letter-spacing:.02em;font-variant-numeric:tabular-nums}
 .dragghost{position:fixed;z-index:90;pointer-events:none;transform:translate(-50%,-50%) rotate(-3deg) scale(1.06);box-shadow:0 10px 24px rgba(0,0,0,.35);opacity:.95}
 .chip.dragging{opacity:.35}
 .sortbin.over,#slots.over{border-color:var(--leaf);background:var(--selBg)}
@@ -5276,6 +5277,17 @@ const PICQ = [
 /* Einheit je Bilderrätsel (Reihenfolge wie PICQ): 0 Klima & Energie, 2 Müll, 5 Wasser, 7 Artenvielfalt, 8 Mode & Konsum, 10 Mobilität, 13 Wald & Moore */
 [2,2,2,2,2,2,2, 0,0, 7, 8, 5, 0, 5, 8, 10, 13, 5].forEach((u,i)=>{ if(PICQ[i]) PICQ[i].u = u; });
 MYTHS.forEach(m=>{ m.myth = true; });
+/* Fragen-Codes (Version 4.4): Einheit.Frage, z. B. Einheit 1, Frage 15 = 1.15 – auch in der README-Fragenliste.
+   MMG-Special = MMG.n, Bilderrätsel = Einheit.Bn, Sortieren = Einheit.Sn, Schätzen = SCH.n, Mythen = MY.n */
+function assignCodes(){
+  UNITS.forEach((u,ui)=>u.qs.forEach((q,i)=>{ q.code = (ui+1)+'.'+(i+1); }));
+  AG.qs.forEach((q,i)=>{ q.code = 'MMG.'+(i+1); });
+  const cnt = {};
+  PICQ.forEach(q=>{ const k = 'B'+q.u; cnt[k] = (cnt[k]||0)+1; q.code = (q.u+1)+'.B'+cnt[k]; });
+  SORTQ.forEach(q=>{ const k = 'S'+q.u; cnt[k] = (cnt[k]||0)+1; q.code = (q.u+1)+'.S'+cnt[k]; });
+  ESTIMATES.forEach((q,i)=>{ q.code = 'SCH.'+(i+1); });
+  MYTHS.forEach((q,i)=>{ q.code = 'MY.'+(i+1); });
+}
 /* Neuer Aufgabentyp „Sortieren“ (Version 4.1): Begriffe in Gruppen einordnen. items: [Begriff, Gruppe]; u = Einheit */
 const SORTQ = [
  {u:2, q:'Sortiere den Müll in die richtige Tonne.', cats:['Gelbe Tonne','Papier','Bio','Restmüll'], items:[['Joghurtbecher',0],['Konservendose',0],['Eierkarton aus Pappe',1],['Zeitung',1],['Kartoffelschalen',2],['Kaffeesatz',2],['Windel',3],['Staubsaugerbeutel',3]], x:'Verpackungen aus Plastik und Metall kommen in die Gelbe Tonne, Pappe und Papier ins Altpapier, Essensreste in die Biotonne. Windeln und Staubsaugerbeutel sind Restmüll.'},
@@ -5287,6 +5299,7 @@ const SORTQ = [
  {u:16, q:'Mehrweg oder Einweg?', cats:['Mehrweg','Einweg'], items:[['Pfand-Glasflasche (Mehrweg)',0],['Stoffbeutel',0],['Brotdose',0],['Plastiktüte',1],['Coffee-to-go-Becher',1],['Getränkedose',1]], x:'Mehrweg wird viele Male benutzt. Einweg landet nach einmal Benutzen im Müll – selbst wenn ein Teil recycelt wird.'},
  {u:17, q:'Klimaschutz oder Anpassung an die Folgen?', cats:['Klimaschutz','Anpassung'], items:[['Solaranlage bauen',0],['Weniger fliegen',0],['Moore wiedervernässen',0],['Deiche erhöhen',1],['Hitzeschutzplan für die Stadt',1],['Dürrefeste Pflanzen anbauen',1]], x:'Klimaschutz verhindert weitere Erwärmung, Anpassung schützt vor Folgen, die schon da sind. Beides ist nötig.'}
 ].map((q,i)=>Object.assign({t:'sort', id:'sort.'+i}, q));
+assignCodes();
 (EXTRA_TR2.pics[LANG]||[]).forEach((tr,i)=>{ const q = PICQ[10+i]; if(q && tr && tr.o && tr.o.length===q.o.length) Object.assign(q, {q:tr.q, o:tr.o, x:tr.x, alt:tr.alt}); });
 (EXTRA_TR.pics[LANG]||[]).forEach((tr,i)=>{ if(PICQ[i] && tr && tr.o && tr.o.length===PICQ[i].o.length) Object.assign(PICQ[i], {q:tr.q, o:tr.o, x:tr.x, alt:tr.alt}); });
 /* ================= Vorlesen (Web: speechSynthesis, Android-App: TextToSpeech über GGAFApp) ================= */
@@ -5345,7 +5358,7 @@ function nextQ(){
   let h = isRetry ? `<div class="retrytag">${icon('redo')}${T('retry_tag')} – ${L.mode==='missed'?T('retry_missed'):T('retry_earlier')}</div>` : `<div class="combo">${combo}</div>`;
   const hintBtn = easyOn() && (q.t==='mc'||q.t==='img'||q.t==='fill') ? `<button class="spk" data-act="hint">${icon('bulb')}${T('hint')}</button>` : '';
   if(/^fun\./.test(q.id)) h += `<div class="retrytag funtag">${icon('star')}${EGG().fun_eb}</div>`;
-  h += `<div class="qtrow"><div class="qtype">${icon(ic)}${T(lab)}</div><div>${hintBtn} ${L.mode==='blitz' ? '' : spkBtn('speakQ')}</div></div>`;
+  h += `<div class="qtrow"><div class="qtype">${icon(ic)}${T(lab)}${q.code ? `<span class="qcode" title="Code">${q.code}</span>` : ''}</div><div>${hintBtn} ${L.mode==='blitz' ? '' : spkBtn('speakQ')}</div></div>`;
   if(q.t==='mc'||q.t==='tf'||q.t==='img'){
     L.opts = q.t==='tf' ? ((L.mode==='myth' || q.myth) ? [{t:T('myth_true'),ok:q.a===true,ic:'check'},{t:T('myth_false'),ok:q.a===false,ic:'x'}] : [{t:T('tf_true'),ok:q.a===true,ic:'check'},{t:T('tf_false'),ok:q.a===false,ic:'x'}]) : easyOpts(q);
     if(q.t==='img') h += `<div class="qimg" role="img" aria-label="${esc(q.alt||'')}">${PIC_SVG[q.img]||''}</div>`;
@@ -5626,7 +5639,7 @@ document.addEventListener('click', e=>{
   if(t.dataset.langSet){ if(t.dataset.langSet===LANG) return; if(!$('#intro').hidden){ try{ sessionStorage.setItem('ggaf-intro', String(introStep)); }catch(e){} } S.lang = t.dataset.langSet; if(S.langsTried.indexOf(S.lang)<0) S.langsTried.push(S.lang); save(); location.reload(); return; }   /* Inhalte werden beim Start übersetzt → neu laden */
   if(a==='report'){ const q = L && L.q; if(!q) return;
     return modal(`<div class="eb">${T('feedback')}</div><h2>${T('report_title')}</h2><p>${T('report_text')}</p>
-      <textarea class="codebox" id="codeOut" readonly aria-label="${T('report_aria')}">${esc(T('report_body',{id:q.id, u:q.id.split('.')[0]==='ag' ? T('special_eb') : T('unit_n_t',{n:+q.id.split('.')[0]+1, t:UNITS[+q.id.split('.')[0]].t}), q:q.q}))}</textarea>
+      <textarea class="codebox" id="codeOut" readonly aria-label="${T('report_aria')}">${esc(T('report_body',{id:q.code||q.id, u:q.id.split('.')[0]==='ag' ? T('special_eb') : T('unit_n_t',{n:+q.id.split('.')[0]+1, t:UNITS[+q.id.split('.')[0]].t}), q:q.q}))}</textarea>
       <button class="btn ghost block" data-act="copyCode">${T('copy_details')}</button>
       <a class="btn block" href="${FEEDBACK_URL}" target="_blank" rel="noopener">${T('to_form')}</a>
       <button class="btn plain block" data-act="close">${T('back_task')}</button>`); }
@@ -10844,7 +10857,7 @@ function clearAllData(){
   Promise.all(jobs).then(done, done); setTimeout(done, 2500);
 }
 /* Versionsnummer – wird von android\build.ps1 aus AndroidManifest.xml (versionName) eingesetzt; die Windows-App vergleicht sie für Auto-Updates */
-const APP_VERSION = '4.3';
+const APP_VERSION = '4.4';
 /* Windows-App: meldet, dass eine neue Version heruntergeladen wurde */
 window.ggafUpdateReady = () => infoToast('redo', T('update_t'), T('update_d'), `<button class="btn" data-act="reloadApp">${T('reload')}</button>`);
 /* Hinweise: offline und neue Version (nur Web-Version) */

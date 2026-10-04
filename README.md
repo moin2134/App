@@ -438,564 +438,515 @@ AG-spezifische Angaben (Weltladen, Handysammlung, MMG-Hefte) bitte mit der AG ab
 
 ---
 
+…
+
 ## Alle Fragen
 
-Alle Fragen der App auf Deutsch mit der richtigen Antwort (Faktenstand: September 2026). In der App werden die Antworten gemischt; bei Auswahl- und Bildfragen gibt es zusätzlich 3 falsche Antworten, bei Lückentexten 3 falsche Wörter.
+Alle Fragen der App auf Deutsch mit **Code** und richtiger Antwort (Faktenstand: September 2026).
+
+**So funktionieren die Codes:** Einheit.Frage – zum Beispiel ist **1.15** die 15. Frage von Einheit 1. Bilderrätsel haben ein **B** (z. B. 3.B2), Sortieraufgaben ein **S** (z. B. 3.S1). Das MMG-Special heißt **MMG.n**, Schätzfragen **SCH.n** und „Wahr oder Mythos?“ **MY.n**. Der Code steht in der App bei jeder Aufgabe oben neben dem Aufgabentyp und wird beim Melden einer Frage mitgeschickt.
+
+In der App werden die Antworten gemischt; bei Auswahl- und Bildfragen gibt es zusätzlich 3 falsche Antworten, bei Lückentexten 3 falsche Wörter.
 
 ### Einheit 1: Klima & Energie
 
-| # | Art | Frage | Richtige Antwort |
+| Code | Art | Frage | Richtige Antwort |
 |---|---|---|---|
-| 1 | Auswahl | Welches Gas trägt durch menschliche Aktivitäten am stärksten zur Erderwärmung bei? | Kohlendioxid (CO₂) |
-| 2 | Lücke | Im ___ Klimaabkommen von 2015 haben sich fast alle Staaten verpflichtet, die Erwärmung auf deutlich unter 2 °C zu begrenzen. | Pariser |
-| 3 | Stimmt? | Geräte im Standby-Modus verbrauchen keinen Strom. | stimmt nicht |
-| 4 | Reihenfolge | Sortiere nach CO₂-Ausstoß pro Person und Kilometer – vom geringsten zum höchsten. | Fahrrad → Fernzug → Auto (Benziner) → Inlandsflug |
-| 5 | Paare | Welche Energiequelle gehört zu welcher Technik? | Sonne – Photovoltaik; Wind – Windrad; Fließendes Wasser – Wasserkraftwerk; Erdwärme – Geothermie |
-| 6 | Auswahl | Wie viel Heizenergie spart man ungefähr, wenn man die Raumtemperatur um 1 °C senkt? | rund 6 % |
-| 7 | Stimmt? | Stoßlüften (Fenster kurz weit öffnen) spart mehr Energie als ein dauerhaft gekipptes Fenster. | stimmt |
-| 8 | Auswahl | Wie viel Treibhausgas verursacht eine Person in Deutschland durchschnittlich pro Jahr? | rund 10 Tonnen |
-| 9 | Auswahl | Welches Treibhausgas entsteht unter anderem im Magen von Rindern? | Methan |
-| 10 | Stimmt? | 2024 stammte mehr als die Hälfte des Stroms in Deutschland aus erneuerbaren Energien. | stimmt |
-| 11 | Lücke | Eine ___ nutzt Wärme aus Luft, Erdreich oder Grundwasser zum Heizen. | Wärmepumpe |
-| 12 | Auswahl | Was bedeutet „klimaneutral“? | Unterm Strich werden keine zusätzlichen Treibhausgase ausgestoßen |
-| 13 | Auswahl | Um wie viel hat sich die Erde seit Beginn der Industrialisierung ungefähr erwärmt? | rund 1,4 °C |
-| 14 | Stimmt? | Wetter und Klima sind dasselbe. | stimmt nicht |
-| 15 | Lücke | Der natürliche ___ sorgt dafür, dass es auf der Erde im Schnitt etwa 15 °C statt –18 °C warm ist. | Treibhauseffekt |
-| 16 | Paare | Welche Folge des Klimawandels passt zu welchem Beispiel? | Meeresspiegelanstieg – Überflutete Küsten; Hitzewellen – Mehr Hitzetote; Dürre – Ernteausfälle; Gletscherschmelze – Weniger Wasser in Bergregionen |
-| 17 | Auswahl | Welches Land stößt derzeit insgesamt am meisten CO₂ aus? | China |
-| 18 | Reihenfolge | Sortiere nach CO₂ pro Kilowattstunde Strom – von wenig nach viel. | Windkraft → Erdgas → Braunkohle |
-
-**Bilderrätsel und Sortieraufgaben in dieser Einheit:**
-
-| # | Art | Frage | Richtige Antwort |
-|---|---|---|---|
-| 1 | Bild | Welche Energie wird hier gewonnen? | Windenergie |
-| 2 | Bild | Was siehst du auf dem Bild? | Eine Solaranlage (Photovoltaik) |
-| 3 | Bild | Diese LED-Lampe ersetzt eine alte Glühbirne. Wie viel Strom spart sie ungefähr? | Rund 80–90 % |
-| 4 | Sortieren | Erneuerbar oder fossil? Ordne die Energiequellen zu. | Erneuerbar: Wind, Sonne, Wasserkraft, Erdwärme · Fossil: Kohle, Erdöl, Erdgas |
+| **1.1** | Auswahl | Welches Gas trägt durch menschliche Aktivitäten am stärksten zur Erderwärmung bei? | Kohlendioxid (CO₂) |
+| **1.2** | Lücke | Im ___ Klimaabkommen von 2015 haben sich fast alle Staaten verpflichtet, die Erwärmung auf deutlich unter 2 °C zu begrenzen. | Pariser |
+| **1.3** | Stimmt? | Geräte im Standby-Modus verbrauchen keinen Strom. | stimmt nicht |
+| **1.4** | Reihenfolge | Sortiere nach CO₂-Ausstoß pro Person und Kilometer – vom geringsten zum höchsten. | Fahrrad → Fernzug → Auto (Benziner) → Inlandsflug |
+| **1.5** | Paare | Welche Energiequelle gehört zu welcher Technik? | Sonne – Photovoltaik; Wind – Windrad; Fließendes Wasser – Wasserkraftwerk; Erdwärme – Geothermie |
+| **1.6** | Auswahl | Wie viel Heizenergie spart man ungefähr, wenn man die Raumtemperatur um 1 °C senkt? | rund 6 % |
+| **1.7** | Stimmt? | Stoßlüften (Fenster kurz weit öffnen) spart mehr Energie als ein dauerhaft gekipptes Fenster. | stimmt |
+| **1.8** | Auswahl | Wie viel Treibhausgas verursacht eine Person in Deutschland durchschnittlich pro Jahr? | rund 10 Tonnen |
+| **1.9** | Auswahl | Welches Treibhausgas entsteht unter anderem im Magen von Rindern? | Methan |
+| **1.10** | Stimmt? | 2024 stammte mehr als die Hälfte des Stroms in Deutschland aus erneuerbaren Energien. | stimmt |
+| **1.11** | Lücke | Eine ___ nutzt Wärme aus Luft, Erdreich oder Grundwasser zum Heizen. | Wärmepumpe |
+| **1.12** | Auswahl | Was bedeutet „klimaneutral“? | Unterm Strich werden keine zusätzlichen Treibhausgase ausgestoßen |
+| **1.13** | Auswahl | Um wie viel hat sich die Erde seit Beginn der Industrialisierung ungefähr erwärmt? | rund 1,4 °C |
+| **1.14** | Stimmt? | Wetter und Klima sind dasselbe. | stimmt nicht |
+| **1.15** | Lücke | Der natürliche ___ sorgt dafür, dass es auf der Erde im Schnitt etwa 15 °C statt –18 °C warm ist. | Treibhauseffekt |
+| **1.16** | Paare | Welche Folge des Klimawandels passt zu welchem Beispiel? | Meeresspiegelanstieg – Überflutete Küsten; Hitzewellen – Mehr Hitzetote; Dürre – Ernteausfälle; Gletscherschmelze – Weniger Wasser in Bergregionen |
+| **1.17** | Auswahl | Welches Land stößt derzeit insgesamt am meisten CO₂ aus? | China |
+| **1.18** | Reihenfolge | Sortiere nach CO₂ pro Kilowattstunde Strom – von wenig nach viel. | Windkraft → Erdgas → Braunkohle |
+| **1.B1** | Bild | Welche Energie wird hier gewonnen? | Windenergie |
+| **1.B2** | Bild | Was siehst du auf dem Bild? | Eine Solaranlage (Photovoltaik) |
+| **1.B3** | Bild | Diese LED-Lampe ersetzt eine alte Glühbirne. Wie viel Strom spart sie ungefähr? | Rund 80–90 % |
+| **1.S1** | Sortieren | Erneuerbar oder fossil? Ordne die Energiequellen zu. | Erneuerbar: Wind, Sonne, Wasserkraft, Erdwärme · Fossil: Kohle, Erdöl, Erdgas |
 
 ### Einheit 2: Fairer Handel
 
-| # | Art | Frage | Richtige Antwort |
+| Code | Art | Frage | Richtige Antwort |
 |---|---|---|---|
-| 1 | Auswahl | Was garantiert das Fairtrade-Siegel den Produzent*innen unter anderem? | Einen Mindestpreis und eine Prämie für Gemeinschaftsprojekte |
-| 2 | Auswahl | Welches Land ist der größte Kakaoproduzent der Welt? | Elfenbeinküste |
-| 3 | Stimmt? | Fair gehandelte Produkte gibt es nur im Weltladen. | stimmt nicht |
-| 4 | Paare | Welches Siegel steht wofür? | Fairtrade – Faire Handelsbedingungen; Blauer Engel – Umweltfreundliche Produkte; FSC – Nachhaltige Forstwirtschaft; MSC – Nachhaltiger Fischfang |
-| 5 | Auswahl | Wie viele Kinder weltweit sind laut ILO und UNICEF von Kinderarbeit betroffen? | rund 140 Millionen |
-| 6 | Lücke | Das deutsche ___ verpflichtet große Unternehmen seit 2023, auf Menschenrechte in ihren Lieferketten zu achten. | Lieferkettengesetz |
-| 7 | Stimmt? | Bei Fairtrade entscheiden die Kooperativen gemeinsam, wofür die Fairtrade-Prämie ausgegeben wird. | stimmt |
-| 8 | Reihenfolge | Bringe den Weg einer Tafel Schokolade in die richtige Reihenfolge. | Kakaofrüchte ernten → Bohnen fermentieren und trocknen → Transport per Schiff → Verarbeitung in der Fabrik → Verkauf im Supermarkt |
-| 9 | Auswahl | Welche Produkte gehören zu den bekanntesten Fairtrade-Produkten? | Kaffee, Bananen und Kakao |
-| 10 | Auswahl | Was ist ein Weltladen? | Ein Fachgeschäft für fair gehandelte Produkte |
-| 11 | Stimmt? | Kleinbauernfamilien erhalten im konventionellen Kaffeehandel oft nur einen kleinen Bruchteil des Ladenpreises. | stimmt |
-| 12 | Lücke | Fairer Handel soll Produzent*innen ein existenzsicherndes ___ ermöglichen. | Einkommen |
-| 13 | Auswahl | Was ist eine Kooperative? | Ein Zusammenschluss von Produzent*innen, die gemeinsam wirtschaften |
-| 14 | Stimmt? | Die Fairtrade-Standards verbieten ausbeuterische Kinderarbeit. | stimmt |
-| 15 | Paare | Welches Produkt kommt besonders oft aus welchem Land? | Kaffee – Brasilien; Bananen – Ecuador; Kakao – Elfenbeinküste; Baumwolle – Indien |
-| 16 | Lücke | Die Internationale ___ (ILO) ist die UN-Organisation für Arbeitsrechte. | Arbeitsorganisation |
-| 17 | Auswahl | Welches Siegel steht NICHT für fairen Handel? | Blauer Engel |
-| 18 | Stimmt? | Auch Blumen wie Rosen gibt es mit Fairtrade-Siegel. | stimmt |
+| **2.1** | Auswahl | Was garantiert das Fairtrade-Siegel den Produzent*innen unter anderem? | Einen Mindestpreis und eine Prämie für Gemeinschaftsprojekte |
+| **2.2** | Auswahl | Welches Land ist der größte Kakaoproduzent der Welt? | Elfenbeinküste |
+| **2.3** | Stimmt? | Fair gehandelte Produkte gibt es nur im Weltladen. | stimmt nicht |
+| **2.4** | Paare | Welches Siegel steht wofür? | Fairtrade – Faire Handelsbedingungen; Blauer Engel – Umweltfreundliche Produkte; FSC – Nachhaltige Forstwirtschaft; MSC – Nachhaltiger Fischfang |
+| **2.5** | Auswahl | Wie viele Kinder weltweit sind laut ILO und UNICEF von Kinderarbeit betroffen? | rund 140 Millionen |
+| **2.6** | Lücke | Das deutsche ___ verpflichtet große Unternehmen seit 2023, auf Menschenrechte in ihren Lieferketten zu achten. | Lieferkettengesetz |
+| **2.7** | Stimmt? | Bei Fairtrade entscheiden die Kooperativen gemeinsam, wofür die Fairtrade-Prämie ausgegeben wird. | stimmt |
+| **2.8** | Reihenfolge | Bringe den Weg einer Tafel Schokolade in die richtige Reihenfolge. | Kakaofrüchte ernten → Bohnen fermentieren und trocknen → Transport per Schiff → Verarbeitung in der Fabrik → Verkauf im Supermarkt |
+| **2.9** | Auswahl | Welche Produkte gehören zu den bekanntesten Fairtrade-Produkten? | Kaffee, Bananen und Kakao |
+| **2.10** | Auswahl | Was ist ein Weltladen? | Ein Fachgeschäft für fair gehandelte Produkte |
+| **2.11** | Stimmt? | Kleinbauernfamilien erhalten im konventionellen Kaffeehandel oft nur einen kleinen Bruchteil des Ladenpreises. | stimmt |
+| **2.12** | Lücke | Fairer Handel soll Produzent*innen ein existenzsicherndes ___ ermöglichen. | Einkommen |
+| **2.13** | Auswahl | Was ist eine Kooperative? | Ein Zusammenschluss von Produzent*innen, die gemeinsam wirtschaften |
+| **2.14** | Stimmt? | Die Fairtrade-Standards verbieten ausbeuterische Kinderarbeit. | stimmt |
+| **2.15** | Paare | Welches Produkt kommt besonders oft aus welchem Land? | Kaffee – Brasilien; Bananen – Ecuador; Kakao – Elfenbeinküste; Baumwolle – Indien |
+| **2.16** | Lücke | Die Internationale ___ (ILO) ist die UN-Organisation für Arbeitsrechte. | Arbeitsorganisation |
+| **2.17** | Auswahl | Welches Siegel steht NICHT für fairen Handel? | Blauer Engel |
+| **2.18** | Stimmt? | Auch Blumen wie Rosen gibt es mit Fairtrade-Siegel. | stimmt |
 
 ### Einheit 3: Müll & Recycling
 
-| # | Art | Frage | Richtige Antwort |
+| Code | Art | Frage | Richtige Antwort |
 |---|---|---|---|
-| 1 | Reihenfolge | Sortiere nach Zerfallsdauer in der Natur – von kurz nach lang. | Bananenschale → Zigarettenfilter → Getränkedose (Alu) → Plastikflasche |
-| 2 | Paare | Was gehört in welche Tonne? | Joghurtbecher – Gelbe Tonne; Zeitung – Papiertonne; Kartoffelschalen – Biotonne; Kassenbon – Restmüll |
-| 3 | Stimmt? | Trinkgläser und Keramik gehören in den Altglascontainer. | stimmt nicht |
-| 4 | Reihenfolge | Die Abfallhierarchie: Was ist am besten? Sortiere vom besten zum schlechtesten Weg. | Vermeiden → Wiederverwenden → Recyceln → Verbrennen (Energie gewinnen) → Deponieren |
-| 5 | Auswahl | Wie viel Pfand gibt es in Deutschland auf eine Einweg-Plastikflasche? | 25 Cent |
-| 6 | Lücke | Winzige Plastikteilchen, kleiner als 5 Millimeter, nennt man ___. | Mikroplastik |
-| 7 | Stimmt? | Glas-Mehrwegflaschen können bis zu 50-mal wiederbefüllt werden. | stimmt |
-| 8 | Auswahl | Wohin mit alten Batterien? | In eine Sammelbox im Handel oder zum Wertstoffhof |
-| 9 | Auswahl | Was bedeutet „Upcycling“? | Aus Altem etwas Neues, Wertvolleres machen |
-| 10 | Stimmt? | Den Aludeckel vom Joghurtbecher sollte man vor dem Wegwerfen abtrennen. | stimmt |
-| 11 | Auswahl | Warum sind Coffee-to-go-Becher ein Problem? | Sie sind meist mit Kunststoff beschichtet und schwer zu recyceln |
-| 12 | Lücke | Ein Lebensstil mit möglichst wenig Abfall heißt „Zero ___“. | Waste |
-| 13 | Auswahl | Was ist Kreislaufwirtschaft? | Produkte und Rohstoffe möglichst lange im Kreislauf halten |
-| 14 | Stimmt? | Deutschland verursacht im EU-Vergleich besonders viel Verpackungsmüll pro Kopf. | stimmt |
-| 15 | Lücke | Wegwerfprodukte aus Plastik wie Strohhalme und Einweg-Besteck sind in der EU seit ___ verboten. | 2021 |
-| 16 | Paare | Was wird aus dem Abfall? | Altpapier – Recyclingpapier; PET-Flaschen – Fleecestoff und neue Flaschen; Altglas – Neue Glasflaschen; Bioabfall – Kompost und Biogas |
-| 17 | Auswahl | In welchen Altglascontainer gehört eine blaue Glasflasche? | Grünglas |
-| 18 | Stimmt? | Recyceln ist immer besser als Wiederverwenden. | stimmt nicht |
-
-**Bilderrätsel und Sortieraufgaben in dieser Einheit:**
-
-| # | Art | Frage | Richtige Antwort |
-|---|---|---|---|
-| 1 | Bild | Wohin gehört der leere Joghurtbecher? | In die Gelbe Tonne / den Gelben Sack |
-| 2 | Bild | Wohin kommt die alte Zeitung? | In die Papiertonne |
-| 3 | Bild | Wohin gehört die Bananenschale? | In die Biotonne |
-| 4 | Bild | Wohin mit der leeren Batterie? | In eine Batterie-Sammelbox, z. B. im Supermarkt |
-| 5 | Bild | Wohin gehört die grüne Einweg-Glasflasche ohne Pfand? | In den Grünglas-Container |
-| 6 | Bild | Die Keramiktasse ist kaputt. Wohin damit? | In den Restmüll |
-| 7 | Bild | Wohin gehört der Kassenbon? | In den Restmüll |
-| 8 | Sortieren | Sortiere den Müll in die richtige Tonne. | Gelbe Tonne: Joghurtbecher, Konservendose · Papier: Eierkarton aus Pappe, Zeitung · Bio: Kartoffelschalen, Kaffeesatz · Restmüll: Windel, Staubsaugerbeutel |
+| **3.1** | Reihenfolge | Sortiere nach Zerfallsdauer in der Natur – von kurz nach lang. | Bananenschale → Zigarettenfilter → Getränkedose (Alu) → Plastikflasche |
+| **3.2** | Paare | Was gehört in welche Tonne? | Joghurtbecher – Gelbe Tonne; Zeitung – Papiertonne; Kartoffelschalen – Biotonne; Kassenbon – Restmüll |
+| **3.3** | Stimmt? | Trinkgläser und Keramik gehören in den Altglascontainer. | stimmt nicht |
+| **3.4** | Reihenfolge | Die Abfallhierarchie: Was ist am besten? Sortiere vom besten zum schlechtesten Weg. | Vermeiden → Wiederverwenden → Recyceln → Verbrennen (Energie gewinnen) → Deponieren |
+| **3.5** | Auswahl | Wie viel Pfand gibt es in Deutschland auf eine Einweg-Plastikflasche? | 25 Cent |
+| **3.6** | Lücke | Winzige Plastikteilchen, kleiner als 5 Millimeter, nennt man ___. | Mikroplastik |
+| **3.7** | Stimmt? | Glas-Mehrwegflaschen können bis zu 50-mal wiederbefüllt werden. | stimmt |
+| **3.8** | Auswahl | Wohin mit alten Batterien? | In eine Sammelbox im Handel oder zum Wertstoffhof |
+| **3.9** | Auswahl | Was bedeutet „Upcycling“? | Aus Altem etwas Neues, Wertvolleres machen |
+| **3.10** | Stimmt? | Den Aludeckel vom Joghurtbecher sollte man vor dem Wegwerfen abtrennen. | stimmt |
+| **3.11** | Auswahl | Warum sind Coffee-to-go-Becher ein Problem? | Sie sind meist mit Kunststoff beschichtet und schwer zu recyceln |
+| **3.12** | Lücke | Ein Lebensstil mit möglichst wenig Abfall heißt „Zero ___“. | Waste |
+| **3.13** | Auswahl | Was ist Kreislaufwirtschaft? | Produkte und Rohstoffe möglichst lange im Kreislauf halten |
+| **3.14** | Stimmt? | Deutschland verursacht im EU-Vergleich besonders viel Verpackungsmüll pro Kopf. | stimmt |
+| **3.15** | Lücke | Wegwerfprodukte aus Plastik wie Strohhalme und Einweg-Besteck sind in der EU seit ___ verboten. | 2021 |
+| **3.16** | Paare | Was wird aus dem Abfall? | Altpapier – Recyclingpapier; PET-Flaschen – Fleecestoff und neue Flaschen; Altglas – Neue Glasflaschen; Bioabfall – Kompost und Biogas |
+| **3.17** | Auswahl | In welchen Altglascontainer gehört eine blaue Glasflasche? | Grünglas |
+| **3.18** | Stimmt? | Recyceln ist immer besser als Wiederverwenden. | stimmt nicht |
+| **3.B1** | Bild | Wohin gehört der leere Joghurtbecher? | In die Gelbe Tonne / den Gelben Sack |
+| **3.B2** | Bild | Wohin kommt die alte Zeitung? | In die Papiertonne |
+| **3.B3** | Bild | Wohin gehört die Bananenschale? | In die Biotonne |
+| **3.B4** | Bild | Wohin mit der leeren Batterie? | In eine Batterie-Sammelbox, z. B. im Supermarkt |
+| **3.B5** | Bild | Wohin gehört die grüne Einweg-Glasflasche ohne Pfand? | In den Grünglas-Container |
+| **3.B6** | Bild | Die Keramiktasse ist kaputt. Wohin damit? | In den Restmüll |
+| **3.B7** | Bild | Wohin gehört der Kassenbon? | In den Restmüll |
+| **3.S1** | Sortieren | Sortiere den Müll in die richtige Tonne. | Gelbe Tonne: Joghurtbecher, Konservendose · Papier: Eierkarton aus Pappe, Zeitung · Bio: Kartoffelschalen, Kaffeesatz · Restmüll: Windel, Staubsaugerbeutel |
 
 ### Einheit 4: Umweltpolitik in Deutschland
 
-| # | Art | Frage | Richtige Antwort |
+| Code | Art | Frage | Richtige Antwort |
 |---|---|---|---|
-| 1 | Auswahl | Welches Bundesministerium ist seit 2025 für den Klimaschutz zuständig? | Das Bundesministerium für Umwelt, Klimaschutz, Naturschutz und nukleare Sicherheit |
-| 2 | Stimmt? | Das Umweltbundesamt hat seinen Hauptsitz in Dessau-Roßlau (Sachsen-Anhalt). | stimmt |
-| 3 | Lücke | Der Schutz der natürlichen Lebensgrundlagen steht seit 1994 als Staatsziel in Artikel ___ des Grundgesetzes. | 20a |
-| 4 | Auswahl | Über welches Verfassungsorgan wirken die 16 Bundesländer bei der Gesetzgebung des Bundes mit? | Bundesrat |
-| 5 | Paare | Welches Bundesministerium ist wofür zuständig? | Umweltministerium (BMUKN) – Klima-, Natur- und Umweltschutz; Wirtschaftsministerium (BMWE) – Energie und Strommarkt; Verkehrsministerium – Straßen und Schienen; Landwirtschaftsministerium (BMLEH) – Landwirtschaft, Ernährung und Wald |
-| 6 | Reihenfolge | Wie entsteht ein Bundesgesetz? Sortiere die Schritte. | Ein Gesetzentwurf wird eingebracht, oft von der Bundesregierung → Der Bundestag berät und beschließt das Gesetz → Der Bundesrat berät über das Gesetz → Der Bundespräsident unterzeichnet, das Gesetz wird verkündet |
-| 7 | Auswahl | Bis wann soll Deutschland laut Klimaschutzgesetz treibhausgasneutral sein? | 2045 |
-| 8 | Lücke | Bis 2030 sollen die Treibhausgas-Emissionen in Deutschland um mindestens ___ % gegenüber 1990 sinken. | 65 |
-| 9 | Stimmt? | Im April 2023 wurden die letzten drei Atomkraftwerke in Deutschland abgeschaltet. | stimmt |
-| 10 | Auswahl | Bis spätestens wann soll in Deutschland laut Gesetz kein Kohlestrom mehr erzeugt werden? | 2038 |
-| 11 | Auswahl | Was regelt das Erneuerbare-Energien-Gesetz (EEG)? | Den Ausbau und die Förderung von Strom aus Sonne, Wind und anderen erneuerbaren Quellen |
-| 12 | Reihenfolge | Bringe diese Meilensteine der Umweltpolitik in die zeitliche Reihenfolge. | Umweltschutz wird Staatsziel im Grundgesetz → Das Erneuerbare-Energien-Gesetz tritt in Kraft → Der EU-Emissionshandel startet → Das Bundes-Klimaschutzgesetz wird beschlossen |
-| 13 | Auswahl | Worauf wird der nationale CO₂-Preis nach dem Brennstoffemissionshandelsgesetz (BEHG) erhoben? | Auf Brennstoffe wie Heizöl, Erdgas, Benzin und Diesel |
-| 14 | Lücke | Den nationalen CO₂-Preis für Heizen und Tanken gibt es in Deutschland seit ___. | 2021 |
-| 15 | Stimmt? | 2026 und 2027 liegt der CO₂-Preis nach dem BEHG in einem Korridor von 55 bis 65 Euro pro Tonne. | stimmt |
-| 16 | Auswahl | Wer muss beim EU-Emissionshandel (EU-ETS) seit 2005 für seinen CO₂-Ausstoß Zertifikate haben? | Kraftwerke und große Industrieanlagen |
-| 17 | Paare | CO₂-Preise: Was gehört zusammen? | EU-ETS – Kraftwerke und Industrie, seit 2005; ETS2 – EU-weiter CO₂-Preis für Gebäude und Verkehr, ab 2028; BEHG – Nationaler CO₂-Preis auf Brennstoffe, seit 2021; Klima- und Transformationsfonds – Sondertopf des Bundes für Klimaschutz und Energiewende |
-| 18 | Stimmt? | Der neue EU-Emissionshandel für Gebäude und Verkehr (ETS2) startet wie ursprünglich geplant 2027. | stimmt nicht |
+| **4.1** | Auswahl | Welches Bundesministerium ist seit 2025 für den Klimaschutz zuständig? | Das Bundesministerium für Umwelt, Klimaschutz, Naturschutz und nukleare Sicherheit |
+| **4.2** | Stimmt? | Das Umweltbundesamt hat seinen Hauptsitz in Dessau-Roßlau (Sachsen-Anhalt). | stimmt |
+| **4.3** | Lücke | Der Schutz der natürlichen Lebensgrundlagen steht seit 1994 als Staatsziel in Artikel ___ des Grundgesetzes. | 20a |
+| **4.4** | Auswahl | Über welches Verfassungsorgan wirken die 16 Bundesländer bei der Gesetzgebung des Bundes mit? | Bundesrat |
+| **4.5** | Paare | Welches Bundesministerium ist wofür zuständig? | Umweltministerium (BMUKN) – Klima-, Natur- und Umweltschutz; Wirtschaftsministerium (BMWE) – Energie und Strommarkt; Verkehrsministerium – Straßen und Schienen; Landwirtschaftsministerium (BMLEH) – Landwirtschaft, Ernährung und Wald |
+| **4.6** | Reihenfolge | Wie entsteht ein Bundesgesetz? Sortiere die Schritte. | Ein Gesetzentwurf wird eingebracht, oft von der Bundesregierung → Der Bundestag berät und beschließt das Gesetz → Der Bundesrat berät über das Gesetz → Der Bundespräsident unterzeichnet, das Gesetz wird verkündet |
+| **4.7** | Auswahl | Bis wann soll Deutschland laut Klimaschutzgesetz treibhausgasneutral sein? | 2045 |
+| **4.8** | Lücke | Bis 2030 sollen die Treibhausgas-Emissionen in Deutschland um mindestens ___ % gegenüber 1990 sinken. | 65 |
+| **4.9** | Stimmt? | Im April 2023 wurden die letzten drei Atomkraftwerke in Deutschland abgeschaltet. | stimmt |
+| **4.10** | Auswahl | Bis spätestens wann soll in Deutschland laut Gesetz kein Kohlestrom mehr erzeugt werden? | 2038 |
+| **4.11** | Auswahl | Was regelt das Erneuerbare-Energien-Gesetz (EEG)? | Den Ausbau und die Förderung von Strom aus Sonne, Wind und anderen erneuerbaren Quellen |
+| **4.12** | Reihenfolge | Bringe diese Meilensteine der Umweltpolitik in die zeitliche Reihenfolge. | Umweltschutz wird Staatsziel im Grundgesetz → Das Erneuerbare-Energien-Gesetz tritt in Kraft → Der EU-Emissionshandel startet → Das Bundes-Klimaschutzgesetz wird beschlossen |
+| **4.13** | Auswahl | Worauf wird der nationale CO₂-Preis nach dem Brennstoffemissionshandelsgesetz (BEHG) erhoben? | Auf Brennstoffe wie Heizöl, Erdgas, Benzin und Diesel |
+| **4.14** | Lücke | Den nationalen CO₂-Preis für Heizen und Tanken gibt es in Deutschland seit ___. | 2021 |
+| **4.15** | Stimmt? | 2026 und 2027 liegt der CO₂-Preis nach dem BEHG in einem Korridor von 55 bis 65 Euro pro Tonne. | stimmt |
+| **4.16** | Auswahl | Wer muss beim EU-Emissionshandel (EU-ETS) seit 2005 für seinen CO₂-Ausstoß Zertifikate haben? | Kraftwerke und große Industrieanlagen |
+| **4.17** | Paare | CO₂-Preise: Was gehört zusammen? | EU-ETS – Kraftwerke und Industrie, seit 2005; ETS2 – EU-weiter CO₂-Preis für Gebäude und Verkehr, ab 2028; BEHG – Nationaler CO₂-Preis auf Brennstoffe, seit 2021; Klima- und Transformationsfonds – Sondertopf des Bundes für Klimaschutz und Energiewende |
+| **4.18** | Stimmt? | Der neue EU-Emissionshandel für Gebäude und Verkehr (ETS2) startet wie ursprünglich geplant 2027. | stimmt nicht |
 
 ### Einheit 5: Die neue Bundesregierung & die Umwelt
 
-| # | Art | Frage | Richtige Antwort |
+| Code | Art | Frage | Richtige Antwort |
 |---|---|---|---|
-| 1 | Auswahl | Seit wann regiert in Deutschland die Koalition aus CDU/CSU und SPD unter Bundeskanzler Friedrich Merz? | Seit Mai 2025 |
-| 2 | Stimmt? | Mit der neuen Bundesregierung wechselte die Zuständigkeit für den Klimaschutz vom Wirtschaftsministerium ins Umweltministerium. | stimmt |
-| 3 | Auswahl | Wie viele Milliarden Euro aus dem Sondervermögen Infrastruktur sollen in den Klima- und Transformationsfonds fließen? | 100 Milliarden Euro |
-| 4 | Lücke | Im März 2025 änderte der Bundestag das Grundgesetz für ein Sondervermögen für Infrastruktur und Klimaneutralität von ___ Milliarden Euro. | 500 |
-| 5 | Paare | Wer leitet welches Amt in der Bundesregierung? | Bundeskanzler – Friedrich Merz (CDU); Umweltministerium (BMUKN) – Carsten Schneider (SPD); Wirtschafts- und Energieministerium (BMWE) – Katherina Reiche (CDU); Verkehrsministerium – Patrick Schnieder (CDU) |
-| 6 | Stimmt? | Seit der Grundgesetzänderung von 2025 steht das Ziel „Klimaneutralität bis 2045“ auch im Grundgesetz. | stimmt |
-| 7 | Auswahl | Mit wie viel Geld aus dem Klima- und Transformationsfonds bezuschusst der Bund 2026 die Stromnetzentgelte? | 6,5 Milliarden Euro |
-| 8 | Lücke | Für das produzierende Gewerbe sowie die Land- und Forstwirtschaft wurde die Stromsteuer dauerhaft auf den EU-___ gesenkt. | Mindestsatz |
-| 9 | Stimmt? | Die Gasspeicherumlage auf den Gaspreis wurde zum Jahr 2026 abgeschafft. | stimmt |
-| 10 | Auswahl | Welche Bedingung gilt für neue Gaskraftwerke nach der Kraftwerksstrategie der Bundesregierung? | Sie müssen später auf Wasserstoff umgestellt werden können („H₂-ready“) |
-| 11 | Auswahl | Wie hoch ist die neue staatliche Förderung beim Kauf eines Elektroautos seit 2026 höchstens? | 6.000 Euro |
-| 12 | Paare | Welche Maßnahme gehört zu welchem Inhalt? | Gebäudemodernisierungsgesetz – Ersetzt das bisherige „Heizungsgesetz“; Kraftwerksstrategie – Neue, wasserstofffähige Gaskraftwerke; E-Auto-Förderung – Prämie von bis zu 6.000 Euro; KTF-Zuschuss – Niedrigere Netzentgelte beim Strom |
-| 13 | Auswahl | Wie heißt das Gesetz, das 2026 das Gebäudeenergiegesetz (das sogenannte „Heizungsgesetz“) ersetzt hat? | Gebäudemodernisierungsgesetz |
-| 14 | Stimmt? | Nach dem neuen Gebäudemodernisierungsgesetz müssen neue Heizungen nicht mehr zu 65 % mit erneuerbaren Energien betrieben werden. | stimmt |
-| 15 | Lücke | Das Gebäudemodernisierungsgesetz ist seit ___ 2026 in Kraft. | Juli |
-| 16 | Reihenfolge | Bringe die Schritte zum Gebäudemodernisierungsgesetz in die richtige Reihenfolge. | Das Bundeskabinett beschließt den Gesetzentwurf → Bundestag und Bundesrat stimmen zu → Das Gesetz tritt in Kraft |
-| 17 | Auswahl | Welches Klimaziel für 2040 haben sich EU-Parlament und EU-Staaten gesetzt? | 90 % weniger Treibhausgase als 1990 |
-| 18 | Reihenfolge | Wie hat sich der Monatspreis des Deutschlandtickets entwickelt? Sortiere vom ersten zum aktuellen Preis. | 49 Euro (Start 2023) → 58 Euro (2025) → 63 Euro (2026) |
+| **5.1** | Auswahl | Seit wann regiert in Deutschland die Koalition aus CDU/CSU und SPD unter Bundeskanzler Friedrich Merz? | Seit Mai 2025 |
+| **5.2** | Stimmt? | Mit der neuen Bundesregierung wechselte die Zuständigkeit für den Klimaschutz vom Wirtschaftsministerium ins Umweltministerium. | stimmt |
+| **5.3** | Auswahl | Wie viele Milliarden Euro aus dem Sondervermögen Infrastruktur sollen in den Klima- und Transformationsfonds fließen? | 100 Milliarden Euro |
+| **5.4** | Lücke | Im März 2025 änderte der Bundestag das Grundgesetz für ein Sondervermögen für Infrastruktur und Klimaneutralität von ___ Milliarden Euro. | 500 |
+| **5.5** | Paare | Wer leitet welches Amt in der Bundesregierung? | Bundeskanzler – Friedrich Merz (CDU); Umweltministerium (BMUKN) – Carsten Schneider (SPD); Wirtschafts- und Energieministerium (BMWE) – Katherina Reiche (CDU); Verkehrsministerium – Patrick Schnieder (CDU) |
+| **5.6** | Stimmt? | Seit der Grundgesetzänderung von 2025 steht das Ziel „Klimaneutralität bis 2045“ auch im Grundgesetz. | stimmt |
+| **5.7** | Auswahl | Mit wie viel Geld aus dem Klima- und Transformationsfonds bezuschusst der Bund 2026 die Stromnetzentgelte? | 6,5 Milliarden Euro |
+| **5.8** | Lücke | Für das produzierende Gewerbe sowie die Land- und Forstwirtschaft wurde die Stromsteuer dauerhaft auf den EU-___ gesenkt. | Mindestsatz |
+| **5.9** | Stimmt? | Die Gasspeicherumlage auf den Gaspreis wurde zum Jahr 2026 abgeschafft. | stimmt |
+| **5.10** | Auswahl | Welche Bedingung gilt für neue Gaskraftwerke nach der Kraftwerksstrategie der Bundesregierung? | Sie müssen später auf Wasserstoff umgestellt werden können („H₂-ready“) |
+| **5.11** | Auswahl | Wie hoch ist die neue staatliche Förderung beim Kauf eines Elektroautos seit 2026 höchstens? | 6.000 Euro |
+| **5.12** | Paare | Welche Maßnahme gehört zu welchem Inhalt? | Gebäudemodernisierungsgesetz – Ersetzt das bisherige „Heizungsgesetz“; Kraftwerksstrategie – Neue, wasserstofffähige Gaskraftwerke; E-Auto-Förderung – Prämie von bis zu 6.000 Euro; KTF-Zuschuss – Niedrigere Netzentgelte beim Strom |
+| **5.13** | Auswahl | Wie heißt das Gesetz, das 2026 das Gebäudeenergiegesetz (das sogenannte „Heizungsgesetz“) ersetzt hat? | Gebäudemodernisierungsgesetz |
+| **5.14** | Stimmt? | Nach dem neuen Gebäudemodernisierungsgesetz müssen neue Heizungen nicht mehr zu 65 % mit erneuerbaren Energien betrieben werden. | stimmt |
+| **5.15** | Lücke | Das Gebäudemodernisierungsgesetz ist seit ___ 2026 in Kraft. | Juli |
+| **5.16** | Reihenfolge | Bringe die Schritte zum Gebäudemodernisierungsgesetz in die richtige Reihenfolge. | Das Bundeskabinett beschließt den Gesetzentwurf → Bundestag und Bundesrat stimmen zu → Das Gesetz tritt in Kraft |
+| **5.17** | Auswahl | Welches Klimaziel für 2040 haben sich EU-Parlament und EU-Staaten gesetzt? | 90 % weniger Treibhausgase als 1990 |
+| **5.18** | Reihenfolge | Wie hat sich der Monatspreis des Deutschlandtickets entwickelt? Sortiere vom ersten zum aktuellen Preis. | 49 Euro (Start 2023) → 58 Euro (2025) → 63 Euro (2026) |
 
 ### Einheit 6: Wasser & Ozeane
 
-| # | Art | Frage | Richtige Antwort |
+| Code | Art | Frage | Richtige Antwort |
 |---|---|---|---|
-| 1 | Auswahl | Wie viel des Wassers auf der Erde ist Süßwasser? | rund 2,5 % |
-| 2 | Reihenfolge | Sortiere nach „virtuellem Wasser“ in der Herstellung – von wenig nach viel. | 1 Tomate → 1 Tasse Kaffee → 1 Baumwoll-T-Shirt → 1 kg Rindfleisch |
-| 3 | Stimmt? | In Deutschland verbraucht eine Person durchschnittlich rund 122 Liter Trinkwasser pro Tag. | stimmt |
-| 4 | Auswahl | Was nimmt das Meer in großen Mengen auf, sodass es versauert? | CO₂ aus der Luft |
-| 5 | Lücke | Wenn Korallen durch zu warmes Wasser ihre Farbe verlieren, spricht man von Korallen___. | bleiche |
-| 6 | Stimmt? | Duschen verbraucht meist weniger Wasser als ein Vollbad. | stimmt |
-| 7 | Paare | Welche Bedrohung hat welche Ursache? | Überfischung – Zu viele Fangschiffe; Plastikmüll – Weggeworfene Verpackungen; Versauerung – CO₂-Aufnahme; Korallenbleiche – Wärmeres Wasser |
-| 8 | Auswahl | Was ist der „Great Pacific Garbage Patch“? | Ein riesiger Müllstrudel im Pazifik |
-| 9 | Stimmt? | Sauberes Trinkwasser ist weltweit für alle Menschen sicher verfügbar. | stimmt nicht |
-| 10 | Auswahl | Warum gehören Feuchttücher nicht in die Toilette? | Sie zersetzen sich kaum und verstopfen Pumpen und Kläranlagen |
-| 11 | Lücke | Die Meere produzieren etwa ___ des Sauerstoffs, den wir atmen. | die Hälfte |
-| 12 | Auswahl | Welches Siegel kennzeichnet Fisch aus nachhaltigerer Fischerei? | MSC |
-| 13 | Auswahl | Wofür wird in deutschen Haushalten das meiste Trinkwasser verwendet? | Baden, Duschen und Körperpflege |
-| 14 | Stimmt? | Die Landwirtschaft ist weltweit der größte Wasserverbraucher. | stimmt |
-| 15 | Lücke | Wasser, das wir indirekt über Produkte verbrauchen, nennt man ___ Wasser. | virtuelles |
-| 16 | Auswahl | Welcher See in Zentralasien ist durch übermäßige Bewässerung größtenteils ausgetrocknet? | Aralsee |
-| 17 | Paare | Welches Meerestier ist wodurch bedroht? | Meeresschildkröte – Verwechselt Plastiktüten mit Quallen; Kabeljau – Überfischung; Wal – Schiffslärm und Kollisionen; Korallenriff – Meereserwärmung |
-| 18 | Stimmt? | In Deutschland ist es besonders wirksam, warmes Wasser zu sparen – wegen der Energie zum Erhitzen. | stimmt |
-
-**Bilderrätsel und Sortieraufgaben in dieser Einheit:**
-
-| # | Art | Frage | Richtige Antwort |
-|---|---|---|---|
-| 1 | Bild | Wie heißt der Vorgang, bei dem Wasser vom Meer in die Wolken aufsteigt? | Verdunstung |
-| 2 | Bild | Der Wasserhahn tropft. Was stimmt? | Ein tropfender Hahn kann über 1.000 Liter Wasser im Jahr verschwenden |
-| 3 | Bild | Warum ist die Plastiktüte im Meer für die Schildkröte gefährlich? | Sie hält die Tüte für eine Qualle und frisst sie |
-| 4 | Sortieren | Steckt viel oder wenig virtuelles Wasser darin? | Viel Wasser: 1 kg Rindfleisch, Ein Baumwoll-T-Shirt, 1 kg Kaffeebohnen · Wenig Wasser: 1 kg Tomaten, 1 kg Kartoffeln |
+| **6.1** | Auswahl | Wie viel des Wassers auf der Erde ist Süßwasser? | rund 2,5 % |
+| **6.2** | Reihenfolge | Sortiere nach „virtuellem Wasser“ in der Herstellung – von wenig nach viel. | 1 Tomate → 1 Tasse Kaffee → 1 Baumwoll-T-Shirt → 1 kg Rindfleisch |
+| **6.3** | Stimmt? | In Deutschland verbraucht eine Person durchschnittlich rund 122 Liter Trinkwasser pro Tag. | stimmt |
+| **6.4** | Auswahl | Was nimmt das Meer in großen Mengen auf, sodass es versauert? | CO₂ aus der Luft |
+| **6.5** | Lücke | Wenn Korallen durch zu warmes Wasser ihre Farbe verlieren, spricht man von Korallen___. | bleiche |
+| **6.6** | Stimmt? | Duschen verbraucht meist weniger Wasser als ein Vollbad. | stimmt |
+| **6.7** | Paare | Welche Bedrohung hat welche Ursache? | Überfischung – Zu viele Fangschiffe; Plastikmüll – Weggeworfene Verpackungen; Versauerung – CO₂-Aufnahme; Korallenbleiche – Wärmeres Wasser |
+| **6.8** | Auswahl | Was ist der „Great Pacific Garbage Patch“? | Ein riesiger Müllstrudel im Pazifik |
+| **6.9** | Stimmt? | Sauberes Trinkwasser ist weltweit für alle Menschen sicher verfügbar. | stimmt nicht |
+| **6.10** | Auswahl | Warum gehören Feuchttücher nicht in die Toilette? | Sie zersetzen sich kaum und verstopfen Pumpen und Kläranlagen |
+| **6.11** | Lücke | Die Meere produzieren etwa ___ des Sauerstoffs, den wir atmen. | die Hälfte |
+| **6.12** | Auswahl | Welches Siegel kennzeichnet Fisch aus nachhaltigerer Fischerei? | MSC |
+| **6.13** | Auswahl | Wofür wird in deutschen Haushalten das meiste Trinkwasser verwendet? | Baden, Duschen und Körperpflege |
+| **6.14** | Stimmt? | Die Landwirtschaft ist weltweit der größte Wasserverbraucher. | stimmt |
+| **6.15** | Lücke | Wasser, das wir indirekt über Produkte verbrauchen, nennt man ___ Wasser. | virtuelles |
+| **6.16** | Auswahl | Welcher See in Zentralasien ist durch übermäßige Bewässerung größtenteils ausgetrocknet? | Aralsee |
+| **6.17** | Paare | Welches Meerestier ist wodurch bedroht? | Meeresschildkröte – Verwechselt Plastiktüten mit Quallen; Kabeljau – Überfischung; Wal – Schiffslärm und Kollisionen; Korallenriff – Meereserwärmung |
+| **6.18** | Stimmt? | In Deutschland ist es besonders wirksam, warmes Wasser zu sparen – wegen der Energie zum Erhitzen. | stimmt |
+| **6.B1** | Bild | Wie heißt der Vorgang, bei dem Wasser vom Meer in die Wolken aufsteigt? | Verdunstung |
+| **6.B2** | Bild | Der Wasserhahn tropft. Was stimmt? | Ein tropfender Hahn kann über 1.000 Liter Wasser im Jahr verschwenden |
+| **6.B3** | Bild | Warum ist die Plastiktüte im Meer für die Schildkröte gefährlich? | Sie hält die Tüte für eine Qualle und frisst sie |
+| **6.S1** | Sortieren | Steckt viel oder wenig virtuelles Wasser darin? | Viel Wasser: 1 kg Rindfleisch, Ein Baumwoll-T-Shirt, 1 kg Kaffeebohnen · Wenig Wasser: 1 kg Tomaten, 1 kg Kartoffeln |
 
 ### Einheit 7: Essen & Klima
 
-| # | Art | Frage | Richtige Antwort |
+| Code | Art | Frage | Richtige Antwort |
 |---|---|---|---|
-| 1 | Reihenfolge | Sortiere nach Treibhausgasen pro Kilogramm – von wenig nach viel. | Kartoffeln → Tofu → Hähnchenfleisch → Rindfleisch |
-| 2 | Paare | Wann haben diese Lebensmittel in Deutschland Saison? | Spargel – April bis Juni; Erdbeeren – Mai bis Juli; Kürbis – September bis November; Grünkohl – November bis Februar |
-| 3 | Stimmt? | Nach Ablauf des Mindesthaltbarkeitsdatums (MHD) muss man Lebensmittel sofort wegwerfen. | stimmt nicht |
-| 4 | Auswahl | Wie viele Lebensmittel werden in Deutschland pro Jahr weggeworfen? | rund 11 Millionen Tonnen |
-| 5 | Auswahl | Warum sind Erdbeeren im Januar meist klimaschädlicher? | Lange Transportwege, teils per Flugzeug, oder beheizte Gewächshäuser |
-| 6 | Lücke | Obst und Gemüse, das in der Nähe angebaut wird, nennt man ___. | regional |
-| 7 | Stimmt? | Rindfleisch braucht viel mehr Fläche als Getreide oder Hülsenfrüchte mit gleichem Nährwert. | stimmt |
-| 8 | Auswahl | Was ist „Foodsharing“? | Übrige Lebensmittel weitergeben statt wegwerfen |
-| 9 | Auswahl | Wofür steht das EU-Bio-Siegel unter anderem? | Keine chemisch-synthetischen Pflanzenschutzmittel |
-| 10 | Stimmt? | „Krumme“ Gurken oder kleine Kartoffeln sind genauso nahrhaft wie makellos aussehende. | stimmt |
-| 11 | Auswahl | Welche Lebensmittel sind Hülsenfrüchte? | Linsen, Bohnen, Kichererbsen |
-| 12 | Lücke | Die „Planetary Health Diet“ empfiehlt viel Gemüse, Obst, Vollkorn und Hülsenfrüchte – und nur wenig ___. | Fleisch |
-| 13 | Auswahl | Was bedeutet „saisonal“ beim Essen? | Obst und Gemüse essen, wenn es bei uns natürlich reif wird |
-| 14 | Stimmt? | Tiefkühlgemüse ist immer klimaschädlicher als frisches Gemüse. | stimmt nicht |
-| 15 | Lücke | Wechselt man die angebauten Pflanzen auf einem Feld jedes Jahr, um den Boden zu schonen, nennt man das ___. | Fruchtfolge |
-| 16 | Paare | Woraus wird das gemacht? | Tofu – Sojabohnen; Pommes – Kartoffeln; Hummus – Kichererbsen; Schokolade – Kakaobohnen |
-| 17 | Auswahl | Wofür wird der größte Teil der weltweit angebauten Sojabohnen verwendet? | Als Tierfutter |
-| 18 | Reihenfolge | Sortiere nach CO₂ pro Tonne Fracht und Kilometer – von wenig nach viel. | Güterzug → Lkw → Flugzeug |
-
-**Bilderrätsel und Sortieraufgaben in dieser Einheit:**
-
-| # | Art | Frage | Richtige Antwort |
-|---|---|---|---|
-| 1 | Sortieren | Eher klimafreundlich oder eher klimaschädlich? Gemeint ist der Fußabdruck pro Kilogramm. | Eher klimafreundlich: Linsen, Kartoffeln, Äpfel aus der Region · Eher klimaschädlich: Rindfleisch, Butter, Käse |
+| **7.1** | Reihenfolge | Sortiere nach Treibhausgasen pro Kilogramm – von wenig nach viel. | Kartoffeln → Tofu → Hähnchenfleisch → Rindfleisch |
+| **7.2** | Paare | Wann haben diese Lebensmittel in Deutschland Saison? | Spargel – April bis Juni; Erdbeeren – Mai bis Juli; Kürbis – September bis November; Grünkohl – November bis Februar |
+| **7.3** | Stimmt? | Nach Ablauf des Mindesthaltbarkeitsdatums (MHD) muss man Lebensmittel sofort wegwerfen. | stimmt nicht |
+| **7.4** | Auswahl | Wie viele Lebensmittel werden in Deutschland pro Jahr weggeworfen? | rund 11 Millionen Tonnen |
+| **7.5** | Auswahl | Warum sind Erdbeeren im Januar meist klimaschädlicher? | Lange Transportwege, teils per Flugzeug, oder beheizte Gewächshäuser |
+| **7.6** | Lücke | Obst und Gemüse, das in der Nähe angebaut wird, nennt man ___. | regional |
+| **7.7** | Stimmt? | Rindfleisch braucht viel mehr Fläche als Getreide oder Hülsenfrüchte mit gleichem Nährwert. | stimmt |
+| **7.8** | Auswahl | Was ist „Foodsharing“? | Übrige Lebensmittel weitergeben statt wegwerfen |
+| **7.9** | Auswahl | Wofür steht das EU-Bio-Siegel unter anderem? | Keine chemisch-synthetischen Pflanzenschutzmittel |
+| **7.10** | Stimmt? | „Krumme“ Gurken oder kleine Kartoffeln sind genauso nahrhaft wie makellos aussehende. | stimmt |
+| **7.11** | Auswahl | Welche Lebensmittel sind Hülsenfrüchte? | Linsen, Bohnen, Kichererbsen |
+| **7.12** | Lücke | Die „Planetary Health Diet“ empfiehlt viel Gemüse, Obst, Vollkorn und Hülsenfrüchte – und nur wenig ___. | Fleisch |
+| **7.13** | Auswahl | Was bedeutet „saisonal“ beim Essen? | Obst und Gemüse essen, wenn es bei uns natürlich reif wird |
+| **7.14** | Stimmt? | Tiefkühlgemüse ist immer klimaschädlicher als frisches Gemüse. | stimmt nicht |
+| **7.15** | Lücke | Wechselt man die angebauten Pflanzen auf einem Feld jedes Jahr, um den Boden zu schonen, nennt man das ___. | Fruchtfolge |
+| **7.16** | Paare | Woraus wird das gemacht? | Tofu – Sojabohnen; Pommes – Kartoffeln; Hummus – Kichererbsen; Schokolade – Kakaobohnen |
+| **7.17** | Auswahl | Wofür wird der größte Teil der weltweit angebauten Sojabohnen verwendet? | Als Tierfutter |
+| **7.18** | Reihenfolge | Sortiere nach CO₂ pro Tonne Fracht und Kilometer – von wenig nach viel. | Güterzug → Lkw → Flugzeug |
+| **7.S1** | Sortieren | Eher klimafreundlich oder eher klimaschädlich? Gemeint ist der Fußabdruck pro Kilogramm. | Eher klimafreundlich: Linsen, Kartoffeln, Äpfel aus der Region · Eher klimaschädlich: Rindfleisch, Butter, Käse |
 
 ### Einheit 8: Artenvielfalt
 
-| # | Art | Frage | Richtige Antwort |
+| Code | Art | Frage | Richtige Antwort |
 |---|---|---|---|
-| 1 | Auswahl | Wie viele Tier- und Pflanzenarten sind laut Weltbiodiversitätsrat vom Aussterben bedroht? | rund 1 Million |
-| 2 | Stimmt? | Moore speichern mehr Kohlenstoff als alle Wälder der Erde zusammen – obwohl sie nur rund 3 % der Landfläche bedecken. | stimmt |
-| 3 | Paare | Welches Tier lebt wo? | Biber – Fluss und Bach; Seehund – Wattenmeer; Specht – Wald; Feldlerche – Feld und Wiese |
-| 4 | Auswahl | Warum sind Bienen und andere Bestäuber so wichtig? | Rund drei Viertel der wichtigsten Nutzpflanzen profitieren von ihrer Bestäubung |
-| 5 | Lücke | Wenn auf einer großen Fläche jahrelang nur eine einzige Pflanzenart wächst, nennt man das ___. | Monokultur |
-| 6 | Stimmt? | Ein aufgeräumter Garten mit kurz gemähtem Rasen ist besonders gut für Insekten. | stimmt nicht |
-| 7 | Auswahl | Wie stark ging laut der Krefelder Studie die Masse fliegender Insekten in Schutzgebieten zwischen 1989 und 2016 zurück? | um mehr als 75 % |
-| 8 | Auswahl | Welcher Lebensraum ist besonders artenreich? | Tropischer Regenwald |
-| 9 | Reihenfolge | Bringe diese Nahrungskette in die richtige Reihenfolge – vom Anfang bis zum Ende. | Plankton-Algen → Kleinkrebse → Hering → Seehund |
-| 10 | Stimmt? | Tote Bäume (Totholz) sind wertlos für die Natur. | stimmt nicht |
-| 11 | Auswahl | Was sind „invasive Arten“? | Eingeschleppte Arten, die heimische Arten verdrängen |
-| 12 | Lücke | Ein Streifen mit Wildblumen am Ackerrand heißt ___ und bietet Insekten Nahrung. | Blühstreifen |
-| 13 | Auswahl | Was ist ein Nationalpark? | Ein großes Schutzgebiet, in dem sich die Natur möglichst frei entwickeln darf |
-| 14 | Lücke | Die Rote ___ zeigt, welche Tier- und Pflanzenarten gefährdet sind. | Liste |
-| 15 | Stimmt? | In Deutschland leben wieder frei lebende Wölfe. | stimmt |
-| 16 | Paare | Welcher Begriff bedeutet was? | Biotop – Lebensraum; Ökosystem – Lebewesen und Umwelt als Einheit; Artenvielfalt – Anzahl verschiedener Arten; Bestäubung – Übertragung von Pollen |
-| 17 | Auswahl | Welcher Greifvogel war in Deutschland fast verschwunden und brütet heute wieder in vielen Regionen? | Seeadler |
-| 18 | Stimmt? | Helle Beleuchtung in der Nacht schadet Insekten. | stimmt |
-
-**Bilderrätsel und Sortieraufgaben in dieser Einheit:**
-
-| # | Art | Frage | Richtige Antwort |
-|---|---|---|---|
-| 1 | Bild | Warum ist das, was die Biene hier macht, so wichtig? | Sie bestäubt die Blüte – so wachsen Obst und Gemüse |
+| **8.1** | Auswahl | Wie viele Tier- und Pflanzenarten sind laut Weltbiodiversitätsrat vom Aussterben bedroht? | rund 1 Million |
+| **8.2** | Stimmt? | Moore speichern mehr Kohlenstoff als alle Wälder der Erde zusammen – obwohl sie nur rund 3 % der Landfläche bedecken. | stimmt |
+| **8.3** | Paare | Welches Tier lebt wo? | Biber – Fluss und Bach; Seehund – Wattenmeer; Specht – Wald; Feldlerche – Feld und Wiese |
+| **8.4** | Auswahl | Warum sind Bienen und andere Bestäuber so wichtig? | Rund drei Viertel der wichtigsten Nutzpflanzen profitieren von ihrer Bestäubung |
+| **8.5** | Lücke | Wenn auf einer großen Fläche jahrelang nur eine einzige Pflanzenart wächst, nennt man das ___. | Monokultur |
+| **8.6** | Stimmt? | Ein aufgeräumter Garten mit kurz gemähtem Rasen ist besonders gut für Insekten. | stimmt nicht |
+| **8.7** | Auswahl | Wie stark ging laut der Krefelder Studie die Masse fliegender Insekten in Schutzgebieten zwischen 1989 und 2016 zurück? | um mehr als 75 % |
+| **8.8** | Auswahl | Welcher Lebensraum ist besonders artenreich? | Tropischer Regenwald |
+| **8.9** | Reihenfolge | Bringe diese Nahrungskette in die richtige Reihenfolge – vom Anfang bis zum Ende. | Plankton-Algen → Kleinkrebse → Hering → Seehund |
+| **8.10** | Stimmt? | Tote Bäume (Totholz) sind wertlos für die Natur. | stimmt nicht |
+| **8.11** | Auswahl | Was sind „invasive Arten“? | Eingeschleppte Arten, die heimische Arten verdrängen |
+| **8.12** | Lücke | Ein Streifen mit Wildblumen am Ackerrand heißt ___ und bietet Insekten Nahrung. | Blühstreifen |
+| **8.13** | Auswahl | Was ist ein Nationalpark? | Ein großes Schutzgebiet, in dem sich die Natur möglichst frei entwickeln darf |
+| **8.14** | Lücke | Die Rote ___ zeigt, welche Tier- und Pflanzenarten gefährdet sind. | Liste |
+| **8.15** | Stimmt? | In Deutschland leben wieder frei lebende Wölfe. | stimmt |
+| **8.16** | Paare | Welcher Begriff bedeutet was? | Biotop – Lebensraum; Ökosystem – Lebewesen und Umwelt als Einheit; Artenvielfalt – Anzahl verschiedener Arten; Bestäubung – Übertragung von Pollen |
+| **8.17** | Auswahl | Welcher Greifvogel war in Deutschland fast verschwunden und brütet heute wieder in vielen Regionen? | Seeadler |
+| **8.18** | Stimmt? | Helle Beleuchtung in der Nacht schadet Insekten. | stimmt |
+| **8.B1** | Bild | Warum ist das, was die Biene hier macht, so wichtig? | Sie bestäubt die Blüte – so wachsen Obst und Gemüse |
 
 ### Einheit 9: Mode & Konsum
 
-| # | Art | Frage | Richtige Antwort |
+| Code | Art | Frage | Richtige Antwort |
 |---|---|---|---|
-| 1 | Auswahl | Was versteht man unter „Fast Fashion“? | Billige Kleidung, die schnell produziert und schnell weggeworfen wird |
-| 2 | Auswahl | 2013 stürzte in Bangladesch die Textilfabrik Rana Plaza ein. Wie viele Menschen starben? | über 1.100 |
-| 3 | Stimmt? | Viele Kleidungsstücke in deutschen Schränken werden selten oder nie getragen. | stimmt |
-| 4 | Paare | Welcher Begriff passt zu welcher Idee? | Secondhand – Gebraucht kaufen; Upcycling – Aufwerten statt wegwerfen; Repair-Café – Gemeinsam reparieren; Kleidertausch – Tauschen statt kaufen |
-| 5 | Lücke | Wenn Unternehmen sich umweltfreundlicher darstellen, als sie sind, nennt man das ___. | Greenwashing |
-| 6 | Auswahl | Welcher Rohstoff für Handy-Akkus wird oft in der Demokratischen Republik Kongo abgebaut – teils unter gefährlichen Bedingungen? | Kobalt |
-| 7 | Stimmt? | Das Smartphone länger zu nutzen ist einer der wirksamsten Wege, seinen Handy-Fußabdruck zu senken. | stimmt |
-| 8 | Reihenfolge | Bringe den Lebensweg eines T-Shirts in die richtige Reihenfolge. | Baumwolle anbauen → Garn spinnen → Stoff weben und färben → T-Shirt nähen → Im Laden verkaufen |
-| 9 | Auswahl | Wie viele neue Kleidungsstücke kauft eine Person in Deutschland durchschnittlich pro Jahr? | rund 60 |
-| 10 | Auswahl | Was ist das „Recht auf Reparatur“? | EU-Regeln, die Reparaturen und Ersatzteile leichter zugänglich machen |
-| 11 | Stimmt? | Kleidung aus Polyester verliert beim Waschen Mikroplastikfasern. | stimmt |
-| 12 | Lücke | Dinge zu leihen, zu tauschen oder gemeinsam zu nutzen, statt sie neu zu kaufen, nennt man ___. | Sharing |
-| 13 | Auswahl | Was versteht man unter „geplanter Obsoleszenz“? | Den Vorwurf, dass Produkte absichtlich so gebaut werden, dass sie früh kaputtgehen |
-| 14 | Lücke | Das staatliche Siegel für nachhaltig produzierte Textilien in Deutschland heißt „Grüner ___“. | Knopf |
-| 15 | Stimmt? | Bio-Baumwolle wird ohne chemisch-synthetische Pestizide angebaut. | stimmt |
-| 16 | Paare | Welches Siegel oder Label gehört zu welchem Bereich? | GOTS – Bio-Textilien; Grüner Knopf – Staatliches Textilsiegel; EU-Energielabel – Energieverbrauch von Geräten; Blauer Engel – Umweltfreundliche Produkte |
-| 17 | Auswahl | Der Reißverschluss deiner Lieblingsjacke ist kaputt. Was ist am nachhaltigsten? | Reparieren lassen |
-| 18 | Stimmt? | Online bestellte Kleidung wird häufig zurückgeschickt – das verursacht zusätzliche Transporte. | stimmt |
-
-**Bilderrätsel und Sortieraufgaben in dieser Einheit:**
-
-| # | Art | Frage | Richtige Antwort |
-|---|---|---|---|
-| 1 | Bild | Welche Klasse auf diesem Energielabel ist die sparsamste? | A (dunkelgrün) |
-| 2 | Bild | Wie viel Wasser steckt ungefähr in der Herstellung eines Baumwoll-T-Shirts? | Etwa 2.700 Liter |
+| **9.1** | Auswahl | Was versteht man unter „Fast Fashion“? | Billige Kleidung, die schnell produziert und schnell weggeworfen wird |
+| **9.2** | Auswahl | 2013 stürzte in Bangladesch die Textilfabrik Rana Plaza ein. Wie viele Menschen starben? | über 1.100 |
+| **9.3** | Stimmt? | Viele Kleidungsstücke in deutschen Schränken werden selten oder nie getragen. | stimmt |
+| **9.4** | Paare | Welcher Begriff passt zu welcher Idee? | Secondhand – Gebraucht kaufen; Upcycling – Aufwerten statt wegwerfen; Repair-Café – Gemeinsam reparieren; Kleidertausch – Tauschen statt kaufen |
+| **9.5** | Lücke | Wenn Unternehmen sich umweltfreundlicher darstellen, als sie sind, nennt man das ___. | Greenwashing |
+| **9.6** | Auswahl | Welcher Rohstoff für Handy-Akkus wird oft in der Demokratischen Republik Kongo abgebaut – teils unter gefährlichen Bedingungen? | Kobalt |
+| **9.7** | Stimmt? | Das Smartphone länger zu nutzen ist einer der wirksamsten Wege, seinen Handy-Fußabdruck zu senken. | stimmt |
+| **9.8** | Reihenfolge | Bringe den Lebensweg eines T-Shirts in die richtige Reihenfolge. | Baumwolle anbauen → Garn spinnen → Stoff weben und färben → T-Shirt nähen → Im Laden verkaufen |
+| **9.9** | Auswahl | Wie viele neue Kleidungsstücke kauft eine Person in Deutschland durchschnittlich pro Jahr? | rund 60 |
+| **9.10** | Auswahl | Was ist das „Recht auf Reparatur“? | EU-Regeln, die Reparaturen und Ersatzteile leichter zugänglich machen |
+| **9.11** | Stimmt? | Kleidung aus Polyester verliert beim Waschen Mikroplastikfasern. | stimmt |
+| **9.12** | Lücke | Dinge zu leihen, zu tauschen oder gemeinsam zu nutzen, statt sie neu zu kaufen, nennt man ___. | Sharing |
+| **9.13** | Auswahl | Was versteht man unter „geplanter Obsoleszenz“? | Den Vorwurf, dass Produkte absichtlich so gebaut werden, dass sie früh kaputtgehen |
+| **9.14** | Lücke | Das staatliche Siegel für nachhaltig produzierte Textilien in Deutschland heißt „Grüner ___“. | Knopf |
+| **9.15** | Stimmt? | Bio-Baumwolle wird ohne chemisch-synthetische Pestizide angebaut. | stimmt |
+| **9.16** | Paare | Welches Siegel oder Label gehört zu welchem Bereich? | GOTS – Bio-Textilien; Grüner Knopf – Staatliches Textilsiegel; EU-Energielabel – Energieverbrauch von Geräten; Blauer Engel – Umweltfreundliche Produkte |
+| **9.17** | Auswahl | Der Reißverschluss deiner Lieblingsjacke ist kaputt. Was ist am nachhaltigsten? | Reparieren lassen |
+| **9.18** | Stimmt? | Online bestellte Kleidung wird häufig zurückgeschickt – das verursacht zusätzliche Transporte. | stimmt |
+| **9.B1** | Bild | Welche Klasse auf diesem Energielabel ist die sparsamste? | A (dunkelgrün) |
+| **9.B2** | Bild | Wie viel Wasser steckt ungefähr in der Herstellung eines Baumwoll-T-Shirts? | Etwa 2.700 Liter |
 
 ### Einheit 10: Globale Gerechtigkeit
 
-| # | Art | Frage | Richtige Antwort |
+| Code | Art | Frage | Richtige Antwort |
 |---|---|---|---|
-| 1 | Auswahl | Wie viele Ziele für nachhaltige Entwicklung (SDGs) haben die Vereinten Nationen 2015 beschlossen? | 17 |
-| 2 | Paare | Welches Nachhaltigkeitsziel hat welches Thema? | SDG 5 – Geschlechter­gleichheit; SDG 6 – Sauberes Wasser; SDG 12 – Nachhaltiger Konsum; SDG 13 – Klimaschutz |
-| 3 | Lücke | Die Ziele für nachhaltige Entwicklung sollen bis zum Jahr ___ erreicht werden. | 2030 |
-| 4 | Auswahl | Wenn alle Menschen so leben würden wie wir in Deutschland – wie viele Erden bräuchten wir etwa? | rund 3 |
-| 5 | Stimmt? | Länder, die am wenigsten zur Klimakrise beigetragen haben, sind oft am stärksten von ihren Folgen betroffen. | stimmt |
-| 6 | Auswahl | Was bedeutet der „Erdüberlastungstag“? | Ab diesem Tag hat die Menschheit mehr verbraucht, als die Erde im Jahr erneuern kann |
-| 7 | Auswahl | Wie groß war 2025 in Deutschland der unbereinigte Gender Pay Gap (Stundenlohn Frauen gegenüber Männern)? | 16 % |
-| 8 | Stimmt? | Die reichsten 10 % der Weltbevölkerung verursachen rund die Hälfte der weltweiten Konsum-Emissionen. | stimmt |
-| 9 | Reihenfolge | Bringe diese Meilensteine der Klimapolitik in die zeitliche Reihenfolge. | Erdgipfel in Rio de Janeiro → Kyoto-Protokoll → Pariser Klimaabkommen |
-| 10 | Auswahl | Wofür steht SDG 1? | Keine Armut |
-| 11 | Lücke | Wer sich unbezahlt für eine gute Sache engagiert, arbeitet ___. | ehrenamtlich |
-| 12 | Stimmt? | Nachhaltigkeit hat drei Dimensionen: Ökologie, Ökonomie und Soziales. | stimmt |
-| 13 | Auswahl | In welchem Jahr wurde die Allgemeine Erklärung der Menschenrechte verabschiedet? | 1948 |
-| 14 | Lücke | Die Klimabewegung „Fridays for ___“ wurde durch Schulstreiks bekannt. | Future |
-| 15 | Stimmt? | Das Recht auf Bildung ist ein Menschenrecht. | stimmt |
-| 16 | Paare | Noch mehr Ziele: Welches SDG hat welches Thema? | SDG 2 – Kein Hunger; SDG 4 – Hochwertige Bildung; SDG 7 – Saubere Energie; SDG 14 – Leben unter Wasser |
-| 17 | Auswahl | Was bedeutet „Generationengerechtigkeit“? | Heute so leben, dass auch künftige Generationen gute Lebenschancen haben |
-| 18 | Stimmt? | Auch Jugendliche unter 18 können sich politisch engagieren, z. B. in Jugendparlamenten. | stimmt |
+| **10.1** | Auswahl | Wie viele Ziele für nachhaltige Entwicklung (SDGs) haben die Vereinten Nationen 2015 beschlossen? | 17 |
+| **10.2** | Paare | Welches Nachhaltigkeitsziel hat welches Thema? | SDG 5 – Geschlechter­gleichheit; SDG 6 – Sauberes Wasser; SDG 12 – Nachhaltiger Konsum; SDG 13 – Klimaschutz |
+| **10.3** | Lücke | Die Ziele für nachhaltige Entwicklung sollen bis zum Jahr ___ erreicht werden. | 2030 |
+| **10.4** | Auswahl | Wenn alle Menschen so leben würden wie wir in Deutschland – wie viele Erden bräuchten wir etwa? | rund 3 |
+| **10.5** | Stimmt? | Länder, die am wenigsten zur Klimakrise beigetragen haben, sind oft am stärksten von ihren Folgen betroffen. | stimmt |
+| **10.6** | Auswahl | Was bedeutet der „Erdüberlastungstag“? | Ab diesem Tag hat die Menschheit mehr verbraucht, als die Erde im Jahr erneuern kann |
+| **10.7** | Auswahl | Wie groß war 2025 in Deutschland der unbereinigte Gender Pay Gap (Stundenlohn Frauen gegenüber Männern)? | 16 % |
+| **10.8** | Stimmt? | Die reichsten 10 % der Weltbevölkerung verursachen rund die Hälfte der weltweiten Konsum-Emissionen. | stimmt |
+| **10.9** | Reihenfolge | Bringe diese Meilensteine der Klimapolitik in die zeitliche Reihenfolge. | Erdgipfel in Rio de Janeiro → Kyoto-Protokoll → Pariser Klimaabkommen |
+| **10.10** | Auswahl | Wofür steht SDG 1? | Keine Armut |
+| **10.11** | Lücke | Wer sich unbezahlt für eine gute Sache engagiert, arbeitet ___. | ehrenamtlich |
+| **10.12** | Stimmt? | Nachhaltigkeit hat drei Dimensionen: Ökologie, Ökonomie und Soziales. | stimmt |
+| **10.13** | Auswahl | In welchem Jahr wurde die Allgemeine Erklärung der Menschenrechte verabschiedet? | 1948 |
+| **10.14** | Lücke | Die Klimabewegung „Fridays for ___“ wurde durch Schulstreiks bekannt. | Future |
+| **10.15** | Stimmt? | Das Recht auf Bildung ist ein Menschenrecht. | stimmt |
+| **10.16** | Paare | Noch mehr Ziele: Welches SDG hat welches Thema? | SDG 2 – Kein Hunger; SDG 4 – Hochwertige Bildung; SDG 7 – Saubere Energie; SDG 14 – Leben unter Wasser |
+| **10.17** | Auswahl | Was bedeutet „Generationengerechtigkeit“? | Heute so leben, dass auch künftige Generationen gute Lebenschancen haben |
+| **10.18** | Stimmt? | Auch Jugendliche unter 18 können sich politisch engagieren, z. B. in Jugendparlamenten. | stimmt |
 
 ### Einheit 11: Mobilität & Verkehr
 
-| # | Art | Frage | Richtige Antwort |
+| Code | Art | Frage | Richtige Antwort |
 |---|---|---|---|
-| 1 | Auswahl | Welcher Anteil der Treibhausgas-Emissionen in Deutschland stammt aus dem Verkehr? | rund ein Fünftel |
-| 2 | Stimmt? | Die Treibhausgas-Emissionen des Verkehrs in Deutschland sind seit 1990 nur wenig gesunken. | stimmt |
-| 3 | Lücke | Mit dem ___ kann man für einen festen Monatspreis in ganz Deutschland Busse, Straßenbahnen und Regionalzüge nutzen. | Deutschlandticket |
-| 4 | Auswahl | Wie viele Stunden steht ein Auto in Deutschland durchschnittlich pro Tag ungenutzt herum? | rund 23 Stunden |
-| 5 | Paare | Welcher Begriff passt zu welcher Beschreibung? | Carsharing – Autos bei Bedarf stundenweise leihen; Pedelec – Fahrrad mit Elektro-Unterstützung; Park-and-Ride – Mit dem Auto zum Bahnhof, weiter mit der Bahn; Fahrgemeinschaft – Mehrere Personen fahren zusammen in einem Auto |
-| 6 | Stimmt? | E-Scooter darf man in Deutschland ab 14 Jahren fahren. | stimmt |
-| 7 | Auswahl | Wie viele Personen sitzen in Deutschland durchschnittlich in einem fahrenden Auto? | rund 1,4 |
-| 8 | Auswahl | Wie viele Pkw sind in Deutschland ungefähr zugelassen? | knapp 50 Millionen |
-| 9 | Stimmt? | Ein Elektroauto ist über sein ganzes Autoleben betrachtet meist klimafreundlicher als ein Benziner – obwohl die Herstellung des Akkus viel CO₂ verursacht. | stimmt |
-| 10 | Lücke | Wenn Kinder mit dem Auto bis direkt vor das Schultor gebracht werden, spricht man vom „Eltern___“. | taxi |
-| 11 | Reihenfolge | Bringe diese Meilensteine der Mobilität in die zeitliche Reihenfolge. | Erste deutsche Eisenbahn Nürnberg–Fürth → Carl Benz meldet sein Auto mit Benzinmotor zum Patent an → Erster ICE im Linienverkehr → Start des Deutschlandtickets |
-| 12 | Paare | Welcher Antrieb gehört zu welchem Fahrzeug? | Elektroauto – Akku (Batterie); Brennstoffzellenauto – Wasserstoff; Straßenbahn – Strom aus der Oberleitung; Dieselbus – Kraftstoff aus Erdöl |
-| 13 | Auswahl | Was gilt in einer Fahrradstraße? | Radfahrende dürfen nebeneinander fahren, Autos nur mit Zusatzschild |
-| 14 | Stimmt? | Beim Fliegen schadet nur das ausgestoßene CO₂ dem Klima. | stimmt nicht |
-| 15 | Auswahl | Wie viel Fläche braucht ein einzelner Auto-Stellplatz ungefähr? | rund 12 m² |
-| 16 | Lücke | Die Idee, dass man Schule, Einkauf, Arztpraxis und Park in einer Viertelstunde zu Fuß oder mit dem Rad erreicht, heißt „___-Minuten-Stadt“. | 15 |
-| 17 | Reihenfolge | Das Prinzip der Verkehrswende: Was hat Vorrang? Sortiere von der ersten zur letzten Stufe. | Verkehr vermeiden → Verkehr verlagern (z. B. auf Bahn und Rad) → Verkehr verbessern (z. B. saubere Antriebe) |
-| 18 | Auswahl | Bis zu welcher Geschwindigkeit unterstützt der Motor eines normalen Pedelecs beim Treten? | 25 km/h |
-
-**Bilderrätsel und Sortieraufgaben in dieser Einheit:**
-
-| # | Art | Frage | Richtige Antwort |
-|---|---|---|---|
-| 1 | Bild | Wie viel CO₂ stößt dieses Fahrrad beim Fahren aus? | Keins – es fährt mit Muskelkraft |
-| 2 | Sortieren | Klimafreundlich oder klimaschädlich – pro Person und Kilometer? | Klimafreundlich: Fahrrad, Zu Fuß, Fernzug, Linienbus · Klimaschädlich: Auto, allein, Inlandsflug, Kreuzfahrtschiff |
+| **11.1** | Auswahl | Welcher Anteil der Treibhausgas-Emissionen in Deutschland stammt aus dem Verkehr? | rund ein Fünftel |
+| **11.2** | Stimmt? | Die Treibhausgas-Emissionen des Verkehrs in Deutschland sind seit 1990 nur wenig gesunken. | stimmt |
+| **11.3** | Lücke | Mit dem ___ kann man für einen festen Monatspreis in ganz Deutschland Busse, Straßenbahnen und Regionalzüge nutzen. | Deutschlandticket |
+| **11.4** | Auswahl | Wie viele Stunden steht ein Auto in Deutschland durchschnittlich pro Tag ungenutzt herum? | rund 23 Stunden |
+| **11.5** | Paare | Welcher Begriff passt zu welcher Beschreibung? | Carsharing – Autos bei Bedarf stundenweise leihen; Pedelec – Fahrrad mit Elektro-Unterstützung; Park-and-Ride – Mit dem Auto zum Bahnhof, weiter mit der Bahn; Fahrgemeinschaft – Mehrere Personen fahren zusammen in einem Auto |
+| **11.6** | Stimmt? | E-Scooter darf man in Deutschland ab 14 Jahren fahren. | stimmt |
+| **11.7** | Auswahl | Wie viele Personen sitzen in Deutschland durchschnittlich in einem fahrenden Auto? | rund 1,4 |
+| **11.8** | Auswahl | Wie viele Pkw sind in Deutschland ungefähr zugelassen? | knapp 50 Millionen |
+| **11.9** | Stimmt? | Ein Elektroauto ist über sein ganzes Autoleben betrachtet meist klimafreundlicher als ein Benziner – obwohl die Herstellung des Akkus viel CO₂ verursacht. | stimmt |
+| **11.10** | Lücke | Wenn Kinder mit dem Auto bis direkt vor das Schultor gebracht werden, spricht man vom „Eltern___“. | taxi |
+| **11.11** | Reihenfolge | Bringe diese Meilensteine der Mobilität in die zeitliche Reihenfolge. | Erste deutsche Eisenbahn Nürnberg–Fürth → Carl Benz meldet sein Auto mit Benzinmotor zum Patent an → Erster ICE im Linienverkehr → Start des Deutschlandtickets |
+| **11.12** | Paare | Welcher Antrieb gehört zu welchem Fahrzeug? | Elektroauto – Akku (Batterie); Brennstoffzellenauto – Wasserstoff; Straßenbahn – Strom aus der Oberleitung; Dieselbus – Kraftstoff aus Erdöl |
+| **11.13** | Auswahl | Was gilt in einer Fahrradstraße? | Radfahrende dürfen nebeneinander fahren, Autos nur mit Zusatzschild |
+| **11.14** | Stimmt? | Beim Fliegen schadet nur das ausgestoßene CO₂ dem Klima. | stimmt nicht |
+| **11.15** | Auswahl | Wie viel Fläche braucht ein einzelner Auto-Stellplatz ungefähr? | rund 12 m² |
+| **11.16** | Lücke | Die Idee, dass man Schule, Einkauf, Arztpraxis und Park in einer Viertelstunde zu Fuß oder mit dem Rad erreicht, heißt „___-Minuten-Stadt“. | 15 |
+| **11.17** | Reihenfolge | Das Prinzip der Verkehrswende: Was hat Vorrang? Sortiere von der ersten zur letzten Stufe. | Verkehr vermeiden → Verkehr verlagern (z. B. auf Bahn und Rad) → Verkehr verbessern (z. B. saubere Antriebe) |
+| **11.18** | Auswahl | Bis zu welcher Geschwindigkeit unterstützt der Motor eines normalen Pedelecs beim Treten? | 25 km/h |
+| **11.B1** | Bild | Wie viel CO₂ stößt dieses Fahrrad beim Fahren aus? | Keins – es fährt mit Muskelkraft |
+| **11.S1** | Sortieren | Klimafreundlich oder klimaschädlich – pro Person und Kilometer? | Klimafreundlich: Fahrrad, Zu Fuß, Fernzug, Linienbus · Klimaschädlich: Auto, allein, Inlandsflug, Kreuzfahrtschiff |
 
 ### Einheit 12: Digitales & Klima
 
-| # | Art | Frage | Richtige Antwort |
+| Code | Art | Frage | Richtige Antwort |
 |---|---|---|---|
-| 1 | Auswahl | Welcher Anteil der weltweiten Treibhausgas-Emissionen geht ungefähr auf digitale Technik zurück (Geräte, Netze und Rechenzentren)? | rund 2 bis 4 % |
-| 2 | Auswahl | Welche Daten machen den größten Teil des weltweiten Internet-Datenverkehrs aus? | Videos, z. B. beim Streaming |
-| 3 | Stimmt? | Eine Stunde Video auf einem großen Fernseher braucht mehr Strom als dieselbe Stunde auf dem Smartphone. | stimmt |
-| 4 | Stimmt? | Beim Streaming ist die Datenübertragung über Glasfaser klimafreundlicher als über das Mobilfunknetz. | stimmt |
-| 5 | Lücke | Das Symbol der durchgestrichenen ___ bedeutet: Dieses Gerät gehört nicht in den Hausmüll. | Mülltonne |
-| 6 | Paare | Welcher Begriff passt zu welcher Erklärung? | Rechenzentrum – Gebäude voller Server; Cloud – Daten auf fremden Servern speichern; E-Schrott – Ausgediente Elektrogeräte; Refurbished – Generalüberholtes Gebrauchtgerät |
-| 7 | Auswahl | Wie viel Elektroschrott ist weltweit im Jahr 2022 angefallen? | rund 62 Millionen Tonnen |
-| 8 | Stimmt? | Große Elektrohändler und viele Supermärkte müssen kleine Elektro-Altgeräte kostenlos zurücknehmen – auch wenn man nichts Neues kauft. | stimmt |
-| 9 | Auswahl | Wie viele alte, ungenutzte Handys liegen laut einer Bitkom-Umfrage in deutschen Haushalten herum? | rund 170 Millionen |
-| 10 | Lücke | Seit Ende 2024 müssen neue Handys in der EU einen einheitlichen ___-Ladeanschluss haben. | USB-C |
-| 11 | Reihenfolge | Sortiere nach Stromverbrauch beim Videoschauen – von wenig nach viel. | Smartphone → Laptop → Großer Fernseher |
-| 12 | Auswahl | Was schreibt die EU seit Juni 2025 für neue Smartphones vor? | Wichtige Ersatzteile müssen noch 7 Jahre nach Verkaufsende lieferbar sein |
-| 13 | Auswahl | Wie viel des weltweiten Stroms verbrauchten Rechenzentren im Jahr 2024 laut Internationaler Energieagentur (IEA)? | rund 1,5 % |
-| 14 | Stimmt? | Rechenzentren brauchen nicht nur Strom, sondern oft auch viel Wasser zum Kühlen. | stimmt |
-| 15 | Lücke | Wenn Technik sparsamer wird, wir sie dadurch aber viel mehr nutzen und am Ende kaum Energie sparen, nennt man das ___-Effekt. | Rebound |
-| 16 | Paare | Rechenzentren: Was gehört zusammen? | Server – Computer, der Daten und Dienste für andere bereitstellt; KI-Training – Ein Modell lernt aus riesigen Datenmengen; Abwärme – Wärme aus Servern, die Wohnungen heizen kann; Ökostrom – Strom aus Sonne, Wind und Wasser |
-| 17 | Reihenfolge | Sortiere diese Datenmengen – von klein nach groß. | Kilobyte → Megabyte → Gigabyte → Terabyte |
-| 18 | Auswahl | Was treibt den Strombedarf von Rechenzentren derzeit besonders stark nach oben? | Künstliche Intelligenz (KI) |
+| **12.1** | Auswahl | Welcher Anteil der weltweiten Treibhausgas-Emissionen geht ungefähr auf digitale Technik zurück (Geräte, Netze und Rechenzentren)? | rund 2 bis 4 % |
+| **12.2** | Auswahl | Welche Daten machen den größten Teil des weltweiten Internet-Datenverkehrs aus? | Videos, z. B. beim Streaming |
+| **12.3** | Stimmt? | Eine Stunde Video auf einem großen Fernseher braucht mehr Strom als dieselbe Stunde auf dem Smartphone. | stimmt |
+| **12.4** | Stimmt? | Beim Streaming ist die Datenübertragung über Glasfaser klimafreundlicher als über das Mobilfunknetz. | stimmt |
+| **12.5** | Lücke | Das Symbol der durchgestrichenen ___ bedeutet: Dieses Gerät gehört nicht in den Hausmüll. | Mülltonne |
+| **12.6** | Paare | Welcher Begriff passt zu welcher Erklärung? | Rechenzentrum – Gebäude voller Server; Cloud – Daten auf fremden Servern speichern; E-Schrott – Ausgediente Elektrogeräte; Refurbished – Generalüberholtes Gebrauchtgerät |
+| **12.7** | Auswahl | Wie viel Elektroschrott ist weltweit im Jahr 2022 angefallen? | rund 62 Millionen Tonnen |
+| **12.8** | Stimmt? | Große Elektrohändler und viele Supermärkte müssen kleine Elektro-Altgeräte kostenlos zurücknehmen – auch wenn man nichts Neues kauft. | stimmt |
+| **12.9** | Auswahl | Wie viele alte, ungenutzte Handys liegen laut einer Bitkom-Umfrage in deutschen Haushalten herum? | rund 170 Millionen |
+| **12.10** | Lücke | Seit Ende 2024 müssen neue Handys in der EU einen einheitlichen ___-Ladeanschluss haben. | USB-C |
+| **12.11** | Reihenfolge | Sortiere nach Stromverbrauch beim Videoschauen – von wenig nach viel. | Smartphone → Laptop → Großer Fernseher |
+| **12.12** | Auswahl | Was schreibt die EU seit Juni 2025 für neue Smartphones vor? | Wichtige Ersatzteile müssen noch 7 Jahre nach Verkaufsende lieferbar sein |
+| **12.13** | Auswahl | Wie viel des weltweiten Stroms verbrauchten Rechenzentren im Jahr 2024 laut Internationaler Energieagentur (IEA)? | rund 1,5 % |
+| **12.14** | Stimmt? | Rechenzentren brauchen nicht nur Strom, sondern oft auch viel Wasser zum Kühlen. | stimmt |
+| **12.15** | Lücke | Wenn Technik sparsamer wird, wir sie dadurch aber viel mehr nutzen und am Ende kaum Energie sparen, nennt man das ___-Effekt. | Rebound |
+| **12.16** | Paare | Rechenzentren: Was gehört zusammen? | Server – Computer, der Daten und Dienste für andere bereitstellt; KI-Training – Ein Modell lernt aus riesigen Datenmengen; Abwärme – Wärme aus Servern, die Wohnungen heizen kann; Ökostrom – Strom aus Sonne, Wind und Wasser |
+| **12.17** | Reihenfolge | Sortiere diese Datenmengen – von klein nach groß. | Kilobyte → Megabyte → Gigabyte → Terabyte |
+| **12.18** | Auswahl | Was treibt den Strombedarf von Rechenzentren derzeit besonders stark nach oben? | Künstliche Intelligenz (KI) |
 
 ### Einheit 13: Kinderrechte
 
-| # | Art | Frage | Richtige Antwort |
+| Code | Art | Frage | Richtige Antwort |
 |---|---|---|---|
-| 1 | Auswahl | In welchem Jahr haben die Vereinten Nationen die UN-Kinderrechtskonvention beschlossen? | 1989 |
-| 2 | Stimmt? | Laut UN-Kinderrechtskonvention gilt jeder Mensch unter 18 Jahren als Kind. | stimmt |
-| 3 | Lücke | Die UN-Kinderrechtskonvention besteht aus ___ Artikeln. | 54 |
-| 4 | Auswahl | Welcher Staat hat die UN-Kinderrechtskonvention als einziger UN-Mitgliedstaat nicht ratifiziert? | die USA |
-| 5 | Paare | Welches Kinderrecht ist hier betroffen? | Ein Mädchen darf nicht zur Schule gehen – Recht auf Bildung; Ein Kind hat nach der Schule nie Zeit zum Spielen – Recht auf Freizeit und Spiel; Ein Kind wird geschlagen – Recht auf Schutz vor Gewalt; Bei der Planung des Schulhofs werden die Kinder nicht gefragt – Recht auf Beteiligung |
-| 6 | Stimmt? | In Deutschland haben Kinder ein gesetzliches Recht auf gewaltfreie Erziehung. | stimmt |
-| 7 | Auswahl | Was bedeutet der Grundsatz „Vorrang des Kindeswohls“? | Bei allen Entscheidungen, die Kinder betreffen, muss ihr Wohl vorrangig berücksichtigt werden |
-| 8 | Lücke | Bei der „Nummer gegen ___“ (116 111) finden Kinder und Jugendliche kostenlos und anonym ein offenes Ohr. | Kummer |
-| 9 | Auswahl | Wie heißt das Kinderhilfswerk der Vereinten Nationen? | UNICEF |
-| 10 | Reihenfolge | Bringe diese Ereignisse der Kinderrechte in die zeitliche Reihenfolge. | Genfer Erklärung der Rechte des Kindes → Gründung von UNICEF → Verabschiedung der UN-Kinderrechtskonvention → Die Konvention tritt in Deutschland in Kraft |
-| 11 | Stimmt? | Kinderrechte stehen ausdrücklich im deutschen Grundgesetz. | stimmt nicht |
-| 12 | Auswahl | Was garantiert Artikel 12 der UN-Kinderrechtskonvention? | Kinder dürfen in allen Angelegenheiten, die sie betreffen, ihre Meinung sagen – und sie muss berücksichtigt werden |
-| 13 | Auswahl | Was hat der UN-Ausschuss für die Rechte des Kindes 2023 ausdrücklich bestätigt? | Kinder haben ein Recht auf eine saubere, gesunde und nachhaltige Umwelt |
-| 14 | Stimmt? | Fotos von Mitschüler*innen darf man ohne deren Erlaubnis im Internet veröffentlichen. | stimmt nicht |
-| 15 | Lücke | Wenn Eltern viele Fotos und Videos ihrer Kinder in sozialen Netzwerken teilen, nennt man das ___. | Sharenting |
-| 16 | Auswahl | Was entschied das Bundesverfassungsgericht 2021 nach einer Klage junger Menschen? | Das Klimaschutzgesetz musste nachgebessert werden, um die Freiheit künftiger Generationen zu schützen |
-| 17 | Reihenfolge | Wie wird ein UN-Vertrag wie die Kinderrechtskonvention in einem Land wirksam? Bringe die Schritte in die richtige Reihenfolge. | Die UN-Generalversammlung beschließt den Vertrag → Ein Staat unterzeichnet den Vertrag → Der Staat ratifiziert den Vertrag → Der Staat berichtet regelmäßig an den UN-Ausschuss in Genf |
-| 18 | Paare | Welche Altersgrenze gilt in Deutschland wofür? | 7 Jahre – Beschränkt geschäftsfähig (z. B. Taschengeldkäufe); 14 Jahre – Strafmündig; 16 Jahre – Wählen bei der Europawahl; 18 Jahre – Volljährig |
+| **13.1** | Auswahl | In welchem Jahr haben die Vereinten Nationen die UN-Kinderrechtskonvention beschlossen? | 1989 |
+| **13.2** | Stimmt? | Laut UN-Kinderrechtskonvention gilt jeder Mensch unter 18 Jahren als Kind. | stimmt |
+| **13.3** | Lücke | Die UN-Kinderrechtskonvention besteht aus ___ Artikeln. | 54 |
+| **13.4** | Auswahl | Welcher Staat hat die UN-Kinderrechtskonvention als einziger UN-Mitgliedstaat nicht ratifiziert? | die USA |
+| **13.5** | Paare | Welches Kinderrecht ist hier betroffen? | Ein Mädchen darf nicht zur Schule gehen – Recht auf Bildung; Ein Kind hat nach der Schule nie Zeit zum Spielen – Recht auf Freizeit und Spiel; Ein Kind wird geschlagen – Recht auf Schutz vor Gewalt; Bei der Planung des Schulhofs werden die Kinder nicht gefragt – Recht auf Beteiligung |
+| **13.6** | Stimmt? | In Deutschland haben Kinder ein gesetzliches Recht auf gewaltfreie Erziehung. | stimmt |
+| **13.7** | Auswahl | Was bedeutet der Grundsatz „Vorrang des Kindeswohls“? | Bei allen Entscheidungen, die Kinder betreffen, muss ihr Wohl vorrangig berücksichtigt werden |
+| **13.8** | Lücke | Bei der „Nummer gegen ___“ (116 111) finden Kinder und Jugendliche kostenlos und anonym ein offenes Ohr. | Kummer |
+| **13.9** | Auswahl | Wie heißt das Kinderhilfswerk der Vereinten Nationen? | UNICEF |
+| **13.10** | Reihenfolge | Bringe diese Ereignisse der Kinderrechte in die zeitliche Reihenfolge. | Genfer Erklärung der Rechte des Kindes → Gründung von UNICEF → Verabschiedung der UN-Kinderrechtskonvention → Die Konvention tritt in Deutschland in Kraft |
+| **13.11** | Stimmt? | Kinderrechte stehen ausdrücklich im deutschen Grundgesetz. | stimmt nicht |
+| **13.12** | Auswahl | Was garantiert Artikel 12 der UN-Kinderrechtskonvention? | Kinder dürfen in allen Angelegenheiten, die sie betreffen, ihre Meinung sagen – und sie muss berücksichtigt werden |
+| **13.13** | Auswahl | Was hat der UN-Ausschuss für die Rechte des Kindes 2023 ausdrücklich bestätigt? | Kinder haben ein Recht auf eine saubere, gesunde und nachhaltige Umwelt |
+| **13.14** | Stimmt? | Fotos von Mitschüler*innen darf man ohne deren Erlaubnis im Internet veröffentlichen. | stimmt nicht |
+| **13.15** | Lücke | Wenn Eltern viele Fotos und Videos ihrer Kinder in sozialen Netzwerken teilen, nennt man das ___. | Sharenting |
+| **13.16** | Auswahl | Was entschied das Bundesverfassungsgericht 2021 nach einer Klage junger Menschen? | Das Klimaschutzgesetz musste nachgebessert werden, um die Freiheit künftiger Generationen zu schützen |
+| **13.17** | Reihenfolge | Wie wird ein UN-Vertrag wie die Kinderrechtskonvention in einem Land wirksam? Bringe die Schritte in die richtige Reihenfolge. | Die UN-Generalversammlung beschließt den Vertrag → Ein Staat unterzeichnet den Vertrag → Der Staat ratifiziert den Vertrag → Der Staat berichtet regelmäßig an den UN-Ausschuss in Genf |
+| **13.18** | Paare | Welche Altersgrenze gilt in Deutschland wofür? | 7 Jahre – Beschränkt geschäftsfähig (z. B. Taschengeldkäufe); 14 Jahre – Strafmündig; 16 Jahre – Wählen bei der Europawahl; 18 Jahre – Volljährig |
 
 ### Einheit 14: Wald & Moore in Bayern
 
-| # | Art | Frage | Richtige Antwort |
+| Code | Art | Frage | Richtige Antwort |
 |---|---|---|---|
-| 1 | Auswahl | Welcher Anteil der Fläche Bayerns ist mit Wald bedeckt? | gut ein Drittel |
-| 2 | Stimmt? | Bayern hat die größte Waldfläche aller deutschen Bundesländer. | stimmt |
-| 3 | Auswahl | Welche Baumart ist in Bayerns Wäldern am häufigsten? | Fichte |
-| 4 | Reihenfolge | Ein Wald hat Stockwerke. Sortiere von unten nach oben. | Moosschicht → Krautschicht → Strauchschicht → Baumschicht |
-| 5 | Lücke | Der Begriff „Nachhaltigkeit“ stammt aus der ___: Hans Carl von Carlowitz forderte 1713, nur so viel Holz zu fällen, wie nachwächst. | Forstwirtschaft |
-| 6 | Paare | Welcher Baum hat welche Früchte oder Zapfen? | Rotbuche – Bucheckern; Eiche – Eicheln; Fichte – Hängende Zapfen; Weißtanne – Aufrecht stehende Zapfen |
-| 7 | Auswahl | Warum sind viele Fichtenwälder in Bayern in Gefahr? | Hitze und Trockenheit schwächen die Bäume, dann befällt sie der Borkenkäfer |
-| 8 | Stimmt? | Die Fichte ist ein Tiefwurzler und kommt deshalb gut mit Trockenheit zurecht. | stimmt nicht |
-| 9 | Lücke | Werden reine Nadelwälder nach und nach in klimastabile Mischwälder verwandelt, spricht man von Wald___. | umbau |
-| 10 | Auswahl | Wem gehört der größte Teil des Waldes in Bayern? | Privatleuten |
-| 11 | Stimmt? | Laut Bundeswaldinventur hat der Wald in Deutschland zwischen 2017 und 2022 mehr Kohlenstoff verloren als gespeichert. | stimmt |
-| 12 | Auswahl | Was ist ein Schutzwald in den Alpen? | Ein Wald, der Dörfer und Straßen vor Lawinen, Steinschlag und Muren schützt |
-| 13 | Auswahl | Wie schnell wächst die Torfschicht in einem intakten Hochmoor ungefähr? | rund 1 Millimeter pro Jahr |
-| 14 | Stimmt? | Wer torffreie Blumenerde kauft, hilft beim Schutz der Moore. | stimmt |
-| 15 | Paare | Was passt zusammen? | Hochmoor – Wird nur von Regenwasser gespeist; Niedermoor – Wird von Grundwasser gespeist; Torfmoos – Saugt sich voll Wasser wie ein Schwamm; Sonnentau – Fleischfressende Moorpflanze |
-| 16 | Lücke | Wird ein entwässertes Moor wieder nass gemacht, spricht man von ___. | Wiedervernässung |
-| 17 | Reihenfolge | Wie entsteht ein Hochmoor aus einem See? Bringe die Stufen in die richtige Reihenfolge. | Flacher See → Verlandung mit Schilf und Seggen → Niedermoor → Hochmoor |
-| 18 | Auswahl | Wie viel der Moorflächen in Bayern sind entwässert? | rund 95 % |
-
-**Bilderrätsel und Sortieraufgaben in dieser Einheit:**
-
-| # | Art | Frage | Richtige Antwort |
-|---|---|---|---|
-| 1 | Bild | Was speichert dieses Moor besonders gut? | Kohlenstoff (CO₂) |
+| **14.1** | Auswahl | Welcher Anteil der Fläche Bayerns ist mit Wald bedeckt? | gut ein Drittel |
+| **14.2** | Stimmt? | Bayern hat die größte Waldfläche aller deutschen Bundesländer. | stimmt |
+| **14.3** | Auswahl | Welche Baumart ist in Bayerns Wäldern am häufigsten? | Fichte |
+| **14.4** | Reihenfolge | Ein Wald hat Stockwerke. Sortiere von unten nach oben. | Moosschicht → Krautschicht → Strauchschicht → Baumschicht |
+| **14.5** | Lücke | Der Begriff „Nachhaltigkeit“ stammt aus der ___: Hans Carl von Carlowitz forderte 1713, nur so viel Holz zu fällen, wie nachwächst. | Forstwirtschaft |
+| **14.6** | Paare | Welcher Baum hat welche Früchte oder Zapfen? | Rotbuche – Bucheckern; Eiche – Eicheln; Fichte – Hängende Zapfen; Weißtanne – Aufrecht stehende Zapfen |
+| **14.7** | Auswahl | Warum sind viele Fichtenwälder in Bayern in Gefahr? | Hitze und Trockenheit schwächen die Bäume, dann befällt sie der Borkenkäfer |
+| **14.8** | Stimmt? | Die Fichte ist ein Tiefwurzler und kommt deshalb gut mit Trockenheit zurecht. | stimmt nicht |
+| **14.9** | Lücke | Werden reine Nadelwälder nach und nach in klimastabile Mischwälder verwandelt, spricht man von Wald___. | umbau |
+| **14.10** | Auswahl | Wem gehört der größte Teil des Waldes in Bayern? | Privatleuten |
+| **14.11** | Stimmt? | Laut Bundeswaldinventur hat der Wald in Deutschland zwischen 2017 und 2022 mehr Kohlenstoff verloren als gespeichert. | stimmt |
+| **14.12** | Auswahl | Was ist ein Schutzwald in den Alpen? | Ein Wald, der Dörfer und Straßen vor Lawinen, Steinschlag und Muren schützt |
+| **14.13** | Auswahl | Wie schnell wächst die Torfschicht in einem intakten Hochmoor ungefähr? | rund 1 Millimeter pro Jahr |
+| **14.14** | Stimmt? | Wer torffreie Blumenerde kauft, hilft beim Schutz der Moore. | stimmt |
+| **14.15** | Paare | Was passt zusammen? | Hochmoor – Wird nur von Regenwasser gespeist; Niedermoor – Wird von Grundwasser gespeist; Torfmoos – Saugt sich voll Wasser wie ein Schwamm; Sonnentau – Fleischfressende Moorpflanze |
+| **14.16** | Lücke | Wird ein entwässertes Moor wieder nass gemacht, spricht man von ___. | Wiedervernässung |
+| **14.17** | Reihenfolge | Wie entsteht ein Hochmoor aus einem See? Bringe die Stufen in die richtige Reihenfolge. | Flacher See → Verlandung mit Schilf und Seggen → Niedermoor → Hochmoor |
+| **14.18** | Auswahl | Wie viel der Moorflächen in Bayern sind entwässert? | rund 95 % |
+| **14.B1** | Bild | Was speichert dieses Moor besonders gut? | Kohlenstoff (CO₂) |
 
 ### Einheit 15: Deutschland: Energie & Klima in Zahlen
 
-| # | Art | Frage | Richtige Antwort |
+| Code | Art | Frage | Richtige Antwort |
 |---|---|---|---|
-| 1 | Auswahl | Wie viele Treibhausgase hat Deutschland 2025 ungefähr ausgestoßen (in CO₂-Äquivalenten)? | rund 650 Millionen Tonnen |
-| 2 | Auswahl | Um wie viel lagen die Treibhausgas-Emissionen 2025 unter dem Wert von 1990? | rund 48 % |
-| 3 | Lücke | Laut Klimaschutzgesetz darf Deutschland 2030 nur noch rund ___ Millionen Tonnen Treibhausgase ausstoßen. | 438 |
-| 4 | Stimmt? | Von 2024 auf 2025 sind die Treibhausgas-Emissionen in Deutschland kaum gesunken. | stimmt |
-| 5 | Stimmt? | Im Verkehr und bei den Gebäuden sind die Emissionen 2025 im Vergleich zum Vorjahr gestiegen. | stimmt |
-| 6 | Reihenfolge | Sortiere die Treibhausgas-Mengen Deutschlands vom größten zum kleinsten Wert. | 1990: rund 1.253 Millionen Tonnen → 2025: rund 649 Millionen Tonnen → Ziel 2030: rund 438 Millionen Tonnen → Ziel 2045: netto null |
-| 7 | Auswahl | Wie viel Prozent des Stromverbrauchs in Deutschland deckten erneuerbare Energien 2025? | fast 56 % |
-| 8 | Auswahl | Welche Energiequelle erzeugte 2025 den meisten Strom in Deutschland? | Windkraft |
-| 9 | Stimmt? | Solaranlagen erzeugten 2025 erstmals mehr Strom als Braunkohlekraftwerke. | stimmt |
-| 10 | Lücke | Ende 2025 hatten alle Solaranlagen in Deutschland zusammen rund ___ Gigawatt Leistung. | 117 |
-| 11 | Auswahl | Wie viel Leistung hatten alle Windräder an Land in Deutschland Ende 2025 ungefähr? | rund 68 Gigawatt |
-| 12 | Paare | Welche Leistung gehört zu welcher Anlagenart (Deutschland, Ende 2025)? | Solaranlagen – rund 117 Gigawatt; Windräder an Land – rund 68 Gigawatt; Windräder auf See – rund 9,5 Gigawatt; Alle erneuerbaren Anlagen zusammen – rund 210 Gigawatt |
-| 13 | Auswahl | Welches Bundesland hat die meiste Solarleistung installiert? | Bayern |
-| 14 | Lücke | Ende 2025 gab es in Bayern fast ___ Millionen Photovoltaik-Anlagen. | 1,4 |
-| 15 | Stimmt? | Bayern hat 2025 so viel Solarleistung neu gebaut wie kein anderes Bundesland. | stimmt |
-| 16 | Auswahl | Was besagte die bayerische „10H-Regel“ für Windräder? | Ein Windrad muss mindestens das Zehnfache seiner Höhe von Wohnhäusern entfernt stehen |
-| 17 | Reihenfolge | Bringe die Geschichte der 10H-Regel in Bayern in die richtige Reihenfolge. | Die 10H-Regel wird eingeführt → Der Landtag beschließt eine Lockerung → Die Lockerung tritt in Kraft |
-| 18 | Paare | Welche Zahl gehört zu welchem Bayern-Fakt? | rund 35 Gigawatt – Solarleistung in Bayern Ende 2025; rund 4,5 Gigawatt – Solar-Zubau in Bayern 2025; 2014 – Einführung der 10H-Regel; 1.000 Meter – Mindestabstand nach der Lockerung, z. B. in Wäldern und an Autobahnen |
+| **15.1** | Auswahl | Wie viele Treibhausgase hat Deutschland 2025 ungefähr ausgestoßen (in CO₂-Äquivalenten)? | rund 650 Millionen Tonnen |
+| **15.2** | Auswahl | Um wie viel lagen die Treibhausgas-Emissionen 2025 unter dem Wert von 1990? | rund 48 % |
+| **15.3** | Lücke | Laut Klimaschutzgesetz darf Deutschland 2030 nur noch rund ___ Millionen Tonnen Treibhausgase ausstoßen. | 438 |
+| **15.4** | Stimmt? | Von 2024 auf 2025 sind die Treibhausgas-Emissionen in Deutschland kaum gesunken. | stimmt |
+| **15.5** | Stimmt? | Im Verkehr und bei den Gebäuden sind die Emissionen 2025 im Vergleich zum Vorjahr gestiegen. | stimmt |
+| **15.6** | Reihenfolge | Sortiere die Treibhausgas-Mengen Deutschlands vom größten zum kleinsten Wert. | 1990: rund 1.253 Millionen Tonnen → 2025: rund 649 Millionen Tonnen → Ziel 2030: rund 438 Millionen Tonnen → Ziel 2045: netto null |
+| **15.7** | Auswahl | Wie viel Prozent des Stromverbrauchs in Deutschland deckten erneuerbare Energien 2025? | fast 56 % |
+| **15.8** | Auswahl | Welche Energiequelle erzeugte 2025 den meisten Strom in Deutschland? | Windkraft |
+| **15.9** | Stimmt? | Solaranlagen erzeugten 2025 erstmals mehr Strom als Braunkohlekraftwerke. | stimmt |
+| **15.10** | Lücke | Ende 2025 hatten alle Solaranlagen in Deutschland zusammen rund ___ Gigawatt Leistung. | 117 |
+| **15.11** | Auswahl | Wie viel Leistung hatten alle Windräder an Land in Deutschland Ende 2025 ungefähr? | rund 68 Gigawatt |
+| **15.12** | Paare | Welche Leistung gehört zu welcher Anlagenart (Deutschland, Ende 2025)? | Solaranlagen – rund 117 Gigawatt; Windräder an Land – rund 68 Gigawatt; Windräder auf See – rund 9,5 Gigawatt; Alle erneuerbaren Anlagen zusammen – rund 210 Gigawatt |
+| **15.13** | Auswahl | Welches Bundesland hat die meiste Solarleistung installiert? | Bayern |
+| **15.14** | Lücke | Ende 2025 gab es in Bayern fast ___ Millionen Photovoltaik-Anlagen. | 1,4 |
+| **15.15** | Stimmt? | Bayern hat 2025 so viel Solarleistung neu gebaut wie kein anderes Bundesland. | stimmt |
+| **15.16** | Auswahl | Was besagte die bayerische „10H-Regel“ für Windräder? | Ein Windrad muss mindestens das Zehnfache seiner Höhe von Wohnhäusern entfernt stehen |
+| **15.17** | Reihenfolge | Bringe die Geschichte der 10H-Regel in Bayern in die richtige Reihenfolge. | Die 10H-Regel wird eingeführt → Der Landtag beschließt eine Lockerung → Die Lockerung tritt in Kraft |
+| **15.18** | Paare | Welche Zahl gehört zu welchem Bayern-Fakt? | rund 35 Gigawatt – Solarleistung in Bayern Ende 2025; rund 4,5 Gigawatt – Solar-Zubau in Bayern 2025; 2014 – Einführung der 10H-Regel; 1.000 Meter – Mindestabstand nach der Lockerung, z. B. in Wäldern und an Autobahnen |
 
 ### Einheit 16: Energie sparen zu Hause & in der Schule
 
-| # | Art | Frage | Richtige Antwort |
+| Code | Art | Frage | Richtige Antwort |
 |---|---|---|---|
-| 1 | Auswahl | Wofür wird in einem durchschnittlichen Haushalt in Deutschland die meiste Energie verbraucht? | Fürs Heizen |
-| 2 | Stimmt? | Ein Ladegerät, das ohne Handy in der Steckdose steckt, verbraucht überhaupt keinen Strom. | stimmt nicht |
-| 3 | Lücke | Das ___ zeigt beim Kauf, wie sparsam ein Elektrogerät ist. | Energielabel |
-| 4 | Auswahl | Wofür steht die Einheit kWh auf der Stromrechnung? | Kilowattstunde |
-| 5 | Reihenfolge | Sortiere nach Leistung, also nach Stromverbrauch pro Stunde – vom geringsten zum höchsten. | LED-Lampe (ca. 8 Watt) → Laptop (ca. 50 Watt) → Fernseher (ca. 100 Watt) → Wasserkocher (ca. 2.000 Watt) |
-| 6 | Stimmt? | Beim Kochen mit Deckel auf dem Topf braucht man deutlich weniger Energie als ohne. | stimmt |
-| 7 | Auswahl | Welche Raumtemperatur empfiehlt das Umweltbundesamt ungefähr für Wohnräume? | etwa 20 °C |
-| 8 | Auswahl | Warum sollte man Heizkörper nicht mit Möbeln oder langen Vorhängen zustellen? | Die warme Luft kann sich dann schlecht im Raum verteilen |
-| 9 | Stimmt? | Wenn niemand zu Hause ist oder nachts kann man die Heizung etwas herunterdrehen. | stimmt |
-| 10 | Paare | Welcher Spartipp gehört zu welcher Wirkung? | Fenster abdichten – Weniger Zugluft und Wärmeverlust; Thermostat auf 3 statt auf 5 – Der Raum wird nicht überheizt; Rollläden nachts schließen – Weniger Wärme geht durchs Fenster verloren; Duschen statt Baden – Weniger warmes Wasser |
-| 11 | Auswahl | Wie viel warmes Wasser braucht ein Vollbad ungefähr im Vergleich zu fünf Minuten Duschen? | etwa zwei- bis dreimal so viel |
-| 12 | Lücke | Stufe 3 am Thermostat-Ventil eines Heizkörpers entspricht ungefähr ___ °C. | 20 |
-| 13 | Auswahl | Was machen Schüler*innen bei einem „Energiedetektive“-Projekt an der Schule? | Sie suchen Stellen, an denen Energie verschwendet wird |
-| 14 | Stimmt? | Wenn in den Pausen das Licht in leeren Klassenräumen ausgeschaltet wird, spart das über ein Schuljahr spürbar Strom. | stimmt |
-| 15 | Reihenfolge | Bringe die Schritte eines Energiespar-Projekts in eine sinnvolle Reihenfolge. | Verbrauch messen → Ideen zum Sparen sammeln → Maßnahmen umsetzen → Erneut messen und vergleichen |
-| 16 | Auswahl | Was zeigt ein Stromzähler an? | Wie viele Kilowattstunden verbraucht wurden |
-| 17 | Auswahl | Wie funktionieren „fifty/fifty“-Projekte, bei denen viele Schulen mitmachen? | Die Schule bekommt einen Teil der eingesparten Energiekosten |
-| 18 | Paare | Welcher Spartipp passt zu welchem Gerät? | Computer – Nach dem Unterricht ganz ausschalten; Kühlschrank – Tür schnell wieder schließen; Beamer – Nicht unnötig laufen lassen; Wasserkocher – Nur so viel Wasser wie nötig erhitzen |
-
-**Bilderrätsel und Sortieraufgaben in dieser Einheit:**
-
-| # | Art | Frage | Richtige Antwort |
-|---|---|---|---|
-| 1 | Sortieren | Spart das Energie oder verschwendet es Energie? | Spart Energie: Stoßlüften, Deckel auf dem Topf, LED-Lampe · Verschwendet Energie: Dauernd gekipptes Fenster, Standby über Nacht, Zugestellter Heizkörper |
+| **16.1** | Auswahl | Wofür wird in einem durchschnittlichen Haushalt in Deutschland die meiste Energie verbraucht? | Fürs Heizen |
+| **16.2** | Stimmt? | Ein Ladegerät, das ohne Handy in der Steckdose steckt, verbraucht überhaupt keinen Strom. | stimmt nicht |
+| **16.3** | Lücke | Das ___ zeigt beim Kauf, wie sparsam ein Elektrogerät ist. | Energielabel |
+| **16.4** | Auswahl | Wofür steht die Einheit kWh auf der Stromrechnung? | Kilowattstunde |
+| **16.5** | Reihenfolge | Sortiere nach Leistung, also nach Stromverbrauch pro Stunde – vom geringsten zum höchsten. | LED-Lampe (ca. 8 Watt) → Laptop (ca. 50 Watt) → Fernseher (ca. 100 Watt) → Wasserkocher (ca. 2.000 Watt) |
+| **16.6** | Stimmt? | Beim Kochen mit Deckel auf dem Topf braucht man deutlich weniger Energie als ohne. | stimmt |
+| **16.7** | Auswahl | Welche Raumtemperatur empfiehlt das Umweltbundesamt ungefähr für Wohnräume? | etwa 20 °C |
+| **16.8** | Auswahl | Warum sollte man Heizkörper nicht mit Möbeln oder langen Vorhängen zustellen? | Die warme Luft kann sich dann schlecht im Raum verteilen |
+| **16.9** | Stimmt? | Wenn niemand zu Hause ist oder nachts kann man die Heizung etwas herunterdrehen. | stimmt |
+| **16.10** | Paare | Welcher Spartipp gehört zu welcher Wirkung? | Fenster abdichten – Weniger Zugluft und Wärmeverlust; Thermostat auf 3 statt auf 5 – Der Raum wird nicht überheizt; Rollläden nachts schließen – Weniger Wärme geht durchs Fenster verloren; Duschen statt Baden – Weniger warmes Wasser |
+| **16.11** | Auswahl | Wie viel warmes Wasser braucht ein Vollbad ungefähr im Vergleich zu fünf Minuten Duschen? | etwa zwei- bis dreimal so viel |
+| **16.12** | Lücke | Stufe 3 am Thermostat-Ventil eines Heizkörpers entspricht ungefähr ___ °C. | 20 |
+| **16.13** | Auswahl | Was machen Schüler*innen bei einem „Energiedetektive“-Projekt an der Schule? | Sie suchen Stellen, an denen Energie verschwendet wird |
+| **16.14** | Stimmt? | Wenn in den Pausen das Licht in leeren Klassenräumen ausgeschaltet wird, spart das über ein Schuljahr spürbar Strom. | stimmt |
+| **16.15** | Reihenfolge | Bringe die Schritte eines Energiespar-Projekts in eine sinnvolle Reihenfolge. | Verbrauch messen → Ideen zum Sparen sammeln → Maßnahmen umsetzen → Erneut messen und vergleichen |
+| **16.16** | Auswahl | Was zeigt ein Stromzähler an? | Wie viele Kilowattstunden verbraucht wurden |
+| **16.17** | Auswahl | Wie funktionieren „fifty/fifty“-Projekte, bei denen viele Schulen mitmachen? | Die Schule bekommt einen Teil der eingesparten Energiekosten |
+| **16.18** | Paare | Welcher Spartipp passt zu welchem Gerät? | Computer – Nach dem Unterricht ganz ausschalten; Kühlschrank – Tür schnell wieder schließen; Beamer – Nicht unnötig laufen lassen; Wasserkocher – Nur so viel Wasser wie nötig erhitzen |
+| **16.S1** | Sortieren | Spart das Energie oder verschwendet es Energie? | Spart Energie: Stoßlüften, Deckel auf dem Topf, LED-Lampe · Verschwendet Energie: Dauernd gekipptes Fenster, Standby über Nacht, Zugestellter Heizkörper |
 
 ### Einheit 17: Plastik im Alltag
 
-| # | Art | Frage | Richtige Antwort |
+| Code | Art | Frage | Richtige Antwort |
 |---|---|---|---|
-| 1 | Auswahl | Woraus wird herkömmliches Plastik meistens hergestellt? | Aus Erdöl |
-| 2 | Stimmt? | Plastik zerfällt in der Natur innerhalb weniger Wochen vollständig. | stimmt nicht |
-| 3 | Lücke | Kunststoffteilchen, die kleiner als 5 Millimeter sind, nennt man ___. | Mikroplastik |
-| 4 | Auswahl | Wie lange braucht eine Plastikflasche ungefähr, um sich im Meer zu zersetzen? | Mehrere hundert Jahre |
-| 5 | Paare | Welche Alternative passt zu welchem Plastikprodukt? | Plastiktüte – Stoffbeutel oder Rucksack; Einwegflasche – Trinkflasche zum Nachfüllen; Frischhaltefolie – Dose oder Bienenwachstuch; Plastikstrohhalm – Kein Halm oder ein Glashalm |
-| 6 | Stimmt? | In der EU sind seit 2021 bestimmte Einwegprodukte aus Plastik verboten, zum Beispiel Trinkhalme und Wattestäbchen. | stimmt |
-| 7 | Auswahl | Warum ist Plastik im Meer für Tiere gefährlich? | Sie verwechseln es mit Futter oder verfangen sich darin |
-| 8 | Auswahl | Wie heißt die bekannte riesige Ansammlung von Plastikmüll im Pazifik? | Great Pacific Garbage Patch |
-| 9 | Stimmt? | Mikroplastik wurde schon in Tieren, Lebensmitteln und sogar im menschlichen Körper nachgewiesen. | stimmt |
-| 10 | Auswahl | Was ist in Deutschland eine der größten Quellen für Mikroplastik in der Umwelt? | Der Abrieb von Autoreifen |
-| 11 | Reihenfolge | Bringe den möglichen Weg einer weggeworfenen Plastikflasche in die richtige Reihenfolge. | Die Flasche wird achtlos weggeworfen → Regen spült sie in einen Bach → Ein Fluss trägt sie ins Meer → Sie zerfällt langsam in Mikroplastik |
-| 12 | Stimmt? | Beim Waschen von Kleidung aus Polyester können sich winzige Kunststofffasern lösen. | stimmt |
-| 13 | Auswahl | Was bedeutet das Pfand auf Einwegflaschen in Deutschland? | Man bekommt 25 Cent zurück, wenn man sie zurückgibt |
-| 14 | Lücke | Eine Mehrweg-Glasflasche kann bis zu ___-mal wiederbefüllt werden. | 50 |
-| 15 | Stimmt? | In Deutschland wird ein großer Teil der Kunststoffabfälle verbrannt statt zu neuem Kunststoff recycelt. | stimmt |
-| 16 | Auswahl | Was ist ein Unverpackt-Laden? | Ein Laden, in dem man Lebensmittel in mitgebrachte Behälter füllt |
-| 17 | Paare | Was bedeuten die englischen „R“s gegen Müll? | Refuse – Unnötiges ablehnen; Reduce – Weniger verbrauchen; Reuse – Wiederverwenden; Recycle – Rohstoffe wiederverwerten |
-| 18 | Stimmt? | Bioplastik ist immer biologisch abbaubar und gehört in die Biotonne. | stimmt nicht |
-
-**Bilderrätsel und Sortieraufgaben in dieser Einheit:**
-
-| # | Art | Frage | Richtige Antwort |
-|---|---|---|---|
-| 1 | Sortieren | Mehrweg oder Einweg? | Mehrweg: Pfand-Glasflasche (Mehrweg), Stoffbeutel, Brotdose · Einweg: Plastiktüte, Coffee-to-go-Becher, Getränkedose |
+| **17.1** | Auswahl | Woraus wird herkömmliches Plastik meistens hergestellt? | Aus Erdöl |
+| **17.2** | Stimmt? | Plastik zerfällt in der Natur innerhalb weniger Wochen vollständig. | stimmt nicht |
+| **17.3** | Lücke | Kunststoffteilchen, die kleiner als 5 Millimeter sind, nennt man ___. | Mikroplastik |
+| **17.4** | Auswahl | Wie lange braucht eine Plastikflasche ungefähr, um sich im Meer zu zersetzen? | Mehrere hundert Jahre |
+| **17.5** | Paare | Welche Alternative passt zu welchem Plastikprodukt? | Plastiktüte – Stoffbeutel oder Rucksack; Einwegflasche – Trinkflasche zum Nachfüllen; Frischhaltefolie – Dose oder Bienenwachstuch; Plastikstrohhalm – Kein Halm oder ein Glashalm |
+| **17.6** | Stimmt? | In der EU sind seit 2021 bestimmte Einwegprodukte aus Plastik verboten, zum Beispiel Trinkhalme und Wattestäbchen. | stimmt |
+| **17.7** | Auswahl | Warum ist Plastik im Meer für Tiere gefährlich? | Sie verwechseln es mit Futter oder verfangen sich darin |
+| **17.8** | Auswahl | Wie heißt die bekannte riesige Ansammlung von Plastikmüll im Pazifik? | Great Pacific Garbage Patch |
+| **17.9** | Stimmt? | Mikroplastik wurde schon in Tieren, Lebensmitteln und sogar im menschlichen Körper nachgewiesen. | stimmt |
+| **17.10** | Auswahl | Was ist in Deutschland eine der größten Quellen für Mikroplastik in der Umwelt? | Der Abrieb von Autoreifen |
+| **17.11** | Reihenfolge | Bringe den möglichen Weg einer weggeworfenen Plastikflasche in die richtige Reihenfolge. | Die Flasche wird achtlos weggeworfen → Regen spült sie in einen Bach → Ein Fluss trägt sie ins Meer → Sie zerfällt langsam in Mikroplastik |
+| **17.12** | Stimmt? | Beim Waschen von Kleidung aus Polyester können sich winzige Kunststofffasern lösen. | stimmt |
+| **17.13** | Auswahl | Was bedeutet das Pfand auf Einwegflaschen in Deutschland? | Man bekommt 25 Cent zurück, wenn man sie zurückgibt |
+| **17.14** | Lücke | Eine Mehrweg-Glasflasche kann bis zu ___-mal wiederbefüllt werden. | 50 |
+| **17.15** | Stimmt? | In Deutschland wird ein großer Teil der Kunststoffabfälle verbrannt statt zu neuem Kunststoff recycelt. | stimmt |
+| **17.16** | Auswahl | Was ist ein Unverpackt-Laden? | Ein Laden, in dem man Lebensmittel in mitgebrachte Behälter füllt |
+| **17.17** | Paare | Was bedeuten die englischen „R“s gegen Müll? | Refuse – Unnötiges ablehnen; Reduce – Weniger verbrauchen; Reuse – Wiederverwenden; Recycle – Rohstoffe wiederverwerten |
+| **17.18** | Stimmt? | Bioplastik ist immer biologisch abbaubar und gehört in die Biotonne. | stimmt nicht |
+| **17.S1** | Sortieren | Mehrweg oder Einweg? | Mehrweg: Pfand-Glasflasche (Mehrweg), Stoffbeutel, Brotdose · Einweg: Plastiktüte, Coffee-to-go-Becher, Getränkedose |
 
 ### Einheit 18: Klimawandel weltweit
 
-| # | Art | Frage | Richtige Antwort |
+| Code | Art | Frage | Richtige Antwort |
 |---|---|---|---|
-| 1 | Auswahl | Um wie viel hat sich die Erde seit Beginn der Industrialisierung ungefähr erwärmt? | Um rund 1,3 bis 1,5 °C |
-| 2 | Stimmt? | Der Meeresspiegel steigt unter anderem, weil Gletscher und Eisschilde schmelzen. | stimmt |
-| 3 | Lücke | Wenn sich Wasser erwärmt, dehnt es sich aus – auch das lässt den ___ steigen. | Meeresspiegel |
-| 4 | Auswahl | Welche Folge des Klimawandels trifft viele Länder im globalen Süden besonders hart? | Dürren und Ernteausfälle |
-| 5 | Paare | Welche Region ist von welcher Folge besonders betroffen? | Pazifische Inselstaaten – Steigender Meeresspiegel; Alpen – Schmelzende Gletscher; Sahelzone – Dürren; Great Barrier Reef – Korallenbleiche |
-| 6 | Stimmt? | Hitzewellen werden durch den Klimawandel häufiger und stärker. | stimmt |
-| 7 | Auswahl | Welches Land hat seit 1850 insgesamt am meisten CO₂ ausgestoßen? | Die USA |
-| 8 | Stimmt? | Heute stößt China pro Jahr mehr CO₂ aus als jedes andere Land. | stimmt |
-| 9 | Auswahl | Was bedeutet „Klimagerechtigkeit“? | Wer viel zum Klimawandel beigetragen hat, soll mehr Verantwortung übernehmen und Betroffene unterstützen |
-| 10 | Auswahl | Worauf einigten sich die Staaten 2022 bei der Weltklimakonferenz in Ägypten? | Auf einen Fonds für Klimaschäden in besonders betroffenen Ländern |
-| 11 | Reihenfolge | Bringe diese Ereignisse der internationalen Klimapolitik in die zeitliche Reihenfolge. | Kyoto-Protokoll → Pariser Klimaabkommen → Klimakonferenz in Ägypten → Klimakonferenz in Brasilien |
-| 12 | Stimmt? | Menschen in reichen Ländern verursachen im Durchschnitt deutlich mehr CO₂ als Menschen in armen Ländern. | stimmt |
-| 13 | Auswahl | Wie heißen die jährlichen Weltklimakonferenzen der Vereinten Nationen? | COP |
-| 14 | Lücke | Im Pariser Abkommen wollen die Staaten die Erwärmung möglichst auf ___ °C begrenzen. | 1,5 |
-| 15 | Stimmt? | Die Weltklimakonferenz 2025 (COP30) fand in Brasilien statt. | stimmt |
-| 16 | Auswahl | Was ist der IPCC, auch „Weltklimarat“ genannt? | Ein Gremium, das den Stand der Forschung zum Klimawandel zusammenfasst |
-| 17 | Paare | Welcher Begriff passt zu welcher Erklärung? | Anpassung – Sich auf Folgen einstellen, z. B. Deiche bauen; Klimaschutz – Treibhausgase vermeiden; Kipppunkt – Schwelle, ab der sich etwas kaum noch umkehren lässt; Klimamigration – Menschen verlassen wegen Klimafolgen ihre Heimat |
-| 18 | Stimmt? | Die USA sind aus dem Pariser Klimaabkommen ausgetreten. | stimmt |
-
-**Bilderrätsel und Sortieraufgaben in dieser Einheit:**
-
-| # | Art | Frage | Richtige Antwort |
-|---|---|---|---|
-| 1 | Sortieren | Klimaschutz oder Anpassung an die Folgen? | Klimaschutz: Solaranlage bauen, Weniger fliegen, Moore wiedervernässen · Anpassung: Deiche erhöhen, Hitzeschutzplan für die Stadt, Dürrefeste Pflanzen anbauen |
+| **18.1** | Auswahl | Um wie viel hat sich die Erde seit Beginn der Industrialisierung ungefähr erwärmt? | Um rund 1,3 bis 1,5 °C |
+| **18.2** | Stimmt? | Der Meeresspiegel steigt unter anderem, weil Gletscher und Eisschilde schmelzen. | stimmt |
+| **18.3** | Lücke | Wenn sich Wasser erwärmt, dehnt es sich aus – auch das lässt den ___ steigen. | Meeresspiegel |
+| **18.4** | Auswahl | Welche Folge des Klimawandels trifft viele Länder im globalen Süden besonders hart? | Dürren und Ernteausfälle |
+| **18.5** | Paare | Welche Region ist von welcher Folge besonders betroffen? | Pazifische Inselstaaten – Steigender Meeresspiegel; Alpen – Schmelzende Gletscher; Sahelzone – Dürren; Great Barrier Reef – Korallenbleiche |
+| **18.6** | Stimmt? | Hitzewellen werden durch den Klimawandel häufiger und stärker. | stimmt |
+| **18.7** | Auswahl | Welches Land hat seit 1850 insgesamt am meisten CO₂ ausgestoßen? | Die USA |
+| **18.8** | Stimmt? | Heute stößt China pro Jahr mehr CO₂ aus als jedes andere Land. | stimmt |
+| **18.9** | Auswahl | Was bedeutet „Klimagerechtigkeit“? | Wer viel zum Klimawandel beigetragen hat, soll mehr Verantwortung übernehmen und Betroffene unterstützen |
+| **18.10** | Auswahl | Worauf einigten sich die Staaten 2022 bei der Weltklimakonferenz in Ägypten? | Auf einen Fonds für Klimaschäden in besonders betroffenen Ländern |
+| **18.11** | Reihenfolge | Bringe diese Ereignisse der internationalen Klimapolitik in die zeitliche Reihenfolge. | Kyoto-Protokoll → Pariser Klimaabkommen → Klimakonferenz in Ägypten → Klimakonferenz in Brasilien |
+| **18.12** | Stimmt? | Menschen in reichen Ländern verursachen im Durchschnitt deutlich mehr CO₂ als Menschen in armen Ländern. | stimmt |
+| **18.13** | Auswahl | Wie heißen die jährlichen Weltklimakonferenzen der Vereinten Nationen? | COP |
+| **18.14** | Lücke | Im Pariser Abkommen wollen die Staaten die Erwärmung möglichst auf ___ °C begrenzen. | 1,5 |
+| **18.15** | Stimmt? | Die Weltklimakonferenz 2025 (COP30) fand in Brasilien statt. | stimmt |
+| **18.16** | Auswahl | Was ist der IPCC, auch „Weltklimarat“ genannt? | Ein Gremium, das den Stand der Forschung zum Klimawandel zusammenfasst |
+| **18.17** | Paare | Welcher Begriff passt zu welcher Erklärung? | Anpassung – Sich auf Folgen einstellen, z. B. Deiche bauen; Klimaschutz – Treibhausgase vermeiden; Kipppunkt – Schwelle, ab der sich etwas kaum noch umkehren lässt; Klimamigration – Menschen verlassen wegen Klimafolgen ihre Heimat |
+| **18.18** | Stimmt? | Die USA sind aus dem Pariser Klimaabkommen ausgetreten. | stimmt |
+| **18.S1** | Sortieren | Klimaschutz oder Anpassung an die Folgen? | Klimaschutz: Solaranlage bauen, Weniger fliegen, Moore wiedervernässen · Anpassung: Deiche erhöhen, Hitzeschutzplan für die Stadt, Dürrefeste Pflanzen anbauen |
 
 ### MMG-Special: AG „Going green und fair“
 
-| # | Art | Frage | Richtige Antwort |
+| Code | Art | Frage | Richtige Antwort |
 |---|---|---|---|
-| 1 | Auswahl | Von wem stammt das Zitat „Was wir heute tun, entscheidet darüber, wie die Welt morgen aussieht“? | Marie von Ebner-Eschenbach |
-| 2 | Lücke | Die AG am MMG heißt „Going green und ___“. | fair |
-| 3 | Auswahl | Wofür steht die Abkürzung BNE? | Bildung für nachhaltige Entwicklung |
-| 4 | Stimmt? | BNE ist eine weltweite Bildungskampagne der Vereinten Nationen. | stimmt |
-| 5 | Auswahl | Was sollen die AG-Mitglieder bei ihren Projekten erleben? | Selbstwirksamkeit und Gemeinschaft |
-| 6 | Lücke | BNE soll es allen Menschen ermöglichen, die Auswirkungen des eigenen ___ auf die Welt zu verstehen. | Handelns |
-| 7 | Auswahl | Wie hieß der Workshop der AG in der Woche der Gesundheit und Nachhaltigkeit? | „Change Fashion“ |
-| 8 | Stimmt? | Fast Fashion ist Trendmode, die in schnell aufeinanderfolgenden Kollektionen erscheint. | stimmt |
-| 9 | Auswahl | Wo sind die fairen Produkte des MMG-Weltladens gut sichtbar ausgestellt? | In einer Glasvitrine in der Mensa |
-| 10 | Auswahl | Wie oft öffnet der MMG-Weltladen? | Einmal im Monat |
-| 11 | Lücke | Im Advent verteilten Nikolaus, Knecht Ruprecht und Engel faire ___ an alle Schüler*innen des MMG. | Schokonikoläuse |
-| 12 | Stimmt? | Nikolaus, Knecht Ruprecht und die Engel waren Mitglieder der SMV. | stimmt |
-| 13 | Auswahl | Wie viel Geld erhielt das Hilfswerk „Missio“ pro gespendetem Handy? | 50 Cent |
-| 14 | Auswahl | Wie viele Handys schickte das MMG an das Sammelcenter? | 49 |
-| 15 | Stimmt? | Mit den Handyspenden werden Projekte für Kinder unter anderem in Ghana und auf den Philippinen unterstützt. | stimmt |
-| 16 | Paare | Welche Eigenschaft der MMG-Hefte hat welchen Vorteil? | 100 % Recyclingpapier – Schont Wälder; Aus Dorfen – Kurze Transportwege; Stabiler Einband – Kein Plastikumschlag nötig; Integrierter Heftstreifen – Kein extra Schnellhefter |
-| 17 | Lücke | Die MMG-Hefte kommen regional vom Musikverlag Streubel aus ___. | Dorfen |
-| 18 | Auswahl | Wie erkennt man bei den MMG-Heften ohne Plastikumschlag das Fach? | Man malt den Rand in der Fachfarbe an |
+| **MMG.1** | Auswahl | Von wem stammt das Zitat „Was wir heute tun, entscheidet darüber, wie die Welt morgen aussieht“? | Marie von Ebner-Eschenbach |
+| **MMG.2** | Lücke | Die AG am MMG heißt „Going green und ___“. | fair |
+| **MMG.3** | Auswahl | Wofür steht die Abkürzung BNE? | Bildung für nachhaltige Entwicklung |
+| **MMG.4** | Stimmt? | BNE ist eine weltweite Bildungskampagne der Vereinten Nationen. | stimmt |
+| **MMG.5** | Auswahl | Was sollen die AG-Mitglieder bei ihren Projekten erleben? | Selbstwirksamkeit und Gemeinschaft |
+| **MMG.6** | Lücke | BNE soll es allen Menschen ermöglichen, die Auswirkungen des eigenen ___ auf die Welt zu verstehen. | Handelns |
+| **MMG.7** | Auswahl | Wie hieß der Workshop der AG in der Woche der Gesundheit und Nachhaltigkeit? | „Change Fashion“ |
+| **MMG.8** | Stimmt? | Fast Fashion ist Trendmode, die in schnell aufeinanderfolgenden Kollektionen erscheint. | stimmt |
+| **MMG.9** | Auswahl | Wo zeigt die AG ihre fairen Produkte gut sichtbar? | In einer Glasvitrine in der Mensa |
+| **MMG.10** | Auswahl | Wie oft verkauft die AG am MMG faire Produkte? | Einmal im Monat in der Pause |
+| **MMG.11** | Lücke | Im Advent verteilten Nikolaus, Knecht Ruprecht und Engel faire ___ an alle Schüler*innen des MMG. | Schokonikoläuse |
+| **MMG.12** | Stimmt? | Nikolaus, Knecht Ruprecht und die Engel waren Mitglieder der SMV. | stimmt |
+| **MMG.13** | Auswahl | Wie viel Geld erhielt das Hilfswerk „Missio“ pro gespendetem Handy? | 50 Cent |
+| **MMG.14** | Auswahl | Wie viele Handys schickte das MMG an das Sammelcenter? | 49 |
+| **MMG.15** | Stimmt? | Mit den Handyspenden werden Projekte für Kinder unter anderem in Ghana und auf den Philippinen unterstützt. | stimmt |
+| **MMG.16** | Paare | Welche Eigenschaft der MMG-Hefte hat welchen Vorteil? | 100 % Recyclingpapier – Schont Wälder; Aus Dorfen – Kurze Transportwege; Stabiler Einband – Kein Plastikumschlag nötig; Integrierter Heftstreifen – Kein extra Schnellhefter |
+| **MMG.17** | Lücke | Die MMG-Hefte kommen regional vom Musikverlag Streubel aus ___. | Dorfen |
+| **MMG.18** | Auswahl | Wie erkennt man bei den MMG-Heften ohne Plastikumschlag das Fach? | Man malt den Rand in der Fachfarbe an |
 
 ### Schätzen & Mythen – Schätzfragen
 
-| # | Art | Frage | Richtige Antwort |
+| Code | Art | Frage | Richtige Antwort |
 |---|---|---|---|
-| 1 | Schätzen | Wie viele Liter Wasser stecken in der Herstellung eines Baumwoll-T-Shirts? | 2700 Liter |
-| 2 | Schätzen | Wie viele Liter Wasser stecken in 1 kg Rindfleisch? | 15000 Liter |
-| 3 | Schätzen | Wie viele Liter Trinkwasser verbraucht eine Person in Deutschland pro Tag? | 122 Liter |
-| 4 | Schätzen | Wie viele neue Kleidungsstücke kauft eine Person in Deutschland pro Jahr? | 60 Stück |
-| 5 | Schätzen | Wie viele Jahre braucht eine Plastikflasche, um in der Natur zu zerfallen? | 450 Jahre |
-| 6 | Schätzen | Wie viele Ziele für nachhaltige Entwicklung (SDGs) gibt es? | 17 Ziele |
-| 7 | Schätzen | Wie viel Prozent des Wassers auf der Erde ist Süßwasser? | 2.5 % |
-| 8 | Schätzen | Wie viel Prozent Heizenergie spart man, wenn man die Raumtemperatur um 1 °C senkt? | 6 % |
-| 9 | Schätzen | Wie viele Nationalparks gibt es in Deutschland? | 16 Nationalparks |
-| 10 | Schätzen | Wie viele Millionen Tonnen Lebensmittel werden in Deutschland pro Jahr weggeworfen? | 11 Mio. Tonnen |
-| 11 | Schätzen | In welchem Jahr wurde das Pariser Klimaabkommen beschlossen? | 2015  |
-| 12 | Schätzen | Wie viele Handys hat das MMG bei der Sammelaktion ans Sammelcenter geschickt? | 49 Handys |
-| 13 | Schätzen | Wie viele Millionen Kinder weltweit sind laut ILO und UNICEF von Kinderarbeit betroffen? | 138 Millionen |
-| 14 | Schätzen | Um wie viel Grad hat sich die Erde seit Beginn der Industrialisierung ungefähr erwärmt? | 1.4 °C |
-| 15 | Schätzen | Wie oft kann eine Glas-Mehrwegflasche höchstens wiederbefüllt werden? | 50 Mal |
+| **SCH.1** | Schätzen | Wie viele Liter Wasser stecken in der Herstellung eines Baumwoll-T-Shirts? | 2700 Liter |
+| **SCH.2** | Schätzen | Wie viele Liter Wasser stecken in 1 kg Rindfleisch? | 15000 Liter |
+| **SCH.3** | Schätzen | Wie viele Liter Trinkwasser verbraucht eine Person in Deutschland pro Tag? | 122 Liter |
+| **SCH.4** | Schätzen | Wie viele neue Kleidungsstücke kauft eine Person in Deutschland pro Jahr? | 60 Stück |
+| **SCH.5** | Schätzen | Wie viele Jahre braucht eine Plastikflasche, um in der Natur zu zerfallen? | 450 Jahre |
+| **SCH.6** | Schätzen | Wie viele Ziele für nachhaltige Entwicklung (SDGs) gibt es? | 17 Ziele |
+| **SCH.7** | Schätzen | Wie viel Prozent des Wassers auf der Erde ist Süßwasser? | 2.5 % |
+| **SCH.8** | Schätzen | Wie viel Prozent Heizenergie spart man, wenn man die Raumtemperatur um 1 °C senkt? | 6 % |
+| **SCH.9** | Schätzen | Wie viele Nationalparks gibt es in Deutschland? | 16 Nationalparks |
+| **SCH.10** | Schätzen | Wie viele Millionen Tonnen Lebensmittel werden in Deutschland pro Jahr weggeworfen? | 11 Mio. Tonnen |
+| **SCH.11** | Schätzen | In welchem Jahr wurde das Pariser Klimaabkommen beschlossen? | 2015  |
+| **SCH.12** | Schätzen | Wie viele Handys hat das MMG bei der Sammelaktion ans Sammelcenter geschickt? | 49 Handys |
+| **SCH.13** | Schätzen | Wie viele Millionen Kinder weltweit sind laut ILO und UNICEF von Kinderarbeit betroffen? | 138 Millionen |
+| **SCH.14** | Schätzen | Um wie viel Grad hat sich die Erde seit Beginn der Industrialisierung ungefähr erwärmt? | 1.4 °C |
+| **SCH.15** | Schätzen | Wie oft kann eine Glas-Mehrwegflasche höchstens wiederbefüllt werden? | 50 Mal |
 
 ### Schätzen & Mythen – Wahr oder Mythos?
 
-| # | Art | Frage | Richtige Antwort |
+| Code | Art | Frage | Richtige Antwort |
 |---|---|---|---|
-| 1 | Stimmt? | Bio-Lebensmittel kommen immer aus der Region. | stimmt nicht |
-| 2 | Stimmt? | Papiertüten sind immer umweltfreundlicher als Plastiktüten. | stimmt nicht |
-| 3 | Stimmt? | Geräte im Standby verbrauchen keinen Strom. | stimmt nicht |
-| 4 | Stimmt? | Schon 1 °C weniger Raumtemperatur spart rund 6 % Heizenergie. | stimmt |
-| 5 | Stimmt? | Nach dem Mindesthaltbarkeitsdatum muss man Lebensmittel wegwerfen. | stimmt nicht |
-| 6 | Stimmt? | Joghurtbecher muss man vor dem Wegwerfen gründlich ausspülen. | stimmt nicht |
-| 7 | Stimmt? | Trinkgläser und Keramik gehören in den Altglascontainer. | stimmt nicht |
-| 8 | Stimmt? | Der heutige Klimawandel ist nur ein natürlicher Klimazyklus. | stimmt nicht |
-| 9 | Stimmt? | Das Ozonloch ist die Hauptursache des Klimawandels. | stimmt nicht |
-| 10 | Stimmt? | Leitungswasser ist in Deutschland streng kontrolliert und kann meist bedenkenlos getrunken werden. | stimmt |
-| 11 | Stimmt? | Recyclingpapier ist schlechter als Papier aus frischen Fasern. | stimmt nicht |
-| 12 | Stimmt? | Kleidung aus Polyester verliert beim Waschen Mikroplastikfasern. | stimmt |
-| 13 | Stimmt? | Bäume pflanzen allein reicht, um den Klimawandel zu stoppen. | stimmt nicht |
-| 14 | Stimmt? | Fair gehandelte Produkte gibt es nur im Weltladen. | stimmt nicht |
-| 15 | Stimmt? | Ein Smartphone länger zu nutzen ist gut fürs Klima. | stimmt |
+| **MY.1** | Stimmt? | Bio-Lebensmittel kommen immer aus der Region. | stimmt nicht |
+| **MY.2** | Stimmt? | Papiertüten sind immer umweltfreundlicher als Plastiktüten. | stimmt nicht |
+| **MY.3** | Stimmt? | Geräte im Standby verbrauchen keinen Strom. | stimmt nicht |
+| **MY.4** | Stimmt? | Schon 1 °C weniger Raumtemperatur spart rund 6 % Heizenergie. | stimmt |
+| **MY.5** | Stimmt? | Nach dem Mindesthaltbarkeitsdatum muss man Lebensmittel wegwerfen. | stimmt nicht |
+| **MY.6** | Stimmt? | Joghurtbecher muss man vor dem Wegwerfen gründlich ausspülen. | stimmt nicht |
+| **MY.7** | Stimmt? | Trinkgläser und Keramik gehören in den Altglascontainer. | stimmt nicht |
+| **MY.8** | Stimmt? | Der heutige Klimawandel ist nur ein natürlicher Klimazyklus. | stimmt nicht |
+| **MY.9** | Stimmt? | Das Ozonloch ist die Hauptursache des Klimawandels. | stimmt nicht |
+| **MY.10** | Stimmt? | Leitungswasser ist in Deutschland streng kontrolliert und kann meist bedenkenlos getrunken werden. | stimmt |
+| **MY.11** | Stimmt? | Recyclingpapier ist schlechter als Papier aus frischen Fasern. | stimmt nicht |
+| **MY.12** | Stimmt? | Kleidung aus Polyester verliert beim Waschen Mikroplastikfasern. | stimmt |
+| **MY.13** | Stimmt? | Bäume pflanzen allein reicht, um den Klimawandel zu stoppen. | stimmt nicht |
+| **MY.14** | Stimmt? | Fair gehandelte Produkte gibt es nur im Weltladen. | stimmt nicht |
+| **MY.15** | Stimmt? | Ein Smartphone länger zu nutzen ist gut fürs Klima. | stimmt |
