@@ -65,6 +65,7 @@ Ganz oben steht der **Tipp des Tages** (ein Alltagstipp für mehr Nachhaltigkeit
 
 ### Barrierearm lernen
 - **Vorlesen:** Ein Lautsprecher-Button liest Frage und Antworten bzw. Infotexte in der gewählten Sprache vor. Im Browser über die Sprachausgabe des Geräts, in der Android-App über die Handy-Sprachausgabe (Latein mit italienischer Stimme, Bairisch mit deutscher, Schweizerdeutsch mit Schweizer Stimme, falls vorhanden).
+- **Tägliche Erinnerung:** Unter Einstellungen → Erinnerung. In der **Android-App** echte Mitteilung zur gewählten Uhrzeit (Android fragt einmal nach der Erlaubnis); hat man an dem Tag schon gelernt, kommt keine. Nach einem Neustart des Handys wird sie neu geplant. In der **Web-App und am PC** lädt ein Knopf eine Kalender-Datei (.ics) mit täglicher Wiederholung – einfach in den Kalender übernehmen.
 - **Kontrastmodus:** Unter Einstellungen → Optionen. Schwarz-Weiß mit kräftigem Grün, dicken Rahmen und fetter Schrift – besser lesbar, z. B. bei Sonne oder Sehschwäche.
 - **Einfacher Modus (Unterstufe):** Unter **Einstellungen** (Zahnrad oben rechts). Dann gibt es nur 3 statt 4 Antworten und einen **Tipp-Button**, der eine falsche Antwort durchstreicht. Die Fragen selbst bleiben gleich – es ist keine „Leichte Sprache“ im engen Sinn.
 
@@ -134,7 +135,7 @@ Verdiente XP lassen sich ausgeben. Abzeichen zählen trotzdem alle jemals verdie
 | Kategorie | Artikel |
 |---|---|
 | Hilfen | Ein Herz (10 XP), Herzen auffüllen (30 XP), Serienschutz (50 XP, max. 2), Doppel-XP (40 XP) |
-| Outfits für Sprossi | Fliege (50), Sonnenbrille (60), Sonnenhut (70), Schal (70), Wollmütze (80), Kopfhörer (90), Blume (90), Blumenkranz (100), MMG-Cap (120), Zylinder (150), Krone (200) – plus ein geheimes Outfit |
+| Garderobe für Sprossi | Vier Plätze, die man gleichzeitig belegen kann (z. B. Krone + Sonnenbrille + Fliege + Biene):<br>**Kopf:** Wollmütze (80), Sonnenhut (70), Kopfhörer (90), Blumenkranz (100), Pilzhut (110, ab 3 Tagen Serie), MMG-Cap (120), Zylinder (150), Krone (200)<br>**Augen:** Sonnenbrille (60), Herzbrille (120, ab 5 Tagen Serie)<br>**Hals:** Fliege (50), Krawatte (60), Schal (70)<br>**Extra:** Blume (90), Biene als Begleiter (150, ab 7 Tagen Serie)<br>Plus zwei geheime Outfits. Gekaufte Teile behält man, auch wenn die Serie später reißt. |
 | Hintergründe | Tupfen (40), Streifen (50), Blätterregen (70) |
 
 ### Gestaltung

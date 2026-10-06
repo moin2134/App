@@ -576,6 +576,19 @@ html.wide .btn{font-size:18px}
   .newb{padding:8px 12px}.newb .medal{width:36px;height:36px}
 }
 /* Ziehen & Ablegen (Sortieren, Reihenfolge) */
+/* Garderobe */
+.timein{font:inherit;font-weight:800;font-size:16px;padding:8px 10px;border:2px solid var(--line);border-radius:12px;background:var(--surface2);color:var(--ink)}
+.wardrobe{display:grid;grid-template-columns:96px minmax(0,1fr);grid-gap:8px 12px;gap:8px 12px;align-items:center;margin-bottom:12px}
+.wprev .m{width:96px}
+.wworn{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-gap:6px;gap:6px}
+.wchip{display:block;font-size:12px;font-weight:700;color:var(--ink2);border:2px dashed var(--line);border-radius:10px;padding:4px 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.wchip b{display:block;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--leafText)}
+.wchip.on{border-style:solid;color:var(--ink)}
+.wslots{grid-column:1/-1}
+.bdg.outfit.locked{opacity:.75}
+.bdg.outfit.locked .btn{font-size:11px;letter-spacing:0;text-transform:none;padding:8px 4px}
+.bgs h3,.ogrid h3{font-size:15px;overflow-wrap:normal;word-break:normal;-webkit-hyphens:auto;hyphens:auto}
+@media (max-width:420px){.bgs h3{font-size:13px}}
 .qcode{margin-left:8px;padding:1px 7px;border-radius:8px;background:var(--surface2);color:var(--ink2);font-size:11px;letter-spacing:.02em;font-variant-numeric:tabular-nums}
 .dragghost{position:fixed;z-index:90;pointer-events:none;transform:translate(-50%,-50%) rotate(-3deg) scale(1.06);box-shadow:0 10px 24px rgba(0,0,0,.35);opacity:.95}
 .chip.dragging{opacity:.35}
@@ -654,7 +667,7 @@ html.hc a{color:#7CFFB2}
 .result:not([hidden]) .newb{animation:stagin .5s cubic-bezier(.2,.8,.3,1) both .4s}
 .hello .m{animation:hop .8s cubic-bezier(.34,1.56,.64,1)}
 .say{animation:saypop .5s cubic-bezier(.34,1.56,.64,1) .1s both}
-@keyframes saypop{from{transform:scale(.85);opacity:0;transform-origin:left center}}
+@keyframes saypop{from{transform:scale(.88);transform-origin:left center}}
 .gbar i,.bar i{transition:width .8s cubic-bezier(.2,.8,.3,1)}
 .stat.bump{animation:bump .55s ease}
 @keyframes bump{30%{transform:scale(1.28)}60%{transform:scale(.95)}}
@@ -2897,6 +2910,15 @@ const UI_43 = {
  la:{hc_mode:'Discrimen magnum', hc_mode_s:'Nigrum et album cum coloribus fortibus – facilius legitur'},
  grc:{hc_mode:'Μεγάλη ἀντίθεσις', hc_mode_s:'Μέλαν καὶ λευκόν, ἰσχυρὰ χρώματα – εὐανάγνωστον'}
 };
+/* Version 4.6: Garderobe & Erinnerungen (Übersetzungen in UI_46_TR) */
+const UI_46 = {slot_head:'Kopf', slot_face:'Augen', slot_neck:'Hals', slot_side:'Extra', need_streak:'Ab {n} Tagen Serie', wardrobe:'Garderobe',
+ o_krawatte:'Krawatte', o_pilzhut:'Pilzhut', o_herzbrille:'Herzbrille', o_biene:'Biene als Begleiter',
+ rem_title:'Erinnerung', rem_text:'Lass dich jeden Tag ans Lernen erinnern – damit deine Serie nicht reißt.', rem_on:'Tägliche Erinnerung', rem_time:'Uhrzeit',
+ rem_note_title:'Zeit für GGAF Quizzes! 🌱', rem_note_text:'Sprossi wartet – eine kurze Lektion hält deine Serie am Leben.', rem_denied:'Mitteilungen sind für die App ausgeschaltet. Erlaube sie in den Handy-Einstellungen.',
+ rem_ics:'Erinnerung in den Kalender', rem_ics_text:'In der Web-App geht das über deinen Kalender: Lade die Kalender-Datei und füge sie hinzu – dann erinnert dich dein Handy jeden Tag zur gewählten Uhrzeit.', rem_ics_btn:'Kalender-Erinnerung herunterladen', rem_set:'Erinnerung gespeichert: täglich um {t}.'};
+Object.assign(UI_36.de, UI_46);
+const UI_46_TR = {"en":{"slot_head":"Head","slot_face":"Eyes","slot_neck":"Neck","slot_side":"Extra","need_streak":"From a {n}-day streak","wardrobe":"Wardrobe","o_krawatte":"Tie","o_pilzhut":"Mushroom hat","o_herzbrille":"Heart glasses","o_biene":"Bee companion","rem_title":"Reminder","rem_text":"Get a daily reminder to learn – so your streak doesn\u0027t break.","rem_on":"Daily reminder","rem_time":"Time","rem_note_title":"Time for GGAF Quizzes! 🌱","rem_note_text":"Sprossi is waiting – a quick lesson keeps your streak alive.","rem_denied":"Notifications are turned off for the app. Allow them in your phone settings.","rem_ics":"Add reminder to calendar","rem_ics_text":"In the web app, this works through your calendar: download the calendar file and add it – then your phone will remind you every day at the chosen time.","rem_ics_btn":"Download calendar reminder","rem_set":"Reminder saved: daily at {t}."},"fr":{"slot_head":"Tête","slot_face":"Yeux","slot_neck":"Cou","slot_side":"Extra","need_streak":"Dès {n} jours de série","wardrobe":"Garde-robe","o_krawatte":"Cravate","o_pilzhut":"Chapeau champignon","o_herzbrille":"Lunettes cœur","o_biene":"Abeille compagne","rem_title":"Rappel","rem_text":"Reçois un rappel chaque jour pour apprendre – pour que ta série ne s\u0027arrête pas.","rem_on":"Rappel quotidien","rem_time":"Heure","rem_note_title":"C\u0027est l\u0027heure de GGAF Quizzes ! 🌱","rem_note_text":"Sprossi t\u0027attend – une petite leçon garde ta série en vie.","rem_denied":"Les notifications sont désactivées pour l\u0027app. Autorise-les dans les réglages du téléphone.","rem_ics":"Rappel dans le calendrier","rem_ics_text":"Dans l\u0027app web, cela passe par ton calendrier : télécharge le fichier calendrier et ajoute-le – ton téléphone te le rappellera chaque jour à l\u0027heure choisie.","rem_ics_btn":"Télécharger le rappel calendrier","rem_set":"Rappel enregistré : tous les jours à {t}."},"es":{"slot_head":"Cabeza","slot_face":"Ojos","slot_neck":"Cuello","slot_side":"Extra","need_streak":"Desde {n} días de racha","wardrobe":"Guardarropa","o_krawatte":"Corbata","o_pilzhut":"Sombrero de seta","o_herzbrille":"Gafas de corazón","o_biene":"Abeja compañera","rem_title":"Recordatorio","rem_text":"Recibe un recordatorio diario para aprender – para que tu racha no se rompa.","rem_on":"Recordatorio diario","rem_time":"Hora","rem_note_title":"¡Hora de GGAF Quizzes! 🌱","rem_note_text":"Sprossi te espera – una lección corta mantiene viva tu racha.","rem_denied":"Las notificaciones están desactivadas para la app. Actívalas en los ajustes del móvil.","rem_ics":"Recordatorio en el calendario","rem_ics_text":"En la app web funciona con tu calendario: descarga el archivo de calendario y añádelo – así tu móvil te lo recordará cada día a la hora elegida.","rem_ics_btn":"Descargar recordatorio de calendario","rem_set":"Recordatorio guardado: cada día a las {t}."},"it":{"slot_head":"Testa","slot_face":"Occhi","slot_neck":"Collo","slot_side":"Extra","need_streak":"Da {n} giorni di serie","wardrobe":"Guardaroba","o_krawatte":"Cravatta","o_pilzhut":"Cappello a fungo","o_herzbrille":"Occhiali a cuore","o_biene":"Ape compagna","rem_title":"Promemoria","rem_text":"Ricevi ogni giorno un promemoria per studiare – così la tua serie non si interrompe.","rem_on":"Promemoria giornaliero","rem_time":"Orario","rem_note_title":"È ora di GGAF Quizzes! 🌱","rem_note_text":"Sprossi ti aspetta – una breve lezione mantiene viva la tua serie.","rem_denied":"Le notifiche sono disattivate per l\u0027app. Consentile nelle impostazioni del telefono.","rem_ics":"Promemoria nel calendario","rem_ics_text":"Nella web app funziona tramite il tuo calendario: scarica il file del calendario e aggiungilo – così il telefono ti avviserà ogni giorno all\u0027orario scelto.","rem_ics_btn":"Scarica promemoria calendario","rem_set":"Promemoria salvato: ogni giorno alle {t}."},"pl":{"slot_head":"Głowa","slot_face":"Oczy","slot_neck":"Szyja","slot_side":"Extra","need_streak":"Od {n} dni serii","wardrobe":"Garderoba","o_krawatte":"Krawat","o_pilzhut":"Kapelusz-grzybek","o_herzbrille":"Okulary serduszka","o_biene":"Pszczoła towarzyszka","rem_title":"Przypomnienie","rem_text":"Otrzymuj codzienne przypomnienie o nauce – żeby twoja seria się nie przerwała.","rem_on":"Codzienne przypomnienie","rem_time":"Godzina","rem_note_title":"Czas na GGAF Quizzes! 🌱","rem_note_text":"Sprossi czeka – krótka lekcja podtrzyma twoją serię.","rem_denied":"Powiadomienia dla aplikacji są wyłączone. Zezwól na nie w ustawieniach telefonu.","rem_ics":"Przypomnienie w kalendarzu","rem_ics_text":"W aplikacji webowej działa to przez twój kalendarz: pobierz plik kalendarza i dodaj go – wtedy telefon będzie ci przypominał codziennie o wybranej godzinie.","rem_ics_btn":"Pobierz przypomnienie do kalendarza","rem_set":"Przypomnienie zapisane: codziennie o {t}."},"ru":{"slot_head":"Голова","slot_face":"Глаза","slot_neck":"Шея","slot_side":"Экстра","need_streak":"От {n} дней серии","wardrobe":"Гардероб","o_krawatte":"Галстук","o_pilzhut":"Шляпа-гриб","o_herzbrille":"Очки-сердечки","o_biene":"Пчела-спутник","rem_title":"Напоминание","rem_text":"Получай напоминание об учёбе каждый день – чтобы твоя серия не прервалась.","rem_on":"Ежедневное напоминание","rem_time":"Время","rem_note_title":"Время для GGAF Quizzes! 🌱","rem_note_text":"Sprossi ждёт – короткий урок сохранит твою серию.","rem_denied":"Уведомления для приложения отключены. Разреши их в настройках телефона.","rem_ics":"Напоминание в календарь","rem_ics_text":"В веб-приложении это работает через твой календарь: скачай файл календаря и добавь его – тогда телефон будет напоминать тебе каждый день в выбранное время.","rem_ics_btn":"Скачать напоминание для календаря","rem_set":"Напоминание сохранено: ежедневно в {t}."},"uk":{"slot_head":"Голова","slot_face":"Очі","slot_neck":"Шия","slot_side":"Екстра","need_streak":"Від {n} днів серії","wardrobe":"Гардероб","o_krawatte":"Краватка","o_pilzhut":"Капелюх-гриб","o_herzbrille":"Окуляри-сердечка","o_biene":"Бджілка-супутниця","rem_title":"Нагадування","rem_text":"Отримуй щодня нагадування про навчання – щоб твоя серія не перервалася.","rem_on":"Щоденне нагадування","rem_time":"Час","rem_note_title":"Час для GGAF Quizzes! 🌱","rem_note_text":"Sprossi чекає – короткий урок збереже твою серію.","rem_denied":"Сповіщення для застосунку вимкнено. Дозволь їх у налаштуваннях телефона.","rem_ics":"Нагадування в календар","rem_ics_text":"У вебзастосунку це працює через твій календар: завантаж файл календаря й додай його – тоді телефон нагадуватиме тобі щодня в обраний час.","rem_ics_btn":"Завантажити нагадування для календаря","rem_set":"Нагадування збережено: щодня о {t}."},"zh":{"slot_head":"头部","slot_face":"眼睛","slot_neck":"颈部","slot_side":"额外","need_streak":"连续 {n} 天解锁","wardrobe":"衣橱","o_krawatte":"领带","o_pilzhut":"蘑菇帽","o_herzbrille":"爱心眼镜","o_biene":"蜜蜂伙伴","rem_title":"提醒","rem_text":"每天提醒你学习——让你的连续记录不中断。","rem_on":"每日提醒","rem_time":"时间","rem_note_title":"GGAF Quizzes! 时间到了 🌱","rem_note_text":"Sprossi 在等你——一节小课就能保持你的连续记录。","rem_denied":"此应用的通知已关闭。请在手机设置中允许通知。","rem_ics":"添加提醒到日历","rem_ics_text":"在网页版中可通过日历实现：下载日历文件并添加——之后手机会在你选择的时间每天提醒你。","rem_ics_btn":"下载日历提醒","rem_set":"提醒已保存：每天 {t}。"},"ja":{"slot_head":"頭","slot_face":"目","slot_neck":"首","slot_side":"エクストラ","need_streak":"{n}日連続から","wardrobe":"クローゼット","o_krawatte":"ネクタイ","o_pilzhut":"キノコ帽子","o_herzbrille":"ハートのメガネ","o_biene":"お供のハチ","rem_title":"リマインダー","rem_text":"毎日学習のリマインダーを受け取ろう――連続記録が途切れないように。","rem_on":"毎日のリマインダー","rem_time":"時刻","rem_note_title":"GGAF Quizzes! の時間だよ 🌱","rem_note_text":"Sprossiが待ってるよ――短いレッスンで連続記録をキープしよう。","rem_denied":"このアプリの通知はオフになっています。スマホの設定で許可してください。","rem_ics":"カレンダーにリマインダーを追加","rem_ics_text":"Webアプリではカレンダーを使います：カレンダーファイルをダウンロードして追加すると、選んだ時刻に毎日スマホが知らせてくれます。","rem_ics_btn":"カレンダーリマインダーをダウンロード","rem_set":"リマインダーを保存しました：毎日 {t}。"},"pt":{"slot_head":"Cabeça","slot_face":"Olhos","slot_neck":"Pescoço","slot_side":"Extra","need_streak":"A partir de {n} dias de sequência","wardrobe":"Guarda-roupa","o_krawatte":"Gravata","o_pilzhut":"Chapéu de cogumelo","o_herzbrille":"Óculos de coração","o_biene":"Abelha companheira","rem_title":"Lembrete","rem_text":"Receba um lembrete diário para estudar – assim sua sequência não se quebra.","rem_on":"Lembrete diário","rem_time":"Horário","rem_note_title":"Hora do GGAF Quizzes! 🌱","rem_note_text":"Sprossi está esperando – uma lição curta mantém sua sequência viva.","rem_denied":"As notificações estão desativadas para o app. Permita-as nas configurações do celular.","rem_ics":"Lembrete no calendário","rem_ics_text":"No app web isso funciona pelo seu calendário: baixe o arquivo de calendário e adicione-o – assim seu celular vai lembrar você todos os dias no horário escolhido.","rem_ics_btn":"Baixar lembrete do calendário","rem_set":"Lembrete salvo: diariamente às {t}."},"nl":{"slot_head":"Hoofd","slot_face":"Ogen","slot_neck":"Hals","slot_side":"Extra","need_streak":"Vanaf {n} dagen reeks","wardrobe":"Garderobe","o_krawatte":"Stropdas","o_pilzhut":"Paddenstoelhoed","o_herzbrille":"Hartjesbril","o_biene":"Bij als maatje","rem_title":"Herinnering","rem_text":"Laat je elke dag aan het leren herinneren – zodat je reeks niet breekt.","rem_on":"Dagelijkse herinnering","rem_time":"Tijd","rem_note_title":"Tijd voor GGAF Quizzes! 🌱","rem_note_text":"Sprossi wacht – een korte les houdt je reeks in leven.","rem_denied":"Meldingen zijn uitgeschakeld voor de app. Sta ze toe in de instellingen van je telefoon.","rem_ics":"Herinnering in de agenda","rem_ics_text":"In de web-app gaat dat via je agenda: download het agendabestand en voeg het toe – dan herinnert je telefoon je elke dag op de gekozen tijd.","rem_ics_btn":"Agendaherinnering downloaden","rem_set":"Herinnering opgeslagen: dagelijks om {t}."},"cs":{"slot_head":"Hlava","slot_face":"Oči","slot_neck":"Krk","slot_side":"Extra","need_streak":"Od {n} dní série","wardrobe":"Šatník","o_krawatte":"Kravata","o_pilzhut":"Houbový klobouk","o_herzbrille":"Brýle srdíčka","o_biene":"Včelka společnice","rem_title":"Připomínka","rem_text":"Nech si každý den připomenout učení – aby se tvoje série nepřerušila.","rem_on":"Denní připomínka","rem_time":"Čas","rem_note_title":"Čas na GGAF Quizzes! 🌱","rem_note_text":"Sprossi čeká – krátká lekce udrží tvou sérii naživu.","rem_denied":"Oznámení jsou pro aplikaci vypnutá. Povol je v nastavení telefonu.","rem_ics":"Připomínka do kalendáře","rem_ics_text":"Ve webové aplikaci to funguje přes tvůj kalendář: stáhni soubor kalendáře a přidej ho – pak ti telefon bude každý den ve zvolený čas připomínat.","rem_ics_btn":"Stáhnout připomínku do kalendáře","rem_set":"Připomínka uložena: denně v {t}."},"he":{"slot_head":"ראש","slot_face":"עיניים","slot_neck":"צוואר","slot_side":"תוספת","need_streak":"החל מרצף של {n} ימים","wardrobe":"ארון בגדים","o_krawatte":"עניבה","o_pilzhut":"כובע פטרייה","o_herzbrille":"משקפי לב","o_biene":"דבורה כבת לוויה","rem_title":"תזכורת","rem_text":"תזכורת יומית ללמידה – כדי שהרצף שלך לא יישבר.","rem_on":"תזכורת יומית","rem_time":"שעה","rem_note_title":"הגיע הזמן ל-GGAF Quizzes! 🌱","rem_note_text":"Sprossi מחכה – שיעור קצר ישמור על הרצף שלך.","rem_denied":"ההתראות כבויות עבור האפליקציה. יש לאפשר אותן בהגדרות הטלפון.","rem_ics":"תזכורת ביומן","rem_ics_text":"באפליקציית הרשת זה עובד דרך היומן שלך: יש להוריד את קובץ היומן ולהוסיף אותו – ואז הטלפון יזכיר לך כל יום בשעה שנבחרה.","rem_ics_btn":"הורדת תזכורת ליומן","rem_set":"התזכורת נשמרה: כל יום בשעה {t}."},"bar":{"slot_head":"Kopf","slot_face":"Augn","slot_neck":"Hois","slot_side":"Extra","need_streak":"Ab {n} Dog Serie","wardrobe":"Garderob","o_krawatte":"Krawattn","o_pilzhut":"Schwammerlhuat","o_herzbrille":"Herzerlbrilln","o_biene":"Bienerl ois Begleiter","rem_title":"Erinnerung","rem_text":"Lass di jeden Dog ans Lerna erinnern – damit dei Serie ned reißt.","rem_on":"Jeden Dog a Erinnerung","rem_time":"Uhrzeit","rem_note_title":"Zeit fia GGAF Quizzes! 🌱","rem_note_text":"Da Sprossi wart – a kurze Lektion hoit dei Serie am Lebn.","rem_denied":"Mitteilunga san fia de App ausgschoitn. Erlaub\u0027s in de Handy-Eistellunga.","rem_ics":"Erinnerung in Kalender","rem_ics_text":"In da Web-App geht des üba dein Kalender: Lad de Kalender-Datei runter und fiag\u0027s dazua – dann erinnert di dei Handy jeden Dog zur gwählten Uhrzeit.","rem_ics_btn":"Kalender-Erinnerung runterladn","rem_set":"Erinnerung gspeichert: jeden Dog um {t}."},"gsw":{"slot_head":"Chopf","slot_face":"Auge","slot_neck":"Hals","slot_side":"Extra","need_streak":"Ab {n} Täg Serie","wardrobe":"Garderobe","o_krawatte":"Krawatte","o_pilzhut":"Pilzhuet","o_herzbrille":"Härzlibrülle","o_biene":"Bieli als Begleiter","rem_title":"Erinnerig","rem_text":"Lass di jede Tag as Lärne erinnere – damit dini Serie nöd riisst.","rem_on":"Täglichi Erinnerig","rem_time":"Uhrziit","rem_note_title":"Ziit für GGAF Quizzes! 🌱","rem_note_text":"De Sprossi wartet – e churzi Lektion halt dini Serie am Läbe.","rem_denied":"Mitteilige sind für d App usgschaltet. Erlaub sie i de Handy-Iistellige.","rem_ics":"Erinnerig in Kaländer","rem_ics_text":"I de Web-App gaht das über din Kaländer: Lad d Kaländer-Datei abe und füeg sie dezue – denn erinneret di dis Handy jede Tag zur gwählte Uhrziit.","rem_ics_btn":"Kaländer-Erinnerig abelade","rem_set":"Erinnerig gspeicheret: täglich um {t}."},"la":{"slot_head":"Caput","slot_face":"Oculi","slot_neck":"Collum","slot_side":"Extra","need_streak":"A serie {n} dierum","wardrobe":"Vestiarium","o_krawatte":"Focale","o_pilzhut":"Petasus fungosus","o_herzbrille":"Perspicilla cordata","o_biene":"Apis comes","rem_title":"Admonitio","rem_text":"Sine te cotidie ad discendum admoneri – ne series tua rumpatur.","rem_on":"Admonitio cotidiana","rem_time":"Hora","rem_note_title":"Tempus GGAF Quizzes! 🌱","rem_note_text":"Sprossi te exspectat – brevis lectio seriem tuam vivam servat.","rem_denied":"Nuntii huic applicationi exstincti sunt. Permitte eos in optionibus telephoni.","rem_ics":"Admonitio in calendarium","rem_ics_text":"In applicatione interretiali hoc per calendarium tuum fit: plicam calendarii depone et adde – tum telephonum te cotidie hora electa admonebit.","rem_ics_btn":"Admonitionem calendarii depone","rem_set":"Admonitio servata: cotidie hora {t}."},"grc":{"slot_head":"Κεφαλή","slot_face":"Ὀφθαλμοί","slot_neck":"Τράχηλος","slot_side":"Πρόσθετον","need_streak":"Ἀπὸ {n} ἡμερῶν σειρᾶς","wardrobe":"Ἱματιοθήκη","o_krawatte":"Λαιμοδέτης","o_pilzhut":"Πέτασος μυκητώδης","o_herzbrille":"Ὀμματοϋάλια καρδιοειδῆ","o_biene":"Μέλιττα ὀπαδός","rem_title":"Ὑπόμνησις","rem_text":"Ἔα σεαυτὸν ὑπομιμνῄσκεσθαι καθ᾽ ἡμέραν τοῦ μανθάνειν – ἵνα μὴ ῥαγῇ ἡ σειρά σου.","rem_on":"Καθημερινὴ ὑπόμνησις","rem_time":"Ὥρα","rem_note_title":"Καιρὸς GGAF Quizzes! 🌱","rem_note_text":"Ὁ Sprossi περιμένει – βραχὺ μάθημα σῴζει τὴν σειράν σου.","rem_denied":"Αἱ ἀγγελίαι ἐσβεσμέναι εἰσὶ τῇ ἐφαρμογῇ. Ἐπίτρεψον αὐτὰς ἐν ταῖς ῥυθμίσεσι τοῦ τηλεφώνου.","rem_ics":"Ὑπόμνησις εἰς τὸ ἡμερολόγιον","rem_ics_text":"Ἐν τῇ διαδικτυακῇ ἐφαρμογῇ τοῦτο γίγνεται διὰ τοῦ ἡμερολογίου σου· κατάγαγε τὸ ἀρχεῖον τοῦ ἡμερολογίου καὶ πρόσθες αὐτό – εἶτα τὸ τηλέφωνον ὑπομνήσει σε καθ᾽ ἡμέραν τῇ ἐκλεχθείσῃ ὥρᾳ.","rem_ics_btn":"Κατάγαγε τὴν ὑπόμνησιν τοῦ ἡμερολογίου","rem_set":"Ἡ ὑπόμνησις ἐσώθη· καθ᾽ ἡμέραν τῇ ὥρᾳ {t}."}};
+Object.keys(UI_46_TR).forEach(l=>{ if(UI_36[l]) Object.assign(UI_36[l], UI_46_TR[l]); else UI_36[l] = UI_46_TR[l]; });
 /* Version 4.5: Gerätezähler */
 const UI_45 = {
  de:{web_devices:'auf {d} Geräten', count_note:'Die Web-App zählt nur, wie oft sie benutzt wird und auf wie vielen Geräten – nur diese Zahlen, sonst nichts. Kein Name, keine Kennung.'},
@@ -3397,6 +3419,19 @@ function seasonWear(){ const d = new Date(), m = d.getMonth()+1, t = d.getDate()
   if(m===4 && t===22) return 'globus';
   if(m===12 && t>=24 && t<=26) return 'muetze';
   return ''; }
+/* Garderobe: outfit = undefined (was Sprossi gerade trägt), ein Teil ('krone') oder ein Satz {head:'krone', neck:'fliege'} */
+function wearSVG(outfit){
+  let set;
+  if(outfit===undefined){ set = Object.assign({}, (typeof S!=='undefined' && S && S.wear) || {}); if(!set.head){ const sw = seasonWear(); if(sw) set.head = sw; } }
+  else if(typeof outfit==='string') set = outfit ? {x:outfit} : {};
+  else set = outfit || {};
+  return ['neck','face','head','side','x'].map(k=>WEAR[set[k]]||'').join('');
+}
+/* Neue Teile (Version 4.6) */
+WEAR.krawatte = '<path d="M45 79 h10 l-2.5 4 l3.5 15 l-6 6.5 l-6 -6.5 l3.5 -15 z" fill="#00BF63" stroke="#1E440E" stroke-width="1.3" stroke-linejoin="round"/><path d="M48 87 l4 -2 M47.5 93 l5 -2.5" stroke="#C1FF72" stroke-width="1.6" stroke-linecap="round"/>';
+WEAR.herzbrille = [[39,53],[61,53]].map(([x,y])=>`<path d="M${x} ${y+7} C${x-12} ${y-1} ${x-7} ${y-9} ${x} ${y-3} C${x+7} ${y-9} ${x+12} ${y-1} ${x} ${y+7} Z" fill="#EE4B4F" stroke="#B8343A" stroke-width="1.3"/>`).join('') + '<path d="M47 51 h6" stroke="#B8343A" stroke-width="2.4"/><path d="M33 50 l3 -2 M55 50 l3 -2" stroke="#fff" stroke-width="1.6" stroke-linecap="round" opacity=".8"/>';
+WEAR.pilzhut = '<path d="M22 42 C22 13 78 13 78 42 C66 38 34 38 22 42 Z" fill="#E5383B" stroke="#9E1F22" stroke-width="1.4"/><circle cx="36" cy="28" r="4" fill="#fff"/><circle cx="52" cy="21" r="5" fill="#fff"/><circle cx="66" cy="30" r="3.5" fill="#fff"/><circle cx="44" cy="35" r="2.6" fill="#fff"/>';
+WEAR.biene = '<g transform="translate(84 64)"><ellipse cx="-3" cy="-8" rx="5" ry="6.5" fill="#D6ECFF" stroke="#1E440E" stroke-width="1" opacity=".95"/><ellipse cx="4" cy="-8" rx="5" ry="6.5" fill="#D6ECFF" stroke="#1E440E" stroke-width="1" opacity=".95"/><ellipse cx="0" cy="0" rx="9" ry="6.5" fill="#FFD84A" stroke="#1E440E" stroke-width="1.3"/><path d="M-3 -6 v12 M3 -6 v12" stroke="#1E440E" stroke-width="2.4"/><circle cx="-8" cy="-1" r="1.3" fill="#1E440E"/></g>';
 /* Sprossi mit sanften SVG-Animationen (SMIL – läuft auch auf alten Android-WebViews); mood 'wave' = winkt */
 const MOTION = !(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches);
 /* Sprossi wächst mit den gesammelten XP: 5 Stufen */
@@ -3404,7 +3439,7 @@ const GROW = [{xp:0,t:'Keimling',k:.82},{xp:100,t:'Sprössling',k:1},{xp:300,t:'
 function growStage(xp){ let n = 0; GROW.forEach((g,i)=>{ if(xp>=g.xp) n = i; }); return {n, k:GROW[n].k, t:GROW[n].t, next:GROW[n+1]}; }
 function mascot(mood='happy', outfit, still){
   const gs = {n:1, k:1};   /* Sprossi bleibt gleich groß (Wachstum durch den Garten im Profil ersetzt) */
-  const wear = WEAR[outfit===undefined ? (S.outfit || seasonWear()) : outfit] || '';
+  const wear = wearSVG(outfit);
   const face = mood==='wave' ? 'cheer' : mood;
   const mouth = {
     happy:'<path d="M41 67 Q50 76 59 67" fill="none" stroke="#1E440E" stroke-width="3.4" stroke-linecap="round"/>',
@@ -4589,7 +4624,7 @@ const PRAISE = ['Super!','Richtig!','Klasse!','Stark!','Genau!','Sehr gut!','Gr�
 /* ================= Zustand ================= */
 const KEY = 'ggaf-quizzes-v1';
 const HEART_MS = 30*60*1000, MAX_H = 5;
-const defaults = () => ({name:'', xp:0, hearts:MAX_H, heartsTs:Date.now(), streak:0, lastDay:null, goal:30, log:{}, done:{}, badges:{}, lessons:0, perfect:0, answered:0, correct:0, blitzBest:0, missed:[], sound:true, tab:'learn', read:{}, spent:0, owned:[], outfit:'', freeze:0, boost:false, froze:0, introDone:false, srs:{}, dstat:{}, bg:'', recapWeek:'', unitOrder:2, theme:'auto', lang:'de', easy:false, opens:0, exam:{}, owl:false, layout:'auto', eggDay:{}, flashSeen:{}, langsTried:[], avatar:'🌱', fid:'', friends:[]});
+const defaults = () => ({name:'', xp:0, hearts:MAX_H, heartsTs:Date.now(), streak:0, lastDay:null, goal:30, log:{}, done:{}, badges:{}, lessons:0, perfect:0, answered:0, correct:0, blitzBest:0, missed:[], sound:true, tab:'learn', read:{}, spent:0, owned:[], outfit:'', freeze:0, boost:false, froze:0, introDone:false, srs:{}, dstat:{}, bg:'', recapWeek:'', unitOrder:2, theme:'auto', lang:'de', easy:false, opens:0, exam:{}, owl:false, layout:'auto', eggDay:{}, flashSeen:{}, langsTried:[], avatar:'🌱', fid:'', friends:[], wear:{}, hc:false, remOn:false, remTime:'17:00'});
 const balance = () => S.xp - S.spent;   /* ausgebbare XP; S.xp bleibt die Gesamtsumme für Abzeichen */
 let S = load();
 S.opens++; save(); try{ applyLayout(); }catch(e){}   /* nur ein Zähler auf diesem Gerät – ohne IP, ohne Server */
@@ -4630,9 +4665,12 @@ function sanitize(s){
   Object.keys(d).forEach(k=>{ const def = d[k]; if(Array.isArray(def) ? !Array.isArray(r[k]) : (def!==null && (r[k]===null || typeof r[k]!==typeof def))) r[k] = def; });
   if(!['learn','practice','shop','badges','profile','settings'].includes(r.tab)) r.tab = 'learn';
   if(LANG_CODES.indexOf(r.lang)<0) r.lang = 'de';
+  if(r.outfit && !Object.keys(r.wear).length && typeof slotOf==='function'){ r.wear[slotOf(r.outfit)] = r.outfit; }   /* altes Einzel-Outfit in die Garderobe übernehmen */
+  Object.keys(r.wear).forEach(k=>{ if(SLOTS.indexOf(k)<0 || typeof r.wear[k]!=='string') delete r.wear[k]; });
   return r;
 }
-function save(){ try{ localStorage.setItem(KEY, JSON.stringify(S)); }catch(e){ storageWarn(); } }
+function save(){ try{ localStorage.setItem(KEY, JSON.stringify(S)); }catch(e){ storageWarn(); }
+  try{ if(window.GGAFApp && GGAFApp.setLearned && S.lastDay!==save.lastSent){ GGAFApp.setLearned(S.lastDay||''); save.lastSent = S.lastDay; } }catch(e){} }
 /* Hinweis, wenn der Browser nichts speichern darf (privater Modus, voller Speicher, blockierte Website-Daten) */
 let storageWarned = false;
 function storageWarn(){
@@ -4801,21 +4839,30 @@ const SHOP = [
  {id:'freeze', t:'Serienschutz', d:'Rettet deine Serie an einem Tag ohne Lernen. Du kannst 2 besitzen.', price:50, ic:'shield', col:'#3B82F6'},
  {id:'boost', t:'Doppel-XP', d:'Deine nächste Lektion bringt doppelte XP.', price:40, ic:'bolt', col:'var(--orange)'}
 ];
+/* Garderobe (Version 4.6): jedes Teil hat einen Platz (slot) – Kopf, Augen, Hals, Extra. Pro Platz ein Teil, alle Plätze gleichzeitig.
+   streak = so viele Tage Serie braucht man, um das Teil kaufen zu können */
 const OUTFITS = [
- {id:'brille', t:'Sonnenbrille', price:60},
- {id:'muetze', t:'Wollmütze', price:80},
- {id:'kranz', t:'Blumenkranz', price:100},
- {id:'fliege', t:'Fliege', price:50},
- {id:'kopfhoerer', t:'Kopfhörer', price:90},
- {id:'sonnenhut', t:'Sonnenhut', price:70},
- {id:'mmgcap', t:'MMG-Cap', price:120},
- {id:'krone', t:'Krone', price:200},
- {id:'schal', get t(){ return T('o_schal'); }, price:70},
- {id:'blume', get t(){ return T('o_blume'); }, price:90},
- {id:'zylinder', get t(){ return T('o_zylinder'); }, price:150},
- {id:'lorbeer', get t(){ return EGG().gold_o; }, price:0, secret:true},   /* geheim: ab 100× App öffnen */
- {id:'band', get t(){ return EGG().band; }, price:0, secret:true}   /* geheim: gratis, wenn „fair“ im Namen steckt */
+ {id:'brille', slot:'face', t:'Sonnenbrille', price:60},
+ {id:'muetze', slot:'head', t:'Wollmütze', price:80},
+ {id:'kranz', slot:'head', t:'Blumenkranz', price:100},
+ {id:'fliege', slot:'neck', t:'Fliege', price:50},
+ {id:'kopfhoerer', slot:'head', t:'Kopfhörer', price:90},
+ {id:'sonnenhut', slot:'head', t:'Sonnenhut', price:70},
+ {id:'mmgcap', slot:'head', t:'MMG-Cap', price:120},
+ {id:'krone', slot:'head', t:'Krone', price:200},
+ {id:'schal', slot:'neck', get t(){ return T('o_schal'); }, price:70},
+ {id:'blume', slot:'side', get t(){ return T('o_blume'); }, price:90},
+ {id:'zylinder', slot:'head', get t(){ return T('o_zylinder'); }, price:150},
+ {id:'krawatte', slot:'neck', get t(){ return T('o_krawatte'); }, price:60},
+ {id:'pilzhut', slot:'head', get t(){ return T('o_pilzhut'); }, price:110, streak:3},
+ {id:'herzbrille', slot:'face', get t(){ return T('o_herzbrille'); }, price:120, streak:5},
+ {id:'biene', slot:'side', get t(){ return T('o_biene'); }, price:150, streak:7},
+ {id:'lorbeer', slot:'head', get t(){ return EGG().gold_o; }, price:0, secret:true},   /* geheim: ab 100× App öffnen */
+ {id:'band', slot:'head', get t(){ return EGG().band; }, price:0, secret:true}   /* geheim: gratis, wenn „fair“ im Namen steckt */
 ];
+const SLOTS = ['head','face','neck','side'];
+const slotOf = id => { const o = OUTFITS.find(x=>x.id===id); return o ? o.slot : 'head'; };
+let wardSlot = 'head';
 const BGS = [
  {id:'dots', t:'Tupfen', price:40},
  {id:'stripes', t:'Streifen', price:50},
@@ -4848,10 +4895,14 @@ function renderShop(){
   <div class="stack">${SHOP.map(it=>{ const why = shopState(it), extra = it.id==='freeze' ? T('shop_owned',{n:S.freeze}) : '';
     return `<div class="card pcard"><div class="badge" style="background:${it.col};color:#fff">${icon(it.ic)}</div><div><h3>${it.t}</h3><p>${it.d}${extra}</p>${why?`<p class="why">${why}</p>`:''}</div><button class="btn go price" data-buy="${it.id}" ${why||b<it.price?'disabled':''}>${icon('leaf')}${it.price}</button></div>`; }).join('')}</div>
   <h2 class="sec" id="s-shop_outfits">${T('shop_outfits')}</h2>
-  <div class="bgrid ogrid">${OUTFITS.filter(o=>!o.secret || S.owned.includes(o.id)).map(o=>{ const own = S.owned.includes(o.id), on = S.outfit===o.id;
-    return `<div class="bdg outfit ${on?'on':''}">${mascot('happy', o.id)}<h3>${o.t}</h3>${own
+  <div class="card wardrobe"><div class="wprev">${mascot('happy')}</div>
+    <div class="wworn">${SLOTS.map(sl=>{ const id = S.wear[sl], o = id && OUTFITS.find(x=>x.id===id); return `<span class="wchip ${o?'on':''}"><b>${T('slot_'+sl)}</b>${o ? o.t : '–'}</span>`; }).join('')}</div>
+    <div class="seg wslots">${SLOTS.map(sl=>`<button data-wslot="${sl}" aria-pressed="${wardSlot===sl}">${T('slot_'+sl)}</button>`).join('')}</div></div>
+  <div class="bgrid ogrid">${OUTFITS.filter(o=>o.slot===wardSlot && (!o.secret || S.owned.includes(o.id))).map(o=>{ const own = S.owned.includes(o.id), on = S.wear[o.slot]===o.id, locked = !own && o.streak && streakNow()<o.streak;
+    return `<div class="bdg outfit ${on?'on':''} ${locked?'locked':''}">${mascot('happy', Object.assign({}, S.wear, {[o.slot]:o.id}))}<h3>${o.t}</h3>${own
       ? `<button class="btn ${on?'ghost':''} block" data-wear="${o.id}">${on?T('take_off'):T('put_on')}</button>`
-      : `<button class="btn block price" data-buy="${o.id}" ${b<o.price?'disabled':''}>${icon('leaf')}${o.price}</button>`}</div>`; }).join('')}</div>
+      : locked ? `<button class="btn block" disabled>${icon('lock')} ${T('need_streak',{n:o.streak})}</button>`
+      : `<button class="btn block price" data-buy="${o.id}" ${b<o.price?'disabled':''}>${icon('leaf')}${o.price}${o.streak?` · ${icon('flame')}${o.streak}`:''}</button>`}</div>`; }).join('')}</div>
   <h2 class="sec" id="s-shop_bgs">${T('shop_bgs')}</h2>
   <div class="bgrid ogrid bgs">${BGS.map(o=>{ const own = S.owned.includes(o.id), on = S.bg===o.id;
     return `<div class="bdg outfit ${on?'on':''}"><div class="swatch bg-${o.id}"></div><h3>${o.t}</h3>${own
@@ -4867,7 +4918,7 @@ function buy(id){
   else if(id==='freeze') S.freeze++;
   else if(id==='boost') S.boost = true;
   else if(BGS.includes(it)){ S.owned.push(id); S.bg = id; applyBg(); }
-  else { S.owned.push(id); S.outfit = id; }
+  else { S.owned.push(id); S.wear[it.slot] = id; }
   const nb = checkBadges(); save(); tone([660,880,1100],'triangle',.09);
   renderTop(); renderShop(); $('#logoMark').innerHTML = mascot('happy',undefined,true);
   modal(`${mascot('cheer')}<h2>${T('bought',{t:it.t})}</h2><p>${OUTFITS.includes(it)?T('bought_outfit'):BGS.includes(it)?T('bought_bg'):it.d}</p>${nb.map(b=>`<div class="newb"><div class="medal">${icon(b.ic)}</div><div>${T('new_badge',{t:b.t})}<small>${b.d}</small></div></div>`).join('')}<button class="btn block" data-act="close">${T('super')}</button>`);
@@ -4908,6 +4959,10 @@ function renderTabs(){
   $('#tabs').innerHTML = TABS.map(([id,l,ic])=>`<button class="tab" data-tab="${id}" ${S.tab===id?'aria-current="page"':''}>${icon(ic)}${T('tab_'+id)}</button>`).join('');
 }
 let lastTab = null, revealIO = null;
+/* Sicherheitsnetz fürs Aufploppen: alles, was im Bild ist, wird sichtbar (beim Rendern und beim Scrollen) */
+function revealCheck(){ const h = window.innerHeight || 800;
+  document.querySelectorAll('.reveal:not(.shown)').forEach(el=>{ const r = el.getBoundingClientRect(); if(r.top < h && r.bottom > -40) el.classList.add('shown'); }); }
+let revealRaf = 0; window.addEventListener('scroll', ()=>{ if(!revealRaf) revealRaf = requestAnimationFrame(()=>{ revealRaf = 0; revealCheck(); }); }, {passive:true});
 const TAB_ORDER = ['learn','practice','shop','badges','profile','settings'];
 function render(scrollToCurrent){
   renderTop(); renderTabs();
@@ -4921,6 +4976,7 @@ function render(scrollToCurrent){
     if(revealIO) revealIO.disconnect();
     revealIO = new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('shown'); revealIO.unobserve(e.target); } }), {rootMargin:'0px 0px -6% 0px'});
     vw.querySelectorAll('.nwrap, .info, .unit').forEach(el=>{ el.classList.add('reveal'); revealIO.observe(el); });
+    revealCheck(); setTimeout(revealCheck, 400);   /* sichtbare Stationen sofort zeigen – auch falls der Observer nicht feuert */
   }
   if(window.justDone) setTimeout(()=>{ window.justDone = null; }, 100);
   if(scrollToCurrent && S.tab==='learn'){ const cs = document.querySelectorAll('.nwrap.current'), c = cs[cs.length-1]; if(c && currentG()>0) c.scrollIntoView({block:'center'}); else window.scrollTo(0,0); }
@@ -5009,7 +5065,7 @@ const AVATARS = ['🌱','🌻','🐝','🐢','🦊','🐼','🐸','🦉','🐬',
 function myFriendData(){
   if(!S.fid){ S.fid = Math.random().toString(36).slice(2,10); save(); }
   return {v:1, i:S.fid, n:(S.name||'').slice(0,24), a:S.avatar||'🌱', x:S.xp, s:streakNow(), b:Object.keys(S.badges).length,
-    u:UNITS.filter((_,u)=>S.done[nodeId(u,3)]).length, g:(S.exam&&S.exam.g)||0, l:S.lessons, o:S.outfit||'', d:dayKey()};
+    u:UNITS.filter((_,u)=>S.done[nodeId(u,3)]).length, g:(S.exam&&S.exam.g)||0, l:S.lessons, o:S.wear.head||'', d:dayKey()};
 }
 const b64u = s => btoa(unescape(encodeURIComponent(s))).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');
 const unb64u = s => decodeURIComponent(escape(atob(s.replace(/-/g,'+').replace(/_/g,'/'))));
@@ -5064,6 +5120,28 @@ function checkFriendHash(){
   const r = addFriend(decodeURIComponent(h.slice(3)));
   try{ history.replaceState(null, '', location.pathname + location.search); }catch(e){ location.hash = ''; }
   setTimeout(()=>modal(`${mascot(r==='bad'?'sad':'cheer')}<h2>${T(r==='bad' ? 'fr_bad' : r==='self' ? 'fr_self' : r==='added' ? 'fr_added' : 'fr_updated')}</h2><button class="btn block" data-act="close">${T('ok')}</button>`), 600);
+}
+/* ================= Erinnerungen (Version 4.6) =================
+   Android-App: echte tägliche Mitteilung (GGAFApp.setReminder). Web/Windows: Kalender-Datei (.ics) mit täglicher Wiederholung. */
+function applyReminder(feedback){
+  if(!(window.GGAFApp && GGAFApp.setReminder)) return;
+  try{
+    if(!S.remOn){ GGAFApp.cancelReminder(); return; }
+    const [h,m] = (S.remTime||'17:00').split(':').map(Number);
+    const r = GGAFApp.setReminder(h|0, m|0, T('rem_note_title'), T('rem_note_text'));
+    if(feedback) modal(`${mascot('cheer')}<h2>${T('rem_set',{t:S.remTime})}</h2>${r==='ask' || (GGAFApp.notificationsAllowed && !GGAFApp.notificationsAllowed()) ? `<p>${T('rem_denied')}</p>` : ''}<button class="btn block" data-act="close">${T('ok')}</button>`);
+  }catch(e){}
+}
+document.addEventListener('change', e=>{ if(e.target.id==='remTime' && e.target.value){ S.remTime = e.target.value; save(); if(S.remOn) applyReminder(false); } });
+function downloadReminderIcs(){
+  const [h,m] = (S.remTime||'17:00').split(':'), d = new Date(), p = n => String(n).padStart(2,'0');
+  const start = d.getFullYear()+p(d.getMonth()+1)+p(d.getDate())+'T'+p(h)+p(m)+'00', stamp = new Date().toISOString().replace(/[-:]/g,'').replace(/\.\d+/,'');
+  const txt = s => String(s).replace(/[,;\\]/g, c=>'\\'+c);
+  const ics = ['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//GGAF Quizzes//DE','BEGIN:VEVENT','UID:ggaf-reminder-'+(S.fid||'x')+'@ggaf','DTSTAMP:'+stamp,
+    'DTSTART:'+start,'DURATION:PT10M','RRULE:FREQ=DAILY','SUMMARY:'+txt(T('rem_note_title')),'DESCRIPTION:'+txt(T('rem_note_text')+' '+WEB_URL),'URL:'+WEB_URL,
+    'BEGIN:VALARM','ACTION:DISPLAY','TRIGGER:PT0M','DESCRIPTION:'+txt(T('rem_note_title')),'END:VALARM','END:VEVENT','END:VCALENDAR'].join('\r\n');
+  const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([ics], {type:'text/calendar'})); a.download = 'GGAF-Erinnerung.ics';
+  document.body.appendChild(a); a.click(); setTimeout(()=>{ URL.revokeObjectURL(a.href); a.remove(); }, 1000);
 }
 /* Übersicht aller Einheiten mit Fortschritt – tippen springt zur Einheit im Lernpfad */
 function showUnitList(){
@@ -5165,7 +5243,7 @@ function gardenHTML(){
 const examGrade = p => p>=92 ? 1 : p>=81 ? 2 : p>=67 ? 3 : p>=50 ? 4 : p>=30 ? 5 : 6;
 /* Einstellungen (Zahnrad oben rechts): Sprache, Design, Optionen, Datenschutz, App-Infos */
 function renderSettings(){
-  $('#view').innerHTML = `<h1 class="h1">${T('settings')}</h1><p class="lead">${T('settings_lead')}</p>${secNav([['s-language',T('language')],['s-design',T('design')],['s-layout',T('layout')],['s-options',T('options')],['s-backup_sec',T('backup_sec')],['s-app_info',T('app_info')]])}
+  $('#view').innerHTML = `<h1 class="h1">${T('settings')}</h1><p class="lead">${T('settings_lead')}</p>${secNav([['s-language',T('language')],['s-design',T('design')],['s-layout',T('layout')],['s-options',T('options')],['s-reminder',T('rem_title')],['s-backup_sec',T('backup_sec')],['s-app_info',T('app_info')]])}
   <h2 class="sec" id="s-language">${T('language')}</h2>
   <div class="seg langs">${LANGS.map(([v,l])=>`<button data-lang-set="${v}" lang="${v}" aria-pressed="${LANG===v}">${l}</button>`).join('')}</div>
   <h2 class="sec" id="s-design">${T('design')}</h2>
@@ -5178,6 +5256,13 @@ function renderSettings(){
     <div class="row"><div><b>${T('easy_mode')}</b><br><small>${T('easy_mode_s')}</small></div><button class="switch" role="switch" id="easy" aria-checked="${S.easy}" aria-label="${T('easy_mode')}"></button></div>
     <div class="row"><div><b>${T('hc_mode')}</b><br><small>${T('hc_mode_s')}</small></div><button class="switch" role="switch" id="hc" aria-checked="${!!S.hc}" aria-label="${T('hc_mode')}"></button></div>
     <div class="row"><b>${T('intro')}</b><button class="btn ghost" data-act="intro" style="padding:10px 14px;font-size:13px">${T('view')}</button></div>
+  </div>
+  <h2 class="sec" id="s-reminder">${T('rem_title')}</h2>
+  <div class="card stack"><p class="cardtxt">${T('rem_text')}</p>
+    <div class="row"><b>${T('rem_time')}</b><input type="time" id="remTime" class="timein" value="${S.remTime}"></div>
+    ${window.GGAFApp && GGAFApp.setReminder
+      ? `<div class="row"><b>${T('rem_on')}</b><button class="switch" role="switch" id="remOn" aria-checked="${!!S.remOn}" aria-label="${T('rem_on')}"></button></div>`
+      : `<p class="cardtxt">${T('rem_ics_text')}</p><button class="btn ghost block" data-act="remIcs">${icon('clock')}${T('rem_ics_btn')}</button>`}
   </div>
   <h2 class="sec" id="s-backup_sec">${T('backup_sec')}</h2>
   <div class="card stack">
@@ -5622,7 +5707,8 @@ document.addEventListener('click', e=>{
   }
   if(t.dataset.read && !S.read[t.dataset.read]){ S.read[t.dataset.read] = true; save(); }
   if(t.dataset.buy) return buy(t.dataset.buy);
-  if(t.dataset.wear){ S.outfit = S.outfit===t.dataset.wear ? '' : t.dataset.wear; save(); renderShop(); $('#logoMark').innerHTML = mascot('happy',undefined,true); return; }
+  if(t.dataset.wslot){ wardSlot = t.dataset.wslot; renderShop(); return; }
+  if(t.dataset.wear){ const w = t.dataset.wear, sl = slotOf(w); if(S.wear[sl]===w) delete S.wear[sl]; else S.wear[sl] = w; save(); renderShop(); $('#logoMark').innerHTML = mascot('happy',undefined,true); return; }
   const a = t.dataset.act;
   if(a==='start') return startLesson({mode:+t.dataset.k===3?'test':'lesson', u:+t.dataset.u, k:+t.dataset.k});
   if(a==='blitz') return startLesson({mode:'blitz'});
@@ -5637,6 +5723,8 @@ document.addEventListener('click', e=>{
   if(a==='quiz') return startLesson({mode:'quiz'});
   if(t.dataset.jump){ const el = document.getElementById(t.dataset.jump); if(el) el.scrollIntoView({behavior:'smooth', block:'start'}); return; }
   if(a==='unitList') return showUnitList();
+  if(t.id==='remOn'){ S.remOn = !S.remOn; save(); t.setAttribute('aria-checked', S.remOn); applyReminder(true); return; }
+  if(a==='remIcs') return downloadReminderIcs();
   if(t.dataset.avatar){ S.avatar = t.dataset.avatar; save(); renderProfile(); return; }
   if(a==='frShow') return showFriendCode();
   if(a==='frAdd') return showAddFriend();
@@ -10885,7 +10973,7 @@ function clearAllData(){
   Promise.all(jobs).then(done, done); setTimeout(done, 2500);
 }
 /* Versionsnummer – wird von android\build.ps1 aus AndroidManifest.xml (versionName) eingesetzt; die Windows-App vergleicht sie für Auto-Updates */
-const APP_VERSION = '4.5';
+const APP_VERSION = '4.6';
 /* Windows-App: meldet, dass eine neue Version heruntergeladen wurde */
 window.ggafUpdateReady = () => infoToast('redo', T('update_t'), T('update_d'), `<button class="btn" data-act="reloadApp">${T('reload')}</button>`);
 /* Hinweise: offline und neue Version (nur Web-Version) */
@@ -10909,6 +10997,7 @@ if('serviceWorker' in navigator && location.protocol==='https:' && !window.GGAFA
 (function(){ let st = null; try{ st = sessionStorage.getItem('ggaf-intro'); sessionStorage.removeItem('ggaf-intro'); }catch(e){}
   if(st!==null) showIntro(+st||0); else if(!S.introDone) showIntro(0); else weeklyRecap(); })();
 checkFriendHash(); window.addEventListener('hashchange', checkFriendHash);   /* Freundes-Link */
+if(S.remOn) applyReminder(false);   /* Erinnerungstext in der aktuellen Sprache auffrischen */
 </script>
 
 </body></html>
