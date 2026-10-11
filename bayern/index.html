@@ -1,0 +1,474 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Bayern-Bezirke Quiz</title>
+<meta name="description" content="Die sieben Regierungsbezirke Bayerns und ihre Hauptstädte in einer Dauerschleife lernen – mit Wappen und einem Wiederholungs-Algorithmus, der richtig beantwortete Fragen seltener und falsche häufiger stellt.">
+<meta name="theme-color" content="#2E6417">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=Nunito:wght@600;700;800;900&display=swap">
+<style>
+:root{
+  --forest:#2E6417; --forestShade:#1E440E;
+  --leaf:#00BF63;   --leafShade:#00934C;
+  --lime:#C1FF72;   --orange:#FF9600;
+  --red:#EE4B4F;    --redShade:#B8343A;
+  --bavaria:#0A5CB5;
+  --bg:#F5FBF0; --surface:#FFFFFF; --surface2:#E9F7DF;
+  --ink:#1B3A0D; --ink2:#557248; --line:#D3E7C5;
+  --lock:#E2EDDA; --lockShade:#C6D7BA; --lockInk:#9AB18C;
+  --selBg:#EAFBDF; --leafText:#00934C;
+  --okBg:#DDFBC4; --okInk:#1E5A0B; --badBg:#FFE3E3; --badInk:#B42328;
+  --display:"Baloo 2","Arial Rounded MT Bold","Trebuchet MS",system-ui,sans-serif;
+  --body:"Nunito","Segoe UI",system-ui,-apple-system,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#0D1808; --surface:#15250E; --surface2:#1C3113;
+    --ink:#E6F6DA; --ink2:#A2C191; --line:#2A4420;
+    --lock:#223619; --lockShade:#162710; --lockInk:#5E7C4E;
+    --selBg:#1C3A12; --leafText:#7ED957;
+    --okBg:#1D3A10; --okInk:#C1FF72; --badBg:#3A1516; --badInk:#FF9A9C;
+    --bavaria:#7FB3F0;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#0D1808; --surface:#15250E; --surface2:#1C3113;
+  --ink:#E6F6DA; --ink2:#A2C191; --line:#2A4420;
+  --lock:#223619; --lockShade:#162710; --lockInk:#5E7C4E;
+  --selBg:#1C3A12; --leafText:#7ED957;
+  --okBg:#1D3A10; --okInk:#C1FF72; --badBg:#3A1516; --badInk:#FF9A9C;
+  --bavaria:#7FB3F0;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+html,body{max-width:100%;overflow-x:hidden}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.45;-webkit-tap-highlight-color:transparent}
+button{font:inherit;color:inherit;cursor:pointer;-webkit-user-select:none;user-select:none}
+button,input,textarea{outline:none}
+button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid var(--leaf);outline-offset:3px}
+h1,h2,h3{font-family:var(--display);line-height:1.15;margin:0;text-wrap:balance}
+p{margin:0}
+a{color:var(--leafText)}
+
+/* ---------- Shell ---------- */
+#app{max-width:600px;margin:0 auto;min-height:100vh;display:flex;flex-direction:column}
+.topbar{position:sticky;top:0;z-index:10;background:var(--bg);display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 16px;border-bottom:2px solid var(--line)}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:800;font-size:21px;background:none;border:0;padding:4px 0;min-width:0;flex:1 1 auto;white-space:nowrap;overflow:hidden}
+.logo > span{overflow:hidden;text-overflow:ellipsis;min-width:0}
+.logo svg{width:34px;height:34px;flex:none}
+#tright{flex:none}
+@media (max-width:380px){.logo{font-size:17px}.logo svg{width:28px;height:28px}}
+.logo .b{color:var(--bavaria)}
+.tbtn{display:inline-flex;align-items:center;gap:6px;background:none;border:2px solid var(--line);border-radius:12px;padding:7px 12px;font-weight:800;font-size:14px;color:var(--ink2)}
+.tbtn:hover{background:var(--surface2)}
+.tbtn svg{width:20px;height:20px}
+main{padding:16px 16px 48px;flex:1}
+
+/* ---------- Buttons ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:16px;padding:14px 22px;font-weight:900;font-size:16px;letter-spacing:.06em;text-transform:uppercase;background:var(--leaf);color:#fff;box-shadow:0 4px 0 var(--leafShade);transition:transform .06s,box-shadow .06s}
+.btn svg{width:20px;height:20px}
+.btn:hover{filter:brightness(1.05)}
+.btn:active{transform:translateY(4px);box-shadow:0 0 0 var(--leafShade)}
+.btn:disabled{background:var(--lock);color:var(--lockInk);box-shadow:0 4px 0 var(--lockShade);cursor:default;filter:none;transform:none}
+.btn.block{width:100%}
+.btn.big{padding:18px 22px;font-size:18px}
+.btn.ghost{background:var(--surface);color:var(--leafText);box-shadow:0 4px 0 var(--line);border:2px solid var(--line)}
+.btn.red{background:var(--red);box-shadow:0 4px 0 var(--redShade)}
+.btn.plain{background:none;box-shadow:none;color:var(--ink2)}
+.stack{display:grid;gap:12px;margin-top:16px}
+
+/* ---------- Cards ---------- */
+.card{background:var(--surface);border:2px solid var(--line);border-radius:18px;padding:16px;margin-top:14px}
+.card h2{font-size:20px;margin-bottom:6px}
+.say{position:relative;background:var(--surface);border:2px solid var(--line);border-radius:16px;padding:12px 14px;font-weight:700;font-size:15px}
+.hint{color:var(--ink2);font-weight:700;font-size:14px;margin-top:12px}
+.eb{font-weight:900;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink2)}
+.pbar{height:12px;border-radius:6px;background:var(--line);overflow:hidden;margin-top:8px}
+.pbar i{display:block;height:100%;background:var(--leaf);border-radius:6px;transition:width .4s}
+.row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 0;border-top:1px solid var(--line);flex-wrap:wrap}
+.row:first-of-type{border-top:0}
+.switch{position:relative;flex:none;width:52px;height:30px;border:0;border-radius:15px;background:var(--lockShade);transition:background .2s}
+.switch::after{content:"";position:absolute;top:3px;left:3px;width:24px;height:24px;border-radius:50%;background:#fff;transition:left .2s;box-shadow:0 1px 3px rgba(0,0,0,.3)}
+.switch[aria-checked="true"]{background:var(--leaf)}
+.switch[aria-checked="true"]::after{left:25px}
+.seg{display:flex;gap:6px;margin-top:8px}
+.seg button{flex:1;padding:10px 6px;border:2px solid var(--line);border-radius:12px;background:var(--surface);font-weight:800;font-size:14px;line-height:1.2;min-width:0}
+.seg button small{display:block;font-size:11px;color:var(--ink2);font-weight:700}
+.seg button[aria-pressed="true"]{border-color:var(--leaf);background:var(--selBg);color:var(--leafText)}
+textarea,input[type=text]{width:100%;font:inherit;padding:10px 12px;border:2px solid var(--line);border-radius:12px;background:var(--surface);color:var(--ink);margin-top:8px}
+textarea{min-height:84px;font-family:ui-monospace,Consolas,monospace;font-size:13px;word-break:break-all;resize:vertical}
+input:focus,textarea:focus{border-color:var(--leaf)}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--forest);color:var(--lime);padding:10px 16px;border-radius:12px;font-weight:800;z-index:30;max-width:calc(100% - 32px);text-align:center}
+
+/* ---------- Wappen ---------- */
+.wappen{display:inline-flex;align-items:center;justify-content:center;width:110px;height:110px;flex:none}
+.wappen img{max-width:100%;max-height:100%;object-fit:contain;filter:drop-shadow(0 2px 2px rgba(0,0,0,.18))}
+.wappen.big{width:150px;height:150px}
+.wappen.sm{width:64px;height:64px}
+.wappen .shield{display:none;width:70%;height:84%;clip-path:polygon(0 0,100% 0,100% 62%,50% 100%,0 62%);background:var(--bavaria);color:#fff;font-family:var(--display);font-weight:800;font-size:1.6em;align-items:center;justify-content:center;padding-bottom:12%}
+.wappen.fail .shield{display:flex}
+
+/* ---------- Dauerschleife ---------- */
+.lhead{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:4px;flex-wrap:wrap}
+.sstats{display:flex;gap:14px;font-weight:900;font-variant-numeric:tabular-nums;font-size:15px}
+.sstats .ok{color:var(--leafText)} .sstats .bad{color:var(--red)} .sstats .st{color:var(--orange)}
+.qtype{font-size:12px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2);text-align:center;margin-bottom:8px}
+.qimg{display:flex;justify-content:center;margin:6px 0 10px}
+.qtext{font-size:22px;text-align:center}
+.qtext b{color:var(--leafText)}
+.opts{display:grid;gap:10px;margin-top:16px}
+.opt{display:flex;align-items:center;gap:12px;width:100%;text-align:left;padding:12px 14px;border:2px solid var(--line);border-bottom-width:4px;border-radius:14px;background:var(--surface);font-weight:800;font-size:17px;min-width:0}
+.opt .k{flex:none;width:28px;height:28px;border-radius:8px;border:2px solid var(--line);display:grid;place-items:center;font-size:13px;color:var(--ink2)}
+.opt:not(:disabled):hover{background:var(--surface2)}
+.opt:not(:disabled):active{transform:translateY(2px);border-bottom-width:2px;margin-bottom:2px}
+.opt:disabled{cursor:default}
+.opt.right{background:var(--okBg);border-color:var(--leaf);color:var(--okInk)}
+.opt.wrong{background:var(--badBg);border-color:var(--red);color:var(--badInk)}
+.opt.right .k{border-color:var(--leaf);color:var(--okInk)} .opt.wrong .k{border-color:var(--red);color:var(--badInk)}
+.opts.imgs{grid-template-columns:1fr 1fr}
+.opts.imgs .opt{flex-direction:column;justify-content:center;padding:10px;gap:6px}
+.opts.imgs .opt .wappen{width:100%;height:120px}
+@media (max-width:360px){.opts.imgs .opt .wappen{height:96px}}
+.fb{margin-top:14px;border-radius:18px;padding:14px 16px;border:2px solid}
+.fb.ok{background:var(--okBg);border-color:var(--leaf);color:var(--okInk)}
+.fb.bad{background:var(--badBg);border-color:var(--red);color:var(--badInk)}
+.fb h3{font-size:20px}
+.fb p{margin-top:4px;font-weight:700}
+.fb .pair{display:flex;gap:18px;align-items:flex-start;justify-content:center;margin-top:10px;flex-wrap:wrap}
+.fb figure{margin:0;text-align:center;font-size:13px;font-weight:800;width:120px}
+.fb figcaption{margin-top:2px}
+.fb .lvinfo{margin-top:10px;font-size:13px;font-weight:800;opacity:.85}
+.lfoot{margin-top:14px}
+
+/* ---------- Übersicht ---------- */
+.ov{display:flex;gap:12px;align-items:center}
+.ov .names{flex:1;min-width:0}
+.ov .names h2{font-size:20px;margin:0}
+.ov .names p{font-weight:700;color:var(--ink2)}
+.ov .names p b{color:var(--ink)}
+.lvls{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.lvl{font-size:12px;font-weight:800;padding:3px 9px;border-radius:8px;background:var(--surface2);color:var(--ink2)}
+.lvl.safe{background:var(--okBg);color:var(--okInk)}
+.lvl.hot{background:var(--badBg);color:var(--badInk)}
+.lvl.off{opacity:.45;text-decoration:line-through}
+.src{font-size:13px;color:var(--ink2);font-weight:700;line-height:1.5}
+.src ul{margin:6px 0 0;padding-left:18px}
+.kbd{display:inline-block;border:1px solid var(--line);border-bottom-width:2px;border-radius:5px;padding:0 6px;font-size:12px;font-family:ui-monospace,Consolas,monospace;background:var(--surface2)}
+</style>
+</head>
+<body>
+<div id="app">
+  <header class="topbar">
+    <button class="logo" data-go="menu" aria-label="Zum Hauptmenü">
+      <svg viewBox="0 0 40 40" aria-hidden="true"><defs><pattern id="rp" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="10" height="10" fill="#fff"/><rect width="5" height="5" fill="#0A5CB5"/><rect x="5" y="5" width="5" height="5" fill="#0A5CB5"/></pattern></defs><rect x="2" y="2" width="36" height="36" rx="9" fill="url(#rp)" stroke="#0A5CB5" stroke-width="2"/></svg>
+      <span><span class="b">Bayern</span>-Bezirke</span>
+    </button>
+    <div id="tright"></div>
+  </header>
+  <main id="main"></main>
+</div>
+
+<script>
+/* ============================================================
+   Bayern-Bezirke Quiz – die 7 Regierungsbezirke und ihre Hauptstädte
+   Eigenständige Seite, läuft ohne Server (GitHub Pages oder Datei öffnen).
+   ============================================================ */
+
+/* ---------- Daten ----------
+   Wappen: Wikimedia Commons, amtliche Werke (§ 5 UrhG) – gemeinfrei.
+   Die Datei-Namen sind die kanonischen Commons-Namen (Stand Oktober 2026). */
+const DATA = [
+  { id:'obb',  bezirk:'Oberbayern',    von:'von Oberbayern',    stadt:'München',    wb:'DEU_Oberbayern_COA.svg',                    ws:'DEU_München_COA.svg' },
+  { id:'ndb',  bezirk:'Niederbayern',  von:'von Niederbayern',  stadt:'Landshut',   wb:'DEU_Niederbayern_COA.svg',                  ws:'DEU_Landshut_COA.svg' },
+  { id:'opf',  bezirk:'Oberpfalz',     von:'der Oberpfalz',     stadt:'Regensburg', wb:'DEU_Oberpfalz_COA.svg',                     ws:'Wappen_Regensburg.svg' },
+  { id:'ofr',  bezirk:'Oberfranken',   von:'von Oberfranken',   stadt:'Bayreuth',   wb:'Wappen_Bezirk_Oberfranken2.svg',            ws:'Wappen_von_Bayreuth.svg' },
+  { id:'mfr',  bezirk:'Mittelfranken', von:'von Mittelfranken', stadt:'Ansbach',    wb:'Mittelfranken_Wappen.svg',                  ws:'DEU_Ansbach_COA.svg' },
+  { id:'ufr',  bezirk:'Unterfranken',  von:'von Unterfranken',  stadt:'Würzburg',   wb:'DEU_Regierungsbezirk_Unterfranken_COA.svg', ws:'DEU_Würzburg_COA.svg' },
+  { id:'schw', bezirk:'Schwaben',      von:'von Schwaben',      stadt:'Augsburg',   wb:'Wappen_Schwaben_Bayern.svg',                ws:'DEU_Augsburg_COA_1811.svg' },
+];
+
+/* Wappen-Quelle. Für Offline-Betrieb: Dateien in einen Ordner "wappen/" legen und WAPPEN_LOCAL auf true setzen. */
+const WAPPEN_LOCAL = false;
+const wUrl  = f => WAPPEN_LOCAL ? 'wappen/' + f : 'https://commons.wikimedia.org/wiki/Special:FilePath/' + encodeURIComponent(f) + '?width=240';
+const wLink = f => 'https://commons.wikimedia.org/wiki/File:' + encodeURIComponent(f);
+
+/* Fragetypen. pool = welches Feld die Antwort-Optionen liefert */
+const TYPES = [
+  { id:'b2s', t:'Bezirk → Hauptstadt',   q:d=>`Wie heißt die Hauptstadt <b>${esc(d.von)}</b>?`,                 img:d=>wappen(d.wb,'Wappen '+d.bezirk,'big'), pool:'stadt' },
+  { id:'s2b', t:'Hauptstadt → Bezirk',   q:d=>`Zu welchem Bezirk gehört die Hauptstadt <b>${esc(d.stadt)}</b>?`, img:d=>wappen(d.ws,'Wappen '+d.stadt,'big'),  pool:'bezirk' },
+  { id:'wb',  t:'Wappen des Bezirks',    q:d=>`Welches Wappen gehört zum Bezirk <b>${esc(d.bezirk)}</b>?`,       img:null, pool:'wb' },
+  { id:'ws',  t:'Wappen der Hauptstadt', q:d=>`Welches Wappen gehört zur Stadt <b>${esc(d.stadt)}</b>?`,         img:null, pool:'ws' },
+];
+
+/* ---------- Algorithmus ----------
+   Jede Karte (Bezirk × Fragetyp) hat eine Stufe. Richtig: Stufe +1, falsch: Stufe −1.
+   Die Wahrscheinlichkeit, gezogen zu werden, ist 2^(−Stufe): jede richtige Antwort halbiert sie,
+   jede falsche verdoppelt sie. Stufe ≥ SAFE gilt als „sicher“. */
+const LV_MIN = -3, LV_MAX = 6, SAFE = 3;
+const KEY = 'bayern-bezirke-v1';
+
+/* ---------- Helfer ---------- */
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const shuffle = a => { for(let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; };
+const clampLv = v => Math.max(LV_MIN, Math.min(LV_MAX, v));
+function wappen(file, alt, cls=''){
+  const ini = alt.replace(/^Wappen /,'').slice(0,2);
+  return `<span class="wappen ${cls}"><img src="${wUrl(file)}" alt="${esc(alt)}" decoding="async" onerror="this.parentNode.classList.add('fail');this.remove()"><span class="shield" aria-hidden="true">${esc(ini)}</span></span>`;
+}
+let toastT;
+function toast(msg){ let t=$('.toast'); if(!t){ t=document.createElement('div'); t.className='toast'; t.setAttribute('role','status'); document.body.appendChild(t); } t.textContent=msg; clearTimeout(toastT); toastT=setTimeout(()=>t.remove(), 2200); }
+
+/* ---------- Speicher ---------- */
+function defaults(){ return { lv:{}, types:{b2s:true, s2b:true, wb:true, ws:true}, theme:'auto', r:0, w:0, best:0 }; }
+function sanitize(s){
+  const d = defaults(), o = { ...d, ...s };
+  o.lv = {}; for(const k in (s.lv||{})){ const v = +s.lv[k]; if(Number.isFinite(v)) o.lv[k] = clampLv(Math.round(v)); }
+  o.types = { ...d.types, ...(s.types||{}) }; for(const k in o.types) o.types[k] = !!o.types[k]; if(!Object.values(o.types).some(Boolean)) o.types = d.types;
+  if(!['auto','light','dark'].includes(o.theme)) o.theme = 'auto';
+  o.r = Math.max(0, +o.r||0); o.w = Math.max(0, +o.w||0); o.best = Math.max(0, +o.best||0);
+  return o;
+}
+function load(){ try{ const s = JSON.parse(localStorage.getItem(KEY)); if(s && typeof s==='object') return sanitize(s); }catch(e){} return defaults(); }
+let S = load();
+let storageOk = true;
+function save(){ try{ localStorage.setItem(KEY, JSON.stringify(S)); storageOk = true; }catch(e){ storageOk = false; } }
+function storageTest(){ try{ localStorage.setItem(KEY+'-t','1'); localStorage.removeItem(KEY+'-t'); return true; }catch(e){ return false; } }
+storageOk = storageTest();
+
+/* Fortschritts-Code: zum Übertragen auf ein anderes Gerät (Einstellungen) */
+const b64e = s => btoa(unescape(encodeURIComponent(s))).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');
+const b64d = s => { s = s.replace(/-/g,'+').replace(/_/g,'/'); while(s.length%4) s += '='; return decodeURIComponent(escape(atob(s))); };
+function makeCode(){ return 'BB1.' + b64e(JSON.stringify({ lv:S.lv, r:S.r, w:S.w, best:S.best, types:S.types })); }
+function readCode(str){
+  str = (str||'').trim(); if(!str.startsWith('BB1.')) return null;
+  try{ const j = JSON.parse(b64d(str.slice(4))); if(!j || typeof j!=='object') return null; return sanitize({ ...S, ...j }); }catch(e){ return null; }
+}
+
+/* ---------- Karten ---------- */
+const cardKey = (d,t) => d.id + '|' + t.id;
+const lv = k => S.lv[k] || 0;
+const activeTypes = () => TYPES.filter(t => S.types[t.id]);
+function allCards(){ const out = []; for(const d of DATA) for(const t of activeTypes()) out.push({ d, t, key:cardKey(d,t) }); return out; }
+function safeCount(){ return allCards().filter(c => lv(c.key) >= SAFE).length; }
+function freqText(l){
+  if(l <= -2) return 'kommt jetzt sehr oft';
+  if(l === -1) return 'kommt jetzt öfter';
+  if(l === 0)  return 'kommt normal oft';
+  if(l < SAFE) return 'kommt jetzt seltener';
+  return 'sicher – kommt nur noch selten';
+}
+
+let lastKey = null;
+function pickCard(){
+  const cards = allCards();
+  const pool = cards.length > 1 ? cards.filter(c => c.key !== lastKey) : cards;
+  const weights = pool.map(c => Math.pow(2, -lv(c.key)));
+  let r = Math.random() * weights.reduce((a,b)=>a+b, 0);
+  for(let i=0;i<pool.length;i++){ r -= weights[i]; if(r <= 0) return pool[i]; }
+  return pool[pool.length-1];
+}
+function buildQuestion(){
+  const c = pickCard(); lastKey = c.key;
+  const others = shuffle(DATA.filter(d => d.id !== c.d.id)).slice(0,3);
+  const opts = shuffle([c.d, ...others]).map(d => ({ id:d.id, d }));
+  return { card:c, opts, answered:false, pick:-1 };
+}
+
+/* ---------- Ansichten ---------- */
+let view = 'menu';
+let Q = null;
+const sess = { r:0, w:0, streak:0 };
+let confirmReset = false;
+
+function applyTheme(){ const h = document.documentElement; if(S.theme==='auto') h.removeAttribute('data-theme'); else h.setAttribute('data-theme', S.theme); }
+
+function go(v){ view = v; confirmReset = false; if(v==='loop') Q = buildQuestion(); render(); window.scrollTo(0,0); }
+
+function icon(n){
+  const P = {
+    gear:'<path d="M12 15.5A3.5 3.5 0 1 0 12 8.5a3.5 3.5 0 0 0 0 7Zm7.4-2.5a7.9 7.9 0 0 0 0-2l2.1-1.6-2-3.5-2.5 1a8 8 0 0 0-1.7-1l-.4-2.7h-4l-.4 2.7a8 8 0 0 0-1.7 1l-2.5-1-2 3.5L6.6 11a7.9 7.9 0 0 0 0 2l-2.1 1.6 2 3.5 2.5-1a8 8 0 0 0 1.7 1l.4 2.7h4l.4-2.7a8 8 0 0 0 1.7-1l2.5 1 2-3.5-2.3-1.6Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>',
+    x:'<path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>',
+    play:'<path d="M8 5v14l11-7z" fill="currentColor"/>',
+    list:'<path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>',
+  };
+  return `<svg viewBox="0 0 24 24" aria-hidden="true">${P[n]}</svg>`;
+}
+
+function renderTop(){
+  $('#tright').innerHTML = view==='loop'
+    ? `<button class="tbtn" data-go="menu" aria-label="Dauerschleife beenden">${icon('x')} Beenden</button>`
+    : view==='menu' ? `<button class="tbtn" data-go="settings" aria-label="Einstellungen">${icon('gear')}</button>`
+    : `<button class="tbtn" data-go="menu" aria-label="Zum Hauptmenü">${icon('x')} Menü</button>`;
+}
+
+function renderMenu(){
+  const n = allCards().length, s = safeCount();
+  return `
+  <div class="say">Lerne die <b>7 Regierungsbezirke Bayerns</b> und ihre Hauptstädte – mit den Wappen von Bezirk und Stadt.</div>
+  <div class="card">
+    <div class="eb">Dein Stand</div>
+    <h2>${s} von ${n} Karten sicher</h2>
+    <div class="pbar"><i style="width:${n ? s/n*100 : 0}%"></i></div>
+    <p class="hint">${S.r + S.w ? `${S.r} richtig · ${S.w} falsch · beste Serie ${S.best}` : 'Noch keine Antwort – leg einfach los.'}</p>
+  </div>
+  <div class="stack">
+    <button class="btn big block" data-go="loop">${icon('play')} Dauerschleife starten</button>
+    <button class="btn ghost block" data-go="overview">${icon('list')} Alle Bezirke &amp; Wappen</button>
+    <button class="btn ghost block" data-go="settings">${icon('gear')} Einstellungen &amp; Code</button>
+  </div>
+  <p class="hint">So funktioniert die Schleife: Die Fragen laufen endlos. Jede <b>richtige</b> Antwort halbiert, wie oft die Frage wiederkommt, jede <b>falsche</b> verdoppelt es. Dein Stand bleibt im Browser gespeichert${storageOk ? '' : ' – <b>Achtung:</b> dieser Browser erlaubt kein Speichern, nutze den Code in den Einstellungen'}.</p>`;
+}
+
+function renderLoop(){
+  const { card, opts, answered, pick } = Q;
+  const d = card.d, t = card.t, l = lv(card.key);
+  const isImg = t.pool==='wb' || t.pool==='ws';
+  const optHtml = opts.map((o,i) => {
+    const cls = answered ? (o.id===d.id ? 'right' : i===pick ? 'wrong' : '') : '';
+    const body = isImg
+      ? wappen(o.d[t.pool], answered ? 'Wappen ' + (t.pool==='wb' ? o.d.bezirk : o.d.stadt) : 'Wappen ' + (i+1))
+      : `<span>${esc(o.d[t.pool])}</span>`;
+    return `<button class="opt ${cls}" data-opt="${i}" ${answered?'disabled':''} aria-label="Antwort ${i+1}${isImg?'':': '+esc(o.d[t.pool])}"><span class="k">${i+1}</span>${body}</button>`;
+  }).join('');
+  let fb = '';
+  if(answered){
+    const ok = opts[pick].id === d.id;
+    fb = `<div class="fb ${ok?'ok':'bad'}" role="status">
+      <h3>${ok ? 'Richtig!' : 'Leider falsch.'}</h3>
+      <p>${esc(d.stadt)} ist die Hauptstadt ${esc(d.von)}.</p>
+      <div class="pair">
+        <figure>${wappen(d.wb,'Wappen '+d.bezirk)}<figcaption>${esc(d.bezirk)}</figcaption></figure>
+        <figure>${wappen(d.ws,'Wappen '+d.stadt)}<figcaption>${esc(d.stadt)}</figcaption></figure>
+      </div>
+      <div class="lvinfo">Stufe ${l} · ${freqText(l)}</div>
+    </div>
+    <div class="lfoot"><button class="btn block" id="next" data-act="next">Weiter</button></div>`;
+  }
+  return `
+  <div class="lhead">
+    <div class="sstats" aria-label="Diese Runde"><span class="st">🔥 ${sess.streak}</span><span class="ok">✓ ${sess.r}</span><span class="bad">✗ ${sess.w}</span></div>
+    <span class="hint" style="margin:0">${safeCount()}/${allCards().length} sicher</span>
+  </div>
+  <div class="card">
+    <div class="qtype">${esc(t.t)} · Stufe ${l}</div>
+    ${t.img ? `<div class="qimg">${t.img(d)}</div>` : ''}
+    <h2 class="qtext">${t.q(d)}</h2>
+    <div class="opts ${isImg?'imgs':''}">${optHtml}</div>
+  </div>
+  ${fb}
+  <p class="hint" style="text-align:center">Tasten <span class="kbd">1</span>–<span class="kbd">4</span> antworten · <span class="kbd">Enter</span> weiter · <span class="kbd">Esc</span> beenden</p>`;
+}
+
+function renderOverview(){
+  const rows = DATA.map(d => `
+    <div class="card">
+      <div class="ov">
+        ${wappen(d.wb,'Wappen '+d.bezirk,'sm')}
+        <div class="names"><h2>${esc(d.bezirk)}</h2><p>Hauptstadt: <b>${esc(d.stadt)}</b></p></div>
+        ${wappen(d.ws,'Wappen '+d.stadt,'sm')}
+      </div>
+      <div class="lvls">${TYPES.map(t => { const l = lv(cardKey(d,t)), on = S.types[t.id]; return `<span class="lvl ${!on?'off':l>=SAFE?'safe':l<0?'hot':''}">${esc(t.t)}: ${l}</span>`; }).join('')}</div>
+    </div>`).join('');
+  return `
+  <div class="say">Die <b>sieben Regierungsbezirke</b> mit Bezirkshauptstadt. Links das Bezirkswappen, rechts das Stadtwappen. Darunter deine Stufe je Fragetyp (ab ${SAFE} gilt „sicher“).</div>
+  ${rows}
+  <div class="card src">
+    <div class="eb">Quellen</div>
+    <p style="margin-top:6px">Wappen von Wikimedia Commons, als amtliche Werke gemeinfrei (§ 5 UrhG). Die Bilder werden direkt von dort geladen.</p>
+    <ul>${DATA.map(d => `<li>${esc(d.bezirk)}: <a href="${wLink(d.wb)}" target="_blank" rel="noopener">Bezirkswappen</a> · <a href="${wLink(d.ws)}" target="_blank" rel="noopener">Wappen ${esc(d.stadt)}</a></li>`).join('')}</ul>
+  </div>
+  <div class="stack"><button class="btn block" data-go="loop">${icon('play')} Dauerschleife starten</button></div>`;
+}
+
+function renderSettings(){
+  return `
+  <div class="card">
+    <div class="eb">Fragetypen</div>
+    ${TYPES.map(t => `<div class="row"><b>${esc(t.t)}</b><button class="switch" role="switch" data-type="${t.id}" aria-checked="${!!S.types[t.id]}" aria-label="${esc(t.t)}"></button></div>`).join('')}
+    <p class="hint">Mindestens ein Typ bleibt immer an.</p>
+  </div>
+  <div class="card">
+    <div class="eb">Darstellung</div>
+    <div class="seg">${[['auto','Automatisch','wie Gerät'],['light','Hell',''],['dark','Dunkel','']].map(([v,l,s]) => `<button data-theme-set="${v}" aria-pressed="${S.theme===v}">${l}${s?`<small>${s}</small>`:''}</button>`).join('')}</div>
+  </div>
+  <div class="card">
+    <div class="eb">Fortschritt als Code</div>
+    <p class="hint" style="margin-top:6px">Der Code enthält deine Stufen und Zähler. Kopiere ihn, um den Stand auf einem anderen Gerät oder Browser einzulesen${storageOk ? '' : ' – oder als Ersatz, weil dieser Browser nichts speichert'}.</p>
+    <textarea id="codeOut" readonly aria-label="Dein Fortschritts-Code">${esc(makeCode())}</textarea>
+    <div class="stack" style="margin-top:10px"><button class="btn ghost block" data-act="copyCode">Code kopieren</button></div>
+    <input type="text" id="codeIn" placeholder="Code hier einfügen (beginnt mit BB1.)" aria-label="Code einlesen" autocomplete="off" spellcheck="false">
+    <div class="stack" style="margin-top:10px"><button class="btn block" data-act="readCode">Code einlesen</button></div>
+  </div>
+  <div class="card">
+    <div class="eb">Zurücksetzen</div>
+    <p class="hint" style="margin-top:6px">Setzt alle Stufen und Zähler zurück. Fragetypen und Darstellung bleiben.</p>
+    <div class="stack" style="margin-top:10px">${confirmReset
+      ? `<button class="btn red block" data-act="resetDo">Wirklich alles zurücksetzen</button><button class="btn plain block" data-act="resetNo">Abbrechen</button>`
+      : `<button class="btn ghost block" data-act="reset">Fortschritt zurücksetzen</button>`}</div>
+  </div>
+  <p class="hint">Gespeichert wird nur auf diesem Gerät (Browserspeicher). Es werden keine Daten an einen Server geschickt. Die Wappen-Bilder lädt der Browser von Wikimedia Commons.</p>`;
+}
+
+function render(){
+  applyTheme();
+  renderTop();
+  $('#main').innerHTML = view==='loop' ? renderLoop() : view==='overview' ? renderOverview() : view==='settings' ? renderSettings() : renderMenu();
+  if(view==='loop' && Q.answered){ const n = $('#next'); if(n) n.focus({ preventScroll:true }); }
+}
+
+/* ---------- Aktionen ---------- */
+function answer(i){
+  if(!Q || Q.answered) return;
+  const ok = Q.opts[i].id === Q.card.d.id;
+  Q.answered = true; Q.pick = i;
+  S.lv[Q.card.key] = clampLv(lv(Q.card.key) + (ok ? 1 : -1));
+  if(ok){ S.r++; sess.r++; sess.streak++; if(sess.streak > S.best) S.best = sess.streak; }
+  else  { S.w++; sess.w++; sess.streak = 0; }
+  save(); render();
+}
+function next(){ if(!Q || !Q.answered) return; Q = buildQuestion(); render(); window.scrollTo(0,0); }
+
+document.addEventListener('click', e => {
+  const el = e.target.closest('[data-go],[data-opt],[data-act],[data-type],[data-theme-set]');
+  if(!el) return;
+  if(el.dataset.go){ go(el.dataset.go); return; }
+  if(el.dataset.opt !== undefined){ answer(+el.dataset.opt); return; }
+  if(el.dataset.type){ const id = el.dataset.type; const nt = { ...S.types, [id]: !S.types[id] }; if(!Object.values(nt).some(Boolean)){ toast('Mindestens ein Fragetyp muss an bleiben.'); return; } S.types = nt; save(); render(); return; }
+  if(el.dataset.themeSet){ S.theme = el.dataset.themeSet; save(); render(); return; }
+  switch(el.dataset.act){
+    case 'next': next(); break;
+    case 'copyCode': {
+      const c = makeCode();
+      const done = () => toast('Code kopiert.');
+      const fail = () => { const ta = $('#codeOut'); ta.focus(); ta.select(); toast('Bitte den markierten Code manuell kopieren.'); };
+      if(navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(c).then(done, fail); else fail();
+      break; }
+    case 'readCode': { const s = readCode($('#codeIn').value); if(!s){ toast('Code nicht erkannt. Er beginnt mit BB1.'); return; } S = s; save(); render(); toast('Stand eingelesen.'); break; }
+    case 'reset': confirmReset = true; render(); break;
+    case 'resetNo': confirmReset = false; render(); break;
+    case 'resetDo': S.lv = {}; S.r = 0; S.w = 0; S.best = 0; sess.r = sess.w = sess.streak = 0; confirmReset = false; save(); render(); toast('Fortschritt zurückgesetzt.'); break;
+  }
+});
+
+document.addEventListener('keydown', e => {
+  if(e.target.matches('input,textarea')) return;
+  if(view !== 'loop' || !Q) return;
+  if(e.key === 'Escape'){ go('menu'); return; }
+  if(!Q.answered && /^[1-4]$/.test(e.key)){ answer(+e.key - 1); e.preventDefault(); return; }
+  if(Q.answered && (e.key === 'Enter' || e.key === ' ')){ next(); e.preventDefault(); }
+});
+
+/* Wappen einmal vorab laden, damit die Bild-Fragen nicht ruckeln */
+DATA.forEach(d => { new Image().src = wUrl(d.wb); new Image().src = wUrl(d.ws); });
+
+render();
+</script>
+</body>
+</html>

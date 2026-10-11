@@ -5,6 +5,7 @@
 Die Lern-App der **AG „Going green und fair“ am MMG**. Mit kurzen Quiz-Lektionen im Stil von Duolingo lernen Schüler*innen alles über Klima, fairen Handel, Umwelt und Nachhaltigkeit. Begleitet werden sie von **Sprossi**, dem Pflanzen-Maskottchen.
 
 - **Web-App:** https://moin2134.github.io/App/
+- **Bayern-Bezirke Quiz (eigene Seite, Ordner `bayern/`):** https://moin2134.github.io/App/bayern/
 - **Android-App herunterladen (immer die neueste Version):** https://github.com/moin2134/App/raw/main/GGAF-Quizzes.apk
 - **iPhone:** als Web-App über „Zum Home-Bildschirm“
 - **Feedback an die AG:** https://ggaf-2.jimdosite.com/feedback/
