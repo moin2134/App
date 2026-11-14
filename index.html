@@ -1,7 +1,7 @@
-<!doctype html>
-<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#2E6417"><title>GGAF Quizzes! - Going green and Fair</title><meta name="description" content="Die Lern-App der AG Going green und fair am MMG: kurze Quizzes zu Klima, fairem Handel und Nachhaltigkeit - mit Sprossi."><meta property="og:type" content="website"><meta property="og:title" content="GGAF Quizzes! - Going green and Fair"><meta property="og:description" content="Die Lern-App der AG am MMG: kurze Quizzes zu Klima, fairem Handel und Nachhaltigkeit."><meta property="og:image" content="https://moin2134.github.io/App/og-image.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:url" content="https://moin2134.github.io/App/"><meta property="og:locale" content="de_DE"><meta name="twitter:card" content="summary_large_image"><link rel="manifest" href="manifest.json"><link rel="apple-touch-icon" href="apple-touch-icon.png"><link rel="icon" type="image/png" href="icon-192.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="GGAF Quizzes!"><meta name="apple-mobile-web-app-status-bar-style" content="default"></head><body>
 <title>GGAF Quizzes!</title>
-<style>@font-face{font-family:'Baloo 2';font-style:normal;font-weight:400 800;font-display:swap;src:url(fonts/baloo2-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}@font-face{font-family:'Baloo 2';font-style:normal;font-weight:400 800;font-display:swap;src:url(fonts/baloo-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF}@font-face{font-family:'Nunito';font-style:normal;font-weight:200 1000;font-display:swap;src:url(fonts/nunito-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}@font-face{font-family:'Nunito';font-style:normal;font-weight:200 1000;font-display:swap;src:url(fonts/nunito-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF}@font-face{font-family:'Nunito';font-style:normal;font-weight:200 1000;font-display:swap;src:url(fonts/nunito-cyrillic.woff2) format('woff2');unicode-range:U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116}@font-face{font-family:'Noto Sans Ugaritic';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/noto-ugaritic.woff2) format('woff2');unicode-range:U+10380-1039F;size-adjust:135%}@font-face{font-family:'Noto Sans Egyptian Hieroglyphs';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/noto-hieroglyphs.woff2) format('woff2');unicode-range:U+13000-1342F}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@600;700;800;900&display=swap">
 <style>
 :root{
   --forest:#2E6417; --forestShade:#1E440E;
@@ -744,7 +744,6 @@ html.hc a{color:#7CFFB2}
 <div class="modal" id="modal" hidden><div class="mbox" id="mbox" role="dialog" aria-modal="true"></div></div>
 <canvas id="confetti"></canvas>
 
-<script src="qrcode.min.js"></script>
 <script>
 /* Polyfills für ältere Android-WebViews (Android 7) */
 if(!Array.prototype.flatMap) Array.prototype.flatMap = function(f){ return [].concat.apply([], this.map(f)); };
@@ -2883,7 +2882,7 @@ Object.assign(UI_36.de, UI_40);
 const UI_41 = {
  ty_sort:'Sortiere in Gruppen', sort_hint:'Tippe einen Begriff an und dann die passende Gruppe.',
  check_bad:'viel CO₂', check_good:'klimafreundlich', check_top:'Deine 3 wirksamsten Schritte:', check_more:'Weitere Tipps', check_strong:'Das machst du schon super:',
- fr_title:'Freunde', fr_avatar:'Dein Avatar', fr_text:'Tausche deinen Freundes-Code aus und vergleicht euren Stand – ganz ohne Konto.', fr_empty:'Noch keine Freunde – zeig deinen Code oder füge einen hinzu.',
+ fr_title:'Freunde', fr_avatar:'Dein Avatar', fr_text:'Tausche deinen Freundes-Code aus und vergleiche euren Stand – ganz ohne Konto.', fr_empty:'Noch keine Freunde – zeig deinen Code oder füge einen hinzu.',
  fr_mycode:'Mein Freundes-Code', fr_add:'Freund hinzufügen', fr_add_text:'Füge den Freundes-Link oder -Code ein, den du bekommen hast. Öffnest du den Link, wird dein Freund automatisch hinzugefügt.', fr_add_btn:'Hinzufügen',
  fr_code_text:'Lass den QR-Code scannen oder schick den Link. Neu senden, um deinen Stand zu aktualisieren.', fr_privacy:'Der Code enthält nur Name, Avatar, XP, Serie, Abzeichen, Einheiten, beste Note und das Datum. Gespeichert wird die Freundesliste nur auf deinem Gerät.',
  fr_you:'Du', fr_noname:'Ohne Namen', fr_state:'Stand: {d}', fr_remove:'Entfernen', fr_bad:'Das ist kein gültiger Freundes-Code.', fr_self:'Das ist dein eigener Code. 😉', fr_added:'Freund hinzugefügt!', fr_updated:'Stand aktualisiert!', fr_share_text:'Mein Stand bei GGAF Quizzes! – füge mich als Freund hinzu:'
@@ -3545,7 +3544,7 @@ const UNITS = [
  ]},
  {t:'Essen & Klima', d:'Saisonal, regional und nichts verschwenden.', c:'#00BF63', s:'#00934C', i:'#fff', qs:[
   ord('Sortiere nach Treibhausgasen pro Kilogramm – von wenig nach viel.',['Kartoffeln','Tofu','Hähnchenfleisch','Rindfleisch'],'Rindfleisch verursacht ein Vielfaches der Emissionen von pflanzlichen Lebensmitteln.'),
-  pair('Wann haben diese Lebensmittel in Deutschland Saison?',[['Spargel','April bis Juni'],['Erdbeeren','Mai bis Juli'],['Kürbis','September bis November'],['Grünkohl','November bis Februar']],'Saisonal gekauft sparen sie beheizte Gewächshäuser und lange Transportwege.'),
+  pair('Wann haben diese Lebensmittel in Deutschland Saison?',[['Spargel','April bis Juni'],['Erdbeeren','Mai bis Juli'],['Kürbis','September bis November'],['Grünkohl','November bis Februar']],'Saisonale Lebensmittel brauchen keine beheizten Gewächshäuser und keine langen Transportwege.'),
   tf('Nach Ablauf des Mindesthaltbarkeitsdatums (MHD) muss man Lebensmittel sofort wegwerfen.',false,'Anschauen, riechen, probieren! Vorsicht nur beim „zu verbrauchen bis“-Datum, z. B. bei Hackfleisch.'),
   mc('Wie viele Lebensmittel werden in Deutschland pro Jahr weggeworfen?',['rund 11 Millionen Tonnen','rund 11.000 Tonnen','rund 110 Tonnen','rund 1 Milliarde Tonnen'],'Mehr als die Hälfte davon in privaten Haushalten – rund 75 kg pro Person.'),
   mc('Warum sind Erdbeeren im Januar meist klimaschädlicher?',['Lange Transportwege, teils per Flugzeug, oder beheizte Gewächshäuser','Sie haben im Winter mehr Zucker','Sie sind röter','Sie sind nicht klimaschädlicher'],'Regional und saisonal ist fast immer die bessere Wahl.'),
@@ -3618,7 +3617,7 @@ const PROFI = [
    tf('Deutschland verursacht im EU-Vergleich besonders viel Verpackungsmüll pro Kopf.',true,'Deutschland liegt deutlich über dem EU-Durchschnitt.'),
    fill('Wegwerfprodukte aus Plastik wie Strohhalme und Einweg-Besteck sind in der EU seit ___ verboten.',['2021','1990','2010','2035'],'Das Verbot gilt seit dem 3. Juli 2021.'),
    pair('Was wird aus dem Abfall?',[['Altpapier','Recyclingpapier'],['PET-Flaschen','Fleecestoff und neue Flaschen'],['Altglas','Neue Glasflaschen'],['Bioabfall','Kompost und Biogas']],'Richtig getrennt wird Müll zum Rohstoff.'),
-   mc('In welchen Altglascontainer gehört eine blaue Glasflasche?',['Grünglas','Weißglas','Braunglas','Restmüll'],'Alle Farben außer Weiß und Braun – also auch blau oder rot – gehören ins Grünglas.'),
+   mc('In welchen Altglascontainer gehört eine blaue Glasflasche?',['Grünglas','Weißglas','Braunglas','Restmüll'],'Alle Farben außer Weiß und Braun – also auch Blau oder Rot – gehören ins Grünglas.'),
    tf('Recyceln ist immer besser als Wiederverwenden.',false,'Laut Abfallhierarchie steht Wiederverwenden vor dem Recyceln.') ],
  [ mc('Wofür wird in deutschen Haushalten das meiste Trinkwasser verwendet?',['Baden, Duschen und Körperpflege','Trinken und Kochen','Blumen gießen','Geschirrspülen'],'Gut ein Drittel geht in die Körperpflege, gut ein Viertel in die Toilettenspülung.'),
    tf('Die Landwirtschaft ist weltweit der größte Wasserverbraucher.',true,'Rund 70 % des weltweit entnommenen Süßwassers fließen in die Landwirtschaft.'),
@@ -3744,7 +3743,7 @@ const NEW_UNITS = [
   pair('Was passt zusammen?',[['Hochmoor','Wird nur von Regenwasser gespeist'],['Niedermoor','Wird von Grundwasser gespeist'],['Torfmoos','Saugt sich voll Wasser wie ein Schwamm'],['Sonnentau','Fleischfressende Moorpflanze']],'Hochmoore sind sehr nährstoffarm. Der Sonnentau gleicht das aus, indem er kleine Insekten mit klebrigen Tröpfchen fängt.'),
   fill('Wird ein entwässertes Moor wieder nass gemacht, spricht man von ___.',['Wiedervernässung','Trockenlegung','Aufforstung','Flurbereinigung'],'Steht das Wasser wieder hoch, zersetzt sich der Torf nicht weiter. Das Moor setzt kaum noch CO₂ frei und kann wieder wachsen.'),
   ord('Wie entsteht ein Hochmoor aus einem See? Bringe die Stufen in die richtige Reihenfolge.',['Flacher See','Verlandung mit Schilf und Seggen','Niedermoor','Hochmoor'],'Das dauert viele Jahrtausende. Viele bayerische Moore sind nach der letzten Eiszeit im Alpenvorland entstanden.'),
-  mc('Wie viel der Moorflächen in Bayern sind entwässert?',['rund 95 %','rund 5 %','rund 25 %','rund 50 %'],'Entwässerte Moore setzen große Mengen CO₂ frei. Im Donaumoos, dem größten Niedermoor Süddeutschlands, ist der Boden dadurch schon um mehr als 3 Meter abgesackt.')
+  mc('Wie viel der Moorfläche in Bayern ist entwässert?',['rund 95 %','rund 5 %','rund 25 %','rund 50 %'],'Entwässerte Moore setzen große Mengen CO₂ frei. Im Donaumoos, dem größten Niedermoor Süddeutschlands, ist der Boden dadurch schon um mehr als 3 Meter abgesackt.')
  ]}
 ];
 
@@ -3908,7 +3907,7 @@ const NEW_INFOS = [
    - E3 Q11 „Kinderrechte stehen ausdrücklich im deutschen Grundgesetz“ – false (Stand 2026) – bei Grundgesetzänderung sofort ändern!
    - E4 Q1/Q2/Q3/Q10 Waldfläche, Baumarten, Besitz – BWI 4 (2022); ändert sich erst mit BWI 5, aktuell stabil
    - E4 Q9 Erklärung „bis 2030 rund 200.000 Hektar“ – Waldumbauoffensive 2030 – StMELF (nach 2030 aktualisieren)
-   - E4 Q18 „Wie viel der Moorflächen in Bayern sind entwässert?“ – rund 95 % (228.000 ha) – LfL/LfU Bayern
+   - E4 Q18 „Wie viel der Moorfläche in Bayern ist entwässert?“ – rund 95 % (228.000 ha) – LfL/LfU Bayern
    ===================================================================== */
 
 NEW_UNITS.forEach(u=>UNITS.push(u));
@@ -4005,7 +4004,7 @@ const DE_INFOS = [
  [{t:'Neue Regierung, neue Politik', l:'Was sich seit Mai 2025 geändert hat.', p:[
    'Seit Mai 2025 regiert eine Koalition aus CDU/CSU und SPD. Friedrich Merz wurde am 6. Mai 2025 zum Bundeskanzler gewählt.',
    'Der Klimaschutz wechselte vom Wirtschafts- ins Umweltministerium (BMUKN, Minister Carsten Schneider, SPD). Wirtschaft und Energie (BMWE) leitet Katherina Reiche (CDU), Verkehr Patrick Schnieder (CDU).',
-   'Im März 2025 änderte der damalige Bundestag das Grundgesetz: Ein Sondervermögen von 500 Milliarden Euro für Infrastruktur und Klimaneutralität, davon 100 Milliarden Euro für den Klima- und Transformationsfonds (KTF).',
+   'Im März 2025 änderte der damalige Bundestag das Grundgesetz: ein Sondervermögen von 500 Milliarden Euro für Infrastruktur und Klimaneutralität, davon 100 Milliarden Euro für den Klima- und Transformationsfonds (KTF).',
    'In Artikel 143h des Grundgesetzes steht seitdem das Ziel „Klimaneutralität bis 2045“.',
    'Strompreis: 2026 bezuschusst der Bund die Netzentgelte mit 6,5 Milliarden Euro aus dem KTF, für 2027 bis 2029 sind je rund 5,5 Milliarden Euro geplant.',
    'Die Stromsteuer für das produzierende Gewerbe und die Land- und Forstwirtschaft wurde dauerhaft auf den EU-Mindestsatz gesenkt (0,05 statt 2,05 Cent pro kWh). Private Haushalte sind nicht erfasst.',
@@ -4105,7 +4104,7 @@ const NEW3_UNITS = [
   /* Lektion 2 – Heizen, Lüften, warmes Wasser */
   mc('Welche Raumtemperatur empfiehlt das Umweltbundesamt ungefähr für Wohnräume?',['etwa 20 °C','etwa 26 °C','etwa 15 °C','etwa 30 °C'],'Im Schlafzimmer reichen 17 bis 18 °C. Jedes Grad weniger spart rund 6 % Heizenergie.'),
   mc('Warum sollte man Heizkörper nicht mit Möbeln oder langen Vorhängen zustellen?',['Die warme Luft kann sich dann schlecht im Raum verteilen','Die Heizung geht dadurch sofort kaputt','Das ist gesetzlich verboten','Damit die Möbel nicht warm werden'],'Ein zugestellter Heizkörper heizt vor allem die Rückseite des Sofas – der Raum bleibt kühler und man dreht höher.'),
-  tf('Wenn niemand zu Hause ist oder nachts kann man die Heizung etwas herunterdrehen.',true,'Ein paar Grad weniger sparen Energie. Ganz auskühlen sollten die Räume aber nicht, sonst droht Schimmel.'),
+  tf('Wenn niemand zu Hause ist oder nachts, kann man die Heizung etwas herunterdrehen.',true,'Ein paar Grad weniger sparen Energie. Ganz auskühlen sollten die Räume aber nicht, sonst droht Schimmel.'),
   pair('Welcher Spartipp gehört zu welcher Wirkung?',[['Fenster abdichten','Weniger Zugluft und Wärmeverlust'],['Thermostat auf 3 statt auf 5','Der Raum wird nicht überheizt'],['Rollläden nachts schließen','Weniger Wärme geht durchs Fenster verloren'],['Duschen statt Baden','Weniger warmes Wasser']],'Viele kleine Schritte zusammen machen einen großen Unterschied – und kosten fast nichts.'),
   mc('Wie viel warmes Wasser braucht ein Vollbad ungefähr im Vergleich zu fünf Minuten Duschen?',['etwa zwei- bis dreimal so viel','ungefähr gleich viel','nur die Hälfte','zehnmal weniger'],'Ein Vollbad braucht rund 150 Liter, fünf Minuten Duschen je nach Duschkopf etwa 40 bis 75 Liter.'),
   fill('Stufe 3 am Thermostat-Ventil eines Heizkörpers entspricht ungefähr ___ °C.',['20','10','30','40'],'Jede Stufe steht für etwa 3 bis 4 Grad. Stufe 5 heißt nicht „schneller warm“, sondern nur „wärmer“.'),
@@ -4206,7 +4205,7 @@ const INFOS = [
    'Mikroplastik sind Plastikteilchen, die kleiner als 5 Millimeter sind.',
    'Glas-Mehrwegflaschen können bis zu 50-mal wiederbefüllt werden.',
    'Alte Batterien gehören in die Sammelbox im Handel oder zum Wertstoffhof.',
-   'Upcycling heißt: Aus Altem etwas Neues, Wertvolleres machen. Zero Waste heißt: möglichst wenig Abfall.',
+   'Upcycling heißt: aus Altem etwas Neues, Wertvolleres machen. Zero Waste heißt: möglichst wenig Abfall.',
    'Coffee-to-go-Becher sind meist mit Kunststoff beschichtet und schwer zu recyceln. Den Aludeckel vom Joghurtbecher trennst du ab, damit die Sortieranlage die Materialien erkennt.']}],
  [{t:'Wasser – kostbar und knapp', l:'Süßwasser, virtuelles Wasser und das Meer.', p:[
    'Nur rund 2,5 % des Wassers auf der Erde ist Süßwasser – und das meiste davon steckt im Eis.',
@@ -4368,7 +4367,7 @@ const CHECK = [
  {cat:'Schulweg', w:2, q:'Wie kommst du meistens zur Schule?', good:'Zu Fuß oder mit dem Rad – ohne CO₂ und du kommst wach an.', o:[
   ['Zu Fuß oder mit dem Rad',0,''],
   ['Mit Bus oder Bahn',1,'Bus und Bahn sind schon gut. Für Wege unter 3 Kilometern probier mal das Rad – das spart noch mehr und hält fit.'],
-  ['Mit dem Auto in einer Fahrgemeinschaft',2,'Fahrgemeinschaften sind besser als allein zu fahren. Noch besser: Bus, Rad – oder ein Stück zu Fuß von einer Elternhaltestelle.'],
+  ['Mit dem Auto in einer Fahrgemeinschaft',2,'Fahrgemeinschaften sind besser, als allein zu fahren. Noch besser: Bus, Rad – oder ein Stück zu Fuß von einer Elternhaltestelle.'],
   ['Allein mit dem Elterntaxi',3,'Das Elterntaxi verursacht pro Kopf am meisten. Schlag eine Fahrgemeinschaft vor oder lass dich an einer Elternhaltestelle absetzen und lauf den Rest.']]},
  {cat:'Essen', w:3, q:'Wie oft isst du Fleisch oder Wurst?', good:'Wenig Fleisch – das ist einer der größten Hebel fürs Klima.', o:[
   ['Selten oder nie',0,''],
@@ -4520,11 +4519,11 @@ const INFOS_PROFI = [
  {t:'Menschenrechte & Engagement', l:'Rechte für alle – und wie du mitmachen kannst.', p:[
    'Die Allgemeine Erklärung der Menschenrechte wurde 1948 verabschiedet. Auch Bildung ist ein Menschenrecht.',
    'Weitere SDGs: SDG 2 Kein Hunger, SDG 4 Hochwertige Bildung, SDG 7 Saubere Energie, SDG 14 Leben unter Wasser.',
-   'Generationengerechtigkeit: Heute so leben, dass auch künftige Generationen gute Chancen haben.',
+   'Generationengerechtigkeit: heute so leben, dass auch künftige Generationen gute Chancen haben.',
    '„Fridays for Future“ begann 2018 mit Schulstreiks für das Klima.',
    'Auch unter 18 kann man sich engagieren, z. B. in Jugendparlamenten.']}
 ];
-INFOS.forEach((x,u)=>{ x[0] = {t:x[0].t, l:x[0].l+' Dazu: '+x[1].t+'.', p:x[0].p.concat(x[1].p)}; x[1] = INFOS_PROFI[u]; });
+INFOS.forEach((x,u)=>{ x[0] = {t:x[0].t, l:x[0].l+' Dazu: '+x[1].t.replace(/\.$/,'')+'.', p:x[0].p.concat(x[1].p)}; x[1] = INFOS_PROFI[u]; });
 NEW_INFOS.forEach(x=>INFOS.push(x));
 DE_INFOS.forEach(x=>INFOS.push(x));
 (function(){ const re = UNIT_ORDER.map(i=>INFOS[i]); INFOS.length = 0; re.forEach(x=>INFOS.push(x)); })();
@@ -4567,7 +4566,7 @@ const NEW3_INFOS = [
    'Die Erde ist seit Beginn der Industrialisierung um rund 1,3 bis 1,5 °C wärmer geworden. 2024 lag das Jahresmittel erstmals über 1,5 °C.',
    'Der Meeresspiegel steigt, weil Eis schmilzt und weil sich wärmeres Wasser ausdehnt – seit 1900 um rund 20 Zentimeter.',
    'Hitzewellen werden häufiger und stärker. Im globalen Süden führen Dürren oft zu Ernteausfällen und Hunger.',
-   'Beispiele: Pazifische Inselstaaten – steigender Meeresspiegel, Alpen – schmelzende Gletscher, Sahelzone – Dürren, Great Barrier Reef – Korallenbleiche.',
+   'Beispiele: pazifische Inselstaaten – steigender Meeresspiegel, Alpen – schmelzende Gletscher, Sahelzone – Dürren, Great Barrier Reef – Korallenbleiche.',
    'Seit 1850 haben die USA insgesamt am meisten CO₂ ausgestoßen. Heute stößt China pro Jahr am meisten aus, pro Person aber deutlich weniger als die USA.',
    'Menschen in reichen Ländern verursachen im Schnitt viel mehr CO₂ als Menschen in armen Ländern.',
    'Klimagerechtigkeit heißt: Wer viel verursacht hat, soll mehr Verantwortung übernehmen und besonders Betroffene unterstützen.',
@@ -5384,7 +5383,7 @@ const PICQ = [
   {img:'tap', q:'Der Wasserhahn tropft. Was stimmt?', o:['Ein tropfender Hahn kann über 1.000 Liter Wasser im Jahr verschwenden','Ein paar Tropfen fallen nicht ins Gewicht','Tropfen spart sogar Wasser','Nur warmes Wasser zählt'], x:'Schon ein langsam tropfender Hahn verliert übers Jahr über tausend Liter – oft reicht eine neue Dichtung für wenige Cent.', alt:'Ein tropfender Wasserhahn mit einer Pfütze'},
   {img:'shirt', q:'Wie viel Wasser steckt ungefähr in der Herstellung eines Baumwoll-T-Shirts?', o:['Etwa 2.700 Liter','Etwa 3 Liter','Etwa 30 Liter','Etwa 300.000 Liter'], x:'Vor allem der Anbau von Baumwolle braucht viel Wasser: für ein T-Shirt rund 2.700 Liter – so viel Trinkwasser braucht ein Mensch in mehreren Jahren.', alt:'Ein grünes T-Shirt mit einem Wassertropfen'},
   {img:'bike', q:'Wie viel CO₂ stößt dieses Fahrrad beim Fahren aus?', o:['Keins – es fährt mit Muskelkraft','So viel wie ein Auto','Halb so viel wie ein Auto','So viel wie ein Flugzeug'], x:'Beim Fahren entsteht kein CO₂. Nur bei der Herstellung fällt etwas an – das ist nach wenigen hundert Kilometern gegenüber dem Auto wieder eingespart.', alt:'Ein grünes Fahrrad'},
-  {img:'moor', q:'Was speichert dieses Moor besonders gut?', o:['Kohlenstoff (CO₂)','Erdöl','Plastik','Salz'], x:'Moore bedecken nur etwa 3 % der Landfläche der Erde, speichern aber rund doppelt so viel Kohlenstoff wie alle Wälder zusammen. Werden sie trockengelegt, entweicht das CO₂.', alt:'Ein nasses Moor mit Rohrkolben und Torfschichten'},
+  {img:'moor', q:'Was speichert dieses Moor besonders gut?', o:['Kohlenstoff','Erdöl','Plastik','Salz'], x:'Moore bedecken nur etwa 3 % der Landfläche der Erde, speichern aber rund doppelt so viel Kohlenstoff wie alle Wälder zusammen. Werden sie trockengelegt, entweicht das CO₂.', alt:'Ein nasses Moor mit Rohrkolben und Torfschichten'},
   {img:'turtle', q:'Warum ist die Plastiktüte im Meer für die Schildkröte gefährlich?', o:['Sie hält die Tüte für eine Qualle und frisst sie','Die Tüte ist zu warm','Schildkröten sind allergisch gegen Farbe','Sie ist gar nicht gefährlich'], x:'Meeresschildkröten fressen Quallen – eine treibende Tüte sieht ähnlich aus. Plastik im Magen kann sie töten. Deshalb: Stoffbeutel statt Plastiktüte.', alt:'Eine Meeresschildkröte schwimmt auf eine Plastiktüte zu'}
 ].map((q,i)=>Object.assign({t:'img', id:'pic.'+i}, q));
 /* Einheit je Bilderrätsel (Reihenfolge wie PICQ): 0 Klima & Energie, 2 Müll, 5 Wasser, 7 Artenvielfalt, 8 Mode & Konsum, 10 Mobilität, 13 Wald & Moore */
@@ -5407,7 +5406,7 @@ const SORTQ = [
  {u:0, q:'Erneuerbar oder fossil? Ordne die Energiequellen zu.', cats:['Erneuerbar','Fossil'], items:[['Wind',0],['Sonne',0],['Wasserkraft',0],['Erdwärme',0],['Kohle',1],['Erdöl',1],['Erdgas',1]], x:'Fossile Energieträger entstanden über Millionen Jahre und setzen beim Verbrennen CO₂ frei. Erneuerbare Energien gehen nicht aus.'},
  {u:6, q:'Eher klimafreundlich oder eher klimaschädlich? Gemeint ist der Fußabdruck pro Kilogramm.', cats:['Eher klimafreundlich','Eher klimaschädlich'], items:[['Linsen',0],['Kartoffeln',0],['Äpfel aus der Region',0],['Rindfleisch',1],['Butter',1],['Käse',1]], x:'Tierische Lebensmittel – besonders Rindfleisch, Butter und Käse – verursachen pro Kilogramm viel mehr Treibhausgase als Hülsenfrüchte, Kartoffeln oder regionales Obst.'},
  {u:5, q:'Steckt viel oder wenig virtuelles Wasser darin?', cats:['Viel Wasser','Wenig Wasser'], items:[['1 kg Rindfleisch',0],['Ein Baumwoll-T-Shirt',0],['1 kg Kaffeebohnen',0],['1 kg Tomaten',1],['1 kg Kartoffeln',1]], x:'Für 1 kg Rindfleisch braucht man rund 15.000 Liter Wasser, für ein T-Shirt etwa 2.700 Liter. Tomaten und Kartoffeln brauchen nur einige hundert Liter pro Kilogramm.'},
- {u:10, q:'Klimafreundlich oder klimaschädlich – pro Person und Kilometer?', cats:['Klimafreundlich','Klimaschädlich'], items:[['Fahrrad',0],['Zu Fuß',0],['Fernzug',0],['Linienbus',0],['Auto, allein',1],['Inlandsflug',1],['Kreuzfahrtschiff',1]], x:'Rad und Füße fahren ohne Abgase, Bahn und Bus teilen sich viele Menschen. Allein im Auto, Kurzstreckenflüge und Kreuzfahrten verursachen pro Person besonders viel CO₂.'},
+ {u:10, q:'Klimafreundlich oder klimaschädlich – pro Person und Kilometer?', cats:['Klimafreundlich','Klimaschädlich'], items:[['Fahrrad',0],['Zu Fuß',0],['Fernzug',0],['Linienbus',0],['Auto, allein',1],['Inlandsflug',1],['Kreuzfahrtschiff',1]], x:'Rad und Füße kommen ohne Abgase aus, Bahn und Bus teilen sich viele Menschen. Allein im Auto, Kurzstreckenflüge und Kreuzfahrten verursachen pro Person besonders viel CO₂.'},
  {u:15, q:'Spart das Energie oder verschwendet es Energie?', cats:['Spart Energie','Verschwendet Energie'], items:[['Stoßlüften',0],['Deckel auf dem Topf',0],['LED-Lampe',0],['Dauernd gekipptes Fenster',1],['Standby über Nacht',1],['Zugestellter Heizkörper',1]], x:'Kleine Gewohnheiten machen viel aus: kurz und weit lüften, mit Deckel kochen und LEDs nutzen – Kippfenster und Standby kosten dagegen Energie.'},
  {u:16, q:'Mehrweg oder Einweg?', cats:['Mehrweg','Einweg'], items:[['Pfand-Glasflasche (Mehrweg)',0],['Stoffbeutel',0],['Brotdose',0],['Plastiktüte',1],['Coffee-to-go-Becher',1],['Getränkedose',1]], x:'Mehrweg wird viele Male benutzt. Einweg landet nach einmal Benutzen im Müll – selbst wenn ein Teil recycelt wird.'},
  {u:17, q:'Klimaschutz oder Anpassung an die Folgen?', cats:['Klimaschutz','Anpassung'], items:[['Solaranlage bauen',0],['Weniger fliegen',0],['Moore wiedervernässen',0],['Deiche erhöhen',1],['Hitzeschutzplan für die Stadt',1],['Dürrefeste Pflanzen anbauen',1]], x:'Klimaschutz verhindert weitere Erwärmung, Anpassung schützt vor Folgen, die schon da sind. Beides ist nötig.'}
@@ -5892,7 +5891,7 @@ function showPrivacy(){
     <h3>Feedback und Fragen einreichen</h3>
     <p>Das Feedback-Formular liegt auf einer externen Jimdo-Seite. Dort gilt deren Datenschutzerklärung. Was du dort einträgst, schickst du freiwillig – gib bitte keinen vollen Namen an, wenn du das nicht möchtest.</p>
     <h3>Daten löschen</h3>
-    <p>Profil → Einstellungen → „Fortschritt zurücksetzen“ löscht alles. Oder App deinstallieren bzw. Website-Daten im Browser löschen.</p>
+    <p>Einstellungen (Zahnrad oben rechts) → „Fortschritt zurücksetzen“ löscht alles. Oder App deinstallieren bzw. Website-Daten im Browser löschen.</p>
     <h3>Impressum</h3>
     <p>${L_.name?esc(L_.name):'AG „Going green und fair“ am MMG'}<br>${L_.person?'Verantwortlich: '+esc(L_.person):'Verantwortlich: '+miss}<br>${L_.address?esc(L_.address):'Anschrift: '+miss}<br>${L_.email?'E-Mail: '+esc(L_.email):'E-Mail: '+miss}</p>
     <p>Kontakt auch über das <a href="${FEEDBACK_URL}" target="_blank" rel="noopener">Feedback-Formular</a>. Schriften: Baloo 2 und Nunito (SIL Open Font License).</p></div>
@@ -5997,7 +5996,7 @@ const INTRO = [
   demo:()=>`<span class="big" style="color:var(--red)">${icon('heart')}${icon('heart')}${icon('heart')}${icon('heart')}${icon('heart')}</span>`},
  {e:'XP, Serie & Shop', t:'Sammeln und belohnen', p:'Für jede Lektion bekommst du XP. Lerne jeden Tag für deine Serie, erreiche dein Tagesziel und tausche XP im Shop gegen Hilfen und Outfits für mich.', mood:'cheer',
   demo:()=>`<span class="big" style="color:var(--orange)">${icon('flame')}${T('aria_serie')}</span><span class="big" style="color:var(--leafText)">${icon('leaf')}XP</span><span class="big" style="color:var(--ink2)">${icon('bag')}${T('tab_shop')}</span>`},
- {e:'Fortschritt sichern', t:'Dein Fortschritt bleibt – fast immer', p:'Alles wird automatisch auf diesem Gerät gespeichert. Aber: Beim Löschen der Browserdaten, im Inkognito-Modus oder auf einem neuen Handy ist er weg. Erstelle deshalb ab und zu unter Profil → „Fortschritt sichern“ einen Sicherungscode und bewahre ihn auf.', mood:'happy',
+ {e:'Fortschritt sichern', t:'Dein Fortschritt bleibt – fast immer', p:'Alles wird automatisch auf diesem Gerät gespeichert. Aber: Beim Löschen der Browserdaten, im Inkognito-Modus oder auf einem neuen Handy ist alles weg. Erstelle deshalb ab und zu unter Einstellungen (Zahnrad oben rechts) → „Fortschritt sichern“ einen Sicherungscode und bewahre ihn auf.', mood:'happy',
   demo:()=>`<span class="chipx">${icon('user')}${T('tab_profile')}</span><span class="big" style="color:var(--ink2);font-size:18px">→</span><span class="chipx">${icon('shield')}${T('backup_create')}</span><span class="chipx">${icon('redo')}${T('d_code_paste')}</span>`},
  {e:'Los geht’s', t:'Richte deine App ein', p:'Ganz oben im Pfad wartet das MMG-Special zur AG „Going green und fair“.', mood:'cheer', form:true}
 ];
@@ -10834,7 +10833,7 @@ zh:{"check":[{"q":"你通常怎么去学校？","cat":"上学路","good":"步行
 /* Ab 3.3 liegt „Fortschritt sichern“ in den Einstellungen (Zahnrad) – Einführungsschritt 7 entsprechend */
 (function(){
   const P = {
-    de:'Alles wird automatisch auf diesem Gerät gespeichert. Aber: Beim Löschen der Browserdaten, im Inkognito-Modus oder auf einem neuen Handy ist er weg. Erstelle deshalb ab und zu unter Einstellungen (Zahnrad oben rechts) → „Fortschritt sichern“ einen Sicherungscode und bewahre ihn auf.',
+    de:'Alles wird automatisch auf diesem Gerät gespeichert. Aber: Beim Löschen der Browserdaten, im Inkognito-Modus oder auf einem neuen Handy ist alles weg. Erstelle deshalb ab und zu unter Einstellungen (Zahnrad oben rechts) → „Fortschritt sichern“ einen Sicherungscode und bewahre ihn auf.',
     en:'Everything is saved automatically on this device. But if you clear your browser data, use incognito mode or get a new phone, it’s gone. So now and then, create a backup code under Settings (cog at the top right) → “Back up progress” and keep it safe.',
     fr:'Tout est enregistré automatiquement sur cet appareil. Mais si tu effaces les données du navigateur, utilises le mode privé ou changes de téléphone, tout est perdu. Crée donc de temps en temps un code de sauvegarde dans Réglages (roue dentée en haut à droite) → « Sauvegarder la progression » et garde-le bien.',
     pl:'Wszystko zapisuje się automatycznie na tym urządzeniu. Ale po usunięciu danych przeglądarki, w trybie incognito albo na nowym telefonie postęp znika. Dlatego co jakiś czas utwórz kod kopii w Ustawieniach (koło zębate w prawym górnym rogu) → „Zapisz postępy” i zachowaj go.',
@@ -10973,7 +10972,7 @@ function clearAllData(){
   Promise.all(jobs).then(done, done); setTimeout(done, 2500);
 }
 /* Versionsnummer – wird von android\build.ps1 aus AndroidManifest.xml (versionName) eingesetzt; die Windows-App vergleicht sie für Auto-Updates */
-const APP_VERSION = '4.6';
+const APP_VERSION = '0';
 /* Windows-App: meldet, dass eine neue Version heruntergeladen wurde */
 window.ggafUpdateReady = () => infoToast('redo', T('update_t'), T('update_d'), `<button class="btn" data-act="reloadApp">${T('reload')}</button>`);
 /* Hinweise: offline und neue Version (nur Web-Version) */
@@ -10999,5 +10998,3 @@ if('serviceWorker' in navigator && location.protocol==='https:' && !window.GGAFA
 checkFriendHash(); window.addEventListener('hashchange', checkFriendHash);   /* Freundes-Link */
 if(S.remOn) applyReminder(false);   /* Erinnerungstext in der aktuellen Sprache auffrischen */
 </script>
-
-</body></html>

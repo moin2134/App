@@ -793,8 +793,8 @@ In der App werden die Antworten gemischt; bei Auswahl- und Bildfragen gibt es zu
 | **14.15** | Paare | Was passt zusammen? | Hochmoor – Wird nur von Regenwasser gespeist; Niedermoor – Wird von Grundwasser gespeist; Torfmoos – Saugt sich voll Wasser wie ein Schwamm; Sonnentau – Fleischfressende Moorpflanze |
 | **14.16** | Lücke | Wird ein entwässertes Moor wieder nass gemacht, spricht man von ___. | Wiedervernässung |
 | **14.17** | Reihenfolge | Wie entsteht ein Hochmoor aus einem See? Bringe die Stufen in die richtige Reihenfolge. | Flacher See → Verlandung mit Schilf und Seggen → Niedermoor → Hochmoor |
-| **14.18** | Auswahl | Wie viel der Moorflächen in Bayern sind entwässert? | rund 95 % |
-| **14.B1** | Bild | Was speichert dieses Moor besonders gut? | Kohlenstoff (CO₂) |
+| **14.18** | Auswahl | Wie viel der Moorfläche in Bayern ist entwässert? | rund 95 % |
+| **14.B1** | Bild | Was speichert dieses Moor besonders gut? | Kohlenstoff |
 
 ### Einheit 15: Deutschland: Energie & Klima in Zahlen
 
@@ -831,7 +831,7 @@ In der App werden die Antworten gemischt; bei Auswahl- und Bildfragen gibt es zu
 | **16.6** | Stimmt? | Beim Kochen mit Deckel auf dem Topf braucht man deutlich weniger Energie als ohne. | stimmt |
 | **16.7** | Auswahl | Welche Raumtemperatur empfiehlt das Umweltbundesamt ungefähr für Wohnräume? | etwa 20 °C |
 | **16.8** | Auswahl | Warum sollte man Heizkörper nicht mit Möbeln oder langen Vorhängen zustellen? | Die warme Luft kann sich dann schlecht im Raum verteilen |
-| **16.9** | Stimmt? | Wenn niemand zu Hause ist oder nachts kann man die Heizung etwas herunterdrehen. | stimmt |
+| **16.9** | Stimmt? | Wenn niemand zu Hause ist oder nachts, kann man die Heizung etwas herunterdrehen. | stimmt |
 | **16.10** | Paare | Welcher Spartipp gehört zu welcher Wirkung? | Fenster abdichten – Weniger Zugluft und Wärmeverlust; Thermostat auf 3 statt auf 5 – Der Raum wird nicht überheizt; Rollläden nachts schließen – Weniger Wärme geht durchs Fenster verloren; Duschen statt Baden – Weniger warmes Wasser |
 | **16.11** | Auswahl | Wie viel warmes Wasser braucht ein Vollbad ungefähr im Vergleich zu fünf Minuten Duschen? | etwa zwei- bis dreimal so viel |
 | **16.12** | Lücke | Stufe 3 am Thermostat-Ventil eines Heizkörpers entspricht ungefähr ___ °C. | 20 |
